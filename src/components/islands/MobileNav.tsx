@@ -1,11 +1,28 @@
 import { useEffect, useState } from 'react';
-import type { MegaMenuItem } from '../../data/site';
+import { localeNames, locales } from '../../i18n/config';
+
+interface SubItem {
+  label: string;
+  href: string;
+  description?: string;
+}
+
+interface MegaMenuItem {
+  label: string;
+  href: string;
+  items?: {
+    label: string;
+    href: string;
+    items?: SubItem[];
+  }[];
+}
 
 interface Props {
   items: MegaMenuItem[];
+  locale: string;
 }
 
-function SubNav({ items, onClose }: { items: { label: string; href: string }[]; onClose: () => void }) {
+function SubNav({ items, onClose }: { items: SubItem[]; onClose: () => void }) {
   return (
     <ul className="mt-1 mb-3 border-l-2 border-line pl-4 ml-4">
       {items.map((sub) => (
@@ -23,7 +40,7 @@ function SubNav({ items, onClose }: { items: { label: string; href: string }[]; 
   );
 }
 
-export default function MobileNav({ items }: Props) {
+export default function MobileNav({ items, locale }: Props) {
   const [open, setOpen] = useState(false);
   const [expanded, setExpanded] = useState<Record<number, boolean>>({});
 
@@ -139,10 +156,33 @@ export default function MobileNav({ items }: Props) {
               ))}
             </ul>
           </nav>
+
+          {/* Locale switcher in mobile menu */}
+          <div className="mt-8">
+            <p className="kicker text-ink-3 mb-3">Idioma / Sprache / Langue</p>
+            <div className="flex flex-wrap gap-2">
+              {locales.map((l) => (
+                <a
+                  key={l}
+                  href={l === 'en' ? '/' : `/${l}/`}
+                  onClick={close}
+                  className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
+                    l === locale
+                      ? 'border-accent bg-accent text-white'
+                      : 'border-line-2 text-ink-2 hover:border-ink-2 hover:text-ink'
+                  }`}
+                  hreflang={l}
+                >
+                  {localeNames[l]}
+                </a>
+              ))}
+            </div>
+          </div>
+
           <a
             href="/#contact"
             onClick={close}
-            className="mt-8 inline-flex items-center justify-center rounded-full bg-accent px-6 py-3.5 font-medium text-white dark:text-graphite"
+            className="mt-6 inline-flex items-center justify-center rounded-full bg-accent px-6 py-3.5 font-medium text-white dark:text-graphite"
           >
             Start a conversation
           </a>

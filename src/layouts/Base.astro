@@ -2,14 +2,17 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { useTranslations } from '../i18n/useTranslations';
 
 interface Props {
   title: string;
   description: string;
   ogImage?: string;
+  locale?: string;
 }
 
-const { title, description, ogImage = '/og.png' } = Astro.props;
+const { title, description, ogImage = '/og.png', locale = 'en' } = Astro.props;
+const { t } = useTranslations(locale);
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const ogImageUrl = new URL(ogImage, Astro.site);
 
@@ -18,8 +21,7 @@ const organizationSchema = {
   '@type': 'Organization',
   name: 'Substrate',
   url: Astro.site?.toString(),
-  description:
-    'Substrate is an engineering-first technology company. We design, build, and operate modern digital infrastructure for enterprises, governments, and scaleups.',
+  description: t('site.description'),
   knowsAbout: [
     'Enterprise Architecture',
     'Cloud Architecture',
@@ -32,7 +34,7 @@ const organizationSchema = {
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={locale}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -41,6 +43,10 @@ const organizationSchema = {
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    {locale !== 'en' && <link rel="alternate" href={new URL('/', Astro.site!)} hreflang="en" />}
+    {['en', 'es', 'fr', 'de'].map((l) => (
+      <link rel="alternate" href={new URL(l === 'en' ? '/' : `/${l}/`, Astro.site!)} hreflang={l} />
+    ))}
     <meta name="generator" content={Astro.generator} />
 
     <meta property="og:type" content="website" />
@@ -58,7 +64,6 @@ const organizationSchema = {
     <meta name="theme-color" content="#0c0f14" media="(prefers-color-scheme: dark)" />
 
     <script is:inline>
-      // Set theme before first paint to avoid a flash of the wrong mode.
       (function () {
         var stored = null;
         try {
@@ -81,7 +86,7 @@ const organizationSchema = {
       href="#main"
       class="fixed top-3 left-3 z-[100] -translate-y-24 rounded bg-accent px-4 py-2 font-mono text-sm text-white transition-transform focus-visible:translate-y-0"
     >
-      Skip to content
+      {t('aria.skipToContent')}
     </a>
     <Header />
     <main id="main">

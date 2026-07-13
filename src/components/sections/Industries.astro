@@ -1,6 +1,10 @@
 ---
 import SectionHeading from '../SectionHeading.astro';
 import { industries } from '../../data/industries';
+import { useTranslations } from '../../i18n/useTranslations';
+import type { Locale } from '../../i18n/config';
+const locale = (Astro.currentLocale || 'en') as Locale;
+const { t, tRaw } = useTranslations(locale);
 
 /*
  * Blueprint vignettes, one per sector — drawn in the same line language as
@@ -95,10 +99,10 @@ const vignettes: Record<string, string> = {
   <div class="container-x">
     <SectionHeading
       id="industries-heading"
-      index="03"
-      label="Industries"
-      title="Different surface. Same substrate."
-      lede="Regulated, high-stakes sectors are our home ground. The domain vocabulary changes; the demand for systems that cannot fail does not."
+      index={t('industries.index')}
+      label={t('industries.label')}
+      title={t('industries.title')}
+      lede={t('industries.lede')}
     />
 
     <div
@@ -108,7 +112,7 @@ const vignettes: Record<string, string> = {
     >
       <div
         role="tablist"
-        aria-label="Industries"
+        aria-label={t('industries.label')}
         aria-orientation="vertical"
         class="-mx-6 flex gap-1 overflow-x-auto px-6 pb-2 md:-mx-10 md:px-10 lg:mx-0 lg:flex-col lg:overflow-visible lg:px-0 lg:pb-0"
       >
@@ -124,7 +128,7 @@ const vignettes: Record<string, string> = {
             >
               <span class="font-mono text-xs text-ink-3">{String(i + 1).padStart(2, '0')}</span>
               <span class="industry-tab-name font-display text-[1.02rem] font-semibold whitespace-nowrap text-ink-3 transition-colors lg:whitespace-normal">
-                {ind.name}
+                {t('industries.items.' + i + '.name')}
               </span>
             </button>
           ))
@@ -143,13 +147,13 @@ const vignettes: Record<string, string> = {
             >
               <div class="grid overflow-hidden rounded-lg border border-line md:grid-cols-2">
                 <div class="p-7 md:p-9">
-                  <h3 class="font-display text-2xl font-semibold text-ink">{ind.name}</h3>
-                  <p class="mt-4 text-[0.98rem] leading-relaxed text-ink-2">{ind.positioning}</p>
-                  <p class="kicker mt-8 text-ink-3">We build</p>
+                  <h3 class="font-display text-2xl font-semibold text-ink">{t('industries.items.' + i + '.name')}</h3>
+                  <p class="mt-4 text-[0.98rem] leading-relaxed text-ink-2">{t('industries.items.' + i + '.positioning')}</p>
+                  <p class="kicker mt-8 text-ink-3">{t('industries.weBuild')}</p>
                   <ul class="mt-3.5 flex flex-wrap gap-2">
-                    {ind.systems.map((system) => (
+                    {ind.systems.map((_system, j) => (
                       <li class="rounded border border-line px-2.5 py-1 font-mono text-xs text-ink-2">
-                        {system}
+                        {t('industries.items.' + i + '.systems.' + j)}
                       </li>
                     ))}
                   </ul>
@@ -160,12 +164,12 @@ const vignettes: Record<string, string> = {
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                     role="img"
-                    aria-label={`Line diagram: ${ind.name.toLowerCase()} systems`}
+                    aria-label={`Line diagram: ${t('industries.items.' + i + '.name').toLowerCase()} systems`}
                     class="h-auto w-full"
                     set:html={vignettes[ind.id]}
                   />
                   <figcaption class="mt-2 px-1 font-mono text-[0.68rem] tracking-[0.12em] text-ink-3">
-                    {ind.caption}
+                    {t('industries.items.' + i + '.caption')}
                   </figcaption>
                 </figure>
               </div>

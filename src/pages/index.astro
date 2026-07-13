@@ -9,11 +9,16 @@ import Process from '../components/sections/Process.astro';
 import Work from '../components/sections/Work.astro';
 import Insights from '../components/sections/Insights.astro';
 import Contact from '../components/sections/Contact.astro';
+import { useTranslations } from '../i18n/useTranslations';
+
+const locale = Astro.currentLocale || 'en';
+const { t } = useTranslations(locale);
 ---
 
 <Base
-  title="Substrate — Enterprise engineering for modern digital infrastructure"
-  description="Substrate is an engineering-first technology company. We architect, build, and operate cloud platforms, data systems, and AI-native software for enterprises, governments, and scaleups."
+  title={t('site.title')}
+  description={t('site.description')}
+  locale={locale}
 >
   <Hero />
   <Scale />

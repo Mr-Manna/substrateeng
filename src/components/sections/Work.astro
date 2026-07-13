@@ -1,6 +1,10 @@
 ---
 import SectionHeading from '../SectionHeading.astro';
 import { workCases, type WorkStat } from '../../data/work';
+import { useTranslations } from '../../i18n/useTranslations';
+import type { Locale } from '../../i18n/config';
+const locale = (Astro.currentLocale || 'en') as Locale;
+const { t, tRaw } = useTranslations(locale);
 
 /*
  * Measurement charts (460×240), one per engagement. [data-draw] strokes draw
@@ -66,9 +70,9 @@ const formatStat = (s: WorkStat) =>
     <SectionHeading
       id="work-heading"
       index="06"
-      label="Work"
-      title="Shipped, measured, and still running."
-      lede="Client names stay behind NDAs; the numbers don’t. Three engagements, reported the way we report them internally — what was broken, what we built, what changed."
+      label={t('work.label')}
+      title={t('work.title')}
+      lede={t('work.lede')}
     />
 
     <div class="mt-8 md:mt-10" data-work>
@@ -81,20 +85,20 @@ const formatStat = (s: WorkStat) =>
           >
             <div>
               <p class="kicker text-ink-3" data-reveal>
-                <span class="text-accent">ENGAGEMENT {c.codename}</span>
+                <span class="text-accent">{t('work.engagementPrefix')} {c.codename}</span>
                 <span aria-hidden="true">&nbsp;·&nbsp;</span>
-                {c.sector}
+                {t('work.cases.' + i + '.sector')}
                 <span aria-hidden="true">&nbsp;·&nbsp;</span>
-                {c.duration}
+                {t('work.cases.' + i + '.duration')}
               </p>
               <h3 class="display mt-5 max-w-xl text-[1.65rem] text-ink md:text-3xl" data-reveal>
-                {c.title}
+                {t('work.cases.' + i + '.title')}
               </h3>
               <p class="mt-4 max-w-xl text-[0.98rem] leading-relaxed text-ink-2" data-reveal>
-                {c.body}
+                {t('work.cases.' + i + '.body')}
               </p>
               <dl class="mt-8 grid grid-cols-3 gap-4" data-reveal>
-                {c.stats.map((s) => (
+                {c.stats.map((s, j) => (
                   <div class="border-l-2 border-line-2 pl-3">
                     <dd class="font-display text-xl font-semibold text-ink md:text-[1.6rem]">
                       {s.prefix}
@@ -106,7 +110,7 @@ const formatStat = (s: WorkStat) =>
                       {s.suffix}
                     </dd>
                     <dt class="mt-1 font-mono text-[0.68rem] tracking-[0.08em] text-ink-3 uppercase">
-                      {s.note}
+                      {t('work.cases.' + i + '.stats.' + j + '.note')}
                     </dt>
                   </div>
                 ))}
@@ -119,12 +123,12 @@ const formatStat = (s: WorkStat) =>
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
                 role="img"
-                aria-label={c.figAlt}
+                aria-label={t('work.cases.' + i + '.figAlt')}
                 class="h-auto w-full rounded border border-line bg-paper"
                 set:html={charts[c.chart]}
               />
               <figcaption class="mt-3 font-mono text-xs tracking-[0.12em] text-ink-3">
-                {c.figCaption}
+                {t('work.cases.' + i + '.figCaption')}
               </figcaption>
             </figure>
           </article>

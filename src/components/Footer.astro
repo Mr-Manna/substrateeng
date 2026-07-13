@@ -1,8 +1,15 @@
 ---
 import Logo from './Logo.astro';
-import { navItems, site } from '../data/site';
+import { useTranslations } from '../i18n/useTranslations';
+import type { Locale } from '../i18n/config';
 
+const locale = (Astro.currentLocale || 'en') as Locale;
+const { t, tRaw } = useTranslations(locale);
+const contactEmail = t('site.email');
 const year = new Date().getFullYear();
+const footerNav = tRaw<{ label: string; href: string }[]>('footer.navItems');
+const exploreLabel = t('footer.exploreHeading');
+const contactLabel = t('footer.contactHeading');
 ---
 
 <footer class="bg-graphite text-graphite-fg">
@@ -11,38 +18,36 @@ const year = new Date().getFullYear();
       <div class="max-w-xs">
         <Logo class="h-7 w-7" />
         <p class="mt-5 text-sm leading-relaxed text-graphite-fg-2">
-          {site.tagline} We design, build, and operate the systems enterprises depend on.
+          {t('footer.taglineAlt')}
         </p>
       </div>
 
-      <nav aria-label="Footer">
-        <p class="kicker text-graphite-fg-2">Explore</p>
+      <nav aria-label={exploreLabel}>
+        <p class="kicker text-graphite-fg-2">{exploreLabel}</p>
         <ul class="mt-5 grid grid-cols-2 gap-x-14 gap-y-2.5">
-          {
-            navItems.map((item) => (
-              <li>
-                <a
-                  href={item.href}
-                  class="text-sm text-graphite-fg-2 transition-colors hover:text-graphite-fg"
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))
-          }
+          {footerNav.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                class="text-sm text-graphite-fg-2 transition-colors hover:text-graphite-fg"
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
         </ul>
       </nav>
 
       <div>
-        <p class="kicker text-graphite-fg-2">Contact</p>
+        <p class="kicker text-graphite-fg-2">{contactLabel}</p>
         <a
-          href={`mailto:${site.email}`}
+          href={`mailto:${contactEmail}`}
           class="mt-5 block text-sm text-accent-bright transition-colors hover:text-graphite-fg"
         >
-          {site.email}
+          {contactEmail}
         </a>
         <p class="mt-4 font-mono text-xs leading-loose text-graphite-fg-2">
-          LONDON · SINGAPORE · TORONTO
+          {t('footer.locations')}
         </p>
       </div>
     </div>
@@ -50,8 +55,8 @@ const year = new Date().getFullYear();
     <div
       class="mt-16 flex flex-col gap-3 border-t border-graphite-line pt-6 text-graphite-fg-2 sm:flex-row sm:items-center sm:justify-between"
     >
-      <p class="text-sm">&copy; {year} Substrate. All rights reserved.</p>
-      <p class="font-mono text-xs tracking-[0.14em]">ENGINEERED, NOT ASSEMBLED.</p>
+      <p class="text-sm">&copy; {year} {t('footer.copyright')}</p>
+      <p class="font-mono text-xs tracking-[0.14em]">{t('footer.tagline')}</p>
     </div>
   </div>
 </footer>

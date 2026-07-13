@@ -1,6 +1,11 @@
 ---
 import SectionHeading from '../SectionHeading.astro';
+import { useTranslations } from '../../i18n/useTranslations';
+import type { Locale } from '../../i18n/config';
 import { capabilities } from '../../data/capabilities';
+
+const locale = (Astro.currentLocale || 'en') as Locale;
+const { t, tRaw } = useTranslations(locale);
 
 // 24×24 line glyphs, one per discipline — drawn, not imported
 const glyphs: Record<string, string> = {
@@ -23,10 +28,10 @@ const glyphs: Record<string, string> = {
   <div class="container-x">
     <SectionHeading
       id="capabilities-heading"
-      index="02"
-      label="Core Capabilities"
-      title="Twelve disciplines. One engineering culture."
-      lede="Deep specialisms that compound: the same teams who architect your cloud foundations build the platforms, pipelines, and AI systems that run on them."
+      index={t('capabilities.index')}
+      label={t('capabilities.label')}
+      title={t('capabilities.title')}
+      lede={t('capabilities.lede')}
     />
 
     <ul
@@ -55,8 +60,8 @@ const glyphs: Record<string, string> = {
               />
               <span class="font-mono text-xs text-ink-3">{String(i + 1).padStart(2, '0')}</span>
             </div>
-            <h3 class="mt-6 font-display text-[1.05rem] font-semibold text-ink">{cap.title}</h3>
-            <p class="mt-2.5 text-[0.92rem] leading-relaxed text-ink-2">{cap.description}</p>
+            <h3 class="mt-6 font-display text-[1.05rem] font-semibold text-ink">{t('capabilities.items.' + i + '.title')}</h3>
+            <p class="mt-2.5 text-[0.92rem] leading-relaxed text-ink-2">{t('capabilities.items.' + i + '.description')}</p>
           </li>
         ))
       }

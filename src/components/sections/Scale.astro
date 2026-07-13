@@ -1,39 +1,30 @@
 ---
 import SectionHeading from '../SectionHeading.astro';
+import { useTranslations } from '../../i18n/useTranslations';
+import type { Locale } from '../../i18n/config';
 
-const points = [
-  {
-    title: 'Architecture before code',
-    body: 'Every system begins as a set of explicit decisions — boundaries, contracts, failure modes, and scale envelopes — recorded before the first commit.',
-  },
-  {
-    title: 'Instrumented from day one',
-    body: 'Observability is designed in, not bolted on. Platforms we build explain themselves in production: traces, metrics, and budgets from the first release.',
-  },
-  {
-    title: 'Built to be operated',
-    body: 'We engineer for the team that runs the system. Automation, runbooks, and SLOs ship with the platform — because launch day is the beginning.',
-  },
-];
+const locale = (Astro.currentLocale || 'en') as Locale;
+const { t, tRaw } = useTranslations(locale);
+const svgLabels = tRaw<string[]>('scale.svgLabels');
 ---
 
 <section id="scale" class="py-24 md:py-36" aria-labelledby="scale-heading">
   <div class="container-x">
     <SectionHeading
       id="scale-heading"
-      index="01"
-      label="Engineering at Scale"
-      title="Systems designed to run for a decade, not a demo."
-      lede="We treat every engagement as infrastructure. The diagram below is how we think: clear layers, explicit contracts, and data that flows through systems built to carry it."
+      index={t('scale.index')}
+      label={t('scale.label')}
+      title={t('scale.title')}
+      lede={t('scale.lede')}
     />
 
     <div class="mt-14 grid gap-10 md:grid-cols-3" data-reveal-group>
       {
-        points.map((point, i) => (
+        [0, 1, 2].map((i) => (
           <div class="border-t border-line pt-5" data-reveal>
             <p class="font-mono text-xs text-accent">{String(i + 1).padStart(2, '0')}</p>
-            <h3 class="mt-3 font-display text-lg font-semibold text-ink">{point.title}</h3>
-            <p class="mt-2.5 text-[0.95rem] leading-relaxed text-ink-2">{point.body}</p>
+            <h3 class="mt-3 font-display text-lg font-semibold text-ink">{t('scale.points.' + i + '.title')}</h3>
+            <p class="mt-2.5 text-[0.95rem] leading-relaxed text-ink-2">{t('scale.points.' + i + '.body')}</p>
           </div>
         ))
       }
@@ -50,22 +41,21 @@ const points = [
         class="min-w-[860px]"
       >
         <title id="scale-diagram-title">
-          Reference platform architecture: clients connect through an edge gateway to a service
-          mesh, events stream into the data platform, and models consume governed data.
+          {t('scale.svgTitle')}
         </title>
 
         <!-- clients -->
         <g data-node>
           <rect x="20" y="96" width="56" height="40" rx="4" stroke="var(--c-ink-3)" stroke-width="1.1"></rect>
           <rect x="34" y="150" width="28" height="46" rx="4" stroke="var(--c-ink-3)" stroke-width="1.1"></rect>
-          <text x="48" y="226" text-anchor="middle" class="bp-label">CLIENTS</text>
+          <text x="48" y="226" text-anchor="middle" class="bp-label">{svgLabels[0]}</text>
         </g>
 
         <!-- edge -->
         <g data-node>
           <rect x="170" y="112" width="104" height="64" rx="5" stroke="var(--c-ink)" stroke-width="1.2"></rect>
           <path d="M198 132 h48 M198 144 h48 M198 156 h30" stroke="var(--c-ink-3)" stroke-width="1"></path>
-          <text x="222" y="200" text-anchor="middle" class="bp-label">EDGE / API GATEWAY</text>
+          <text x="222" y="200" text-anchor="middle" class="bp-label">{svgLabels[1]}</text>
         </g>
 
         <!-- service mesh -->
@@ -89,14 +79,14 @@ const points = [
           <circle cx="396" cy="112" r="2" fill="var(--c-accent)"></circle>
           <circle cx="452" cy="168" r="2" fill="var(--c-accent)"></circle>
           <circle cx="508" cy="112" r="2" fill="var(--c-accent)"></circle>
-          <text x="454" y="248" text-anchor="middle" class="bp-label">SERVICE MESH</text>
+          <text x="454" y="248" text-anchor="middle" class="bp-label">{svgLabels[2]}</text>
         </g>
 
         <!-- event stream -->
         <g data-node>
           <rect x="632" y="118" width="130" height="52" rx="26" stroke="var(--c-ink)" stroke-width="1.2"></rect>
           <path d="M656 144 h20 m8 0 h20 m8 0 h20" stroke="var(--c-accent)" stroke-width="1.4" stroke-linecap="round"></path>
-          <text x="697" y="200" text-anchor="middle" class="bp-label">EVENT STREAM</text>
+          <text x="697" y="200" text-anchor="middle" class="bp-label">{svgLabels[3]}</text>
         </g>
 
         <!-- data platform -->
@@ -104,7 +94,7 @@ const points = [
           <ellipse cx="878" cy="106" rx="34" ry="11" stroke="var(--c-ink)" stroke-width="1.1"></ellipse>
           <path d="M844 106 v52 a34 11 0 0 0 68 0 v-52" stroke="var(--c-ink)" stroke-width="1.1"></path>
           <path d="M844 132 a34 11 0 0 0 68 0" stroke="var(--c-ink-3)" stroke-width="1"></path>
-          <text x="878" y="200" text-anchor="middle" class="bp-label">DATA PLATFORM</text>
+          <text x="878" y="200" text-anchor="middle" class="bp-label">{svgLabels[4]}</text>
         </g>
 
         <!-- intelligence -->
@@ -115,7 +105,7 @@ const points = [
             d="M1064 114 v-14 M1064 174 v14 M1034 144 h-14 M1094 144 h14 M1043 123 l-10 -10 M1085 123 l10 -10 M1043 165 l-10 10 M1085 165 l10 10"
             stroke="var(--c-accent)" stroke-width="1" opacity="0.6"
           ></path>
-          <text x="1064" y="226" text-anchor="middle" class="bp-label">INTELLIGENCE</text>
+          <text x="1064" y="226" text-anchor="middle" class="bp-label">{svgLabels[5]}</text>
         </g>
 
         <!-- flow paths, drawn on scroll -->
@@ -126,7 +116,7 @@ const points = [
         <path data-draw d="M912 132 C 960 132, 986 144, 1034 144" stroke="var(--c-accent)" stroke-width="1.4"></path>
       </svg>
       <figcaption class="mt-4 font-mono text-xs tracking-[0.12em] text-ink-3">
-        FIG. 01 — REFERENCE PLATFORM, EDGE TO INTELLIGENCE
+        {t('scale.figcaption')}
       </figcaption>
     </figure>
   </div>

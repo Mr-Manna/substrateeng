@@ -10,6 +10,14 @@ export default defineConfig({
   site: 'https://substrate.engineering',
   integrations: [react(), sitemap()],
 
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'es', 'fr', 'de', 'bn', 'hi'],
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
+
   vite: {
     plugins: [tailwindcss()]
   }

@@ -1,0 +1,685 @@
+{
+  "site": {
+    "name": "Substrate",
+    "tagline": "Engineering der Schicht unter dem modernen Geschäft.",
+    "email": "hello@substrate.engineering"
+  },
+  "nav": {
+    "items": [
+      {
+        "label": "Kompetenzen",
+        "href": "/#capabilities",
+        "items": [
+          {
+            "label": "Verteilte Systeme",
+            "href": "#",
+            "items": [
+              { "label": "Konsens und Replikation", "href": "#" },
+              { "label": "Partitionstolerantes Design", "href": "#" },
+              { "label": "Konsistenzmodelle", "href": "#" }
+            ]
+          },
+          {
+            "label": "Cloud Native",
+            "href": "#",
+            "items": [
+              { "label": "Container-Orchestrierung", "href": "#" },
+              { "label": "Service Mesh", "href": "#" },
+              { "label": "Serverless-Architekturen", "href": "#" }
+            ]
+          },
+          {
+            "label": "Sicherheit und Compliance",
+            "href": "#",
+            "items": [
+              { "label": "Zero-Trust-Architektur", "href": "#" },
+              { "label": "Policy-as-Code", "href": "#" },
+              { "label": "Compliance-Automatisierung", "href": "#" }
+            ]
+          },
+          {
+            "label": "Enterprise-Architektur",
+            "href": "/capabilities/enterprise-architecture",
+            "items": [
+              { "label": "Domain-driven Design", "href": "#" },
+              { "label": "Technologie-Roadmaps", "href": "#" },
+              { "label": "Architektur-Governance", "href": "#" }
+            ]
+          },
+          {
+            "label": "Cloud-Architektur",
+            "href": "/capabilities/cloud-architecture",
+            "items": [
+              { "label": "Multi-Cloud-Strategie", "href": "#" },
+              { "label": "Landing Zones", "href": "#" },
+              { "label": "Kostenoptimierung", "href": "#" }
+            ]
+          },
+          {
+            "label": "Platform Engineering",
+            "href": "/platform",
+            "items": [
+              { "label": "IDP-Design und -Lieferung", "href": "#" },
+              { "label": "Golden Paths", "href": "#" },
+              { "label": "Entwicklerportale", "href": "#" }
+            ]
+          },
+          {
+            "label": "Automatisierungs-Engineering",
+            "href": "#",
+            "items": [
+              { "label": "CI/CD-Pipelines", "href": "#" },
+              { "label": "Infrastructure as Code", "href": "#" },
+              { "label": "Toil-Beseitigung", "href": "#" }
+            ]
+          },
+          {
+            "label": "Data Engineering",
+            "href": "#",
+            "items": [
+              { "label": "Data Lake", "href": "#", "description": "Lakehouse-Architektur, Iceberg, Delta Lake" },
+              { "label": "Data Warehouse", "href": "#", "description": "Cloud-DW-Strategie, Modellierung, Optimierung" },
+              { "label": "Data Mesh", "href": "#", "description": "Domain Ownership, Datenprodukte, Governance" },
+              { "label": "Streaming-Pipelines", "href": "#", "description": "Echtzeit-Ingestion, Stream Processing" },
+              { "label": "Data Governance", "href": "#", "description": "Katalog, Lineage, Qualität, Compliance" }
+            ]
+          },
+          {
+            "label": "AI-Natives Engineering",
+            "href": "#",
+            "items": [
+              { "label": "LLM-Anwendungen", "href": "#" },
+              { "label": "RAG-Systeme", "href": "#" },
+              { "label": "KI-Infrastruktur", "href": "#" }
+            ]
+          },
+          {
+            "label": "Agentische KI-Systeme",
+            "href": "#",
+            "items": [
+              { "label": "Multi-Agenten-Orchestrierung", "href": "#" },
+              { "label": "Unternehmens-Guardrails", "href": "#" },
+              { "label": "Audit und Compliance", "href": "#" }
+            ]
+          },
+          {
+            "label": "Performance Engineering",
+            "href": "#",
+            "items": [
+              { "label": "Lastmodellierung", "href": "#" },
+              { "label": "Profiling und Tuning", "href": "#" },
+              { "label": "Kapazitätsplanung", "href": "#" }
+            ]
+          },
+          {
+            "label": "SRE und Betrieb",
+            "href": "#",
+            "items": [
+              { "label": "SLO-Frameworks", "href": "#" },
+              { "label": "Incident Response", "href": "#" },
+              { "label": "Observability", "href": "#" }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Branchen",
+        "href": "/#industries",
+        "items": [
+          {
+            "label": "Finanzdienstleistungen",
+            "href": "#",
+            "items": [
+              { "label": "Echtzeit-Zahlungsverkehr", "href": "#" },
+              { "label": "Risiko- und Regulierungsberichte", "href": "#" },
+              { "label": "Core-Banking-Integration", "href": "#" }
+            ]
+          },
+          {
+            "label": "Öffentlicher Sektor",
+            "href": "#",
+            "items": [
+              { "label": "Digitale Serviceplattformen", "href": "#" },
+              { "label": "Identität und Register", "href": "#" },
+              { "label": "Sicherer Datenaustausch", "href": "#" }
+            ]
+          },
+          {
+            "label": "Gesundheitswesen und Life Sciences",
+            "href": "#",
+            "items": [
+              { "label": "FHIR-Interoperabilität", "href": "#" },
+              { "label": "Klinische Datenplattformen", "href": "#" },
+              { "label": "Forschungspipelines", "href": "#" }
+            ]
+          },
+          {
+            "label": "Energie und Versorgung",
+            "href": "#",
+            "items": [
+              { "label": "Netztelemetrie", "href": "#" },
+              { "label": "Nachfrageprognose", "href": "#" },
+              { "label": "Anlagenüberwachung", "href": "#" }
+            ]
+          },
+          {
+            "label": "Logistik und Mobilität",
+            "href": "#",
+            "items": [
+              { "label": "Flottenverfolgung", "href": "#" },
+              { "label": "Routenoptimierung", "href": "#" },
+              { "label": "Netzwerk-Orchestrierung", "href": "#" }
+            ]
+          },
+          {
+            "label": "Einzelhandel und Commerce",
+            "href": "#",
+            "items": [
+              { "label": "Auftragsmanagement", "href": "#" },
+              { "label": "Echtzeit-Bestand", "href": "#" },
+              { "label": "Preise und Personalisierung", "href": "#" }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Technologie",
+        "href": "/#technology",
+        "items": [
+          {
+            "label": "Sprachen",
+            "href": "#",
+            "items": [
+              { "label": "TypeScript", "href": "#" },
+              { "label": "Python", "href": "#" },
+              { "label": "Go", "href": "#" },
+              { "label": "Rust", "href": "#" },
+              { "label": "SQL", "href": "#" }
+            ]
+          },
+          {
+            "label": "Cloud und Runtime",
+            "href": "#",
+            "items": [
+              { "label": "AWS", "href": "#" },
+              { "label": "Azure", "href": "#" },
+              { "label": "GCP", "href": "#" },
+              { "label": "Kubernetes", "href": "#" },
+              { "label": "Terraform", "href": "#" }
+            ]
+          },
+          {
+            "label": "Daten und Streaming",
+            "href": "#",
+            "items": [
+              { "label": "PostgreSQL", "href": "#" },
+              { "label": "Kafka", "href": "#" },
+              { "label": "ClickHouse", "href": "#" },
+              { "label": "dbt", "href": "#" },
+              { "label": "Iceberg", "href": "#" }
+            ]
+          },
+          {
+            "label": "KI-Systeme",
+            "href": "#",
+            "items": [
+              { "label": "Claude", "href": "#" },
+              { "label": "PyTorch", "href": "#" },
+              { "label": "vLLM", "href": "#" },
+              { "label": "pgvector", "href": "#" },
+              { "label": "Ray", "href": "#" }
+            ]
+          },
+          {
+            "label": "Delivery und Betrieb",
+            "href": "#",
+            "items": [
+              { "label": "GitHub Actions", "href": "#" },
+              { "label": "Argo CD", "href": "#" },
+              { "label": "OpenTelemetry", "href": "#" },
+              { "label": "Prometheus", "href": "#" },
+              { "label": "Grafana", "href": "#" }
+            ]
+          }
+        ]
+      },
+      { "label": "Prozess", "href": "/#process" },
+      { "label": "Arbeiten", "href": "/#work" },
+      { "label": "Einblicke", "href": "/#insights" }
+    ]
+  },
+  "hero": {
+    "kickerPrefix": "sub·strate",
+    "kickerPronounciation": "/ˈsʌb.streɪt/",
+    "kickerSuffix": "die Schicht darunter",
+    "title": "Wir entwickeln die komplexen Systeme, auf denen alles andere steht.",
+    "subtitle": "Substrate ist ein engineering-orientierter Technologiepartner. Wir entwerfen, bauen und betreiben Cloud-Plattformen, Datensysteme und KI-native Software für Unternehmen, Regierungen und Scaleups.",
+    "ctaPrimary": "Gespräch beginnen",
+    "ctaSecondary": "Kompetenzen erkunden",
+    "trustHeading": "Vertraut von Plattformteams bei",
+    "trustedClients": ["MERIDIAN", "HALVORSEN", "NORTHCELL", "ARGENT & CO", "KJELLBERG", "OSTRAVA"],
+    "svgTitle": "Querschnitt einer modernen Plattform: Experience-, Service- und Daten-Schichten, die auf einem Infrastruktur-Substrat ruhen.",
+    "svgFigcaption": "Substrate baut und betreibt die Infrastrukturschicht, von der Experience-, Service- und Daten-Schichten abhängen.",
+    "stratumLabels": {
+      "experience": "EXPERIENCE",
+      "services": "SERVICES",
+      "data": "DATA",
+      "substrate": "SUBSTRATE"
+    }
+  },
+  "scale": {
+    "index": "01",
+    "label": "Engineering auf Skala",
+    "title": "Systeme, die für ein Jahrzehnt ausgelegt sind, nicht für eine Demo.",
+    "lede": "Wir behandeln jedes Engagement als Infrastruktur. Das Diagramm unten zeigt, wie wir denken: klare Schichten, explizite Verträge und Daten, die durch Systeme fließen, die dafür gebaut wurden.",
+    "points": [
+      {
+        "title": "Architektur vor Code",
+        "body": "Jedes System beginnt mit expliziten Entscheidungen — Grenzen, Verträge, Fehlermodi und Skalierungsrahmen — festgehalten vor dem ersten Commit."
+      },
+      {
+        "title": "Von Tag eins an instrumentiert",
+        "body": "Observability wird von Anfang an mitentworfen, nicht nachträglich angebracht. Plattformen, die wir bauen, erklären sich in Produktion selbst: Traces, Metriken und Budgets ab der ersten Veröffentlichung."
+      },
+      {
+        "title": "Gebaut, um betrieben zu werden",
+        "body": "Wir entwickeln für das Team, das das System betreibt. Automatisierung, Runbooks und SLOs werden mit der Plattform ausgeliefert — denn der Launch-Tag ist erst der Anfang."
+      }
+    ],
+    "svgTitle": "Referenzplattform-Architektur: Clients verbinden sich über einen Edge-Gateway mit einem Service Mesh, Events streamen in die Datenplattform und Modelle konsumieren governancete Daten.",
+    "svgLabels": ["CLIENTS", "EDGE / API GATEWAY", "SERVICE MESH", "EVENT STREAM", "DATA PLATFORM", "INTELLIGENCE"],
+    "figcaption": "FIG. 01 — REFERENZPLATTFORM, VOM EDGE BIS ZUR INTELLIGENZ"
+  },
+  "capabilities": {
+    "index": "02",
+    "label": "Kernkompetenzen",
+    "title": "Zwölf Disziplinen. Eine Engineering-Kultur.",
+    "lede": "Tiefe Spezialgebiete, die sich verstärken: Dieselben Teams, die Ihre Cloud-Fundamente entwerfen, bauen die Plattformen, Pipelines und KI-Systeme, die darauf laufen.",
+    "items": [
+      {
+        "title": "Verteilte Systeme",
+        "description": "Systeme, die für Ausfälle ausgelegt sind: Konsens, Partitionierung, Replikation und Konsistenzmodelle, die sich skalierbar vorhersagbar verhalten."
+      },
+      {
+        "title": "Cloud Native",
+        "description": "Container, Orchestrierung, Service Meshes und Serverless — Architekturen, die in der Cloud geboren wurden, nicht dorthin verschoben."
+      },
+      {
+        "title": "Sicherheit und Compliance",
+        "description": "Zero-Trust-Architekturen, Policy-as-Code und Compliance-Automatisierung, die Sicherheit als plattformnative Grundlage behandeln."
+      },
+      {
+        "title": "Enterprise-Architektur",
+        "description": "Zielzustands-Architekturen, Domänengrenzen und Technologie-Roadmaps, die den Kontakt mit der Organisation überleben."
+      },
+      {
+        "title": "Cloud-Architektur",
+        "description": "Multi-Account-, Multi-Region-Cloud-Foundations auf AWS, Azure und GCP — standardmäßig sicher, realistisch bepreist."
+      },
+      {
+        "title": "Platform Engineering",
+        "description": "Interne Entwicklerplattformen mit Golden Paths, Self-Service-Infrastruktur und gepflasterten Wegen zur Produktion."
+      },
+      {
+        "title": "Automatisierungs-Engineering",
+        "description": "Pipelines, Provisioning und operativer Toil, die aus dem System entfernt wurden — alles als Code, alles wiederholbar."
+      },
+      {
+        "title": "AI-Natives Engineering",
+        "description": "Produkte, die von der ersten Zeile an auf Modelle ausgelegt sind: Retrieval, Evaluierung, Guardrails und Kostenkontrolle integriert."
+      },
+      {
+        "title": "Agentische KI-Systeme",
+        "description": "Multi-Agenten-Systeme, die innerhalb Ihrer Geschäftsprozesse agieren — mit den Berechtigungen, Prüfpfaden und der Aufsicht, die Unternehmen benötigen."
+      },
+      {
+        "title": "Data Engineering",
+        "description": "Warehouses, Lakes und Streaming-Pipelines, die Daten zu einer verlässlichen Schnittstelle machen — nicht zu einer nächtlichen Überraschung."
+      },
+      {
+        "title": "Performance Engineering",
+        "description": "Lastmodellierung, Profiling und Kapazitätsplanung, die Latenz-Budgets in Engineering-Anforderungen verwandeln."
+      },
+      {
+        "title": "SRE und Betrieb",
+        "description": "SLOs, Incident Response und Zuverlässigkeitspraktiken, die missionkritische Systeme langweilig halten — im besten Sinne."
+      }
+    ]
+  },
+  "industries": {
+    "index": "03",
+    "label": "Branchen",
+    "title": "Andere Oberfläche. Gleiches Substrat.",
+    "lede": "Regulierte, hochriskante Sektoren sind unser Zuhause. Die Fachsprache ändert sich; die Anforderung an Systeme, die nicht versagen dürfen, nicht.",
+    "weBuild": "Wir bauen",
+    "items": [
+      {
+        "name": "Finanzdienstleistungen",
+        "positioning": "Systeme, in denen eine Millisekunde Geld ist und eine Prüfung immer im Kalender steht. Wir bauen zuerst auf Korrektheit, dann auf Latenz — und beweisen beides.",
+        "systems": ["Echtzeit-Zahlungsverkehr", "Risiko- und Regulierungsberichte", "Core-Banking-Integration"],
+        "caption": "FIG. 03.1 — ECHTZEIT-RISIKO UND ABWICKLUNG",
+        "vignetteLabels": ["RISIKOLIMIT", "T+0", "T+1MS"]
+      },
+      {
+        "name": "Öffentlicher Sektor",
+        "positioning": "Plattformen im Bürger-Maßstab mit beschaffungsgerechter Rechenschaftspflicht: souveränes Hosting, offene Standards und Dienste, die für mehrere Amtszeiten ausgelegt sind.",
+        "systems": ["Digitale Serviceplattformen", "Identität und Register", "Sicherer Datenaustausch"],
+        "caption": "FIG. 03.2 — BÜRGERSERVICE-AUSTAUSCH",
+        "vignetteLabels": ["REGISTER", "BÜRGER"]
+      },
+      {
+        "name": "Gesundheitswesen und Life Sciences",
+        "positioning": "Die persönlichsten Daten überhaupt, die zwischen Systemen zirkulieren, die nie für die Kommunikation ausgelegt waren. Wir machen Interoperabilität verlässlich — und prüfbar.",
+        "systems": ["FHIR-Interoperabilitätsschichten", "Klinische Datenplattformen", "Forschungs- und Studien-Pipelines"],
+        "caption": "FIG. 03.3 — KLINISCHE TELEMETRIE",
+        "vignetteLabels": ["UPTIME 99.99", "HL7 · FHIR R4 · DICOM", "AUDIT: AN"]
+      },
+      {
+        "name": "Energie und Versorgung",
+        "positioning": "Infrastruktur für Infrastruktur: Telemetrie von Millionen von Anlagen, Prognosen, auf die das Netz reagieren kann, und Steuerungssysteme ohne Appetit auf Überraschungen.",
+        "systems": ["Netztelemetrie im großen Maßstab", "Nachfrageprognose", "Anlagenüberwachung und -steuerung"],
+        "caption": "FIG. 03.4 — NETZTELEMETRIE UND LAST",
+        "vignetteLabels": ["UMSPANNSTATION A", "UMSPANNSTATION B", "LAST"]
+      },
+      {
+        "name": "Logistik und Mobilität",
+        "positioning": "Physische Netzwerke laufen auf digitalen Nervensystemen. Wir bauen die Verfolgung, Routenplanung und Orchestrierung, die Waren — und Versprechen — in Bewegung halten.",
+        "systems": ["Flotten- und Sendungsverfolgung", "Routenplanung und -optimierung", "Netzwerk-Orchestrierung"],
+        "caption": "FIG. 03.5 — NETZWERK-ROUTING",
+        "vignetteLabels": ["HUB", "HAFEN", "DC 04", "METRO"]
+      },
+      {
+        "name": "Einzelhandel und Commerce",
+        "positioning": "Die Hochsaison ist ein Auslastungstest, den Sie nur einmal im Jahr durchführen können. Wir entwickeln Bestell-, Bestands- und Preissysteme, die sie wie einen normalen Dienstag behandeln.",
+        "systems": ["Auftragsmanagement in der Spitze", "Echtzeit-Bestand", "Preise und Personalisierung"],
+        "caption": "FIG. 03.6 — NACHFRAGE VS. BESTAND",
+        "vignetteLabels": ["NACHBESTELLPUNKT", "BESTAND", "NACHFRAGE"]
+      }
+    ]
+  },
+  "technology": {
+    "index": "04",
+    "label": "Technologie",
+    "title": "Langweilig, wo es sein soll. Scharf, wo es zählt.",
+    "lede": "Wir sind meinungsstark bei Werkzeugen und unsentimental bei Marken. Eine Technologie verdient sich ihren Platz hier, indem sie automatisiert, observierbar und in zehn Jahren noch gewartet werden kann.",
+    "pipelineNodes": ["COMMIT", "BUILD", "TEST", "SCAN", "STAGE", "CANARY 5%", "PROD"],
+    "pipelineTimes": ["T+90S", "T+5M", "T+14M", "T+16M", "T+31M", "T+45M"],
+    "pipelineRollback": "AUTOMATISIERTER ROLLBACK — FALLS JE",
+    "svgTitle": "Delivery-Pipeline: Commit, Build, Test, Scan, Stage, Canary, Produktion — mit einem automatisierten Rollback-Pfad von Produktion zurück ins Staging.",
+    "figcaption": "FIG. 04 — WEG ZUR PRODUKTION. JEDER MERGE, JEDER SERVICE, JEDEN TAG.",
+    "groups": [
+      {
+        "name": "Sprachen",
+        "note": "Typisiert, schnell und einstellungsicher.",
+        "items": ["TypeScript", "Python", "Go", "Node", "SQL"]
+      },
+      {
+        "name": "Cloud und Runtime",
+        "note": "Alles als Code, überall.",
+        "items": ["AWS", "Azure", "GCP", "Kubernetes", "Terraform"]
+      },
+      {
+        "name": "Daten und Streaming",
+        "note": "Daten als Schnittstelle behandelt.",
+        "items": ["PostgreSQL", "Kafka", "ClickHouse", "dbt", "Iceberg"]
+      },
+      {
+        "name": "KI-Systeme",
+        "note": "Bewertet, nie auf Bauchgefühl basiert.",
+        "items": ["Claude", "PyTorch", "vLLM", "pgvector", "Ray"]
+      },
+      {
+        "name": "Delivery und Betrieb",
+        "note": "Standardmäßig observierbar.",
+        "items": ["GitHub Actions", "Argo CD", "OpenTelemetry", "Prometheus", "Grafana"]
+      }
+    ]
+  },
+  "process": {
+    "index": "05",
+    "label": "Prozess",
+    "title": "Keine Geheimnisse. Ein Rhythmus, um den Sie planen können.",
+    "lede": "Fünf Phasen, eine Form: verstehen, bevor man entwirft, entwerfen, bevor man baut, und niemals ein System übergeben, das wir nicht selbst betreiben würden.",
+    "phases": [
+      {
+        "title": "Entdecken",
+        "window": "Wochen 1–2",
+        "body": "Wir kartieren das Gelände, bevor wir bohren: Stakeholder, Systeme, Einschränkungen und die Metriken, die den Erfolg definieren — in Ihren Worten, dann in Zahlen.",
+        "deliverables": ["Ist-Zustand-Karte", "Erfolgsmetriken", "Risikoregister"],
+        "glyphAlt": "Skizze: Vermessungsplan mit markierter Bohrstelle",
+        "glyphLabels": ["STANDORT A"]
+      },
+      {
+        "title": "Architektur",
+        "window": "Wochen 2–5",
+        "body": "Explizite Entscheidungen, dokumentiert: Grenzen, Verträge, Fehlermodi. Die Zielarchitektur wird mit Ihren Ingenieuren überprüft, nicht ihnen präsentiert.",
+        "deliverables": ["Zielarchitektur", "Entscheidungsdokumentation", "Liefer-Roadmap"],
+        "glyphAlt": "Skizze: ein Grundriss mit Maßlinie",
+        "glyphLabels": ["42,0 M"]
+      },
+      {
+        "title": "Bauen",
+        "window": "Ab Woche 5",
+        "body": "Vertikale Slices bis zur Produktion ab dem ersten Sprint. Funktionierende Software ist der Statusbericht; alles andere ist Kommentar.",
+        "deliverables": ["Produktions-Releases", "CI/CD und Umgebungen", "Lebende Dokumentation"],
+        "glyphAlt": "Skizze: ein trunk-basierter Git-Graph mit Merge-Commit",
+        "glyphLabels": ["TRUNK — TÄGLICH IN PROD"]
+      },
+      {
+        "title": "Härten",
+        "window": "Vor der Skalierung freigegeben",
+        "body": "Lastmodellierung, Sicherheitsüberprüfung, Chaos-Drills. Wir versuchen, das System zu brechen, bevor Ihre Kunden die Chance dazu bekommen.",
+        "deliverables": ["Last- und Belastbarkeitsergebnisse", "Sicherheitsüberprüfung", "Runbooks und SLOs"],
+        "glyphAlt": "Skizze: ein Lastspitzen-Diagramm, geschützt von einem Schild",
+        "glyphLabels": ["BRICH ES ZUERST"]
+      },
+      {
+        "title": "Betreiben",
+        "window": "Ab Launch",
+        "body": "Wir betreiben, was wir bauen — dann bringen wir Ihrem Team bei, es ohne uns zu betreiben. Erfolg bedeutet, dass unser Pager verstummt.",
+        "deliverables": ["24/7-Betrieb", "SLO-Berichte", "Übergabe und Schulung"],
+        "glyphAlt": "Skizze: eine Uptime-Trace und ein Übergabepfeil",
+        "glyphLabels": ["SLO 99.99", "BETREIBEN, DANN ÜBERGEBEN"]
+      }
+    ]
+  },
+  "work": {
+    "index": "06",
+    "label": "Arbeiten",
+    "title": "Ausgeliefert, gemessen und immer noch in Betrieb.",
+    "lede": "Kundennamen bleiben hinter NDAs; die Zahlen nicht. Drei Engagements, berichtet so, wie wir sie intern melden — was kaputt war, was wir gebaut haben, was sich geändert hat.",
+    "engagementPrefix": "ENGAGEMENT",
+    "cases": [
+      {
+        "codename": "ATLAS",
+        "sector": "Finanzdienstleistungen",
+        "duration": "18 Monate",
+        "title": "Der Zahlungsverkehrskern verließ den Mainframe, ohne ein Abwicklungsfenster zu verpassen.",
+        "body": "Eine Bank der Spitzenklasse betrieb ihre Zahlungsverkehrsschienen auf einem Kern, der älter war als die meisten ihrer Ingenieure. Wir bauten den Ersatz daneben, spiegelten sechs Monate Produktionsverkehr durch beide Systeme und gleichten jede Transaktion ab, bis die Differenz null war. Dann schalteten wir um — ein Wochenende, keine verpassten Fenster.",
+        "stats": [
+          { "value": "180ms", "note": "p99-Abwicklung, reduziert von 4,2 s" },
+          { "value": "99,995%", "note": "Verfügbarkeit seit der Umstellung" },
+          { "value": "14×", "note": "Spitzen-Durchsatzreserve" }
+        ],
+        "chartLabels": ["P99-ABWICKLUNGSZEIT", "UMSTELLUNG — WOCHE 26", "4,2 S", "180 MS"],
+        "figCaption": "FIG. 06.1 — ABWICKLUNGSLATENZ, VOR UND NACH DER UMSTELLUNG",
+        "figAlt": "Diagramm: p99-Abwicklungszeit nahe 4,2 Sekunden, dann Abfall auf 180 Millisekunden bei der Umstellung in Woche 26"
+      },
+      {
+        "codename": "MERIDIAN",
+        "sector": "Logistik und Mobilität",
+        "duration": "14 Monate",
+        "title": "Ein nationales Liefernetzwerk, das sich alle neunzig Sekunden neu plant.",
+        "body": "Ein nationaler Paketdienst plante Routen über Nacht, im Batch — am Morgen war der Plan bereits falsch. Wir ersetzten ihn durch einen Streaming-Optimierer, der das gesamte Netzwerk alle neunzig Sekunden neu plant und Fahrer während der Schicht umleitet, basierend auf den Verkehrs- und Lastdaten, die er gerade beobachtet hat.",
+        "stats": [
+          { "value": "90s", "note": "Neuplanungstakt, vorher über Nacht" },
+          { "value": "96,4%", "note": "pünktliche Lieferung, hoch von 88,1" },
+          { "value": "−11%", "note": "gesamte Flottenkilometer" }
+        ],
+        "chartLabels": ["HUB 02", "HAFEN", "DC 11", "2,1 M ROUTEN TÄGLICH NEU GEPLANT"],
+        "figCaption": "FIG. 06.2 — LIVE-NEUPLANUNGSTOPOLOGIE, EINER VON NEUN HUBS",
+        "figAlt": "Diagramm: ein Routing-Hub, der kontinuierlich an Depots und Häfen dispatcht, mit Live-Routen-Pulsen"
+      },
+      {
+        "codename": "BOREAL",
+        "sector": "Energie und Versorgung",
+        "duration": "12 Monate",
+        "title": "Viertausend Umspannstationen, eine einzige Quelle der Wahrheit.",
+        "body": "Die Umspannstationen eines Versorgungsunternehmens meldeten an elf Systeme, die nicht miteinander übereinstimmten. Wir konsolidierten die Netztelemetrie auf einer einzigen Streaming-Plattform — jeder Messwert innerhalb von Sekunden abfragbar, nachdem er die Leitung erreicht hat, und sauber genug, um die Lastprognosen neu zu trainieren, die jahrelang leise abgedriftet waren.",
+        "stats": [
+          { "value": "1,2M", "note": "Messwerte pro Sekunde ingestiert" },
+          { "value": "−38%", "note": "Fehler in der Tagesvorhersage" },
+          { "value": "4200", "note": "Umspannstationen angebunden" }
+        ],
+        "chartLabels": ["INGEST — MESSWERTE / S", "HEUTE", "PROGNOSE", "1,2 M/S"],
+        "figCaption": "FIG. 06.3 — TELEMETRIE-INGEST-RAMPE, ERSTES JAHR",
+        "figAlt": "Diagramm: Telemetrie-Ingest-Volumen steigt im ersten Jahr an, mit einer gestrichelten Prognose, die über heute hinausgeht"
+      }
+    ]
+  },
+  "insights": {
+    "index": "07",
+    "label": "Einblicke",
+    "title": "Notizen aus der Praxis, von denen, die darin stehen.",
+    "lede": "Was wir in Engagements lernen, wird aufgeschrieben und veröffentlicht — von den Ingenieuren, die die Arbeit gemacht haben. Keine Ghostwriter, keine gated PDFs, keine Thought Leadership.",
+    "featured": {
+      "ref": "FIELD NOTE 047",
+      "title": "Anatomie einer 3,4-Sekunden-Anfrage.",
+      "excerpt": "Wir sind einen langsamen Checkout durch elf Services und fünf verantwortliche Teams gefolgt. Der Engpass war nicht Code — es war ein Lock, den niemand besaß. Über das Lesen von Traces als Organigramme und was zu tun ist, wenn die beiden nicht übereinstimmen.",
+      "date": "JUL 2026",
+      "readingTime": "14 Min.",
+      "svgTitle": "Trace-Waterfall: fünf Service-Spans über 3,4 Sekunden, dominiert von einer 2,1-Sekunden-Lock-Wartezeit im Ledger-Service",
+      "traceLabels": ["0S", "1S", "2S", "3S", "EDGE", "AUTH", "ORDERS", "PRICING", "LEDGER", "2,1 S — LOCK-WARTEZEIT, EIGENTÜMER UNBEKANNT"]
+    },
+    "items": [
+      {
+        "title": "Würgefeigen, keine Big Bangs: einen Mainframe in Scheiben ausmustern",
+        "category": "Architektur",
+        "date": "JUN 2026",
+        "readingTime": "12 Min.",
+        "glyphAlt": "Skizze: ein Block, in Scheiben geteilt, mit einem Pfeil, der eine herauszieht"
+      },
+      {
+        "title": "Neuplanung in neunzig Sekunden: Streaming-Optimierung in Produktion",
+        "category": "Systeme",
+        "date": "MAI 2026",
+        "readingTime": "9 Min.",
+        "glyphAlt": "Skizze: ein Hub-Knoten, der an drei Ziele dispatcht"
+      },
+      {
+        "title": "Evals vor Bauchgefühl: LLM-Funktionen ausliefern, die man regressiv testen kann",
+        "category": "KI",
+        "date": "APR 2026",
+        "readingTime": "11 Min.",
+        "glyphAlt": "Skizze: ein Raster von Testzellen, eine markiert"
+      },
+      {
+        "title": "Die Bereitschaftsschicht ist ein Design-Review",
+        "category": "Betrieb",
+        "date": "MRZ 2026",
+        "readingTime": "7 Min.",
+        "glyphAlt": "Skizze: eine Pager-Herzschlags-Trace"
+      },
+      {
+        "title": "Schema-Migrationen bei 40.000 Schreibvorgängen pro Sekunde",
+        "category": "Daten",
+        "date": "FEB 2026",
+        "readingTime": "10 Min.",
+        "glyphAlt": "Skizze: gestapelte Datenschichten mit einem Aufwärts-Migrationspfeil"
+      }
+    ]
+  },
+  "contact": {
+    "index": "08",
+    "label": "Kontakt",
+    "title": "Sie haben das Substrat erreicht.",
+    "lede": "Das Ende der Seite, der Beginn der Arbeit. Erzählen Sie uns, was langsam ist, was fragil ist oder was Sie noch nicht ausliefern können — es landet bei einem Ingenieur, nicht in einer Sales-Warteschlange.",
+    "cta": "Gespräch beginnen",
+    "whatHappensNext": "Was als Nächstes passiert",
+    "steps": [
+      {
+        "ref": "R-01",
+        "text": "Ein Ingenieur antwortet innerhalb von zwei Werktagen. Kein Sequencer, kein Bot."
+      },
+      {
+        "ref": "R-02",
+        "text": "Eine Arbeitssitzung zu Ihrer Architektur — unter NDA, kein Deck erforderlich."
+      },
+      {
+        "ref": "R-03",
+        "text": "Ein Vorschlag mit Umfang, Terminen und Zahlen — oder ein klares „Wir sind nicht der richtige Partner.\""
+      }
+    ],
+    "locations": "LONDON · SINGAPUR · TORONTO — ANTWORTEN IN IHRER ZEITZONE.",
+    "depthGaugeLabels": [
+      "SURFACE — 00",
+      "01 — SKALA",
+      "02 — KOMPETENZEN",
+      "03 — BRANCHEN",
+      "04 — TECHNOLOGIE",
+      "05 — PROZESS",
+      "06 — ARBEITEN",
+      "07 — EINBLICKE",
+      "08 — KONTAKT · SIE SIND HIER"
+    ],
+    "svgTitle": "Tiefenanzeige: ein Bohrloch, das durch jeden Abschnitt dieser Seite hinabsteigt — Skala, Kompetenzen, Branchen, Technologie, Prozess, Arbeiten, Einblicke — endend im Grundgestein, markiert als Kontakt, Sie sind hier",
+    "figcaption": "FIG. 08 — BOHRPROTOKOLL, DIESE SEITE."
+  },
+  "footer": {
+    "navItems": [
+      { "label": "Leistungen", "href": "/#capabilities" },
+      { "label": "Branchen", "href": "/#industries" },
+      { "label": "Technologie", "href": "/#technology" },
+      { "label": "Prozess", "href": "/#process" },
+      { "label": "Projekte", "href": "/#work" },
+      { "label": "Einblicke", "href": "/#insights" }
+    ],
+    "tagline": "Engineering der Schicht unter dem modernen Geschäft. Wir entwerfen, bauen und betreiben die Systeme, auf die Unternehmen angewiesen sind.",
+    "exploreHeading": "Entdecken",
+    "contactHeading": "Kontakt",
+    "email": "hello@substrate.engineering",
+    "locations": "LONDON · SINGAPUR · TORONTO",
+    "copyright": "\u00a9 {year} Substrate. Alle Rechte vorbehalten.",
+    "taglineAlt": "ENTWICKELT, NICHT ZUSAMMENGESETZT."
+  },
+  "header": {
+    "logoAriaLabel": "Substrate — Startseite",
+    "startConversation": "Gespräch beginnen",
+    "navAriaLabel": "Hauptnavigation"
+  },
+  "layout": {
+    "skipToContent": "Zum Inhalt springen",
+    "lang": "de",
+    "organizationSchema": {
+      "name": "Substrate",
+      "description": "Substrate ist ein engineering-orientiertes Technologieunternehmen. Wir entwerfen, bauen und betreiben moderne digitale Infrastruktur für Unternehmen, Regierungen und Scaleups.",
+      "knowsAbout": ["Enterprise-Architektur", "Cloud-Architektur", "Platform Engineering", "AI-Natives Engineering", "Data Engineering", "Site Reliability Engineering"]
+    },
+    "themeColorLight": "#ffffff",
+    "themeColorDark": "#0c0f14"
+  },
+  "buttons": {
+    "startConversation": "Gespräch beginnen",
+    "exploreCapabilities": "Kompetenzen erkunden"
+  },
+  "aria": {
+    "heroSection": "Einleitung",
+    "heroSvg": "Querschnitt einer modernen Plattform: Experience-, Service- und Daten-Schichten, die auf einem Infrastruktur-Substrat ruhen.",
+    "heroFigcaption": "Substrate baut und betreibt die Infrastrukturschicht, von der Experience-, Service- und Daten-Schichten abhängen.",
+    "scaleSection": "Engineering auf Skala",
+    "scaleSvg": "Referenzplattform-Architektur: Clients verbinden sich über einen Edge-Gateway mit einem Service Mesh, Events streamen in die Datenplattform und Modelle konsumieren governancete Daten.",
+    "capabilitiesSection": "Kernkompetenzen",
+    "industriesSection": "Branchen",
+    "industriesTablist": "Branchen",
+    "technologySection": "Technologie",
+    "technologySvg": "Delivery-Pipeline: Commit, Build, Test, Scan, Stage, Canary, Produktion — mit einem automatisierten Rollback-Pfad von Produktion zurück ins Staging.",
+    "processSection": "Prozess",
+    "workSection": "Arbeiten",
+    "insightsSection": "Einblicke",
+    "contactSection": "Kontakt",
+    "contactSvg": "Tiefenanzeige: ein Bohrloch, das durch jeden Abschnitt dieser Seite hinabsteigt — Skala, Kompetenzen, Branchen, Technologie, Prozess, Arbeiten, Einblicke — endend im Grundgestein, markiert als Kontakt, Sie sind hier",
+    "trustedClientsList": "Platzhalter-Logos von Kunden",
+    "footerNav": "Fußzeile",
+    "skipLink": "Zum Inhalt springen"
+  }
+}

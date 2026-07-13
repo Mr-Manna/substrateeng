@@ -1,0 +1,39 @@
+---
+import Base from '../../layouts/Base.astro';
+import Hero from '../../components/sections/Hero.astro';
+import Scale from '../../components/sections/Scale.astro';
+import Capabilities from '../../components/sections/Capabilities.astro';
+import Industries from '../../components/sections/Industries.astro';
+import Technology from '../../components/sections/Technology.astro';
+import Process from '../../components/sections/Process.astro';
+import Work from '../../components/sections/Work.astro';
+import Insights from '../../components/sections/Insights.astro';
+import Contact from '../../components/sections/Contact.astro';
+import { locales } from '../../i18n/config';
+import { useTranslations } from '../../i18n/useTranslations';
+
+export function getStaticPaths() {
+  return locales
+    .filter((l) => l !== 'en')
+    .map((locale) => ({ params: { locale } }));
+}
+
+const locale = Astro.params.locale ?? 'en';
+const { t } = useTranslations(locale);
+---
+
+<Base
+  title={t('site.title')}
+  description={t('site.description')}
+  locale={locale}
+>
+  <Hero />
+  <Scale />
+  <Capabilities />
+  <Industries />
+  <Technology />
+  <Process />
+  <Work />
+  <Insights />
+  <Contact />
+</Base>

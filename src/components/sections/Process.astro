@@ -1,5 +1,9 @@
 ---
 import SectionHeading from '../SectionHeading.astro';
+import { useTranslations } from '../../i18n/useTranslations';
+import type { Locale } from '../../i18n/config';
+const locale = (Astro.currentLocale || 'en') as Locale;
+const { t, tRaw } = useTranslations(locale);
 
 interface Phase {
   title: string;
@@ -60,48 +64,17 @@ const glyphs: Record<string, string> = {
   `,
 };
 
-const phases: Phase[] = [
-  {
-    title: 'Discover',
-    window: 'Weeks 1–2',
-    body: 'We map the terrain before we drill: stakeholders, systems, constraints, and the metrics that will define success — in your words, then in numbers.',
-    deliverables: ['Current-state map', 'Success metrics', 'Risk register'],
-    glyph: 'discover',
-    glyphAlt: 'Sketch: contour survey with a marked drill site',
-  },
-  {
-    title: 'Architect',
-    window: 'Weeks 2–5',
-    body: 'Explicit decisions, recorded: boundaries, contracts, failure modes. The target architecture is reviewed with your engineers, not presented to them.',
-    deliverables: ['Target architecture', 'Decision records', 'Delivery roadmap'],
-    glyph: 'architect',
-    glyphAlt: 'Sketch: a floor plan with a dimension line',
-  },
-  {
-    title: 'Build',
-    window: 'Week 5 onward',
-    body: 'Vertical slices to production from the first sprint. Working software is the status report; everything else is commentary.',
-    deliverables: ['Production releases', 'CI/CD & environments', 'Living documentation'],
-    glyph: 'build',
-    glyphAlt: 'Sketch: a trunk-based git graph with a merge commit',
-  },
-  {
-    title: 'Harden',
-    window: 'Gated before scale',
-    body: 'Load modeling, security review, chaos drills. We try to break the system before your customers get the chance.',
-    deliverables: ['Load & soak results', 'Security review', 'Runbooks & SLOs'],
-    glyph: 'harden',
-    glyphAlt: 'Sketch: a load spike chart guarded by a shield',
-  },
-  {
-    title: 'Operate',
-    window: 'From launch',
-    body: 'We run what we build — then teach your team to run it without us. Success is our pager going quiet.',
-    deliverables: ['24/7 operations', 'SLO reporting', 'Handover & training'],
-    glyph: 'operate',
-    glyphAlt: 'Sketch: an uptime trace and a handover arrow',
-  },
-];
+const phaseKeys = ['discover', 'architect', 'build', 'harden', 'operate'];
+
+const phases: Phase[] = phaseKeys.map((key, i) => ({
+  title: t('process.phases.' + i + '.title'),
+  window: t('process.phases.' + i + '.window'),
+  body: t('process.phases.' + i + '.body'),
+  deliverables: tRaw<string[]>('process.phases.' + i + '.deliverables'),
+  glyph: key,
+  glyphAlt: t('process.phases.' + i + '.glyphAlt'),
+}));
+
 ---
 
 <section id="process" class="py-24 md:py-36" aria-labelledby="process-heading">
@@ -109,9 +82,9 @@ const phases: Phase[] = [
     <SectionHeading
       id="process-heading"
       index="05"
-      label="Process"
-      title="No mysteries. A cadence you can plan around."
-      lede="Five phases, one shape: understand before designing, design before building, and never hand over a system we wouldn't operate ourselves."
+      label={t('process.label')}
+      title={t('process.title')}
+      lede={t('process.lede')}
     />
 
     <div class="relative mt-16 md:mt-20" data-process>
