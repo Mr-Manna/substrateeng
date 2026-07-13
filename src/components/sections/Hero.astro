@@ -1,0 +1,184 @@
+---
+import Button from '../Button.astro';
+
+const trusted = ['MERIDIAN', 'HALVORSEN', 'NORTHCELL', 'ARGENT & CO', 'KJELLBERG', 'OSTRAVA'];
+---
+
+<section class="hero relative overflow-hidden pt-36 pb-20 md:pt-44 md:pb-24" aria-label="Introduction">
+  <div class="container-x relative">
+    <div class="grid items-center gap-14 lg:grid-cols-[7fr_5fr] lg:gap-10">
+      <div>
+        <p class="kicker text-ink-3" data-hero-item>
+          sub·strate <span class="normal-case tracking-normal">/ˈsʌb.streɪt/</span>
+          <span aria-hidden="true">&nbsp;—&nbsp;</span>the layer beneath
+        </p>
+        <h1
+          class="display mt-7 text-[2.9rem] leading-[1.02] text-ink sm:text-6xl lg:text-[4.6rem]"
+          data-hero-item
+        >
+          We engineer the complex systems everything else stands on.
+        </h1>
+        <p class="mt-7 max-w-xl text-lg leading-relaxed text-ink-2" data-hero-item>
+          Substrate is an engineering-first technology partner. We architect, build, and operate
+          cloud platforms, data systems, and AI-native software for enterprises, governments, and
+          scaleups.
+        </p>
+        <div class="mt-10 flex flex-wrap items-center gap-4" data-hero-item>
+          <Button href="/#contact">Start a conversation</Button>
+          <Button href="/#capabilities" variant="secondary">Explore capabilities</Button>
+        </div>
+      </div>
+
+      <!-- Signature: the substrate — four strata of a modern platform -->
+      <figure class="mx-auto w-full max-w-[26rem] lg:max-w-none" data-hero-item>
+        <svg
+          viewBox="0 0 460 420"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          role="img"
+          aria-labelledby="hero-strata-title"
+          class="w-full"
+        >
+          <title id="hero-strata-title">
+            Cross-section of a modern platform: experience, services, and data layers resting on an
+            infrastructure substrate.
+          </title>
+
+          <!-- descent line carrying pulses through the stack -->
+          <line
+            x1="250" y1="28" x2="250" y2="360"
+            stroke="var(--c-line-2)" stroke-width="1" stroke-dasharray="2 5"
+          ></line>
+          <circle data-pulse r="3.5" cx="250" cy="30" fill="var(--c-accent)"></circle>
+          <circle data-pulse-2 r="2.5" cx="250" cy="30" fill="var(--c-accent)" opacity="0.55"></circle>
+
+          <!-- Layer: Experience -->
+          <g data-layer>
+            <path
+              d="M250 8 L390 64 L250 120 L110 64 Z"
+              fill="var(--c-paper)" stroke="var(--c-ink-3)" stroke-width="1.1"
+            ></path>
+            <circle cx="250" cy="42" r="2.2" fill="var(--c-ink-3)"></circle>
+            <circle cx="300" cy="64" r="2.2" fill="var(--c-ink-3)"></circle>
+            <circle cx="200" cy="64" r="2.2" fill="var(--c-ink-3)"></circle>
+            <line x1="110" y1="64" x2="64" y2="64" stroke="var(--c-line-2)" stroke-width="1"></line>
+            <text x="58" y="67" text-anchor="end" class="stratum-label">EXPERIENCE</text>
+          </g>
+
+          <!-- Layer: Services -->
+          <g data-layer>
+            <path
+              d="M250 88 L390 144 L250 200 L110 144 Z"
+              fill="var(--c-paper)" stroke="var(--c-ink-3)" stroke-width="1.1"
+            ></path>
+            <path d="M250 128 l22 8.8 -22 8.8 -22 -8.8 Z" fill="none" stroke="var(--c-ink-3)" stroke-width="1"></path>
+            <path d="M292 145 l14 5.6 -14 5.6 -14 -5.6 Z" fill="none" stroke="var(--c-ink-3)" stroke-width="1"></path>
+            <path d="M208 145 l14 5.6 -14 5.6 -14 -5.6 Z" fill="none" stroke="var(--c-ink-3)" stroke-width="1"></path>
+            <line x1="110" y1="144" x2="64" y2="144" stroke="var(--c-line-2)" stroke-width="1"></line>
+            <text x="58" y="147" text-anchor="end" class="stratum-label">SERVICES</text>
+          </g>
+
+          <!-- Layer: Data -->
+          <g data-layer>
+            <path
+              d="M250 168 L390 224 L250 280 L110 224 Z"
+              fill="var(--c-paper)" stroke="var(--c-ink-3)" stroke-width="1.1"
+            ></path>
+            <ellipse cx="250" cy="222" rx="26" ry="10" fill="none" stroke="var(--c-ink-3)" stroke-width="1"></ellipse>
+            <path d="M224 222 v10 a26 10 0 0 0 52 0 v-10" fill="none" stroke="var(--c-ink-3)" stroke-width="1"></path>
+            <line x1="110" y1="224" x2="64" y2="224" stroke="var(--c-line-2)" stroke-width="1"></line>
+            <text x="58" y="227" text-anchor="end" class="stratum-label">DATA</text>
+          </g>
+
+          <!-- Layer: Infrastructure — the substrate, in cobalt -->
+          <g data-layer>
+            <path
+              d="M250 248 L390 304 L250 360 L110 304 Z"
+              fill="var(--c-accent-soft)" stroke="var(--c-accent)" stroke-width="1.3"
+            ></path>
+            <path d="M195 282 l36 14 M231 268 l36 14 M269 268 l-36 28" stroke="var(--c-accent)" stroke-width="1" opacity="0.6"></path>
+            <circle cx="250" cy="304" r="2.4" fill="var(--c-accent)"></circle>
+            <line x1="110" y1="304" x2="64" y2="304" stroke="var(--c-accent)" stroke-width="1" opacity="0.5"></line>
+            <text x="58" y="307" text-anchor="end" class="stratum-label stratum-label-accent">SUBSTRATE</text>
+          </g>
+
+          <!-- ground shadow -->
+          <ellipse cx="250" cy="386" rx="130" ry="14" fill="var(--c-paper-2)" data-layer></ellipse>
+        </svg>
+        <figcaption class="sr-only">
+          Substrate builds and operates the infrastructure layer that experience, service, and data
+          layers depend on.
+        </figcaption>
+      </figure>
+    </div>
+
+    <!-- trust indicators -->
+    <div class="mt-20 border-t border-line pt-7 md:mt-24" data-hero-item>
+      <p class="kicker text-ink-3">Trusted by platform teams at</p>
+      <ul class="mt-5 flex flex-wrap items-baseline gap-x-10 gap-y-3" aria-label="Client placeholder logos">
+        {
+          trusted.map((name) => (
+            <li class="display text-[0.95rem] tracking-[0.02em] text-ink-3 select-none">{name}</li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Fine engineering grid + a slow-drifting cobalt field, both whisper-quiet */
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(to right, var(--c-line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--c-line) 1px, transparent 1px);
+    background-size: 72px 72px;
+    opacity: 0.42;
+    mask-image: radial-gradient(ellipse 90% 80% at 50% 0%, black 30%, transparent 75%);
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: -12%;
+    width: 55%;
+    height: 70%;
+    background: radial-gradient(closest-side, color-mix(in srgb, var(--c-accent) 9%, transparent), transparent);
+    animation: hero-drift 22s ease-in-out infinite alternate;
+    pointer-events: none;
+  }
+  @keyframes hero-drift {
+    from { transform: translate3d(0, 0, 0) scale(1); }
+    to { transform: translate3d(-6%, 8%, 0) scale(1.12); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero::after { animation: none; }
+  }
+
+  .stratum-label {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    fill: var(--c-ink-3);
+  }
+  .stratum-label-accent { fill: var(--c-accent); }
+</style>
+
+<script>
+  import { gsap, prefersReducedMotion } from '../../scripts/motion';
+
+  if (!prefersReducedMotion()) {
+    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    tl.from('[data-hero-item]', { y: 26, opacity: 0, duration: 0.8, stagger: 0.09 }, 0.05);
+    // strata assemble bottom-up: the substrate arrives first, everything rests on it
+    const layers = gsap.utils.toArray<Element>('.hero [data-layer]').reverse();
+    tl.from(layers, { y: -18, opacity: 0, duration: 0.7, stagger: 0.12 }, 0.25);
+
+    // pulses descend through the stack continuously
+    gsap.to('[data-pulse]', { attr: { cy: 358 }, duration: 3.2, ease: 'none', repeat: -1, delay: 1.2 });
+    gsap.to('[data-pulse-2]', { attr: { cy: 358 }, duration: 3.2, ease: 'none', repeat: -1, delay: 2.8 });
+  }
+</script>

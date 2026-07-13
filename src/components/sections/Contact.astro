@@ -1,0 +1,194 @@
+---
+import SectionHeading from '../SectionHeading.astro';
+import Button from '../Button.astro';
+import { site } from '../../data/site';
+
+/*
+ * Final graphite band — it runs straight into the footer, so the page
+ * ends in continuous bedrock. The depth gauge pays off the section
+ * numbering: every index the visitor scrolled past, on one borehole.
+ */
+const steps = [
+  {
+    ref: '01',
+    text: 'An engineer replies within two working days. Not a sequence, not a bot.',
+  },
+  {
+    ref: '02',
+    text: 'A working session on your architecture — under NDA, no deck required.',
+  },
+  {
+    ref: '03',
+    text: 'A proposal with scope, dates, and numbers — or a straight “we’re not the right fit.”',
+  },
+];
+
+const depths = [
+  { y: 95, label: '01 — SCALE' },
+  { y: 150, label: '02 — CAPABILITIES' },
+  { y: 205, label: '03 — INDUSTRIES' },
+  { y: 260, label: '04 — TECHNOLOGY' },
+  { y: 315, label: '05 — PROCESS' },
+  { y: 370, label: '06 — WORK' },
+  { y: 425, label: '07 — INSIGHTS' },
+];
+---
+
+<section id="contact" class="bg-graphite py-24 md:py-36" aria-labelledby="contact-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="contact-heading"
+      tone="graphite"
+      index="08"
+      label="Contact"
+      title="You’ve reached the substrate."
+      lede="The bottom of the page, the start of the work. Tell us what’s slow, what’s fragile, or what you can’t ship yet — it lands with an engineer, not a sales queue."
+    />
+
+    <div class="mt-14 grid gap-x-20 gap-y-16 md:mt-16 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]">
+      <div>
+        <div class="flex flex-wrap items-center gap-x-7 gap-y-4" data-reveal>
+          <Button href={`mailto:${site.email}`}>Start a conversation</Button>
+          <a
+            href={`mailto:${site.email}`}
+            class="font-mono text-sm tracking-[0.06em] text-accent-bright transition-colors hover:text-graphite-fg"
+          >
+            {site.email}
+          </a>
+        </div>
+
+        <div class="mt-14" data-reveal-group>
+          <p class="kicker text-graphite-fg-2" data-reveal>What happens next</p>
+          <ol class="mt-2">
+            {
+              steps.map((step) => (
+                <li
+                  class="grid grid-cols-[52px_minmax(0,1fr)] gap-x-5 border-b border-graphite-line py-5"
+                  data-reveal
+                >
+                  <span class="font-mono text-sm text-accent-bright">R-{step.ref}</span>
+                  <p class="text-[0.98rem] leading-relaxed text-graphite-fg-2">{step.text}</p>
+                </li>
+              ))
+            }
+          </ol>
+          <p class="mt-6 font-mono text-xs leading-loose tracking-[0.12em] text-graphite-fg-2" data-reveal>
+            LONDON · SINGAPORE · TORONTO — REPLIES IN YOUR TIMEZONE.
+          </p>
+        </div>
+      </div>
+
+      <!-- the borehole: every depth marker the visitor scrolled past -->
+      <figure class="mx-auto w-full max-w-[320px] lg:mx-0 lg:justify-self-end" data-depth-gauge data-reveal>
+        <svg
+          viewBox="0 0 300 560"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          role="img"
+          aria-label="Depth gauge: a borehole descending past every section of this page — scale, capabilities, industries, technology, process, work, insights — ending at bedrock, marked contact, you are here"
+          class="h-auto w-full"
+        >
+          <path data-draw d="M20 40 H280" stroke="var(--c-graphite-line)" stroke-width="1.2"></path>
+          <text x="280" y="28" text-anchor="end" class="g-label">SURFACE — 00</text>
+
+          <path data-draw d="M70 40 V480" stroke="var(--c-graphite-fg-2)" stroke-width="1.2"></path>
+          <path data-flow d="M70 40 V480" stroke="var(--c-accent-bright)" stroke-width="1.8" stroke-linecap="round"></path>
+
+          {
+            depths.map((d) => (
+              <g data-node>
+                <path d={`M70 ${d.y} H84`} stroke="var(--c-graphite-line)" stroke-width="1.2" />
+                <text x="94" y={d.y + 3.5} class="g-label">
+                  {d.label}
+                </text>
+              </g>
+            ))
+          }
+
+          <!-- bedrock -->
+          <path data-draw d="M28 504 C 70 496, 120 510, 165 502 C 210 494, 250 506, 276 500" stroke="var(--c-graphite-line)" stroke-width="1.1"></path>
+          <path data-draw d="M34 528 C 80 522, 130 534, 175 526 C 218 519, 252 530, 272 524" stroke="var(--c-graphite-line)" stroke-width="1.1"></path>
+
+          <g data-node>
+            <circle data-marker-ring cx="70" cy="480" r="10" stroke="var(--c-accent-bright)" stroke-width="1"></circle>
+            <circle cx="70" cy="480" r="4.5" fill="var(--c-accent-bright)"></circle>
+            <text x="94" y="484" class="g-label g-label-accent">08 — CONTACT · YOU ARE HERE</text>
+          </g>
+        </svg>
+        <figcaption class="mt-4 font-mono text-xs tracking-[0.12em] text-graphite-fg-2">
+          FIG. 08 — BOREHOLE LOG, THIS PAGE.
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<style>
+  .g-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    fill: var(--c-graphite-fg-2);
+  }
+  .g-label-accent {
+    fill: var(--c-accent-bright);
+  }
+</style>
+
+<script>
+  import { gsap, ScrollTrigger, prefersReducedMotion } from '../../scripts/motion';
+
+  const gauge = document.querySelector<HTMLElement>('[data-depth-gauge]');
+  if (gauge && !prefersReducedMotion()) {
+    const draws = Array.from(gauge.querySelectorAll<SVGGeometryElement>('[data-draw]'));
+    draws.forEach((p) => {
+      const len = p.getTotalLength();
+      p.style.strokeDasharray = `${len}`;
+      p.style.strokeDashoffset = `${len}`;
+    });
+    const flow = gauge.querySelector<SVGGeometryElement>('[data-flow]');
+    if (flow) flow.style.opacity = '0';
+
+    ScrollTrigger.create({
+      trigger: gauge,
+      start: 'top 70%',
+      once: true,
+      onEnter: () => {
+        const tl = gsap.timeline();
+        tl.to(draws, {
+          strokeDashoffset: 0,
+          duration: 0.9,
+          stagger: 0.1,
+          ease: 'power1.inOut',
+          onComplete: () => draws.forEach((p) => (p.style.strokeDasharray = 'none')),
+        });
+        tl.from(
+          gauge.querySelectorAll('[data-node]'),
+          { opacity: 0, x: -10, duration: 0.45, stagger: 0.09, ease: 'power2.out' },
+          0.5
+        );
+
+        // a survey pulse keeps descending the bore to the marker
+        tl.add(() => {
+          if (flow) {
+            const len = flow.getTotalLength();
+            const period = len + 14;
+            gsap.set(flow, { strokeDasharray: `14 ${len}`, strokeDashoffset: 14, opacity: 1 });
+            gsap.to(flow, {
+              strokeDashoffset: 14 - period,
+              duration: 2.6,
+              ease: 'none',
+              repeat: -1,
+              repeatDelay: 0.6,
+            });
+          }
+          gsap.fromTo(
+            gauge.querySelector('[data-marker-ring]'),
+            { attr: { r: 6 }, opacity: 0.9 },
+            { attr: { r: 17 }, opacity: 0, duration: 2, ease: 'power1.out', repeat: -1 }
+          );
+        });
+      },
+    });
+  }
+</script>

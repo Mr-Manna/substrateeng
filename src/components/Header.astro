@@ -1,0 +1,87 @@
+---
+import Logo from './Logo.astro';
+import ThemeToggle from './islands/ThemeToggle';
+import MobileNav from './islands/MobileNav';
+import { navItems } from '../data/site';
+---
+
+<header id="site-header" class="fixed inset-x-0 top-0 z-50 border-b border-transparent">
+  <div class="container-x flex h-16 items-center justify-between gap-6 md:h-[4.5rem]">
+    <a href="/" class="text-ink" aria-label="Substrate — home">
+      <Logo class="h-7 w-7" />
+    </a>
+
+    <nav class="hidden md:block" aria-label="Primary">
+      <ul class="flex items-center gap-7">
+        {
+          navItems.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                class="nav-link relative text-[0.9rem] font-medium text-ink-2 transition-colors hover:text-ink"
+              >
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div class="flex items-center gap-2.5">
+      <ThemeToggle client:load />
+      <a
+        href="/#contact"
+        class="hidden rounded-full border border-line-2 px-4.5 py-2 text-sm font-medium text-ink transition-colors hover:border-ink-2 hover:bg-paper-2 md:inline-flex"
+      >
+        Start a conversation
+      </a>
+      <MobileNav client:load items={navItems} />
+    </div>
+  </div>
+</header>
+
+<style>
+  #site-header.is-scrolled {
+    background-color: color-mix(in srgb, var(--c-paper) 84%, transparent);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    border-color: var(--c-line);
+  }
+  #site-header {
+    transition:
+      background-color 0.3s ease,
+      border-color 0.3s ease;
+  }
+
+  /* underline slide-in on hover/focus */
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    height: 1.5px;
+    width: 100%;
+    background: var(--c-accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+  }
+  .nav-link:hover::after,
+  .nav-link:focus-visible::after {
+    transform: scaleX(1);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    #site-header,
+    .nav-link::after {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  const header = document.getElementById('site-header');
+  const update = () => header?.classList.toggle('is-scrolled', window.scrollY > 8);
+  update();
+  window.addEventListener('scroll', update, { passive: true });
+</script>

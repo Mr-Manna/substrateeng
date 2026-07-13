@@ -1,0 +1,50 @@
+---
+interface Props {
+  /** Depth marker: the homepage reads as a descent through Substrate's stack. */
+  index: string;
+  label: string;
+  title: string;
+  lede?: string;
+  tone?: 'paper' | 'graphite';
+  /** id for the h2, so sections can reference it via aria-labelledby */
+  id?: string;
+}
+
+const { index, label, title, lede, tone = 'paper', id } = Astro.props;
+const onGraphite = tone === 'graphite';
+---
+
+<div data-reveal-group>
+  <div class:list={['border-t pt-6', onGraphite ? 'border-graphite-line' : 'border-line']}>
+    <p
+      class:list={['kicker', onGraphite ? 'text-graphite-fg-2' : 'text-ink-3']}
+      data-reveal
+    >
+      <span class:list={[onGraphite ? 'text-accent-bright' : 'text-accent']}>{index}</span>
+      <span aria-hidden="true">&nbsp;—&nbsp;</span>{label}
+    </p>
+    <h2
+      id={id}
+      class:list={[
+        'display mt-6 max-w-4xl text-4xl md:text-[3.4rem]',
+        onGraphite ? 'text-graphite-fg' : 'text-ink',
+      ]}
+      data-reveal
+    >
+      {title}
+    </h2>
+    {
+      lede && (
+        <p
+          class:list={[
+            'mt-6 max-w-2xl text-lg leading-relaxed',
+            onGraphite ? 'text-graphite-fg-2' : 'text-ink-2',
+          ]}
+          data-reveal
+        >
+          {lede}
+        </p>
+      )
+    }
+  </div>
+</div>

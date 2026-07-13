@@ -1,0 +1,303 @@
+---
+import SectionHeading from '../SectionHeading.astro';
+import { industries } from '../../data/industries';
+
+/*
+ * Blueprint vignettes, one per sector — drawn in the same line language as
+ * the hero strata and the Scale diagram. [data-draw] paths draw themselves
+ * when a panel activates; [data-flow] paths carry a looping cobalt pulse
+ * (dashed lines stay static — the draw animation would erase the dashes).
+ */
+const vignettes: Record<string, string> = {
+  fs: `
+    <path d="M48 36 V196 H344" stroke="var(--c-ink-3)" stroke-width="1"/>
+    <path d="M48 76 H344 M48 116 H344 M48 156 H344" stroke="var(--c-line)" stroke-width="1"/>
+    <path d="M76 196 V182 M110 196 V174 M144 196 V186 M178 196 V170 M212 196 V180 M246 196 V166 M280 196 V176 M314 196 V172" stroke="var(--c-ink-3)" stroke-width="9" opacity="0.25"/>
+    <path d="M48 88 H344" stroke="var(--c-accent)" stroke-width="1" stroke-dasharray="3 6" opacity="0.55"/>
+    <text x="344" y="80" text-anchor="end" class="v-label v-label-accent">RISK LIMIT</text>
+    <path data-draw d="M48 168 L84 150 L116 160 L152 118 L188 134 L224 98 L260 110 L300 72 L344 84" stroke="var(--c-ink)" stroke-width="1.4" stroke-linejoin="round"/>
+    <path data-flow d="M48 168 L84 150 L116 160 L152 118 L188 134 L224 98 L260 110 L300 72 L344 84" stroke="var(--c-accent)" stroke-width="1.8" stroke-linecap="round"/>
+    <text x="48" y="218" class="v-label">T+0</text>
+    <text x="344" y="218" text-anchor="end" class="v-label">T+1MS</text>
+  `,
+  gov: `
+    <path data-draw d="M70 96 L128 62 L186 96 Z" stroke="var(--c-ink)" stroke-width="1.2" stroke-linejoin="round"/>
+    <path data-draw d="M84 104 V156 M113 104 V156 M143 104 V156 M172 104 V156" stroke="var(--c-ink)" stroke-width="1.1"/>
+    <path data-draw d="M78 96 H178 M78 104 H178 M70 164 H186 M64 172 H192" stroke="var(--c-ink-3)" stroke-width="1"/>
+    <text x="128" y="196" text-anchor="middle" class="v-label">REGISTRY</text>
+    <circle cx="312" cy="66" r="11" stroke="var(--c-ink-3)" stroke-width="1.1"/>
+    <circle cx="312" cy="66" r="2.2" fill="var(--c-ink-3)"/>
+    <circle cx="326" cy="126" r="11" stroke="var(--c-ink-3)" stroke-width="1.1"/>
+    <circle cx="326" cy="126" r="2.2" fill="var(--c-ink-3)"/>
+    <circle cx="312" cy="186" r="11" stroke="var(--c-ink-3)" stroke-width="1.1"/>
+    <circle cx="312" cy="186" r="2.2" fill="var(--c-ink-3)"/>
+    <text x="318" y="226" text-anchor="middle" class="v-label">CITIZENS</text>
+    <path data-draw d="M192 118 C 240 112, 258 74, 299 68" stroke="var(--c-ink-3)" stroke-width="1"/>
+    <path data-draw d="M192 126 H313" stroke="var(--c-ink-3)" stroke-width="1"/>
+    <path data-draw d="M192 134 C 240 140, 260 180, 299 184" stroke="var(--c-ink-3)" stroke-width="1"/>
+    <path data-flow d="M192 118 C 240 112, 258 74, 299 68" stroke="var(--c-accent)" stroke-width="1.6"/>
+    <path data-flow d="M192 126 H313" stroke="var(--c-accent)" stroke-width="1.6"/>
+    <path data-flow d="M192 134 C 240 140, 260 180, 299 184" stroke="var(--c-accent)" stroke-width="1.6"/>
+    <path d="M247 114 l10 4.5 v9 c0 6.5 -4.5 10 -10 12.5 c-5.5 -2.5 -10 -6 -10 -12.5 v-9 Z" fill="var(--c-paper-2)" stroke="var(--c-accent)" stroke-width="1.1"/>
+  `,
+  hc: `
+    <rect x="28" y="40" width="324" height="150" rx="8" stroke="var(--c-ink-3)" stroke-width="1.1"/>
+    <path d="M64 40 V190 M100 40 V190 M136 40 V190 M172 40 V190 M208 40 V190 M244 40 V190 M280 40 V190 M316 40 V190" stroke="var(--c-line)" stroke-width="1"/>
+    <text x="44" y="62" class="v-label v-label-accent">UPTIME 99.99</text>
+    <path data-draw d="M44 120 H96 l8 -14 l10 26 l8 -52 l10 66 l8 -40 l8 14 H196 l8 -10 l12 10 H268 l8 -14 l10 26 l8 -46 l9 56 l8 -36 l7 14 H336" stroke="var(--c-ink)" stroke-width="1.4" stroke-linejoin="round"/>
+    <path data-flow d="M44 120 H96 l8 -14 l10 26 l8 -52 l10 66 l8 -40 l8 14 H196 l8 -10 l12 10 H268 l8 -14 l10 26 l8 -46 l9 56 l8 -36 l7 14 H336" stroke="var(--c-accent)" stroke-width="1.8" stroke-linecap="round"/>
+    <text x="28" y="218" class="v-label">HL7 · FHIR R4 · DICOM</text>
+    <text x="352" y="218" text-anchor="end" class="v-label">AUDIT: ON</text>
+  `,
+  en: `
+    <path d="M16 180 H364" stroke="var(--c-ink-3)" stroke-width="1"/>
+    <path data-draw d="M86 180 L100 68 L114 180 M90 148 H110 M93 122 H107 M96 96 H104" stroke="var(--c-ink)" stroke-width="1.1"/>
+    <path data-draw d="M266 180 L280 68 L294 180 M270 148 H290 M273 122 H287 M276 96 H284" stroke="var(--c-ink)" stroke-width="1.1"/>
+    <path d="M16 90 C 44 110, 72 110, 100 86 C 160 138, 220 138, 280 86 C 308 110, 336 110, 364 90" stroke="var(--c-line-2)" stroke-width="1"/>
+    <path data-draw d="M16 76 C 44 96, 72 96, 100 72 C 160 124, 220 124, 280 72 C 308 96, 336 96, 364 76" stroke="var(--c-ink-3)" stroke-width="1"/>
+    <path data-flow d="M16 76 C 44 96, 72 96, 100 72 C 160 124, 220 124, 280 72 C 308 96, 336 96, 364 76" stroke="var(--c-accent)" stroke-width="1.8" stroke-linecap="round"/>
+    <text x="100" y="200" text-anchor="middle" class="v-label">SUBSTATION A</text>
+    <text x="280" y="200" text-anchor="middle" class="v-label">SUBSTATION B</text>
+    <path data-draw d="M48 222 q 14 -16 28 0 t 28 0 t 28 0 t 28 0 t 28 0 t 28 0 t 28 0 t 28 0" stroke="var(--c-accent)" stroke-width="1" opacity="0.7"/>
+    <text x="288" y="226" class="v-label v-label-accent">LOAD</text>
+  `,
+  log: `
+    <path data-draw d="M40 176 H92 V204 H40 Z M36 176 L66 156 L96 176" stroke="var(--c-ink)" stroke-width="1.2" stroke-linejoin="round"/>
+    <text x="66" y="228" text-anchor="middle" class="v-label">HUB</text>
+    <circle cx="178" cy="70" r="7" stroke="var(--c-ink-3)" stroke-width="1.1"/>
+    <circle cx="262" cy="146" r="7" stroke="var(--c-ink-3)" stroke-width="1.1"/>
+    <circle cx="330" cy="72" r="7" stroke="var(--c-ink-3)" stroke-width="1.1"/>
+    <text x="178" y="52" text-anchor="middle" class="v-label">PORT</text>
+    <text x="262" y="172" text-anchor="middle" class="v-label">DC 04</text>
+    <text x="330" y="54" text-anchor="middle" class="v-label">METRO</text>
+    <path d="M96 186 C 170 196, 226 176, 256 152" stroke="var(--c-line-2)" stroke-width="1" stroke-dasharray="4 4"/>
+    <path data-draw d="M92 170 C 120 130, 144 92, 171 74" stroke="var(--c-ink)" stroke-width="1.2"/>
+    <path data-draw d="M185 72 C 216 84, 238 116, 256 140" stroke="var(--c-ink)" stroke-width="1.2"/>
+    <path data-draw d="M269 142 C 292 130, 308 102, 324 78" stroke="var(--c-ink)" stroke-width="1.2"/>
+    <path data-flow d="M92 170 C 120 130, 144 92, 171 74" stroke="var(--c-accent)" stroke-width="1.6" stroke-linecap="round"/>
+    <path data-flow d="M185 72 C 216 84, 238 116, 256 140" stroke="var(--c-accent)" stroke-width="1.6" stroke-linecap="round"/>
+    <path data-flow d="M269 142 C 292 130, 308 102, 324 78" stroke="var(--c-accent)" stroke-width="1.6" stroke-linecap="round"/>
+  `,
+  rc: `
+    <path d="M48 36 V196 H344" stroke="var(--c-ink-3)" stroke-width="1"/>
+    <path d="M48 140 H344" stroke="var(--c-accent)" stroke-width="1" stroke-dasharray="3 6" opacity="0.55"/>
+    <text x="344" y="132" text-anchor="end" class="v-label v-label-accent">REORDER POINT</text>
+    <path data-draw d="M48 84 H92 V112 H136 V144 H180 V72 H224 V104 H268 V136 H312 V64 H336" stroke="var(--c-ink)" stroke-width="1.3"/>
+    <path data-draw d="M48 176 C 120 168, 176 132, 232 104 C 272 84, 312 64, 344 52" stroke="var(--c-ink-3)" stroke-width="1"/>
+    <path data-flow d="M48 176 C 120 168, 176 132, 232 104 C 272 84, 312 64, 344 52" stroke="var(--c-accent)" stroke-width="1.6" stroke-linecap="round"/>
+    <text x="56" y="72" class="v-label">STOCK</text>
+    <text x="344" y="44" text-anchor="end" class="v-label">DEMAND</text>
+  `,
+};
+---
+
+<section id="industries" class="py-24 md:py-36" aria-labelledby="industries-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="industries-heading"
+      index="03"
+      label="Industries"
+      title="Different surface. Same substrate."
+      lede="Regulated, high-stakes sectors are our home ground. The domain vocabulary changes; the demand for systems that cannot fail does not."
+    />
+
+    <div
+      class="mt-14 grid gap-8 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)] lg:gap-14"
+      data-industries
+      data-reveal
+    >
+      <div
+        role="tablist"
+        aria-label="Industries"
+        aria-orientation="vertical"
+        class="-mx-6 flex gap-1 overflow-x-auto px-6 pb-2 md:-mx-10 md:px-10 lg:mx-0 lg:flex-col lg:overflow-visible lg:px-0 lg:pb-0"
+      >
+        {
+          industries.map((ind, i) => (
+            <button
+              id={`industry-tab-${ind.id}`}
+              role="tab"
+              aria-selected={i === 0 ? 'true' : 'false'}
+              aria-controls={`industry-panel-${ind.id}`}
+              tabindex={i === 0 ? 0 : -1}
+              class="industry-tab flex shrink-0 cursor-pointer items-baseline gap-3 border-b-2 border-transparent px-4 py-3 text-left transition-colors lg:border-b-0 lg:border-l-2 lg:px-5"
+            >
+              <span class="font-mono text-xs text-ink-3">{String(i + 1).padStart(2, '0')}</span>
+              <span class="industry-tab-name font-display text-[1.02rem] font-semibold whitespace-nowrap text-ink-3 transition-colors lg:whitespace-normal">
+                {ind.name}
+              </span>
+            </button>
+          ))
+        }
+      </div>
+
+      <div>
+        {
+          industries.map((ind, i) => (
+            <div
+              id={`industry-panel-${ind.id}`}
+              role="tabpanel"
+              aria-labelledby={`industry-tab-${ind.id}`}
+              hidden={i !== 0}
+              class="industry-panel"
+            >
+              <div class="grid overflow-hidden rounded-lg border border-line md:grid-cols-2">
+                <div class="p-7 md:p-9">
+                  <h3 class="font-display text-2xl font-semibold text-ink">{ind.name}</h3>
+                  <p class="mt-4 text-[0.98rem] leading-relaxed text-ink-2">{ind.positioning}</p>
+                  <p class="kicker mt-8 text-ink-3">We build</p>
+                  <ul class="mt-3.5 flex flex-wrap gap-2">
+                    {ind.systems.map((system) => (
+                      <li class="rounded border border-line px-2.5 py-1 font-mono text-xs text-ink-2">
+                        {system}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <figure class="border-t border-line bg-paper-2 p-5 md:border-t-0 md:border-l">
+                  <svg
+                    viewBox="0 0 380 260"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    role="img"
+                    aria-label={`Line diagram: ${ind.name.toLowerCase()} systems`}
+                    class="h-auto w-full"
+                    set:html={vignettes[ind.id]}
+                  />
+                  <figcaption class="mt-2 px-1 font-mono text-[0.68rem] tracking-[0.12em] text-ink-3">
+                    {ind.caption}
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .industry-tab[aria-selected='true'] {
+    border-color: var(--c-accent);
+  }
+  .industry-tab[aria-selected='true'] .industry-tab-name,
+  .industry-tab:hover .industry-tab-name {
+    color: var(--c-ink);
+  }
+
+  /* set:html content is outside Astro's scoping — target it explicitly */
+  #industries :global(.v-label) {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    fill: var(--c-ink-3);
+  }
+  #industries :global(.v-label-accent) {
+    fill: var(--c-accent);
+  }
+</style>
+
+<script>
+  import { gsap, ScrollTrigger, prefersReducedMotion } from '../../scripts/motion';
+
+  const root = document.querySelector<HTMLElement>('[data-industries]');
+  if (root) {
+    const tabs = Array.from(root.querySelectorAll<HTMLButtonElement>('[role="tab"]'));
+    const panels = Array.from(root.querySelectorAll<HTMLElement>('[role="tabpanel"]'));
+    const motionOk = !prefersReducedMotion();
+    let flows: gsap.core.Tween[] = [];
+
+    const stopFlows = () => {
+      flows.forEach((t) => t.kill());
+      flows = [];
+    };
+
+    /** Set [data-draw] paths to their undrawn state (visible panel only). */
+    const prepDraws = (panel: HTMLElement) =>
+      panel.querySelectorAll<SVGPathElement>('[data-draw]').forEach((p) => {
+        const len = p.getTotalLength();
+        p.style.strokeDasharray = `${len}`;
+        p.style.strokeDashoffset = `${len}`;
+      });
+
+    const animateIn = (panel: HTMLElement) => {
+      stopFlows();
+      prepDraws(panel);
+      const draws = Array.from(panel.querySelectorAll<SVGPathElement>('[data-draw]'));
+
+      const tl = gsap.timeline();
+      tl.fromTo(
+        panel,
+        { opacity: 0, y: 12 },
+        { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out', clearProps: 'all' }
+      );
+      tl.to(
+        draws,
+        {
+          strokeDashoffset: 0,
+          duration: 0.7,
+          stagger: 0.1,
+          ease: 'power1.inOut',
+          onComplete: () => draws.forEach((p) => (p.style.strokeDasharray = 'none')),
+        },
+        0.1
+      );
+
+      // a cobalt pulse loops along each [data-flow] path while the panel is active
+      panel.querySelectorAll<SVGPathElement>('[data-flow]').forEach((p) => {
+        const len = p.getTotalLength();
+        const period = len + 16;
+        gsap.set(p, { strokeDasharray: `16 ${len}`, strokeDashoffset: 16, opacity: 1 });
+        flows.push(
+          gsap.to(p, {
+            strokeDashoffset: 16 - period,
+            duration: Math.max(2.6, len / 80),
+            ease: 'none',
+            repeat: -1,
+            delay: 0.6,
+          })
+        );
+      });
+    };
+
+    const select = (index: number, focus = true) => {
+      tabs.forEach((tab, i) => {
+        const active = i === index;
+        tab.setAttribute('aria-selected', String(active));
+        tab.tabIndex = active ? 0 : -1;
+        panels[i].hidden = !active;
+      });
+      if (focus) tabs[index].focus();
+      if (motionOk) animateIn(panels[index]);
+    };
+
+    tabs.forEach((tab, i) => {
+      tab.addEventListener('click', () => select(i, false));
+      tab.addEventListener('keydown', (e) => {
+        const dirs: Record<string, number> = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 };
+        let next: number | undefined;
+        if (e.key in dirs) next = (i + dirs[e.key] + tabs.length) % tabs.length;
+        else if (e.key === 'Home') next = 0;
+        else if (e.key === 'End') next = tabs.length - 1;
+        if (next !== undefined) {
+          e.preventDefault();
+          select(next);
+        }
+      });
+    });
+
+    // First vignette draws itself when the section scrolls into view.
+    // Without motion, everything stays fully drawn and tabs switch instantly.
+    if (motionOk) {
+      root.querySelectorAll<SVGPathElement>('[data-flow]').forEach((p) => (p.style.opacity = '0'));
+      prepDraws(panels[0]);
+      ScrollTrigger.create({
+        trigger: root,
+        start: 'top 75%',
+        once: true,
+        onEnter: () => animateIn(panels[0]),
+      });
+    }
+  }
+</script>

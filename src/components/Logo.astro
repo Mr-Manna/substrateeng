@@ -1,0 +1,23 @@
+---
+interface Props {
+  /** Wordmark color inherits from parent; pass a class to size the mark. */
+  class?: string;
+}
+const { class: className = 'h-6 w-6' } = Astro.props;
+---
+
+<span class="inline-flex items-center gap-2.5">
+  <svg
+    class={className}
+    viewBox="0 0 32 32"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true"
+  >
+    <rect width="32" height="32" rx="7" class="fill-graphite dark:fill-graphite-2"></rect>
+    <rect x="8" y="8.5" width="16" height="3.2" rx="1.1" fill="#EAECF1"></rect>
+    <rect x="8" y="14.4" width="16" height="3.2" rx="1.1" fill="#8B95A7"></rect>
+    <rect x="8" y="20.3" width="16" height="3.2" rx="1.1" fill="#2447F5"></rect>
+  </svg>
+  <span class="display text-[1.05rem] tracking-tight">Substrate</span>
+</span>

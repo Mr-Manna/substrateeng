@@ -1,0 +1,152 @@
+@import '@fontsource-variable/archivo/wdth.css';
+@import '@fontsource-variable/instrument-sans';
+@import '@fontsource/ibm-plex-mono/400.css';
+@import '@fontsource/ibm-plex-mono/500.css';
+
+@import 'tailwindcss';
+
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+/*
+  Substrate design tokens — "the layer beneath".
+  Semantic vars flip with [data-theme]; graphite-* are always-dark
+  (used by inverted sections in both themes).
+*/
+:root {
+  --c-paper: #ffffff;
+  --c-paper-2: #f5f6f8;
+  --c-ink: #101319;
+  --c-ink-2: #4c5364;
+  --c-ink-3: #757d8f;
+  --c-line: #e4e7ec;
+  --c-line-2: #d3d7df;
+  --c-accent: #2447f5;
+  --c-accent-hover: #1d3ad2;
+  --c-accent-soft: #eceffe;
+
+  --c-graphite: #0c0f14;
+  --c-graphite-2: #131820;
+  --c-graphite-line: #242b37;
+  --c-graphite-fg: #eaecf1;
+  --c-graphite-fg-2: #9aa3b2;
+  --c-accent-bright: #7d96ff;
+}
+
+[data-theme='dark'] {
+  --c-paper: #0c0f14;
+  --c-paper-2: #11151c;
+  --c-ink: #eaecf1;
+  --c-ink-2: #a3abba;
+  --c-ink-3: #7c8494;
+  --c-line: #222834;
+  --c-line-2: #2e3543;
+  --c-accent: #7d96ff;
+  --c-accent-hover: #9dafff;
+  --c-accent-soft: #16204a;
+}
+
+@theme inline {
+  --color-*: initial;
+  --color-paper: var(--c-paper);
+  --color-paper-2: var(--c-paper-2);
+  --color-ink: var(--c-ink);
+  --color-ink-2: var(--c-ink-2);
+  --color-ink-3: var(--c-ink-3);
+  --color-line: var(--c-line);
+  --color-line-2: var(--c-line-2);
+  --color-accent: var(--c-accent);
+  --color-accent-hover: var(--c-accent-hover);
+  --color-accent-soft: var(--c-accent-soft);
+  --color-graphite: var(--c-graphite);
+  --color-graphite-2: var(--c-graphite-2);
+  --color-graphite-line: var(--c-graphite-line);
+  --color-graphite-fg: var(--c-graphite-fg);
+  --color-graphite-fg-2: var(--c-graphite-fg-2);
+  --color-accent-bright: var(--c-accent-bright);
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-transparent: transparent;
+  --color-current: currentColor;
+
+  --font-display: 'Archivo Variable', 'Archivo', system-ui, sans-serif;
+  --font-sans: 'Instrument Sans Variable', 'Instrument Sans', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'Cascadia Mono', monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background-color: var(--c-paper);
+  color: var(--c-ink);
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background-color: var(--c-accent);
+  color: #ffffff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--c-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+@layer components {
+  /* 12-col page container */
+  .container-x {
+    margin-inline: auto;
+    width: 100%;
+    max-width: 95rem;
+    padding-inline: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .container-x {
+      padding-inline: 2.5rem;
+    }
+  }
+
+  /* Display headline: expanded Archivo, tight leading */
+  .display {
+    font-family: var(--font-display);
+    font-stretch: 118%;
+    font-weight: 640;
+    letter-spacing: -0.022em;
+    line-height: 1.04;
+    text-wrap: balance;
+  }
+
+  /* Mono depth-marker kicker: "03 — Capabilities" */
+  .kicker {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+}
+
+@layer utilities {
+  /* Pre-reveal state applied only when motion is enabled (JS adds .motion-ok) */
+  .motion-ok [data-reveal] {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  .motion-ok [data-reveal].is-revealed {
+    opacity: 1;
+    transform: none;
+  }
+}
