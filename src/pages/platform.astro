@@ -1,0 +1,196 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+import SectionHeading from '../components/SectionHeading.astro';
+import { capabilities } from '../data/capabilities';
+
+const platformCapability = capabilities.find(cap => cap.glyph === 'platform');
+
+const platformPath = [
+  { name: 'Home', href: '/' },
+  { name: 'Capabilities', href: '/#capabilities' },
+  { name: 'Platform Engineering', href: '' },
+];
+---
+
+<Base
+  title="Substrate — Platform Engineering"
+  description="Substrate architects internal developer platforms with golden paths, self-service infrastructure, and paved roads to production."
+>
+<section class="py-20 md:py-32" aria-labelledby="platform-heading">
+  <div class="container-x">
+    <nav class="mb-8 text-sm text-ink-3">
+      {
+        platformPath.map((crumb, idx) => (
+          <span>
+            {idx > 0 && ' / '}
+            {crumb.href && idx < platformPath.length - 1
+              ? <a href={crumb.href} class="text-accent hover:underline">{crumb.name}</a>
+              : <span class={idx === platformPath.length - 1 ? 'font-medium text-ink' : ''}>{crumb.name}</span>
+            }
+          </span>
+        ))
+      }
+    </nav>
+
+    <SectionHeading
+      id="platform-heading"
+      index="02"
+      label="Platform Engineering"
+      title="Internal developer platforms with golden paths, paved roads to production."
+    />
+
+    <div class="mt-12 md:mt-16 grid items-start gap-14 md:grid-cols-[1fr_380px] md:items-start">
+      <div>
+        <div class="relative rounded-lg border border-line-2 bg-paper p-8 md:rounded-xl md:p-10" data-reveal>
+          <div class="font-mono text-xs text-accent mb-6">PLATFORM ENGINEERING</div>
+          <h2 class="text-2xl md:text-3xl font-display font-semibold text-ink mb-6">
+            Where developer experience meets platform reliability.
+          </h2>
+          <p class="text-[1.05rem] leading-relaxed text-ink-2 mb-8">
+            Platform Engineering transforms the tension between developer autonomy and operational stability into a foundation you can actually build on. Think of it as internal developer platforms with golden paths that are as clear as a ski trail in Colorado versus the entire mountain range of possibility.
+          </p>
+
+          <h3 class="text-xl font-display font-semibold text-ink mt-10 mb-4">The Golden Path Principle</h3>
+          <p class="text-[1.05rem] leading-relaxed text-ink-2 mb-6">
+            Platform Engineering at Substrate means "paved roads, not scorched earth." We architect internal developer platforms that provide curated, well-tested pathways to production so developers don't have to reinvent the wheel every Monday morning. Each path is cleared, maintained, and monitored.
+          </p>
+
+          <h3 class="text-xl font-display font-semibold text-ink mt-8 mb-4">Why This Matters</h3>
+          <p class="text-[1.05rem] leading-relaxed text-ink-2 mb-6">
+            The true cost of choice isn't the sum of its parts, it's the computational entropy of dealing with infinite configuration possibilities. Engineers are drowning in tooling decisions, environment setup, and compliance requirements. Your platform becomes the one thing everyone can agree on, while still letting teams ship code.
+          </p>
+
+          <h3 class="text-xl font-display font-semibold text-ink mt-8 mb-4">Our Approach</h3>
+          <p class="text-[1.05rem] leading-relaxed text-ink-2 mb-6">
+            We build platforms with embedded best practices, continuous reliability testing, and the developer experience principle that if it's not intuitive for the junior engineer, it's not ready for production. Everything ships with observability by default, SLOs baked into the build process, and the ability to operate at scale without asking permission.
+          </p>
+
+          <h3 class="text-xl font-display font-semibold text-accent mt-10 mb-4">Core Capabilities</h3>
+          <ul class="space-y-4">
+            <li class="flex items-start">
+              <span class="text-accent mr-3">&#10003;</span>
+              <span class="text-[1.05rem] text-ink-2"><strong class="font-semibold text-ink">Self-service infrastructure</strong> &mdash; Automated provisioning of environments, services, and dependencies without manual intervention.</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-accent mr-3">&#10003;</span>
+              <span class="text-[1.05rem] text-ink-2"><strong class="font-semibold text-ink">Golden paths to production</strong> &mdash; Curated, tested deployment workflows that are error-proof and self-documenting.</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-accent mr-3">&#10003;</span>
+              <span class="text-[1.05rem] text-ink-2"><strong class="font-semibold text-ink">Paved roads</strong> &mdash; Standard infrastructure, tooling, and processes that scale across the entire organization.</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-accent mr-3">&#10003;</span>
+              <span class="text-[1.05rem] text-ink-2"><strong class="font-semibold text-ink">Developer joy</strong> &mdash; Interfaces designed for the junior engineer, with progressive disclosure and comprehensive documentation.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="mt-10 grid gap-8 md:grid-cols-2" data-reveal-group>
+          <div class="rounded-lg border border-line-2 bg-paper p-7">
+            <div class="font-mono text-xs text-accent mb-4">NEEDS ASSESSMENT</div>
+            <h3 class="text-xl font-display font-semibold text-ink mb-4">Current State Analysis</h3>
+            <p class="text-[.95rem] leading-relaxed text-ink-2 mb-6">
+              We start by mapping your existing toolchains, identifying friction points, and creating a platform backlog that delivers immediate value while solving long-term architectural debt. The assessment includes a 30, 90, and 365-day roadmap.
+            </p>
+            <ul class="space-y-3">
+              <li class="flex items-center">
+                <span class="block h-2 w-2 shrink-0 rounded-full bg-accent mr-3"></span>
+                <span class="text-[.92rem] text-ink-2">Toolchain inventory &amp; pain points</span>
+              </li>
+              <li class="flex items-center">
+                <span class="block h-2 w-2 shrink-0 rounded-full bg-accent mr-3"></span>
+                <span class="text-[.92rem] text-ink-2">Compliance &amp; security gaps</span>
+              </li>
+              <li class="flex items-center">
+                <span class="block h-2 w-2 shrink-0 rounded-full bg-accent mr-3"></span>
+                <span class="text-[.92rem] text-ink-2">Team capability assessment</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="rounded-lg border border-line-2 bg-paper p-7">
+            <div class="font-mono text-xs text-accent mb-4">DELIVERY MODEL</div>
+            <h3 class="text-xl font-display font-semibold text-ink mb-4">Phase 1: Foundation</h3>
+            <p class="text-[.95rem] leading-relaxed text-ink-2 mb-6">
+              Fast-moving teams need platform results fast. We deploy the most valuable platform components first, giving teams immediate improvements while laying the groundwork for scale.
+            </p>
+            <ul class="space-y-3">
+              <li class="flex items-center">
+                <span class="block h-2 w-2 shrink-0 rounded-full bg-accent mr-3"></span>
+                <span class="text-[.92rem] text-ink-2">Standardized environments (1 week)</span>
+              </li>
+              <li class="flex items-center">
+                <span class="block h-2 w-2 shrink-0 rounded-full bg-accent mr-3"></span>
+                <span class="text-[.92rem] text-ink-2">Centralized secrets management (2 weeks)</span>
+              </li>
+              <li class="flex items-center">
+                <span class="block h-2 w-2 shrink-0 rounded-full bg-accent mr-3"></span>
+                <span class="text-[.92rem] text-ink-2">CI/CD platform setup (3 weeks)</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <aside class="sticky top-24 space-y-8">
+        <div class="rounded-lg border border-line-2 bg-paper p-7">
+          <div class="font-mono text-xs text-accent mb-4">QUICK SUMMARY</div>
+          <h3 class="text-xl font-display font-semibold text-ink mb-5">Platform Engineering</h3>
+          <ul class="space-y-5">
+            <li>
+              <p class="text-[.92rem] font-semibold text-ink mb-2">Target Timeline</p>
+              <p class="text-[.92rem] text-ink-2">Day 1&ndash;90 (Foundational) &rarr; 3&ndash;6 months</p>
+            </li>
+            <li>
+              <p class="text-[.92rem] font-semibold text-ink mb-2">Team Size</p>
+              <p class="text-[.92rem] text-ink-2">4&ndash;8 engineers (platform + ops focus)</p>
+            </li>
+            <li>
+              <p class="text-[.92rem] font-semibold text-ink mb-2">ROI Target</p>
+              <p class="text-[.92rem] text-ink-2">3&times; developer throughput, 50% deployment frequency</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="rounded-lg border border-line-2 bg-paper p-7">
+          <div class="font-mono text-xs text-accent mb-4">TECHNOLOGY STACK</div>
+          <div class="space-y-4">
+            <div>
+              <p class="text-[.92rem] font-semibold text-ink mb-2">Languages &amp; Frameworks</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="rounded-full border border-line-2 px-3 py-1 text-xs text-ink-2">TypeScript</span>
+                <span class="rounded-full border border-line-2 px-3 py-1 text-xs text-ink-2">Go</span>
+                <span class="rounded-full border border-line-2 px-3 py-1 text-xs text-ink-2">React</span>
+              </div>
+            </div>
+            <div>
+              <p class="text-[.92rem] font-semibold text-ink mb-2">Platform Tools</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="rounded-full border border-line-2 px-3 py-1 text-xs text-ink-2">Kubernetes</span>
+                <span class="rounded-full border border-line-2 px-3 py-1 text-xs text-ink-2">Argo CD</span>
+                <span class="rounded-full border border-line-2 px-3 py-1 text-xs text-ink-2">Terraform</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-lg bg-accent p-7 text-white">
+          <h3 class="text-xl font-display font-semibold mb-4">Start building better platforms.</h3>
+          <p class="text-[.95rem] mb-6">Book a discovery session to map your platform engineering journey.</p>
+          <a
+            href="/#contact"
+            class="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 font-medium text-accent transition-colors hover:bg-[#e4e7ec]"
+          >
+            Start a conversation
+            <svg class="h-4 w-4" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M2 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+</Base>

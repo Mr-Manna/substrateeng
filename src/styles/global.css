@@ -99,6 +99,26 @@ body {
   color: #ffffff;
 }
 
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--c-accent);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--c-accent-hover);
+}
+@supports (scrollbar-color: auto) {
+  * {
+    scrollbar-color: var(--c-accent) transparent;
+    scrollbar-width: thin;
+  }
+}
+
 :focus-visible {
   outline: 2px solid var(--c-accent);
   outline-offset: 3px;
@@ -123,7 +143,7 @@ body {
   .display {
     font-family: var(--font-display);
     font-stretch: 118%;
-    font-weight: 640;
+    font-weight: 440;
     letter-spacing: -0.022em;
     line-height: 1.04;
     text-wrap: balance;

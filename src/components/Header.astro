@@ -3,24 +3,34 @@ import Logo from './Logo.astro';
 import ThemeToggle from './islands/ThemeToggle';
 import MobileNav from './islands/MobileNav';
 import { navItems } from '../data/site';
+import type { MegaMenuItem } from '../data/site';
 ---
 
-<header id="site-header" class="fixed inset-x-0 top-0 z-50 border-b border-transparent">
+<header
+  id="site-header"
+  class="fixed inset-x-0 top-0 z-50 border-b border-transparent"
+  data-active=""
+>
   <div class="container-x flex h-16 items-center justify-between gap-6 md:h-[4.5rem]">
     <a href="/" class="text-ink" aria-label="Substrate — home">
       <Logo class="h-7 w-7" />
     </a>
 
-    <nav class="hidden md:block" aria-label="Primary">
-      <ul class="flex items-center gap-7">
+    <nav class="hidden md:block" aria-label="Primary" data-nav>
+      <ul class="flex items-center gap-0">
         {
-          navItems.map((item) => (
-            <li>
+          navItems.map((item, i) => (
+            <li data-trigger={i}>
               <a
                 href={item.href}
-                class="nav-link relative text-[0.9rem] font-medium text-ink-2 transition-colors hover:text-ink"
+                class="nav-link relative flex items-center gap-1 px-3.5 py-2 text-[0.9rem] font-medium text-ink-2 transition-colors hover:text-ink"
               >
                 {item.label}
+                {item.items && (
+                  <svg class="h-3 w-3 transition-transform duration-200" data-chevron viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                    <path d="M3 4.5 6 7.5 9 4.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                )}
               </a>
             </li>
           ))
@@ -39,29 +49,62 @@ import { navItems } from '../data/site';
       <MobileNav client:load items={navItems} />
     </div>
   </div>
+
+  <!-- Full-screen mega overlay -->
+  <div class="mega-overlay hidden" data-overlay aria-hidden="true">
+    <div class="container-x mx-auto pt-8 pb-14">
+      {
+        navItems.map((item, i) =>
+          item.items ? (
+            <div class="mega-panel hidden" data-panel={i}>
+              <div class="grid grid-cols-4 gap-x-10 gap-y-10">
+                {item.items.map((col) => (
+                  <div>
+                    {col.items ? (
+                      <>
+                        <a href={col.href} class="mega-overlay-heading">{col.label}</a>
+                        {col.items.map((sub) => (
+                          <a href={sub.href} class="mega-overlay-link">
+                            {sub.label}
+                            {(sub as any).description && (
+                              <span class="mega-overlay-desc">{sub.description}</span>
+                            )}
+                          </a>
+                        ))}
+                      </>
+                    ) : (
+                      <a href={col.href} class="mega-overlay-heading">{col.label}</a>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          ) : null
+        )
+      }
+    </div>
+    <!-- <div class="absolute bottom-0 left-0 right-0 h-px bg-line" aria-hidden="true" /> -->
+  </div>
 </header>
 
 <style>
+  #site-header {
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
   #site-header.is-scrolled {
     background-color: color-mix(in srgb, var(--c-paper) 84%, transparent);
     -webkit-backdrop-filter: blur(14px);
     backdrop-filter: blur(14px);
     border-color: var(--c-line);
   }
-  #site-header {
-    transition:
-      background-color 0.3s ease,
-      border-color 0.3s ease;
-  }
 
-  /* underline slide-in on hover/focus */
   .nav-link::after {
     content: '';
     position: absolute;
-    left: 0;
-    bottom: -4px;
+    left: 0.875rem;
+    bottom: 0;
     height: 1.5px;
-    width: 100%;
+    width: calc(100% - 1.75rem);
     background: var(--c-accent);
     transform: scaleX(0);
     transform-origin: left;
@@ -71,17 +114,172 @@ import { navItems } from '../data/site';
   .nav-link:focus-visible::after {
     transform: scaleX(1);
   }
+
+  .mega-overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    max-height: calc(100vh - 4.5rem);
+    overflow-y: auto;
+    background: var(--c-paper);
+    border-bottom: 1px solid var(--c-line);
+    box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.08);
+    transform: translateY(-16px);
+    opacity: 0;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+    will-change: transform, opacity;
+  }
+  .mega-overlay.open {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .mega-overlay-heading {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 640;
+    color: var(--c-ink);
+    margin-bottom: 0.75rem;
+    transition: color 0.2s ease;
+  }
+  .mega-overlay-heading:hover {
+    color: var(--c-accent);
+  }
+
+  .mega-overlay-link {
+    display: block;
+    font-size: 0.88rem;
+    color: var(--c-ink-2);
+    padding: 0.35rem 0;
+    transition: color 0.2s ease;
+    line-height: 1.4;
+  }
+  .mega-overlay-link:hover {
+    color: var(--c-accent);
+  }
+
+  .mega-overlay-desc {
+    display: block;
+    font-size: 0.78rem;
+    color: var(--c-ink-3);
+    line-height: 1.3;
+    margin-top: 0.1rem;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     #site-header,
-    .nav-link::after {
-      transition: none;
+    .nav-link::after,
+    .mega-overlay {
+      transition: none !important;
+    }
+    .mega-overlay {
+      transform: none !important;
     }
   }
 </style>
 
 <script>
   const header = document.getElementById('site-header');
-  const update = () => header?.classList.toggle('is-scrolled', window.scrollY > 8);
-  update();
-  window.addEventListener('scroll', update, { passive: true });
+  const updateIsScrolled = () => header?.classList.toggle('is-scrolled', window.scrollY > 8);
+  updateIsScrolled();
+  window.addEventListener('scroll', updateIsScrolled, { passive: true });
+
+  const nav = document.querySelector<HTMLElement>('[data-nav]');
+  const overlay = document.querySelector<HTMLElement>('[data-overlay]');
+  const triggers = document.querySelectorAll<HTMLElement>('[data-trigger]');
+  if (!nav || !overlay) throw new Error('Mega menu elements not found');
+
+  let activeIdx: number | null = null;
+
+  function getPanel(idx: number): HTMLElement | null {
+    return overlay.querySelector(`[data-panel="${idx}"]`);
+  }
+
+  function togglePanel(idx: number) {
+    /* clicking the same trigger again — close */
+    if (activeIdx === idx && overlay.classList.contains('open')) {
+      overlay.classList.remove('open');
+      const panel = getPanel(idx);
+      panel?.classList.add('hidden');
+      activeIdx = null;
+      setTimeout(() => overlay.classList.add('hidden'), 300);
+      return;
+    }
+
+    /* hide previous panel */
+    if (activeIdx !== null) {
+      const prev = getPanel(activeIdx);
+      prev?.classList.add('hidden');
+    }
+
+    activeIdx = idx;
+
+    /* show new panel */
+    const panel = getPanel(idx);
+    if (panel) {
+      panel.classList.remove('hidden');
+      overlay.classList.remove('hidden');
+      overlay.offsetHeight; /* force reflow */
+      overlay.classList.add('open');
+    }
+  }
+
+  function closePanel() {
+    overlay.classList.remove('open');
+    if (activeIdx !== null) {
+      const panel = getPanel(activeIdx);
+      panel?.classList.add('hidden');
+    }
+    activeIdx = null;
+    setTimeout(() => overlay.classList.add('hidden'), 300);
+  }
+
+  /* ---- Wire triggers (click) ---- */
+  triggers.forEach((trigger, idx) => {
+    const link = trigger.querySelector<HTMLAnchorElement>('a');
+    if (!link) return;
+
+    link.addEventListener('click', (e) => {
+      /* only intercept if the item has a panel */
+      if (!getPanel(idx)) return;
+      e.preventDefault();
+      togglePanel(idx);
+    });
+
+    trigger.addEventListener('focusin', () => {
+      /* open on Tab focus if not already open with a different panel */
+      if (!overlay.classList.contains('open')) {
+        const link = trigger.querySelector<HTMLAnchorElement>('a');
+        if (link && getPanel(idx)) {
+          togglePanel(idx);
+        }
+      }
+    });
+  });
+
+  document.addEventListener('focusin', (e) => {
+    if (overlay.classList.contains('open') && !header!.contains(e.target as Node)) {
+      closePanel();
+    }
+  });
+
+  /* ---- Keyboard ---- */
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay.classList.contains('open')) {
+      closePanel();
+      if (activeIdx !== null) {
+        const link = triggers[activeIdx]?.querySelector<HTMLAnchorElement>('a');
+        link?.focus();
+      }
+    }
+  });
+
+  /* ---- Click outside ---- */
+  document.addEventListener('click', (e) => {
+    if (overlay.classList.contains('open') && !header!.contains(e.target as Node)) {
+      closePanel();
+    }
+  });
 </script>

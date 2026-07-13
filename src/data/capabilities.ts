@@ -7,6 +7,24 @@ export interface Capability {
 
 export const capabilities: Capability[] = [
   {
+    title: 'Distributed Systems',
+    description:
+      'Systems designed for failure: consensus, partitioning, replication, and consistency models that behave predictably at scale.',
+    glyph: 'distributed',
+  },
+  {
+    title: 'Cloud Native',
+    description:
+      'Containers, orchestration, service meshes, and serverless — architectures born in the cloud, not lifted and shifted.',
+    glyph: 'cloudnative',
+  },
+  {
+    title: 'Security & Compliance',
+    description:
+      'Zero-trust architectures, policy-as-code, and compliance automation that treat security as a platform primitive.',
+    glyph: 'security',
+  },
+  {
     title: 'Enterprise Architecture',
     description:
       'Target-state architectures, domain boundaries, and technology roadmaps that survive contact with the organization.',

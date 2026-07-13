@@ -9,7 +9,7 @@ export const techGroups: TechGroup[] = [
   {
     name: 'Languages',
     note: 'Typed, fast, and hiring-proof.',
-    items: ['TypeScript', 'Python', 'Go', 'Rust', 'SQL'],
+    items: ['TypeScript', 'Python', 'Go', 'Node', 'SQL'],
   },
   {
     name: 'Cloud & Runtime',
