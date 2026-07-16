@@ -1,0 +1,404 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import Button from '../components/Button.astro';
+import { site } from '../data/site';
+import { useTranslations } from '../i18n/useTranslations';
+
+const locale = (Astro.currentLocale || 'en') as string;
+const { t, tRaw } = useTranslations(locale);
+const storyParagraphs = tRaw<string[]>('aboutPage.story.paragraphs');
+const values = tRaw<Array<{ name: string; line: string }>>('aboutPage.values');
+const people = tRaw<Array<{ name: string; role: string; bio: string; portraitAlt: string }>>(
+  'aboutPage.leadership.people'
+);
+const milestones = tRaw<Array<{ year: string; title: string; note: string }>>(
+  'aboutPage.timeline.milestones'
+);
+const phaseTitles = [0, 1, 2, 3, 4].map((i) => t(`process.phases.${i}.title`));
+const phaseXs = [20, 250, 480, 710, 940];
+const contactHref = '/contact';
+
+/*
+ * Blueprint line portraits (200×200), one per leader — abstract survey-sketch
+ * heads, not likenesses. [data-draw] strokes draw in when the block scrolls
+ * into view, matching the Process glyphs.
+ */
+const portraits = [
+  `
+  <path data-draw d="M18 18 H182 V182 H18 Z" stroke="var(--c-graphite-line)" stroke-width="1"/>
+  <path data-draw d="M74 182 C 76 158, 68 150, 70 130 C 72 110, 62 98, 70 78 C 78 56, 98 44, 118 48 C 140 52, 152 70, 150 92 C 149 104, 144 110, 146 118 L 154 130 L 142 134 C 143 144, 138 150, 128 150 C 122 150, 116 148, 112 152 C 106 158, 108 170, 110 182" stroke="var(--c-graphite-fg-2)" stroke-width="1.3"/>
+  <path data-draw d="M88 74 C 100 66, 116 66, 126 74" stroke="var(--c-graphite-line)" stroke-width="1"/>
+  <path data-draw d="M84 92 C 98 82, 118 82, 130 92" stroke="var(--c-graphite-line)" stroke-width="1"/>
+  <circle cx="132" cy="108" r="2.5" fill="var(--c-accent-bright)"/>
+  <path data-draw d="M18 162 H70 M114 162 H182" stroke="var(--c-graphite-line)" stroke-width="1"/>
+  `,
+  `
+  <path data-draw d="M18 18 H182 V182 H18 Z" stroke="var(--c-graphite-line)" stroke-width="1"/>
+  <path data-draw d="M100 44 C 130 44, 146 70, 146 102 C 146 134, 128 156, 100 156 C 72 156, 54 134, 54 102 C 54 70, 70 44, 100 44 Z" stroke="var(--c-graphite-fg-2)" stroke-width="1.3"/>
+  <path data-draw d="M100 44 C 88 74, 88 128, 100 156" stroke="var(--c-graphite-line)" stroke-width="1"/>
+  <path data-draw d="M100 44 C 112 74, 112 128, 100 156" stroke="var(--c-graphite-line)" stroke-width="1"/>
+  <path data-draw d="M54 102 H146" stroke="var(--c-graphite-line)" stroke-width="1"/>
+  <circle cx="100" cy="102" r="2.5" fill="var(--c-accent-bright)"/>
+  <path data-draw d="M40 182 C 60 164, 82 160, 100 160 C 118 160, 140 164, 160 182" stroke="var(--c-graphite-fg-2)" stroke-width="1.2"/>
+  `,
+  `
+  <path data-draw d="M18 18 H182 V182 H18 Z" stroke="var(--c-graphite-line)" stroke-width="1"/>
+  <path data-draw d="M126 182 C 124 158, 132 150, 130 130 C 128 110, 138 98, 130 78 C 122 56, 102 44, 82 48 C 60 52, 48 70, 50 92 C 51 104, 56 110, 54 118 L 46 130 L 58 134 C 57 144, 62 150, 72 150 C 78 150, 84 148, 88 152 C 94 158, 92 170, 90 182" stroke="var(--c-graphite-fg-2)" stroke-width="1.3"/>
+  <path data-draw d="M78 72 H124 M74 96 H120 M78 120 H126" stroke="var(--c-graphite-line)" stroke-width="1"/>
+  <path data-draw d="M46 108 H60" stroke="var(--c-accent-bright)" stroke-width="1.4"/>
+  <path data-draw d="M18 162 H86 M130 162 H182" stroke="var(--c-graphite-line)" stroke-width="1"/>
+  `,
+  `
+  <path data-draw d="M18 18 H182 V182 H18 Z" stroke="var(--c-graphite-line)" stroke-width="1"/>
+  <path data-draw d="M100 48 C 128 48, 144 70, 144 98 C 144 126, 130 150, 100 150 C 70 150, 56 126, 56 98 C 56 70, 72 48, 100 48 Z" stroke="var(--c-graphite-fg-2)" stroke-width="1.3"/>
+  <path data-draw d="M58 86 C 80 80, 120 80, 142 86" stroke="var(--c-graphite-line)" stroke-width="1"/>
+  <path data-draw d="M56 108 C 80 102, 120 102, 144 108" stroke="var(--c-graphite-line)" stroke-width="1"/>
+  <path data-draw d="M62 130 C 84 124, 116 124, 138 130" stroke="var(--c-graphite-line)" stroke-width="1"/>
+  <path data-draw d="M100 48 V32" stroke="var(--c-accent-bright)" stroke-width="1.4"/>
+  <circle cx="100" cy="29" r="2.5" fill="var(--c-accent-bright)"/>
+  <path data-draw d="M44 182 C 62 164, 82 158, 100 158 C 118 158, 138 164, 156 182" stroke="var(--c-graphite-fg-2)" stroke-width="1.2"/>
+  `,
+];
+---
+
+<Base
+  title={t('aboutPage.title')}
+  description={t('aboutPage.description')}
+  locale={locale}
+>
+  <section class="bg-graphite py-20 md:py-32" aria-labelledby="about-page-heading">
+    <div class="container-x">
+      <nav class="mb-8 text-sm text-graphite-fg-2" aria-label="Breadcrumb">
+        <span>
+          <a href="/" class="text-accent-bright hover:underline">{t('aboutPage.breadcrumbHome')}</a>
+        </span>
+        <span aria-hidden="true"> / </span>
+        <span class="font-medium text-graphite-fg">{t('aboutPage.label')}</span>
+      </nav>
+
+      <SectionHeading
+        id="about-page-heading"
+        tone="graphite"
+        index={t('mission.index')}
+        label={t('aboutPage.label')}
+        title={t('aboutPage.heading')}
+        lede={t('aboutPage.lede')}
+      />
+
+      <div
+        id="story"
+        class="mt-14 grid gap-x-10 gap-y-4 border-t border-graphite-line py-10 md:mt-16 md:grid-cols-[160px_minmax(0,1fr)] md:py-14"
+        data-reveal-group
+      >
+        <h2 class="kicker text-accent-bright" data-reveal>{t('aboutPage.story.kicker')}</h2>
+        <div class="max-w-3xl">
+          {storyParagraphs.map((para) => (
+            <p class="mt-5 text-[0.98rem] leading-relaxed text-graphite-fg-2 first:mt-0" data-reveal>
+              {para}
+            </p>
+          ))}
+          <p class="display mt-8 text-xl leading-[1.3] text-graphite-fg md:text-2xl" data-reveal>
+            {t('aboutPage.story.pullQuote')}
+          </p>
+        </div>
+      </div>
+
+      <div
+        id="mission"
+        class="grid gap-x-10 gap-y-4 border-t border-graphite-line py-10 md:grid-cols-[160px_minmax(0,1fr)] md:py-14"
+        data-reveal-group
+      >
+        <h2 class="kicker text-accent-bright" data-reveal>{t('mission.missionKicker')}</h2>
+        <p
+          class="display max-w-4xl text-2xl leading-[1.25] text-graphite-fg md:text-[2.1rem]"
+          data-reveal
+        >
+          {t('mission.missionText')}
+        </p>
+      </div>
+      <div
+        id="vision"
+        class="grid gap-x-10 gap-y-4 border-t border-graphite-line py-10 md:grid-cols-[160px_minmax(0,1fr)] md:py-14"
+        data-reveal-group
+      >
+        <h2 class="kicker text-accent-bright" data-reveal>{t('mission.visionKicker')}</h2>
+        <p
+          class="display max-w-4xl text-2xl leading-[1.25] text-graphite-fg md:text-[2.1rem]"
+          data-reveal
+        >
+          {t('mission.visionText')}
+        </p>
+      </div>
+
+      <!-- vision as horizon line, mission as foundation strata -->
+      <figure class="mt-6 md:mt-10" data-mission-fig data-reveal>
+        <svg
+          viewBox="0 0 960 168"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          role="img"
+          aria-label={t('mission.svgTitle')}
+          class="h-auto w-full"
+        >
+          <path data-draw d="M20 32 H940" stroke="var(--c-graphite-fg-2)" stroke-width="1.2"></path>
+          <path data-flow d="M20 32 H940" stroke="var(--c-accent-bright)" stroke-width="1.8" stroke-linecap="round"></path>
+          <text x="940" y="18" text-anchor="end" class="m-label m-label-accent">{t('mission.horizonLabel')}</text>
+
+          <path data-draw d="M480 32 V100" stroke="var(--c-graphite-line)" stroke-width="1.1"></path>
+          <circle data-marker-ring cx="480" cy="32" r="8" stroke="var(--c-accent-bright)" stroke-width="1"></circle>
+          <circle cx="480" cy="32" r="3.5" fill="var(--c-accent-bright)"></circle>
+
+          <path data-draw d="M20 104 C 180 96, 330 112, 480 104 C 630 96, 790 112, 940 104" stroke="var(--c-graphite-line)" stroke-width="1.1"></path>
+          <path data-draw d="M20 126 C 170 119, 320 133, 480 126 C 640 119, 800 133, 940 126" stroke="var(--c-graphite-line)" stroke-width="1.1"></path>
+          <path data-draw d="M20 148 C 185 141, 335 155, 480 148 C 625 141, 785 155, 940 148" stroke="var(--c-graphite-line)" stroke-width="1.1"></path>
+          <text x="20" y="92" class="m-label">{t('mission.foundationLabel')}</text>
+        </svg>
+        <figcaption class="mt-4 font-mono text-xs tracking-[0.12em] text-graphite-fg-2">
+          {t('mission.figcaption')}
+        </figcaption>
+      </figure>
+
+      <div id="values" class="mt-20 md:mt-24" data-reveal-group>
+        <h2 class="kicker text-graphite-fg-2" data-reveal>{t('aboutPage.valuesHeading')}</h2>
+        <ul class="mt-8 grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+          {values.map((value, i) => (
+            <li data-reveal>
+              <p class="font-mono text-sm text-accent-bright">V-{String(i + 1).padStart(2, '0')}</p>
+              <h3 class="mt-3 font-display text-lg font-semibold text-graphite-fg">{value.name}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-graphite-fg-2">{value.line}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div id="leadership" class="mt-20 md:mt-24" data-draw-scope data-reveal-group>
+        <h2 class="kicker text-graphite-fg-2" data-reveal>{t('aboutPage.leadership.kicker')}</h2>
+        <ul class="mt-8 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+          {people.map((person, i) => (
+            <li data-reveal>
+              <svg
+                viewBox="0 0 200 200"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                role="img"
+                aria-label={person.portraitAlt}
+                class="h-auto w-full max-w-[220px]"
+                set:html={portraits[i]}
+              />
+              <p class="mt-5 font-mono text-sm text-accent-bright">L-{String(i + 1).padStart(2, '0')}</p>
+              <h3 class="mt-2 font-display text-lg font-semibold text-graphite-fg">{person.name}</h3>
+              <p class="mt-1 font-mono text-xs tracking-[0.08em] text-graphite-fg-2">{person.role}</p>
+              <p class="mt-3 text-sm leading-relaxed text-graphite-fg-2">{person.bio}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div id="approach" class="mt-20 md:mt-24" data-draw-scope data-reveal-group>
+        <h2 class="kicker text-graphite-fg-2" data-reveal>{t('aboutPage.approach.kicker')}</h2>
+        <p class="mt-4 max-w-2xl text-[0.98rem] leading-relaxed text-graphite-fg-2" data-reveal>
+          {t('aboutPage.approach.lede')}
+        </p>
+        <figure class="mt-10" data-reveal>
+          <svg
+            viewBox="0 0 960 84"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            role="img"
+            aria-label={t('aboutPage.approach.svgTitle')}
+            class="h-auto w-full"
+          >
+            <path data-draw d="M20 36 H940" stroke="var(--c-graphite-fg-2)" stroke-width="1.2"></path>
+            <path data-flow d="M20 36 H940" stroke="var(--c-accent-bright)" stroke-width="1.8" stroke-linecap="round"></path>
+            {phaseTitles.map((title, i) => (
+              <>
+                <circle
+                  cx={phaseXs[i]}
+                  cy="36"
+                  r="3.5"
+                  fill={i === 4 ? 'var(--c-accent-bright)' : 'var(--c-graphite-fg-2)'}
+                />
+                <text
+                  x={phaseXs[i]}
+                  y="66"
+                  text-anchor={i === 0 ? 'start' : i === 4 ? 'end' : 'middle'}
+                  class="m-label"
+                >
+                  {`0${i + 1} — ${title.toUpperCase()}`}
+                </text>
+              </>
+            ))}
+          </svg>
+        </figure>
+        <a
+          href="/#process"
+          class="mt-8 inline-flex items-center gap-2 font-mono text-sm tracking-[0.06em] text-accent-bright transition-colors hover:text-graphite-fg"
+          data-reveal
+        >
+          {t('aboutPage.approach.processLink')}
+          <span aria-hidden="true" class="inline-block rtl:-scale-x-100">→</span>
+        </a>
+      </div>
+
+      <div id="timeline" class="mt-20 md:mt-24" data-timeline data-reveal-group>
+        <h2 class="kicker text-graphite-fg-2" data-reveal>{t('aboutPage.timeline.kicker')}</h2>
+        <div class="relative mt-10">
+          <!-- core-sample rail: fills with cobalt as the years descend -->
+          <div class="absolute top-1 bottom-1 left-[3px] w-px bg-graphite-line" aria-hidden="true">
+            <div class="absolute inset-0 origin-top bg-accent-bright" data-timeline-fill></div>
+          </div>
+          <ol class="space-y-10">
+            {milestones.map((m) => (
+              <li
+                class="relative grid gap-x-8 gap-y-1 ps-10 md:grid-cols-[90px_230px_minmax(0,1fr)]"
+                data-reveal
+              >
+                <span
+                  class="absolute start-0 top-1.5 h-[7px] w-[7px] rounded-full bg-accent-bright"
+                  aria-hidden="true"
+                />
+                <span class="font-mono text-sm text-accent-bright">{m.year}</span>
+                <h3 class="font-display font-semibold text-graphite-fg">{m.title}</h3>
+                <p class="text-sm leading-relaxed text-graphite-fg-2">{m.note}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </div>
+
+      <div
+        class="mt-20 flex flex-wrap items-center gap-x-7 gap-y-4 border-t border-graphite-line pt-10"
+        data-reveal
+      >
+        <Button href={contactHref}>{t('buttons.startConversation')}</Button>
+        <a
+          href={`mailto:${site.email}`}
+          class="font-mono text-sm tracking-[0.06em] text-accent-bright transition-colors hover:text-graphite-fg"
+        >
+          {site.email}
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .m-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    fill: var(--c-graphite-fg-2);
+  }
+  .m-label-accent {
+    fill: var(--c-accent-bright);
+  }
+</style>
+
+<script>
+  import { gsap, ScrollTrigger, prefersReducedMotion } from '../scripts/motion';
+
+  if (!prefersReducedMotion()) {
+    const fig = document.querySelector<HTMLElement>('[data-mission-fig]');
+    if (fig) {
+      const draws = Array.from(fig.querySelectorAll<SVGGeometryElement>('[data-draw]'));
+      draws.forEach((p) => {
+        const len = p.getTotalLength();
+        p.style.strokeDasharray = `${len}`;
+        p.style.strokeDashoffset = `${len}`;
+      });
+      const flow = fig.querySelector<SVGGeometryElement>('[data-flow]');
+      if (flow) flow.style.opacity = '0';
+      const ring = fig.querySelector('[data-marker-ring]');
+
+      ScrollTrigger.create({
+        trigger: fig,
+        start: 'top 82%',
+        once: true,
+        onEnter: () => {
+          gsap.to(draws, {
+            strokeDashoffset: 0,
+            duration: 1.1,
+            stagger: 0.14,
+            ease: 'power1.inOut',
+            onComplete: () => draws.forEach((p) => (p.style.strokeDasharray = 'none')),
+          });
+          if (flow) {
+            const len = flow.getTotalLength();
+            const period = len + 14;
+            gsap.set(flow, { strokeDasharray: `14 ${len}`, strokeDashoffset: 14, opacity: 1 });
+            gsap.to(flow, {
+              strokeDashoffset: 14 - period,
+              duration: 3,
+              ease: 'none',
+              repeat: -1,
+              repeatDelay: 0.6,
+              delay: 1.4,
+            });
+          }
+          if (ring) {
+            gsap.fromTo(
+              ring,
+              { attr: { r: 5 }, opacity: 0.9 },
+              { attr: { r: 15 }, opacity: 0, duration: 2, ease: 'power1.out', repeat: -1, delay: 1.4 }
+            );
+          }
+        },
+      });
+    }
+
+    // leadership portraits + approach rail share the generic draw-in
+    document.querySelectorAll<HTMLElement>('[data-draw-scope]').forEach((scope) => {
+      const draws = Array.from(scope.querySelectorAll<SVGGeometryElement>('[data-draw]'));
+      draws.forEach((p) => {
+        const len = p.getTotalLength();
+        p.style.strokeDasharray = `${len}`;
+        p.style.strokeDashoffset = `${len}`;
+      });
+      const flows = Array.from(scope.querySelectorAll<SVGGeometryElement>('[data-flow]'));
+      flows.forEach((p) => (p.style.opacity = '0'));
+
+      ScrollTrigger.create({
+        trigger: scope,
+        start: 'top 78%',
+        once: true,
+        onEnter: () => {
+          gsap.to(draws, {
+            strokeDashoffset: 0,
+            duration: 0.8,
+            stagger: 0.06,
+            ease: 'power1.inOut',
+            onComplete: () => draws.forEach((p) => (p.style.strokeDasharray = 'none')),
+          });
+          flows.forEach((p) => {
+            const len = p.getTotalLength();
+            const period = len + 14;
+            gsap.set(p, { strokeDasharray: `14 ${len}`, strokeDashoffset: 14, opacity: 1 });
+            gsap.to(p, {
+              strokeDashoffset: 14 - period,
+              duration: 3,
+              ease: 'none',
+              repeat: -1,
+              repeatDelay: 0.6,
+              delay: 1.2,
+            });
+          });
+        },
+      });
+    });
+
+    const timeline = document.querySelector<HTMLElement>('[data-timeline]');
+    const railFill = timeline?.querySelector('[data-timeline-fill]');
+    if (timeline && railFill) {
+      gsap.fromTo(
+        railFill,
+        { scaleY: 0 },
+        {
+          scaleY: 1,
+          ease: 'none',
+          scrollTrigger: { trigger: timeline, start: 'top 75%', end: 'bottom 65%', scrub: 0.6 },
+        }
+      );
+    }
+  }
+</script>

@@ -11,6 +11,10 @@ const footerNav = tRaw<{ label: string; href: string }[]>('footer.navItems');
 const exploreLabel = t('footer.exploreHeading');
 const contactLabel = t('footer.contactHeading');
 const markText = t('site.name').toUpperCase();
+
+// dense strata lines clipped inside the letterforms; they fill the glyphs
+// from the baseline up, layer by layer ("the layer beneath")
+const strataYs = Array.from({ length: 17 }, (_, i) => 18 + i * 8);
 ---
 
 <footer class="bg-graphite text-graphite-fg">
@@ -61,6 +65,35 @@ const markText = t('site.name').toUpperCase();
         class="w-full"
         preserveAspectRatio="xMidYMid meet"
       >
+        <defs>
+          <filter id="wm-inset-blur" x="-10%" y="-10%" width="120%" height="120%">
+            <feGaussianBlur stdDeviation="2.6" />
+          </filter>
+          <clipPath id="wm-clip">
+            <text
+              class="wm-text"
+              x="480"
+              y="148"
+              text-anchor="middle"
+              textLength="940"
+              lengthAdjust="spacing"
+            >
+              {markText}
+            </text>
+          </clipPath>
+        </defs>
+        <!-- bottom lip catching the light — sells the pressed-in depth -->
+        <text
+          class="wm-text wm-edge"
+          data-wm-embed
+          x="480"
+          y="150"
+          text-anchor="middle"
+          textLength="940"
+          lengthAdjust="spacing"
+        >
+          {markText}
+        </text>
         <text
           class="wm-text wm-fill"
           x="480"
@@ -71,6 +104,24 @@ const markText = t('site.name').toUpperCase();
         >
           {markText}
         </text>
+        <!-- strata layers confined to the glyph interiors -->
+        <g clip-path="url(#wm-clip)">
+          {strataYs.map((y) => <path class="wm-strata" data-wm-draw d={`M10 ${y} H950`} />)}
+        </g>
+        <!-- inner shadow cast by the top edge of the cavity -->
+        <g clip-path="url(#wm-clip)" data-wm-embed>
+          <text
+            class="wm-text wm-inner"
+            x="480"
+            y="151.5"
+            text-anchor="middle"
+            textLength="940"
+            lengthAdjust="spacing"
+            filter="url(#wm-inset-blur)"
+          >
+            {markText}
+          </text>
+        </g>
         <text
           class="wm-text wm-outline"
           x="480"
@@ -109,8 +160,17 @@ const markText = t('site.name').toUpperCase();
     font-size: 200px;
     letter-spacing: 0.02em;
   }
+  /* darker than the surface so the letterforms read as a recessed cavity */
   .wm-fill {
-    fill: color-mix(in srgb, var(--c-graphite-line) 52%, var(--c-graphite));
+    fill: color-mix(in srgb, black 26%, var(--c-graphite));
+  }
+  .wm-edge {
+    fill: rgb(255 255 255 / 0.14);
+  }
+  .wm-inner {
+    fill: none;
+    stroke: rgb(0 0 0 / 0.55);
+    stroke-width: 6;
   }
   .wm-outline {
     stroke: var(--c-graphite-line);
@@ -124,6 +184,11 @@ const markText = t('site.name').toUpperCase();
     opacity: 0;
     filter: drop-shadow(0 0 7px var(--c-accent));
   }
+  .wm-strata {
+    stroke: var(--c-graphite-line);
+    stroke-width: 1;
+    opacity: 0.6;
+  }
 </style>
 
 <script>
@@ -134,12 +199,18 @@ const markText = t('site.name').toUpperCase();
     const fill = mark.querySelector('.wm-fill');
     const outline = mark.querySelector('.wm-outline');
     const glow = mark.querySelector('.wm-glow');
+    const strata = Array.from(mark.querySelectorAll<SVGGeometryElement>('[data-wm-draw]'));
+    const embeds = Array.from(mark.querySelectorAll<SVGElement>('[data-wm-embed]'));
 
     // text glyphs have no getTotalLength(); a dash longer than any glyph
     // perimeter lets every letter draw in from nothing
     const DASH = 2600;
     gsap.set(outline, { strokeDasharray: DASH, strokeDashoffset: DASH });
-    gsap.set(fill, { opacity: 0 });
+    gsap.set([fill, ...embeds], { opacity: 0 });
+    strata.forEach((p) => {
+      const len = p.getTotalLength();
+      gsap.set(p, { strokeDasharray: len, strokeDashoffset: len });
+    });
 
     ScrollTrigger.create({
       trigger: mark,
@@ -147,7 +218,16 @@ const markText = t('site.name').toUpperCase();
       once: true,
       onEnter: () => {
         gsap.to(outline, { strokeDashoffset: 0, duration: 2.2, ease: 'power2.inOut' });
-        gsap.to(fill, { opacity: 1, duration: 1.6, ease: 'power1.inOut', delay: 0.8 });
+        gsap.to([fill, ...embeds], { opacity: 1, duration: 1.6, ease: 'power1.inOut', delay: 0.8 });
+        // strata draw in bottom layer first — the glyphs fill up from the
+        // baseline like accumulating sediment
+        gsap.to(strata, {
+          strokeDashoffset: 0,
+          duration: 0.9,
+          stagger: { each: 0.09, from: 'end' },
+          ease: 'power1.out',
+          delay: 0.5,
+        });
 
         const period = 2600;
         gsap.set(glow, { strokeDasharray: `140 ${period - 140}`, strokeDashoffset: 140, opacity: 1 });

@@ -1,0 +1,143 @@
+---
+import { useTranslations } from '../../i18n/useTranslations';
+import type { Locale } from '../../i18n/config';
+
+const locale = (Astro.currentLocale || 'en') as Locale;
+const { t } = useTranslations(locale);
+const missionHref = locale === 'en' ? '/about' : `/${locale}/about`;
+---
+
+<section id="mission" class="bg-graphite py-24 md:py-32" aria-labelledby="mission-heading">
+  <div class="container-x">
+    <div data-reveal-group>
+      <div class="border-t border-graphite-line pt-6">
+        <p class="kicker text-graphite-fg-2" data-reveal>
+          <span class="text-accent-bright">{t('mission.index')}</span>
+          <span aria-hidden="true">&nbsp;—&nbsp;</span>{t('mission.label')}
+        </p>
+        <h2 id="mission-heading" class="sr-only">{t('mission.label')}</h2>
+
+        <div class="mt-12 grid gap-x-20 gap-y-14 lg:grid-cols-2">
+          <div>
+            <h3 class="kicker text-accent-bright" data-reveal>{t('mission.missionKicker')}</h3>
+            <p
+              class="display mt-6 text-[1.6rem] leading-[1.22] text-graphite-fg md:text-[1.95rem]"
+              data-reveal
+            >
+              {t('mission.missionText')}
+            </p>
+          </div>
+          <div class="flex flex-col">
+            <h3 class="kicker text-accent-bright" data-reveal>{t('mission.visionKicker')}</h3>
+            <p
+              class="display mt-6 text-[1.6rem] leading-[1.22] text-graphite-fg md:text-[1.95rem]"
+              data-reveal
+            >
+              {t('mission.visionText')}
+            </p>
+            <a
+              href={missionHref}
+              class="mt-8 inline-flex items-center gap-2 self-start font-mono text-sm tracking-[0.06em] text-accent-bright transition-colors hover:text-graphite-fg"
+              data-reveal
+            >
+              {t('mission.pageLink')}
+              <span aria-hidden="true" class="inline-block rtl:-scale-x-100">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- vision as horizon line, mission as foundation strata -->
+    <figure class="mt-16 md:mt-20" data-mission-fig data-reveal>
+      <svg
+        viewBox="0 0 960 168"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        role="img"
+        aria-label={t('mission.svgTitle')}
+        class="h-auto w-full"
+      >
+        <path data-draw d="M20 32 H940" stroke="var(--c-graphite-fg-2)" stroke-width="1.2"></path>
+        <path data-flow d="M20 32 H940" stroke="var(--c-accent-bright)" stroke-width="1.8" stroke-linecap="round"></path>
+        <text x="940" y="18" text-anchor="end" class="m-label m-label-accent">{t('mission.horizonLabel')}</text>
+
+        <path data-draw d="M480 32 V100" stroke="var(--c-graphite-line)" stroke-width="1.1"></path>
+        <circle data-marker-ring cx="480" cy="32" r="8" stroke="var(--c-accent-bright)" stroke-width="1"></circle>
+        <circle cx="480" cy="32" r="3.5" fill="var(--c-accent-bright)"></circle>
+
+        <path data-draw d="M20 104 C 180 96, 330 112, 480 104 C 630 96, 790 112, 940 104" stroke="var(--c-graphite-line)" stroke-width="1.1"></path>
+        <path data-draw d="M20 126 C 170 119, 320 133, 480 126 C 640 119, 800 133, 940 126" stroke="var(--c-graphite-line)" stroke-width="1.1"></path>
+        <path data-draw d="M20 148 C 185 141, 335 155, 480 148 C 625 141, 785 155, 940 148" stroke="var(--c-graphite-line)" stroke-width="1.1"></path>
+        <text x="20" y="92" class="m-label">{t('mission.foundationLabel')}</text>
+      </svg>
+      <figcaption class="mt-4 font-mono text-xs tracking-[0.12em] text-graphite-fg-2">
+        {t('mission.figcaption')}
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<style>
+  .m-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    fill: var(--c-graphite-fg-2);
+  }
+  .m-label-accent {
+    fill: var(--c-accent-bright);
+  }
+</style>
+
+<script>
+  import { gsap, ScrollTrigger, prefersReducedMotion } from '../../scripts/motion';
+
+  const fig = document.querySelector<HTMLElement>('[data-mission-fig]');
+  if (fig && !prefersReducedMotion()) {
+    const draws = Array.from(fig.querySelectorAll<SVGGeometryElement>('[data-draw]'));
+    draws.forEach((p) => {
+      const len = p.getTotalLength();
+      p.style.strokeDasharray = `${len}`;
+      p.style.strokeDashoffset = `${len}`;
+    });
+    const flow = fig.querySelector<SVGGeometryElement>('[data-flow]');
+    if (flow) flow.style.opacity = '0';
+    const ring = fig.querySelector('[data-marker-ring]');
+
+    ScrollTrigger.create({
+      trigger: fig,
+      start: 'top 82%',
+      once: true,
+      onEnter: () => {
+        gsap.to(draws, {
+          strokeDashoffset: 0,
+          duration: 1.1,
+          stagger: 0.14,
+          ease: 'power1.inOut',
+          onComplete: () => draws.forEach((p) => (p.style.strokeDasharray = 'none')),
+        });
+        if (flow) {
+          const len = flow.getTotalLength();
+          const period = len + 14;
+          gsap.set(flow, { strokeDasharray: `14 ${len}`, strokeDashoffset: 14, opacity: 1 });
+          gsap.to(flow, {
+            strokeDashoffset: 14 - period,
+            duration: 3,
+            ease: 'none',
+            repeat: -1,
+            repeatDelay: 0.6,
+            delay: 1.4,
+          });
+        }
+        if (ring) {
+          gsap.fromTo(
+            ring,
+            { attr: { r: 5 }, opacity: 0.9 },
+            { attr: { r: 15 }, opacity: 0, duration: 2, ease: 'power1.out', repeat: -1, delay: 1.4 }
+          );
+        }
+      },
+    });
+  }
+</script>

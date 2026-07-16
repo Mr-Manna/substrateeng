@@ -246,6 +246,7 @@
       { "label": "Process", "href": "/#process" },
       { "label": "Work", "href": "/#work" },
       { "label": "Insights", "href": "/#insights" },
+      { "label": "About", "href": "/about" },
       { "label": "Contact", "href": "/contact" }
     ]
   },
@@ -267,6 +268,141 @@
       "data": "DATA",
       "substrate": "SUBSTRATE"
     }
+  },
+  "mission": {
+    "index": "00",
+    "label": "Mission & Vision",
+    "missionKicker": "Mission",
+    "missionText": "Substrate exists to engineer the systems enterprises depend on — platforms, architecture, and intelligence built with rigor and honesty — so that the organizations we serve can modernize with confidence and build on foundations that last.",
+    "visionKicker": "Vision",
+    "visionText": "To be the engineering partner the world's most demanding organizations trust with the systems beneath everything they build.",
+    "pageLink": "Read the full statement",
+    "svgTitle": "Diagram: a horizon line above layered foundation strata — the vision on the horizon, the mission in the foundation.",
+    "figcaption": "FIG. 00 — MISSION AS FOUNDATION, VISION AS HORIZON.",
+    "horizonLabel": "VISION — HORIZON",
+    "foundationLabel": "MISSION — FOUNDATION"
+  },
+  "aboutPage": {
+    "title": "Substrate — About",
+    "description": "The story behind Substrate: why we exist, the statements that govern every engagement, the people accountable for them, and the record so far.",
+    "breadcrumbHome": "Home",
+    "label": "About Substrate",
+    "heading": "Built to be built on.",
+    "lede": "Who we are and how we work: the story behind the company, the statements that govern every engagement, the people accountable for them, and the record so far.",
+    "story": {
+      "kicker": "Our story",
+      "paragraphs": [
+        "Substrate was founded in 2016 by engineers who kept getting the same phone call — after launch day, when the platform that demoed beautifully met production traffic and cracked. We had spent years inside those systems, and the diagnosis rarely changed: the visible product was fine; the layer beneath it was improvised.",
+        "So we built a company for that layer. The name comes from geology — the substrate is the stratum everything above rests on — and it set the standard for the work: foundations are not glamorous, but nothing stands without them. We architect before we code, write the decisions down, and ship systems designed to be operated, not just launched.",
+        "A decade on, that is still the whole business: cloud platforms, data systems, and AI-native software for organizations that cannot afford to be wrong about their foundations."
+      ],
+      "pullQuote": "Nothing we build is the thing you see. It's the reason the thing you see stands."
+    },
+    "leadership": {
+      "kicker": "Leadership",
+      "people": [
+        {
+          "name": "Amara Okafor",
+          "role": "Chief Executive Officer · Co-founder",
+          "bio": "Twenty years running platform teams in banking and logistics; started Substrate after rebuilding the same payments core twice.",
+          "portraitAlt": "Blueprint-style line portrait of Amara Okafor"
+        },
+        {
+          "name": "Tomas Lindqvist",
+          "role": "Chief Technology Officer · Co-founder",
+          "bio": "Distributed-systems engineer; wrote the company's first architecture decision record and still reviews every one.",
+          "portraitAlt": "Blueprint-style line portrait of Tomas Lindqvist"
+        },
+        {
+          "name": "Mei-Lin Chen",
+          "role": "VP, Platform Engineering",
+          "bio": "Built internal developer platforms for three scaleups; owns the golden paths our clients' engineers walk every day.",
+          "portraitAlt": "Blueprint-style line portrait of Mei-Lin Chen"
+        },
+        {
+          "name": "Rafael Ibarra",
+          "role": "Head of AI Systems",
+          "bio": "Shipped machine-learning systems long before the hype; insists every model earns its place with an eval.",
+          "portraitAlt": "Blueprint-style line portrait of Rafael Ibarra"
+        }
+      ]
+    },
+    "approach": {
+      "kicker": "Our approach",
+      "lede": "Every engagement follows the same five-phase shape: understand before designing, design before building, and never hand over a system we wouldn't operate ourselves.",
+      "processLink": "See the full process",
+      "svgTitle": "Rail diagram: five engagement phases — discover, architect, build, harden, operate — connected left to right."
+    },
+    "timeline": {
+      "kicker": "Timeline",
+      "milestones": [
+        {
+          "year": "2016",
+          "title": "Founded in London",
+          "note": "Three engineers, one thesis: the layer beneath deserves better."
+        },
+        {
+          "year": "2018",
+          "title": "First tier-one engagement",
+          "note": "A payments core comes off a mainframe without missing a settlement window."
+        },
+        {
+          "year": "2020",
+          "title": "Platform practice",
+          "note": "Internal developer platforms become a discipline of their own."
+        },
+        {
+          "year": "2022",
+          "title": "Singapore & Toronto",
+          "note": "The hundredth engineer joins; replies now land in three timezones."
+        },
+        {
+          "year": "2024",
+          "title": "AI systems practice",
+          "note": "Agentic and AI-native engineering, with the guardrails enterprises require."
+        },
+        {
+          "year": "2026",
+          "title": "Today",
+          "note": "Still engineering the layer beneath — measured by what's still running."
+        }
+      ]
+    },
+    "valuesHeading": "What we hold ourselves to",
+    "values": [
+      {
+        "name": "Engineering Excellence",
+        "line": "The standard is work an engineer would sign their name to."
+      },
+      {
+        "name": "Simplicity",
+        "line": "Complexity is a cost. We spend it only where it buys something."
+      },
+      {
+        "name": "Quality",
+        "line": "Correctness proven by tests and production, not promised in decks."
+      },
+      {
+        "name": "Security",
+        "line": "A property of the architecture, not a phase at the end."
+      },
+      {
+        "name": "Scalability",
+        "line": "Designed for the load after next, not just the launch."
+      },
+      {
+        "name": "Transparency",
+        "line": "Real status, real numbers, plain language — especially when it's bad news."
+      },
+      {
+        "name": "Continuous Learning",
+        "line": "Every system teaches something. We write it down and carry it forward."
+      },
+      {
+        "name": "Customer Success",
+        "line": "We measure ourselves by outcomes our clients can put a number on."
+      }
+    ]
   },
   "scale": {
     "index": "01",
@@ -633,6 +769,7 @@
   },
   "footer": {
     "navItems": [
+      { "label": "About", "href": "/about" },
       { "label": "Capabilities", "href": "/#capabilities" },
       { "label": "Industries", "href": "/#industries" },
       { "label": "Technology", "href": "/#technology" },
