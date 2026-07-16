@@ -16,6 +16,8 @@
     "@astrojs/sitemap": "^3.7.3",
     "@fontsource-variable/archivo": "^5.2.8",
     "@fontsource-variable/instrument-sans": "^5.2.8",
+    "@fontsource-variable/noto-sans-arabic": "^5.2.10",
+    "@fontsource/bebas-neue": "^5.2.7",
     "@fontsource/ibm-plex-mono": "^5.2.7",
     "@tailwindcss/vite": "^4.3.2",
     "@types/react": "^19.2.17",

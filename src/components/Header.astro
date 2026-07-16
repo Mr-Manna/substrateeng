@@ -66,7 +66,7 @@ const navItems = tRaw<{ label: string; href: string; items?: { label: string; hr
 
       <ThemeToggle client:load />
       <a
-        href="/#contact"
+        href="/contact"
         class="hidden rounded-full border border-line-2 px-4.5 py-2 text-sm font-medium text-ink transition-colors hover:border-ink-2 hover:bg-paper-2 md:inline-flex"
       >
         {t('buttons.startConversation')}
@@ -124,7 +124,7 @@ const navItems = tRaw<{ label: string; href: string; items?: { label: string; hr
   .nav-link::after {
     content: '';
     position: absolute;
-    left: 0.875rem;
+    inset-inline-start: 0.875rem;
     bottom: 0;
     height: 1.5px;
     width: calc(100% - 1.75rem);
@@ -242,6 +242,7 @@ const navItems = tRaw<{ label: string; href: string; items?: { label: string; hr
         const panel = getPanel(idx);
         panel?.classList.add('hidden');
         activeIdx = null;
+        document.body.style.overflow = '';
         setTimeout(() => overlay.classList.add('hidden'), 300);
         return;
       }
@@ -258,6 +259,7 @@ const navItems = tRaw<{ label: string; href: string; items?: { label: string; hr
         overlay.classList.remove('hidden');
         overlay.offsetHeight;
         overlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
       }
     }
 
@@ -268,6 +270,7 @@ const navItems = tRaw<{ label: string; href: string; items?: { label: string; hr
         panel?.classList.add('hidden');
       }
       activeIdx = null;
+      document.body.style.overflow = '';
       setTimeout(() => overlay.classList.add('hidden'), 300);
     }
 

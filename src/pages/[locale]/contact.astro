@@ -1,0 +1,207 @@
+---
+import Base from '../../layouts/Base.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import Button from '../../components/Button.astro';
+import { site } from '../../data/site';
+import { locales } from '../../i18n/config';
+import { useTranslations } from '../../i18n/useTranslations';
+
+export function getStaticPaths() {
+  return locales
+    .filter((l) => l !== 'en')
+    .map((locale) => ({ params: { locale } }));
+}
+
+const locale = Astro.params.locale ?? 'en';
+const { t, tRaw } = useTranslations(locale);
+const steps = tRaw<Array<{ ref: string; text: string }>>('contact.steps');
+const depthLabels = tRaw<string[]>('contact.depthGaugeLabels');
+const depths = [
+  { y: 95, label: depthLabels[1], href: '/#scale' },
+  { y: 150, label: depthLabels[2], href: '/#capabilities' },
+  { y: 205, label: depthLabels[3], href: '/#industries' },
+  { y: 260, label: depthLabels[4], href: '/#technology' },
+  { y: 315, label: depthLabels[5], href: '/#process' },
+  { y: 370, label: depthLabels[6], href: '/#work' },
+  { y: 425, label: depthLabels[7], href: '/#insights' },
+];
+---
+
+<Base
+  title={t('contactPage.title')}
+  description={t('contactPage.description')}
+  locale={locale}
+>
+  <section class="bg-graphite py-20 md:py-32" aria-labelledby="contact-page-heading">
+    <div class="container-x">
+      <nav class="mb-8 text-sm text-graphite-fg-2" aria-label="Breadcrumb">
+        <span>
+          <a href={`/${locale === 'en' ? '' : locale}`} class="text-accent-bright hover:underline">{t('contactPage.breadcrumbHome')}</a>
+        </span>
+        <span aria-hidden="true"> / </span>
+        <span class="font-medium text-graphite-fg">{t('contact.label')}</span>
+      </nav>
+
+      <SectionHeading
+        id="contact-page-heading"
+        tone="graphite"
+        index={t('contact.index')}
+        label={t('contact.label')}
+        title={t('contact.title')}
+        lede={t('contact.lede')}
+      />
+
+      <div class="mt-14 grid gap-x-20 gap-y-16 md:mt-16 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]">
+        <div>
+          <div class="flex flex-wrap items-center gap-x-7 gap-y-4" data-reveal>
+            <Button href={`mailto:${site.email}`}>{t('buttons.startConversation')}</Button>
+            <a
+              href={`mailto:${site.email}`}
+              class="font-mono text-sm tracking-[0.06em] text-accent-bright transition-colors hover:text-graphite-fg"
+            >
+              {site.email}
+            </a>
+          </div>
+
+          <div class="mt-14" data-reveal-group>
+            <h2 class="kicker text-graphite-fg-2" data-reveal>{t('contact.whatHappensNext')}</h2>
+            <ol class="mt-2">
+              {steps.map((step) => (
+                <li
+                  class="grid grid-cols-[52px_minmax(0,1fr)] gap-x-5 border-b border-graphite-line py-5"
+                  data-reveal
+                >
+                  <span class="font-mono text-sm text-accent-bright">{step.ref}</span>
+                  <p class="text-[0.98rem] leading-relaxed text-graphite-fg-2">{step.text}</p>
+                </li>
+              ))}
+            </ol>
+            <p class="mt-6 font-mono text-xs leading-loose tracking-[0.12em] text-graphite-fg-2" data-reveal>
+              {t('contact.locations')}
+            </p>
+          </div>
+        </div>
+
+        <figure class="mx-auto w-full max-w-[320px] lg:mx-0 lg:justify-self-end" data-depth-gauge data-reveal>
+          <svg
+            viewBox="0 0 300 560"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            role="img"
+            aria-label={t('contact.svgTitle')}
+            class="h-auto w-full"
+          >
+            <path data-draw d="M20 40 H280" stroke="var(--c-graphite-line)" stroke-width="1.2"></path>
+            <text x="280" y="28" text-anchor="end" class="g-label">{depthLabels[0]}</text>
+
+            <path data-draw d="M70 40 V480" stroke="var(--c-graphite-fg-2)" stroke-width="1.2"></path>
+            <path data-flow d="M70 40 V480" stroke="var(--c-accent-bright)" stroke-width="1.8" stroke-linecap="round"></path>
+
+            {depths.map((d) => {
+              const content = (
+                <g data-node>
+                  <path d={`M70 ${d.y} H84`} stroke="var(--c-graphite-line)" stroke-width="1.2" />
+                  <text x="94" y={d.y + 3.5} class="g-label">
+                    {d.label}
+                  </text>
+                </g>
+              );
+              return d.href ? <a href={d.href}>{content}</a> : content;
+            })}
+
+            <path data-draw d="M28 504 C 70 496, 120 510, 165 502 C 210 494, 250 506, 276 500" stroke="var(--c-graphite-line)" stroke-width="1.1"></path>
+            <path data-draw d="M34 528 C 80 522, 130 534, 175 526 C 218 519, 252 530, 272 524" stroke="var(--c-graphite-line)" stroke-width="1.1"></path>
+
+            <g data-node>
+              <circle data-marker-ring cx="70" cy="480" r="10" stroke="var(--c-accent-bright)" stroke-width="1"></circle>
+              <circle cx="70" cy="480" r="4.5" fill="var(--c-accent-bright)"></circle>
+              <text x="94" y="484" class="g-label g-label-accent">{depthLabels[8]}</text>
+            </g>
+          </svg>
+          <figcaption class="mt-4 font-mono text-xs tracking-[0.12em] text-graphite-fg-2">
+            {t('contact.figcaption')}
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .g-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    fill: var(--c-graphite-fg-2);
+  }
+  .g-label-accent {
+    fill: var(--c-accent-bright);
+  }
+
+  [data-depth-gauge] a {
+    cursor: pointer;
+  }
+  [data-depth-gauge] a:hover .g-label {
+    fill: var(--c-accent-bright);
+  }
+  [data-depth-gauge] a:hover path {
+    stroke: var(--c-accent-bright);
+  }
+</style>
+
+<script>
+  import { gsap, ScrollTrigger, prefersReducedMotion } from '../../scripts/motion';
+
+  const gauge = document.querySelector<HTMLElement>('[data-depth-gauge]');
+  if (gauge && !prefersReducedMotion()) {
+    const draws = Array.from(gauge.querySelectorAll<SVGGeometryElement>('[data-draw]'));
+    draws.forEach((p) => {
+      const len = p.getTotalLength();
+      p.style.strokeDasharray = `${len}`;
+      p.style.strokeDashoffset = `${len}`;
+    });
+    const flow = gauge.querySelector<SVGGeometryElement>('[data-flow]');
+    if (flow) flow.style.opacity = '0';
+
+    ScrollTrigger.create({
+      trigger: gauge,
+      start: 'top 70%',
+      once: true,
+      onEnter: () => {
+        const tl = gsap.timeline();
+        tl.to(draws, {
+          strokeDashoffset: 0,
+          duration: 0.9,
+          stagger: 0.1,
+          ease: 'power1.inOut',
+          onComplete: () => draws.forEach((p) => (p.style.strokeDasharray = 'none')),
+        });
+        tl.from(
+          gauge.querySelectorAll('[data-node]'),
+          { opacity: 0, x: -10, duration: 0.45, stagger: 0.09, ease: 'power2.out' },
+          0.5
+        );
+
+        tl.add(() => {
+          if (flow) {
+            const len = flow.getTotalLength();
+            const period = len + 14;
+            gsap.set(flow, { strokeDasharray: `14 ${len}`, strokeDashoffset: 14, opacity: 1 });
+            gsap.to(flow, {
+              strokeDashoffset: 14 - period,
+              duration: 2.6,
+              ease: 'none',
+              repeat: -1,
+              repeatDelay: 0.6,
+            });
+          }
+          gsap.fromTo(
+            gauge.querySelector('[data-marker-ring]'),
+            { attr: { r: 6 }, opacity: 0.9 },
+            { attr: { r: 17 }, opacity: 0, duration: 2, ease: 'power1.out', repeat: -1 }
+          );
+        });
+      },
+    });
+  }
+</script>

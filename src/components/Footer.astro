@@ -10,6 +10,7 @@ const year = new Date().getFullYear();
 const footerNav = tRaw<{ label: string; href: string }[]>('footer.navItems');
 const exploreLabel = t('footer.exploreHeading');
 const contactLabel = t('footer.contactHeading');
+const markText = t('site.name').toUpperCase();
 ---
 
 <footer class="bg-graphite text-graphite-fg">
@@ -52,11 +53,112 @@ const contactLabel = t('footer.contactHeading');
       </div>
     </div>
 
+    <div aria-hidden="true" class="mt-16 select-none md:mt-24" data-footer-mark>
+      <svg
+        viewBox="0 0 960 152"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        class="w-full"
+        preserveAspectRatio="xMidYMid meet"
+      >
+        <text
+          class="wm-text wm-fill"
+          x="480"
+          y="148"
+          text-anchor="middle"
+          textLength="940"
+          lengthAdjust="spacing"
+        >
+          {markText}
+        </text>
+        <text
+          class="wm-text wm-outline"
+          x="480"
+          y="148"
+          text-anchor="middle"
+          textLength="940"
+          lengthAdjust="spacing"
+        >
+          {markText}
+        </text>
+        <text
+          class="wm-text wm-glow"
+          x="480"
+          y="148"
+          text-anchor="middle"
+          textLength="940"
+          lengthAdjust="spacing"
+        >
+          {markText}
+        </text>
+      </svg>
+    </div>
+
     <div
-      class="mt-16 flex flex-col gap-3 border-t border-graphite-line pt-6 text-graphite-fg-2 sm:flex-row sm:items-center sm:justify-between"
+      class="mt-12 flex flex-col gap-3 border-t border-graphite-line pt-6 text-graphite-fg-2 sm:flex-row sm:items-center sm:justify-between md:mt-16"
     >
       <p class="text-sm">&copy; {year} {t('footer.copyright')}</p>
       <p class="font-mono text-xs tracking-[0.14em]">{t('footer.tagline')}</p>
     </div>
   </div>
 </footer>
+
+<style>
+  .wm-text {
+    font-family: 'Bebas Neue', var(--font-display);
+    font-size: 200px;
+    letter-spacing: 0.02em;
+  }
+  .wm-fill {
+    fill: color-mix(in srgb, var(--c-graphite-line) 52%, var(--c-graphite));
+  }
+  .wm-outline {
+    stroke: var(--c-graphite-line);
+    stroke-width: 1.4;
+  }
+  /* traveling light segments along the letterforms; enabled by the motion
+     script — stays invisible without JS or with reduced motion */
+  .wm-glow {
+    stroke: var(--c-accent);
+    stroke-width: 1.4;
+    opacity: 0;
+    filter: drop-shadow(0 0 7px var(--c-accent));
+  }
+</style>
+
+<script>
+  import { gsap, ScrollTrigger, prefersReducedMotion } from '../scripts/motion';
+
+  const mark = document.querySelector<HTMLElement>('[data-footer-mark]');
+  if (mark && !prefersReducedMotion()) {
+    const fill = mark.querySelector('.wm-fill');
+    const outline = mark.querySelector('.wm-outline');
+    const glow = mark.querySelector('.wm-glow');
+
+    // text glyphs have no getTotalLength(); a dash longer than any glyph
+    // perimeter lets every letter draw in from nothing
+    const DASH = 2600;
+    gsap.set(outline, { strokeDasharray: DASH, strokeDashoffset: DASH });
+    gsap.set(fill, { opacity: 0 });
+
+    ScrollTrigger.create({
+      trigger: mark,
+      start: 'top 95%',
+      once: true,
+      onEnter: () => {
+        gsap.to(outline, { strokeDashoffset: 0, duration: 2.2, ease: 'power2.inOut' });
+        gsap.to(fill, { opacity: 1, duration: 1.6, ease: 'power1.inOut', delay: 0.8 });
+
+        const period = 2600;
+        gsap.set(glow, { strokeDasharray: `140 ${period - 140}`, strokeDashoffset: 140, opacity: 1 });
+        gsap.to(glow, {
+          strokeDashoffset: 140 - period,
+          duration: 9,
+          ease: 'none',
+          repeat: -1,
+          delay: 1.6,
+        });
+      },
+    });
+  }
+</script>

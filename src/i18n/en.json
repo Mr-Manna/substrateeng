@@ -245,7 +245,8 @@
       },
       { "label": "Process", "href": "/#process" },
       { "label": "Work", "href": "/#work" },
-      { "label": "Insights", "href": "/#insights" }
+      { "label": "Insights", "href": "/#insights" },
+      { "label": "Contact", "href": "/contact" }
     ]
   },
   "hero": {
@@ -624,6 +625,11 @@
     ],
     "svgTitle": "Depth gauge: a borehole descending past every section of this page — scale, capabilities, industries, technology, process, work, insights — ending at bedrock, marked contact, you are here",
     "figcaption": "FIG. 08 — BOREHOLE LOG, THIS PAGE."
+  },
+  "contactPage": {
+    "title": "Substrate — Contact",
+    "description": "Get in touch with Substrate. Tell us what's slow, what's fragile, or what you can't ship yet — it lands with an engineer, not a sales queue.",
+    "breadcrumbHome": "Home"
   },
   "footer": {
     "navItems": [

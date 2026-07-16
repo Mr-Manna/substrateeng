@@ -96,9 +96,9 @@ const phases: Phase[] = phaseKeys.map((key, i) => ({
       <ol class="space-y-16 md:space-y-20">
         {
           phases.map((phase, i) => (
-            <li class="relative pl-10 md:pl-14" data-phase data-reveal-group>
+            <li class="relative ps-10 md:ps-14" data-phase data-reveal-group>
               <span
-                class="phase-dot absolute top-1 left-0 h-[11px] w-[11px] rounded-full border-2 border-line-2 bg-paper transition-colors duration-500"
+                class="phase-dot absolute top-1 start-0 h-[11px] w-[11px] rounded-full border-2 border-line-2 bg-paper transition-colors duration-500"
                 aria-hidden="true"
               />
               <div class="items-start md:grid md:grid-cols-[minmax(0,1fr)_230px] md:gap-12">

@@ -1,5 +1,5 @@
 export const site = {
-  name: 'Substrate',
+  title: 'Substrate',
   tagline: 'Engineering the layer beneath modern business.',
   email: 'hello@substrate.engineering',
 } as const;
@@ -266,4 +266,5 @@ export const navItems: MegaMenuItem[] = [
   { label: 'Process', href: '/#process' },
   { label: 'Work', href: '/#work' },
   { label: 'Insights', href: '/#insights' },
+  { label: 'Contact', href: '/contact' },
 ];

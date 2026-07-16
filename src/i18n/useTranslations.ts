@@ -5,8 +5,9 @@ import fr from './fr.json';
 import de from './de.json';
 import bn from './bn.json';
 import hi from './hi.json';
+import ar from './ar.json';
 
-const all: Record<Locale, Record<string, unknown>> = { en, es, fr, de, bn, hi };
+const all: Record<Locale, Record<string, unknown>> = { en, es, fr, de, bn, hi, ar };
 
 function getNested(obj: unknown, path: string): unknown {
   return path.split('.').reduce<unknown>((acc, key) => {
@@ -18,7 +19,7 @@ function getNested(obj: unknown, path: string): unknown {
 }
 
 export function useTranslations(locale: string) {
-  const lang = (['en', 'es', 'fr', 'de', 'bn', 'hi'].includes(locale) ? locale : 'en') as Locale;
+  const lang = (['en', 'es', 'fr', 'de', 'bn', 'hi', 'ar'].includes(locale) ? locale : 'en') as Locale;
   const dict = all[lang] ?? all.en;
   const fallback = all.en;
 
