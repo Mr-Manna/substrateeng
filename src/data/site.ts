@@ -41,7 +41,7 @@ export const navItems: MegaMenuItem[] = [
       },
       {
         label: 'Cloud Native',
-        href: '#',
+        href: '/cloud-native',
         items: [
           { label: 'Container orchestration', href: '#' },
           { label: 'Service mesh', href: '#' },

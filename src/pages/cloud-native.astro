@@ -1,0 +1,230 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import Button from '../components/Button.astro';
+
+const breadcrumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Capabilities', href: '/#capabilities' },
+  { name: 'Cloud Native', href: '' },
+];
+---
+
+<Base
+  title="Cloud-Native Engineering Services | Substrate"
+  description="Substrate helps enterprises adopt cloud-native architectures with containers, Kubernetes, serverless, and microservices. Accelerate delivery, reduce costs, and build for scale."
+>
+<!-- ============================================================ -->
+<!-- 1. HERO -->
+<!-- ============================================================ -->
+<section class="relative overflow-hidden py-24 md:py-40" aria-labelledby="hero-heading">
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--c-accent-soft)_0%,_transparent_60%)] pointer-events-none" aria-hidden="true" />
+  <div class="container-x relative z-10">
+    <nav class="mb-10 text-sm text-ink-3">
+      {breadcrumbs.map((crumb, idx) => (
+        <span>
+          {idx > 0 && ' / '}
+          {crumb.href && idx < breadcrumbs.length - 1
+            ? <a href={crumb.href} class="text-accent hover:underline">{crumb.name}</a>
+            : <span class={idx === breadcrumbs.length - 1 ? 'font-medium text-ink' : ''}>{crumb.name}</span>
+          }
+        </span>
+      ))}
+    </nav>
+
+    <div class="max-w-4xl" data-reveal-group>
+      <p class="kicker text-accent mb-5" data-reveal>
+        <span class="text-accent">01</span><span aria-hidden="true">&nbsp;—&nbsp;</span>Cloud-Native Engineering
+      </p>
+      <h1 id="hero-heading" class="display text-5xl md:text-[4.5rem] text-ink max-w-5xl" data-reveal>
+        Design, build, and operate<br />cloud-native systems that scale.
+      </h1>
+      <p class="mt-6 text-lg md:text-xl text-ink-2 max-w-2xl leading-relaxed" data-reveal>
+        Cloud-native engineering is the practice of designing systems that leverage containers, orchestration, automated delivery, and declarative infrastructure to maximize velocity, resilience, and resource efficiency. Substrate helps organizations adopt these practices pragmatically, without unnecessary complexity.
+      </p>
+      <div class="mt-10 flex flex-wrap gap-4" data-reveal>
+        <Button href="/contact" variant="primary" size="md">Speak with our team</Button>
+        <Button href="#what-is" variant="secondary" size="md">Learn more</Button>
+      </div>
+    </div>
+
+    <div class="mt-16 grid gap-6 md:grid-cols-3 max-w-4xl" data-reveal-group>
+      <div class="border-t border-line pt-5" data-reveal>
+        <p class="text-3xl font-display font-semibold text-accent">2.5x</p>
+        <p class="text-sm text-ink-2 mt-1">Faster time-to-market with automated delivery pipelines and self-service infrastructure</p>
+      </div>
+      <div class="border-t border-line pt-5" data-reveal>
+        <p class="text-3xl font-display font-semibold text-accent">60%</p>
+        <p class="text-sm text-ink-2 mt-1">Average reduction in infrastructure costs through containerization and resource optimization</p>
+      </div>
+      <div class="border-t border-line pt-5" data-reveal>
+        <p class="text-3xl font-display font-semibold text-accent">90%</p>
+        <p class="text-sm text-ink-2 mt-1">Faster recovery with automated observability, self-healing, and immutable deployment patterns</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ============================================================ -->
+<!-- 2. WHAT IS CLOUD-NATIVE ENGINEERING? -->
+<!-- ============================================================ -->
+<section id="what-is" class="py-20 md:py-28 bg-graphite" aria-labelledby="whatis-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="whatis-heading"
+      index="02"
+      label="What is Cloud-Native Engineering"
+      title="An architectural discipline for building systems that thrive in dynamic environments."
+      lede="Cloud-native engineering combines containerization, orchestration, declarative APIs, and automated delivery to build applications that are resilient, scalable, and fast to change. It is the standard approach for modern software architecture."
+      tone="graphite"
+    />
+
+    <div class="mt-14 grid gap-10 md:grid-cols-2 lg:gap-16" data-reveal-group>
+      <div data-reveal>
+        <h3 class="text-xl font-display font-semibold text-graphite-fg mb-4">Definition and core principles</h3>
+        <p class="text-graphite-fg-2 leading-relaxed mb-4">
+          Cloud-native engineering is the practice of building and running applications as loosely coupled services packaged in containers, orchestrated by platforms like Kubernetes, and managed through declarative configuration and automated pipelines. Infrastructure is treated as code. Observability is built in. Scaling is automatic. Recovery is self-healing.
+        </p>
+        <p class="text-graphite-fg-2 leading-relaxed">
+          The core principles are: immutable infrastructure, declarative APIs, automated delivery, loose coupling, resilience through design, and continuous validation. These principles apply whether you are running a single service or a thousand.
+        </p>
+      </div>
+
+      <div data-reveal>
+        <h3 class="text-xl font-display font-semibold text-graphite-fg mb-4">Why businesses adopt cloud-native architectures</h3>
+        <p class="text-graphite-fg-2 leading-relaxed mb-4">
+          Organizations adopt cloud-native architectures to escape the constraints of monolithic systems and manual operations. The drivers are consistent: faster feature delivery, lower operational costs, improved reliability, and the ability to scale engineering organizations without proportionally scaling complexity.
+        </p>
+        <p class="text-graphite-fg-2 leading-relaxed">
+          Companies that successfully adopt cloud-native practices report higher deployment frequency, shorter lead times, lower change failure rates, and faster mean time to recovery. These are the DORA metrics that correlate directly with organizational performance.
+        </p>
+      </div>
+
+      <div data-reveal>
+        <h3 class="text-xl font-display font-semibold text-graphite-fg mb-4">Cloud native vs. traditional infrastructure</h3>
+        <p class="text-graphite-fg-2 leading-relaxed mb-4">
+          Traditional infrastructure treats servers and services as long-lived pets that are patched, upgraded, and nursed back to health when they fail. Cloud-native infrastructure treats compute, networking, and storage as cattle that can be replaced at any time. Configuration is declared in code, not applied through manual procedures.
+        </p>
+        <p class="text-graphite-fg-2 leading-relaxed">
+          In traditional models, scaling requires procurement and provisioning. In cloud-native models, scaling happens automatically through horizontal pod autoscaling, cluster autoscaling, and event-driven compute. The operational model shifts from firefighting to engineering.
+        </p>
+      </div>
+
+      <div data-reveal>
+        <h3 class="text-xl font-display font-semibold text-graphite-fg mb-4">Common misconceptions</h3>
+        <ul class="space-y-3">
+          <li class="flex items-start gap-3 text-graphite-fg-2">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <span><strong class="text-graphite-fg">Cloud native is not just Kubernetes.</strong> Kubernetes is a platform substrate, not the entire architecture. Service mesh, observability, CI/CD, and security are equally important.</span>
+          </li>
+          <li class="flex items-start gap-3 text-graphite-fg-2">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <span><strong class="text-graphite-fg">It does not require microservices.</strong> Modular monoliths, event-driven architectures, and serverless functions are all valid cloud-native patterns. The architecture should fit the problem.</span>
+          </li>
+          <li class="flex items-start gap-3 text-graphite-fg-2">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <span><strong class="text-graphite-fg">It is not only for startups.</strong> Regulated enterprises with complex compliance and security requirements can adopt cloud-native practices incrementally.</span>
+          </li>
+          <li class="flex items-start gap-3 text-graphite-fg-2">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <span><strong class="text-graphite-fg">It is not a product purchase.</strong> Cloud-native adoption requires architectural transformation, skill development, and operational change, not just a license or a tool.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ============================================================ -->
+<!-- 3. BUSINESS CHALLENGES -->
+<!-- ============================================================ -->
+<section class="py-20 md:py-28" aria-labelledby="challenges-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="challenges-heading"
+      index="03"
+      label="Business Challenges"
+      title="The cost of operating without cloud-native engineering."
+      lede="Organizations that delay cloud-native adoption accumulate technical debt, operational overhead, and competitive disadvantage. These are the symptoms we see across every industry."
+    />
+
+    <div class="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3" data-reveal-group>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">01</span>
+          <h3 class="font-display font-semibold text-ink">Legacy monolithic applications</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Monoliths become difficult to maintain, deploy, and scale. A single change requires rebuilding and redeploying the entire application. Teams cannot work independently.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">02</span>
+          <h3 class="font-display font-semibold text-ink">Slow release cycles</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Manual testing, deployment procedures, and approval gates turn every release into a high-risk, multi-day event. Velocity is sacrificed for perceived safety.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">03</span>
+          <h3 class="font-display font-semibold text-ink">Scaling limitations</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Monolithic architectures cannot scale components independently. Traffic spikes require over-provisioning the entire stack. Cost scales linearly with load.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">04</span>
+          <h3 class="font-display font-semibold text-ink">Infrastructure complexity</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Configuration drift, manual provisioning, and inconsistent environments create an operational burden that grows faster than the engineering team.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">05</span>
+          <h3 class="font-display font-semibold text-ink">Vendor lock-in</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Tight coupling to proprietary services, managed APIs, and provider-specific tooling makes migration costly and reduces negotiating leverage.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">06</span>
+          <h3 class="font-display font-semibold text-ink">High operational costs</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Over-provisioned resources, idle capacity, orphaned volumes, and lack of cost visibility lead to cloud bills that grow faster than revenue.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">07</span>
+          <h3 class="font-display font-semibold text-ink">Reliability issues</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Without automated recovery, self-healing infrastructure, and standardized runbooks, incidents are prolonged and impact customers directly.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">08</span>
+          <h3 class="font-display font-semibold text-ink">Disaster recovery challenges</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Traditional backup and restore approaches are slow, fragile, and rarely tested. Recovery point and time objectives are difficult to meet without automated replication.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">09</span>
+          <h3 class="font-display font-semibold text-ink">Poor developer experience</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Slow feedback loops, inconsistent local environments, and complex onboarding processes reduce developer productivity and increase frustration.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">10</span>
+          <h3 class="font-display font-semibold text-ink">Security concerns</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Ad hoc networking, unpatched dependencies, hard-coded credentials, and manual access controls create vulnerabilities that are difficult to audit and expensive to fix.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">11</span>
+          <h3 class="font-display font-semibold text-ink">Compliance requirements</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Regulatory frameworks like SOC 2, HIPAA, PCI DSS, and FedRAMP require continuous compliance, audit trails, and policy enforcement that are difficult to maintain manually.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</Base>

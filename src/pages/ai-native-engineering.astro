@@ -1,0 +1,1350 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import Button from '../components/Button.astro';
+
+const breadcrumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Capabilities', href: '/#capabilities' },
+  { name: 'AI-Native Engineering', href: '' },
+];
+---
+
+<Base
+  title="AI-Native Engineering Services | Substrate"
+  description="Substrate helps enterprises design, build, deploy, and operate AI-native products, intelligent workflows, autonomous systems, and enterprise AI platforms. Engineering-first, production-ready."
+>
+<!-- 1. HERO -->
+<section class="relative overflow-hidden py-24 md:py-40" aria-labelledby="hero-heading">
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--c-accent-soft)_0%,_transparent_60%)] pointer-events-none" aria-hidden="true" />
+  <div class="container-x relative z-10">
+    <nav class="mb-10 text-sm text-ink-3">
+      {breadcrumbs.map((crumb, idx) => (
+        <span>
+          {idx > 0 && ' / '}
+          {crumb.href && idx < breadcrumbs.length - 1
+            ? <a href={crumb.href} class="text-accent hover:underline">{crumb.name}</a>
+            : <span class={idx === breadcrumbs.length - 1 ? 'font-medium text-ink' : ''}>{crumb.name}</span>
+          }
+        </span>
+      ))}
+    </nav>
+
+    <div class="max-w-4xl" data-reveal-group>
+      <p class="kicker text-accent mb-5" data-reveal>
+        <span class="text-accent">01</span><span aria-hidden="true">&nbsp;—&nbsp;</span>AI-Native Engineering
+      </p>
+      <h1 id="hero-heading" class="display text-5xl md:text-[4.5rem] text-ink max-w-5xl" data-reveal>
+        Design, build, and operate<br />AI-native systems that deliver.
+      </h1>
+      <p class="mt-6 text-lg md:text-xl text-ink-2 max-w-2xl leading-relaxed" data-reveal>
+        AI-native engineering is the discipline of building production systems where intelligence is a first-class architectural primitive, not a bolt-on feature. Substrate helps organizations design, build, deploy, and operate AI-native products, intelligent workflows, autonomous systems, and enterprise AI platforms that create measurable business value.
+      </p>
+      <div class="mt-10 flex flex-wrap gap-4" data-reveal>
+        <Button href="/contact" variant="primary" size="md">Schedule an AI strategy consultation</Button>
+        <Button href="#what-is" variant="secondary" size="md">Learn more</Button>
+      </div>
+    </div>
+
+    <div class="mt-16 grid gap-6 md:grid-cols-3 max-w-4xl" data-reveal-group>
+      <div class="border-t border-line pt-5" data-reveal>
+        <p class="text-3xl font-display font-semibold text-accent">70%</p>
+        <p class="text-sm text-ink-2 mt-1">Of AI proofs-of-concept never reach production — we engineer systems that ship</p>
+      </div>
+      <div class="border-t border-line pt-5" data-reveal>
+        <p class="text-3xl font-display font-semibold text-accent">3-6x</p>
+        <p class="text-sm text-ink-2 mt-1">Faster delivery of AI capabilities with platform-driven development</p>
+      </div>
+      <div class="border-t border-line pt-5" data-reveal>
+        <p class="text-3xl font-display font-semibold text-accent">40%</p>
+        <p class="text-sm text-ink-2 mt-1">Average reduction in AI infrastructure costs through optimized model serving</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. WHAT IS AI-NATIVE ENGINEERING? -->
+<section id="what-is" class="py-20 md:py-28 bg-graphite" aria-labelledby="whatis-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="whatis-heading"
+      index="02"
+      label="What is AI-Native Engineering"
+      title="Intelligence as a first-class architectural primitive."
+      lede="AI-native engineering treats AI capabilities as core architectural components, not isolated experiments. It is the discipline of designing, building, and operating production systems where intelligence is embedded at every layer of the stack."
+      tone="graphite"
+    />
+
+    <div class="mt-14 grid gap-10 md:grid-cols-2 lg:gap-16" data-reveal-group>
+      <div data-reveal>
+        <h3 class="text-xl font-display font-semibold text-graphite-fg mb-4">Definition and core principles</h3>
+        <p class="text-graphite-fg-2 leading-relaxed mb-4">
+          AI-native engineering is the practice of designing and building software systems where AI capabilities are fundamental to the architecture, not added as an afterthought. Models, embeddings, agents, retrieval systems, and evaluation pipelines are designed as first-class components alongside databases, APIs, and user interfaces.
+        </p>
+        <p class="text-graphite-fg-2 leading-relaxed">
+          Core principles include: intelligence is composed, not monolithic; evaluation is continuous; humans remain in the loop; and infrastructure is AI-optimized. These principles ensure that systems are maintainable, trustworthy, and cost-effective at scale.
+        </p>
+      </div>
+
+      <div data-reveal>
+        <h3 class="text-xl font-display font-semibold text-graphite-fg mb-4">AI-native vs. AI-enabled applications</h3>
+        <p class="text-graphite-fg-2 leading-relaxed mb-4">
+          An AI-enabled application takes an existing application and adds an AI feature. An AI-native application is architected from the ground up with intelligence as a core concern. This distinction determines whether AI becomes a competitive advantage or a cost center.
+        </p>
+        <p class="text-graphite-fg-2 leading-relaxed">
+          AI-native systems have data pipelines designed to feed models, APIs that return structured data optimized for LLM consumption, workflows that include model inference and human review as standard steps, and evaluation built into CI/CD. The system improves continuously through usage data rather than requiring manual retraining cycles.
+        </p>
+      </div>
+
+      <div data-reveal>
+        <h3 class="text-xl font-display font-semibold text-graphite-fg mb-4">Why organizations are investing now</h3>
+        <p class="text-graphite-fg-2 leading-relaxed mb-4">
+          Organizations that embed intelligence into their core products and operations see measurable improvements in customer experience, operational efficiency, and revenue growth. Early adopters in financial services, healthcare, and SaaS are building defensible moats through AI capabilities that competitors cannot easily replicate.
+        </p>
+        <p class="text-graphite-fg-2 leading-relaxed">
+          The cost of inaction is equally measurable. Companies that treat AI as an add-on find themselves rebuilding architectures within 18 months. The investments made today in AI architecture, data infrastructure, and engineering practices determine competitive positioning for the next decade.
+        </p>
+      </div>
+
+      <div data-reveal>
+        <h3 class="text-xl font-display font-semibold text-graphite-fg mb-4">Common misconceptions</h3>
+        <ul class="space-y-3">
+          <li class="flex items-start gap-3 text-graphite-fg-2">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <span><strong class="text-graphite-fg">AI-native does not mean replacing everything.</strong> Most organizations adopt AI-native practices incrementally.</span>
+          </li>
+          <li class="flex items-start gap-3 text-graphite-fg-2">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <span><strong class="text-graphite-fg">It is not only about large language models.</strong> SLMs, embeddings, computer vision, and classical ML all matter.</span>
+          </li>
+          <li class="flex items-start gap-3 text-graphite-fg-2">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <span><strong class="text-graphite-fg">Autonomous does not mean unsupervised.</strong> Production AI uses human-in-the-loop patterns.</span>
+          </li>
+          <li class="flex items-start gap-3 text-graphite-fg-2">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <span><strong class="text-graphite-fg">AI infrastructure is not just GPUs.</strong> Model serving, vector databases, evaluation, and governance are equally critical.</span>
+          </li>
+          <li class="flex items-start gap-3 text-graphite-fg-2">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <span><strong class="text-graphite-fg">AI-native engineering is not a product you buy.</strong> It is an engineering discipline that requires skilled teams and organizational commitment.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. BUSINESS CHALLENGES -->
+<section class="py-20 md:py-28" aria-labelledby="challenges-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="challenges-heading"
+      index="03"
+      label="Business Challenges"
+      title="The barriers to production AI are engineering challenges, not model challenges."
+      lede="Organizations across every industry face a consistent set of obstacles when attempting to move from AI experimentation to production. These are the patterns we encounter and solve."
+    />
+
+    <div class="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3" data-reveal-group>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">01</span>
+          <h3 class="font-display font-semibold text-ink">Disconnected AI initiatives</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Teams experiment with AI independently, creating duplicated effort, incompatible solutions, and no shared infrastructure or learning.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">02</span>
+          <h3 class="font-display font-semibold text-ink">Proof-of-concept stagnation</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Promising prototypes never reach production due to missing engineering rigor, lack of production infrastructure, and no operational practices for AI systems.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">03</span>
+          <h3 class="font-display font-semibold text-ink">Legacy architecture limitations</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Existing applications were not designed for AI integration. Monolithic codebases and rigid data models make it difficult to embed intelligent capabilities.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">04</span>
+          <h3 class="font-display font-semibold text-ink">Poor data quality and access</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Fragmented data sources, inconsistent schemas, and poor data governance prevent models from delivering accurate results.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">05</span>
+          <h3 class="font-display font-semibold text-ink">Model governance challenges</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Without centralized model registry and approval workflows, organizations cannot track which models are in production or when they need updating.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">06</span>
+          <h3 class="font-display font-semibold text-ink">Security and privacy risks</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">AI systems introduce new attack surfaces: prompt injection, data leakage, and compliance violations with regulated data.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">07</span>
+          <h3 class="font-display font-semibold text-ink">High infrastructure costs</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">GPU instances, model serving endpoints, and API calls accumulate costs rapidly without proper architecture, caching, and cost governance.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">08</span>
+          <h3 class="font-display font-semibold text-ink">Slow experimentation cycles</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Data scientists spend weeks on environment setup and data pipeline construction rather than iterating on model performance.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">09</span>
+          <h3 class="font-display font-semibold text-ink">AI expertise scarcity</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Qualified AI engineers and LLMOps practitioners are in high demand. Most organizations lack internal expertise to operate production AI systems.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">10</span>
+          <h3 class="font-display font-semibold text-ink">Scaling AI workloads</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Patterns that work for 100 users fail at 10,000 without proper scaling architecture and load management.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">11</span>
+          <h3 class="font-display font-semibold text-ink">Vendor lock-in</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Tight coupling to a single model provider or managed AI service limits flexibility and creates single points of failure.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">12</span>
+          <h3 class="font-display font-semibold text-ink">Compliance and regulatory pressure</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">AI systems must comply with GDPR, HIPAA, EU AI Act, and emerging regulations. Audit trails and bias detection are now legal requirements.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. OUR AI ENGINEERING APPROACH -->
+<section class="py-20 md:py-28 bg-graphite" aria-labelledby="approach-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="approach-heading"
+      index="04"
+      label="Our Approach"
+      title="A phased methodology for production AI."
+      lede="We follow a structured, engineering-driven approach that takes organizations from AI opportunity discovery through continuous improvement. Every engagement is tailored to your business context, technical landscape, and risk tolerance."
+      tone="graphite"
+    />
+
+    <div class="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3" data-reveal-group>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">01</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">AI Opportunity Assessment</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Identify high-value AI opportunities across your business. We evaluate technical feasibility, business impact, data availability, and organizational readiness to prioritize the opportunities that deliver the greatest return.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">02</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">AI Strategy</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Define your AI vision, target architecture, capability roadmap, and investment model. We align technology decisions with business objectives and establish the principles that will guide your AI journey.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">03</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Data Readiness Assessment</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Evaluate data quality, accessibility, privacy, and governance. We identify gaps, recommend improvements, and design data pipelines that feed AI systems with reliable, well-structured data.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">04</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Solution Architecture</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Design the end-to-end system architecture: model layer, data layer, retrieval, agents, APIs, security boundaries, and integration points with existing enterprise systems.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">05</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">AI Platform Design</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Design the platform layer that enables teams to build, deploy, and monitor AI capabilities consistently. Model serving infrastructure, vector databases, evaluation pipelines, and governance tooling as shared services.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">06</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Model Selection</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Evaluate and select models based on capability, latency, cost, accuracy, and operational requirements. We maintain deep expertise across proprietary and open-source LLMs, SLMs, and embedding models.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">07</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Retrieval Architecture</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Design retrieval systems that connect models to your knowledge: embedding pipelines, vector databases, hybrid search, re-ranking, and caching strategies for low-latency, high-accuracy retrieval.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">08</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Agent Architecture</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Design agent systems that reason, plan, use tools, and execute actions autonomously within defined boundaries. We build single-agent and multi-agent architectures with appropriate supervision and escalation paths.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">09</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Workflow Design</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Design and implement AI workflows that combine model inference, data processing, human review, and business logic into reliable, observable, and recoverable processes.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">10</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Deployment</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Deploy AI systems to production with CI/CD pipelines, canary releases, A/B testing, and automated rollback. We ensure that model updates, data changes, and configuration modifications are safe and reversible.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">11</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Observability</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Instrument every AI interaction: model latency, token usage, retrieval quality, agent decisions, error rates, and user feedback. We build dashboards, alerts, and SLOs for AI system health and performance.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">12</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Governance</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Establish AI governance frameworks: model registry, approval workflows, bias detection, explainability, audit trails, and compliance reporting. Governance is integrated into the platform, not applied after the fact.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6 md:col-span-2 lg:col-span-3" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">13</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Continuous Improvement</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">AI systems improve through usage. We establish feedback loops, evaluation pipelines, retraining schedules, and performance tracking that drive continuous improvement in accuracy, cost, and user experience.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. AI-NATIVE ENGINEERING SERVICES -->
+<section class="py-20 md:py-28" aria-labelledby="services-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="services-heading"
+      index="05"
+      label="Our Services"
+      title="Comprehensive AI engineering capabilities."
+      lede="From strategy through managed operations, we provide the full range of services needed to design, build, deploy, and operate AI-native systems at enterprise scale."
+    />
+
+    <div class="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3" data-reveal-group>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">AI Strategy &amp; Consulting</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Define your AI vision, identify high-value opportunities, and build a roadmap aligned with business objectives. We provide fractional AI leadership, architecture reviews, and technology evaluations.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> AI opportunity assessment</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Technology and vendor evaluation</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> AI operating model design</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">AI Platform Engineering</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Design and build internal AI platforms that provide shared infrastructure for model serving, vector storage, evaluation, monitoring, and governance. Enable teams to build AI capabilities without rebuilding infrastructure.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Model serving infrastructure</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Vector database platform</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> AI development toolchain</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Generative AI Solutions</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Build production-grade generative AI applications using LLMs, SLMs, and multimodal models. We design retrieval architectures, implement guardrails, and optimize for accuracy, latency, and cost.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Custom generative AI applications</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Model selection and optimization</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Content generation and summarization</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Enterprise AI Applications</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Design and build AI-native enterprise applications that embed intelligence into core business processes. Custom solutions for your specific industry, use case, and scale requirements.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Full-stack AI application development</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Enterprise integration patterns</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Custom UX for AI interactions</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">AI Agent Development</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Design and build intelligent agents that reason, plan, and execute tasks autonomously. Agents are scoped with clear boundaries, equipped with appropriate tools, and monitored for safety and accuracy.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Single-purpose and general agents</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Tool use and function calling</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Human-in-the-loop supervision</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Multi-Agent Systems</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Design and orchestrate systems of multiple agents that collaborate, delegate, and specialize. We build agent teams that handle complex workflows requiring diverse capabilities and coordinated execution.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Agent orchestration frameworks</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Inter-agent communication patterns</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Supervisor and delegation models</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">AI Workflow Automation</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Automate complex business processes using AI. Design workflows that combine model inference, data processing, human approval, and system actions into reliable, observable, and auditable pipelines.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Workflow orchestration</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Human-in-the-loop integration</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Error handling and recovery</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Retrieval-Augmented Generation</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Build RAG systems that connect LLMs to your knowledge base with high accuracy and low latency. Chunking strategies, embedding pipelines, hybrid search, re-ranking, and caching for production-grade retrieval.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> RAG architecture design</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Embedding pipeline implementation</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Retrieval quality optimization</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Knowledge Management Systems</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Transform enterprise knowledge into searchable, queryable AI systems. Ingestion pipelines, knowledge graphs, semantic search, and intelligent document retrieval that make organizational knowledge accessible.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Knowledge ingestion and processing</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Knowledge graph construction</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Semantic search implementation</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">LLM Integration</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Integrate large language models into your applications and workflows. API integration, prompt management, response validation, caching, and fallback strategies for reliable LLM-powered features.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Multi-provider LLM integration</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Prompt management and versioning</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Cost and rate limit optimization</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Small Language Model Solutions</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Deploy and fine-tune small language models for specialized tasks. Lower latency, reduced cost, and improved privacy compared to large models, while maintaining strong performance on focused domains.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> SLM evaluation and selection</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Fine-tuning and distillation</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> On-premise deployment</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">AI APIs &amp; Integration</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Design and build AI APIs that provide consistent, secure, and well-documented interfaces to AI capabilities. We implement rate limiting, authentication, caching, and monitoring for production AI APIs.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> AI API design and development</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Enterprise system integration</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> API gateway and management</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">AI Search</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Build intelligent search experiences that understand user intent, retrieve relevant results, and present information naturally. Semantic, hybrid, and multimodal search across enterprise data.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Semantic search implementation</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Hybrid search (vector + keyword)</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Search analytics and optimization</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Recommendation Systems</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Design and deploy intelligent recommendation engines that surface relevant content, products, or actions. Collaborative filtering, content-based, and hybrid approaches tuned for your domain.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Recommendation model development</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Real-time inference pipeline</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> A/B testing and evaluation</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">AI-Powered Customer Support</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Design and deploy intelligent customer support systems combining chatbots, agent assist, knowledge retrieval, and automated resolution. Escalation to human agents when appropriate.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Conversational AI design</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Knowledge base integration</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Sentiment and intent analysis</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Intelligent Document Processing</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Automate document understanding, classification, extraction, and processing using AI. Handle invoices, contracts, forms, and unstructured documents with high accuracy.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Document classification and routing</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Data extraction and validation</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Integration with enterprise systems</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">AI Copilots</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Build AI copilots that assist users within existing applications. Context-aware, action-capable assistants that understand the user's task and provide intelligent guidance and automation.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Copilot architecture design</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Application embedding</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Context and memory management</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Computer Vision Solutions</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Design and deploy computer vision systems for image classification, object detection, OCR, visual search, and video analysis. Custom models and pre-trained solutions for your domain.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Vision model development</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Image and video processing pipelines</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Edge deployment optimization</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Predictive Analytics</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Build and deploy predictive models for forecasting, classification, anomaly detection, and decision optimization. Production ML pipelines with automated retraining and monitoring.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Predictive model development</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Feature engineering pipelines</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Model monitoring and retraining</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">AI Model Deployment</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Deploy ML and LLM models to production with scalable serving infrastructure. Containerized model serving, autoscaling, A/B testing, and blue-green deployment for safe model releases.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Model serving infrastructure</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Deployment automation</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Performance optimization</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">AI Infrastructure</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Design and operate the infrastructure that powers AI workloads: GPU clusters, model serving platforms, vector databases, data pipelines, and development environments for AI teams.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> GPU infrastructure design</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> AI development environments</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Cost management and optimization</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">MLOps</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Establish ML operations practices: experiment tracking, model registry, feature stores, pipeline automation, model validation, and governance for machine learning workflows.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> ML pipeline automation</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Model registry and versioning</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Experiment management</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">LLMOps</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Operational practices specific to large language models: prompt management, response validation, cost tracking, rate limiting, version management, and continuous evaluation of LLM-powered systems.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> LLM evaluation pipelines</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Prompt versioning and management</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Cost and usage governance</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">AI Security &amp; Governance</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Implement AI-specific security controls and governance frameworks. Prompt injection prevention, data leakage protection, access controls, audit trails, and compliance with emerging AI regulations.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> AI security architecture</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Governance framework design</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Compliance automation</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Responsible AI Implementation</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Operationalize responsible AI principles: bias detection and mitigation, fairness evaluation, explainability, transparency, privacy preservation, and human oversight in AI decision-making.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Bias detection and mitigation</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Explainability and transparency</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Privacy-preserving AI</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. CORE CAPABILITIES -->
+<section class="py-20 md:py-28 bg-graphite" aria-labelledby="capabilities-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="capabilities-heading"
+      index="06"
+      label="Core Capabilities"
+      title="Deep expertise across the AI engineering stack."
+      lede="Our team maintains hands-on expertise across the full spectrum of AI technologies, from language models and embeddings to agent architectures and evaluation frameworks."
+      tone="graphite"
+    />
+
+    <div class="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3" data-reveal-group>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-5" data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-2">Large Language Models</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Integration, optimization, and deployment of GPT-4o, Claude, Gemini, Llama, Mistral, DeepSeek, and other LLMs for production workloads.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-5" data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-2">Small Language Models</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Fine-tuning, distillation, and deployment of SLMs for cost-effective, low-latency inference on specialized tasks.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-5" data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-2">Agentic AI</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Design and development of autonomous agents that reason, plan, use tools, and execute actions within defined safety boundaries.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-5" data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-2">Multi-Agent Systems</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Orchestration of multiple collaborating agents for complex workflows requiring specialization, delegation, and coordination.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-5" data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-2">Retrieval-Augmented Generation</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Production RAG systems with hybrid search, re-ranking, caching, and continuous quality optimization for accurate knowledge retrieval.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-5" data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-2">Knowledge Graphs</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Construction and integration of knowledge graphs that provide structured, queryable context for AI systems and agents.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-5" data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-2">Semantic Search</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Vector and hybrid search implementations that understand intent and meaning, not just keyword matches.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-5" data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-2">Embeddings</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Design and optimization of embedding pipelines for text, images, and multimodal data across vector databases.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-5" data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-2">Vector Databases</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Deployment and optimization of pgvector, Pinecone, Weaviate, Milvus, Qdrant, and Chroma for production vector storage and search.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-5" data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-2">Prompt Engineering</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Systematic prompt design, versioning, and optimization with structured outputs, few-shot examples, and chain-of-thought reasoning.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-5" data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-2">Function Calling</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Implementation of structured function calling and tool use patterns that connect models to APIs, databases, and enterprise systems.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-5" data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-2">Tool Use</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Design of tool ecosystems that enable agents and models to interact with external systems safely and reliably.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-5" data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-2">AI Orchestration</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Workflow orchestration combining model inference, data pipelines, human review, and system actions into reliable processes.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-5" data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-2">AI Evaluation</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Systematic evaluation frameworks for accuracy, relevance, safety, bias, and cost across AI system components.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-5" data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-2">Fine-Tuning</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Parameter-efficient and full fine-tuning of language models for domain-specific tasks, style adaptation, and performance improvement.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-5" data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-2">Model Serving</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Scalable model serving infrastructure with autoscaling, batching, caching, and GPU optimization for production inference.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-5" data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-2">AI APIs</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Design and implementation of secure, well-documented AI APIs with rate limiting, authentication, and monitoring.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-5" data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-2">AI Security</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Prompt injection prevention, data leakage protection, access controls, and security architecture for AI systems.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-5" data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-2">Responsible AI</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Bias detection, fairness evaluation, explainability, transparency, and privacy-preserving AI practices.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-5" data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-2">AI Observability</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Instrumentation, monitoring, and alerting for AI systems: latency, tokens, retrieval quality, agent decisions, and user feedback.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. AI PLATFORM ARCHITECTURE -->
+<section class="py-20 md:py-28" aria-labelledby="architecture-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="architecture-heading"
+      index="07"
+      label="AI Platform Architecture"
+      title="A layered architecture for production AI."
+      lede="Every AI-native system we build follows a layered architecture that separates concerns, enables independent scaling, and provides clear ownership boundaries. The architecture is vendor-neutral and designed to evolve with your needs."
+    />
+    <div class="mt-14 space-y-4 max-w-4xl" data-reveal-group>
+      <div class="rounded-lg border border-line-2 bg-paper p-6 md:p-8" data-reveal>
+        <div class="flex items-start gap-4">
+          <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">01</span>
+          <div>
+            <h3 class="text-lg font-display font-semibold text-ink mb-2">Model Layer</h3>
+            <p class="text-sm text-ink-2 leading-relaxed">Abstraction layer over LLMs, SLMs, embedding models, and vision models. Provides unified interfaces for inference, streaming, function calling, and structured output. Supports OpenAI, Anthropic, Google, AWS Bedrock, Azure OpenAI, and self-hosted models through a consistent API. Enables model routing, fallback, and A/B testing without application changes.</p>
+          </div>
+        </div>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6 md:p-8" data-reveal>
+        <div class="flex items-start gap-4">
+          <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">02</span>
+          <div>
+            <h3 class="text-lg font-display font-semibold text-ink mb-2">Data Layer</h3>
+            <p class="text-sm text-ink-2 leading-relaxed">Ingestion, transformation, and storage pipelines for structured and unstructured data. Document processing, chunking, metadata extraction, and embedding generation. Integration with enterprise data sources including databases, data lakes, APIs, and streaming platforms.</p>
+          </div>
+        </div>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6 md:p-8" data-reveal>
+        <div class="flex items-start gap-4">
+          <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">03</span>
+          <div>
+            <h3 class="text-lg font-display font-semibold text-ink mb-2">Vector Database</h3>
+            <p class="text-sm text-ink-2 leading-relaxed">Persistent storage for embeddings with efficient similarity search. Multiple index types (HNSW, IVF), hybrid vector and keyword search, multi-tenancy, access controls, and monitoring for production vector workloads.</p>
+          </div>
+        </div>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6 md:p-8" data-reveal>
+        <div class="flex items-start gap-4">
+          <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">04</span>
+          <div>
+            <h3 class="text-lg font-display font-semibold text-ink mb-2">Retrieval Layer</h3>
+            <p class="text-sm text-ink-2 leading-relaxed">Query understanding, multi-stage retrieval, re-ranking, and context assembly. Hybrid search strategies, query rewriting, and configurable pipelines with A/B testing for continuous quality improvement.</p>
+          </div>
+        </div>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6 md:p-8" data-reveal>
+        <div class="flex items-start gap-4">
+          <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">05</span>
+          <div>
+            <h3 class="text-lg font-display font-semibold text-ink mb-2">Agent Layer</h3>
+            <p class="text-sm text-ink-2 leading-relaxed">Agent runtime managing reasoning, planning, tool execution, and memory. Single-agent and multi-agent topologies with supervisor, delegation, and voting patterns. Tool registry with access controls and audit logging.</p>
+          </div>
+        </div>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6 md:p-8" data-reveal>
+        <div class="flex items-start gap-4">
+          <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">06</span>
+          <div>
+            <h3 class="text-lg font-display font-semibold text-ink mb-2">Workflow Engine</h3>
+            <p class="text-sm text-ink-2 leading-relaxed">Durable execution for AI workflows combining model inference, data processing, API calls, human approval, and conditional logic. State persistence, retry policies, and rollback support for long-running processes.</p>
+          </div>
+        </div>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6 md:p-8" data-reveal>
+        <div class="flex items-start gap-4">
+          <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">07</span>
+          <div>
+            <h3 class="text-lg font-display font-semibold text-ink mb-2">API Layer</h3>
+            <p class="text-sm text-ink-2 leading-relaxed">RESTful and streaming APIs for AI capabilities. Consistent interfaces for chat, completion, embedding, retrieval, and agent interactions. API gateway with authentication, rate limiting, caching, and usage tracking.</p>
+          </div>
+        </div>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6 md:p-8" data-reveal>
+        <div class="flex items-start gap-4">
+          <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">08</span>
+          <div>
+            <h3 class="text-lg font-display font-semibold text-ink mb-2">Authentication &amp; Security</h3>
+            <p class="text-sm text-ink-2 leading-relaxed">Identity management, access control, and security across all layers. OAuth/OIDC integration, API key management, secrets management, prompt injection detection, content filtering, and data loss prevention.</p>
+          </div>
+        </div>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6 md:p-8" data-reveal>
+        <div class="flex items-start gap-4">
+          <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">09</span>
+          <div>
+            <h3 class="text-lg font-display font-semibold text-ink mb-2">Monitoring &amp; Observability</h3>
+            <p class="text-sm text-ink-2 leading-relaxed">Comprehensive observability for AI systems: token usage, latency breakdowns, retrieval quality metrics, agent decision traces, and cost tracking. OpenTelemetry instrumentation and SLO-based alerting.</p>
+          </div>
+        </div>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6 md:p-8" data-reveal>
+        <div class="flex items-start gap-4">
+          <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">10</span>
+          <div>
+            <h3 class="text-lg font-display font-semibold text-ink mb-2">Evaluation &amp; Feedback Loop</h3>
+            <p class="text-sm text-ink-2 leading-relaxed">Continuous evaluation pipelines measuring accuracy, relevance, safety, and user satisfaction. Online and offline evaluation, A/B testing, user feedback collection, and automated retraining triggers.</p>
+          </div>
+        </div>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6 md:p-8" data-reveal>
+        <div class="flex items-start gap-4">
+          <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">11</span>
+          <div>
+            <h3 class="text-lg font-display font-semibold text-ink mb-2">Human-in-the-Loop</h3>
+            <p class="text-sm text-ink-2 leading-relaxed">Structured human review at configurable decision points. Review queues, approval workflows, feedback capture, and escalation paths integrated into agent and workflow execution with full audit trails.</p>
+          </div>
+        </div>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6 md:p-8" data-reveal>
+        <div class="flex items-start gap-4">
+          <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">12</span>
+          <div>
+            <h3 class="text-lg font-display font-semibold text-ink mb-2">Governance</h3>
+            <p class="text-sm text-ink-2 leading-relaxed">Centralized governance for all AI assets: model registry, prompt library, approval workflows, compliance reporting, bias monitoring, and audit trails. Policy enforcement at deployment, runtime, and evaluation stages.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-10 bg-accent-soft rounded-lg border border-accent/20 p-6 md:p-8" data-reveal>
+      <h3 class="font-display font-semibold text-ink mb-3">Architecture diagram recommendation</h3>
+      <p class="text-sm text-ink-2 leading-relaxed mb-4">We recommend visualizing this architecture as a layered stack diagram with the Model Layer at the base and Governance at the top. Each layer connects to Observability and Evaluation as cross-cutting concerns. An interactive SVG diagram on the page allows visitors to click through each layer for detailed descriptions and technology recommendations.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 8. TECHNOLOGIES -->
+<section class="py-20 md:py-28 bg-graphite" aria-labelledby="tech-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="tech-heading"
+      index="08"
+      label="Technologies"
+      title="The AI engineering tools we work with."
+      lede="We maintain deep expertise across the AI ecosystem. Our technology recommendations are driven by your specific requirements, not vendor relationships."
+      tone="graphite"
+    />
+    <div class="mt-14 grid gap-8 md:grid-cols-3 lg:grid-cols-4" data-reveal-group>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-4">AI Models</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2">OpenAI</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Anthropic</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Google Gemini</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 mt-2">Meta Llama</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Mistral</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">DeepSeek</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 mt-2">Cohere</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Qwen</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Open-source LLMs</li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-4">AI Frameworks</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2">LangChain</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">LlamaIndex</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Haystack</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 mt-2">DSPy</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Semantic Kernel</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">CrewAI</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 mt-2">AutoGen</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">OpenAI Agents SDK</li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-4">Vector Databases</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2">pgvector</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Pinecone</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Weaviate</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 mt-2">Milvus</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Qdrant</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Chroma</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 mt-2">Redis</li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-4">Data &amp; Search</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2">PostgreSQL</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Elastic</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">OpenSearch</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 mt-2">ClickHouse</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Apache Kafka</li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-4">Cloud Platforms</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2">AWS</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Azure</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Google Cloud</li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-4">Containers &amp; Platform</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2">Docker</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Kubernetes</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Helm</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 mt-2">Argo CD</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Terraform</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">OpenTofu</li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-4">Programming Languages</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2">Go</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Python</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">TypeScript</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 mt-2">Node.js</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Rust</li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-4">Observability</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2">OpenTelemetry</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Prometheus</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Grafana</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 mt-2">Langfuse</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Phoenix</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Weights &amp; Biases</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 mt-2">MLflow</li>
+        </ul>
+      </div>
+      <div data-reveal class="md:col-span-3 lg:col-span-4">
+        <h3 class="font-mono text-xs text-accent-bright mb-4">Security</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2">Vault</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">OPA</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Kyverno</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">OAuth</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">OIDC</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">JWT</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. BENEFITS -->
+<section class="py-20 md:py-28" aria-labelledby="benefits-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="benefits-heading"
+      index="09"
+      label="Benefits"
+      title="What AI-native engineering delivers."
+      lede="The return on AI-native engineering is measured in business outcomes, engineering velocity, operational efficiency, and competitive advantage."
+    />
+    <div class="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3" data-reveal-group>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-mono text-xs text-accent mb-3">BUSINESS</h3>
+        <ul class="space-y-3">
+          <li class="flex items-start gap-2"><span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" /><div><p class="font-medium text-ink text-sm">Faster time-to-market</p><p class="text-xs text-ink-2">AI platform infrastructure reduces development cycles from months to weeks.</p></div></li>
+          <li class="flex items-start gap-2"><span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" /><div><p class="font-medium text-ink text-sm">Higher AI ROI</p><p class="text-xs text-ink-2">Production systems deliver measurable returns versus abandoned PoCs.</p></div></li>
+          <li class="flex items-start gap-2"><span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" /><div><p class="font-medium text-ink text-sm">Reduced costs</p><p class="text-xs text-ink-2">Optimized model selection and caching reduce AI spend by 30-50%.</p></div></li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-mono text-xs text-accent mb-3">ENGINEERING</h3>
+        <ul class="space-y-3">
+          <li class="flex items-start gap-2"><span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" /><div><p class="font-medium text-ink text-sm">Reusable infrastructure</p><p class="text-xs text-ink-2">Teams build on shared platforms instead of reinventing AI infrastructure.</p></div></li>
+          <li class="flex items-start gap-2"><span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" /><div><p class="font-medium text-ink text-sm">Accelerated experimentation</p><p class="text-xs text-ink-2">Self-service tools compress experiment cycles from weeks to days.</p></div></li>
+          <li class="flex items-start gap-2"><span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" /><div><p class="font-medium text-ink text-sm">Production reliability</p><p class="text-xs text-ink-2">Observability and automated recovery ensure system dependability.</p></div></li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-mono text-xs text-accent mb-3">OPERATIONS</h3>
+        <ul class="space-y-3">
+          <li class="flex items-start gap-2"><span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" /><div><p class="font-medium text-ink text-sm">Automated AI workflows</p><p class="text-xs text-ink-2">Manual processes replaced with intelligent, observable automation.</p></div></li>
+          <li class="flex items-start gap-2"><span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" /><div><p class="font-medium text-ink text-sm">Centralized governance</p><p class="text-xs text-ink-2">Model registry and audit trails reduce operational risk.</p></div></li>
+          <li class="flex items-start gap-2"><span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" /><div><p class="font-medium text-ink text-sm">Cost control</p><p class="text-xs text-ink-2">Usage tracking and budget alerts prevent cost overruns.</p></div></li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-mono text-xs text-accent mb-3">DEVELOPERS</h3>
+        <ul class="space-y-3">
+          <li class="flex items-start gap-2"><span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" /><div><p class="font-medium text-ink text-sm">Better DX</p><p class="text-xs text-ink-2">APIs and SDKs that make AI integration straightforward.</p></div></li>
+          <li class="flex items-start gap-2"><span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" /><div><p class="font-medium text-ink text-sm">Reduced cognitive load</p><p class="text-xs text-ink-2">Abstracted complexity lets developers focus on product logic.</p></div></li>
+          <li class="flex items-start gap-2"><span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" /><div><p class="font-medium text-ink text-sm">Fast feedback</p><p class="text-xs text-ink-2">Evaluation pipelines catch regressions before production.</p></div></li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-mono text-xs text-accent mb-3">LEADERSHIP</h3>
+        <ul class="space-y-3">
+          <li class="flex items-start gap-2"><span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" /><div><p class="font-medium text-ink text-sm">Clear AI strategy</p><p class="text-xs text-ink-2">Aligned investments with business priorities and measurable outcomes.</p></div></li>
+          <li class="flex items-start gap-2"><span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" /><div><p class="font-medium text-ink text-sm">Risk-managed adoption</p><p class="text-xs text-ink-2">Governance and compliance integrated from day one.</p></div></li>
+          <li class="flex items-start gap-2"><span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" /><div><p class="font-medium text-ink text-sm">Vendor independence</p><p class="text-xs text-ink-2">Architecture keeps options open and costs competitive.</p></div></li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-mono text-xs text-accent mb-3">COMPETITIVE ADVANTAGE</h3>
+        <ul class="space-y-3">
+          <li class="flex items-start gap-2"><span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" /><div><p class="font-medium text-ink text-sm">Differentiated capabilities</p><p class="text-xs text-ink-2">Custom AI systems competitors cannot easily replicate.</p></div></li>
+          <li class="flex items-start gap-2"><span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" /><div><p class="font-medium text-ink text-sm">Faster innovation</p><p class="text-xs text-ink-2">Platform-driven development enables rapid iteration.</p></div></li>
+          <li class="flex items-start gap-2"><span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" /><div><p class="font-medium text-ink text-sm">Future-proof architecture</p><p class="text-xs text-ink-2">Vendor-neutral design adapts to new models without rewrites.</p></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. ENGAGEMENT MODEL -->
+<section class="py-20 md:py-28 bg-graphite" aria-labelledby="engagement-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="engagement-heading"
+      index="10"
+      label="Engagement Model"
+      title="Flexible engagement models for every stage of your AI journey."
+      lede="We adapt our engagement model to your organization's maturity, timeline, and objectives. Every engagement includes knowledge transfer so your team builds internal capability."
+      tone="graphite"
+    />
+    <div class="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3" data-reveal-group>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">PHASE 01</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Discovery</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Understand your business context, technical landscape, and AI objectives. Stakeholder interviews and opportunity identification with clear success criteria.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">PHASE 02</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">AI Readiness Assessment</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Evaluate readiness across data, infrastructure, skills, governance, and security. Maturity assessment with prioritized recommendations and phased roadmap.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">PHASE 03</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Architecture</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Solution architecture, platform foundation, integration patterns, and technology stack. Detailed architecture documents and deployment diagrams.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">PHASE 04</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Prototype</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Working prototype validating architecture decisions and demonstrating value. Rapid iteration with stakeholder feedback ensures alignment.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">PHASE 05</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Pilot</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Deploy to a limited user group. Measure outcomes, gather feedback, validate performance, and refine before broader rollout.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">PHASE 06</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Production Deployment</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Production deployment with CI/CD, monitoring, alerting, and runbooks. Canary releases, automated rollback, and performance validation.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">PHASE 07</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Governance</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">AI governance frameworks: model registry, approval workflows, bias monitoring, compliance reporting, and audit trails operationalized through the platform.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">PHASE 08</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Training &amp; Knowledge Transfer</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Train your teams on platform usage, development practices, operational procedures, and governance. Documentation, workshops, and hands-on mentoring.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">PHASE 09</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Managed AI Operations</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Ongoing management of AI infrastructure, model monitoring, cost optimization, and incident response. Systems remain reliable, secure, and cost-effective.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">PHASE 10</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Continuous Optimization</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Ongoing evaluation, tuning, and improvement. Model updates, retrieval optimization, cost reduction, and capability expansion based on usage data.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 11. WHY CHOOSE SUBSTRATE -->
+<section class="py-20 md:py-28" aria-labelledby="why-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="why-heading"
+      index="11"
+      label="Why Choose Substrate"
+      title="Engineering-first AI delivery for enterprises."
+      lede="We distinguish ourselves through engineering rigor, vendor neutrality, and a focus on production-ready systems that deliver measurable business value."
+    />
+    <div class="mt-14 grid gap-5 md:grid-cols-2" data-reveal-group>
+      <div class="flex gap-4 rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">01</span>
+        <div>
+          <h3 class="font-display font-semibold text-ink mb-1">Engineering-first AI delivery</h3>
+          <p class="text-sm text-ink-2 leading-relaxed">We apply software engineering best practices to AI: version control, automated testing, CI/CD, peer review, and operational excellence. Our AI systems are built to the same standards as mission-critical enterprise software.</p>
+        </div>
+      </div>
+      <div class="flex gap-4 rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">02</span>
+        <div>
+          <h3 class="font-display font-semibold text-ink mb-1">Vendor-neutral architecture</h3>
+          <p class="text-sm text-ink-2 leading-relaxed">Architectures that avoid lock-in to any single model provider, cloud platform, or AI framework. Model abstraction layers give you flexibility to switch as technology evolves.</p>
+        </div>
+      </div>
+      <div class="flex gap-4 rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">03</span>
+        <div>
+          <h3 class="font-display font-semibold text-ink mb-1">Production-ready systems</h3>
+          <p class="text-sm text-ink-2 leading-relaxed">Systems designed for production from day one: scalable, observable, resilient, and secure. Monitoring, alerting, backup, disaster recovery, and runbooks as standard.</p>
+        </div>
+      </div>
+      <div class="flex gap-4 rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">04</span>
+        <div>
+          <h3 class="font-display font-semibold text-ink mb-1">Responsible AI practices</h3>
+          <p class="text-sm text-ink-2 leading-relaxed">Fairness, transparency, accountability, and privacy built into architecture and development practices. Bias detection, explainability, and human oversight at every layer.</p>
+        </div>
+      </div>
+      <div class="flex gap-4 rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">05</span>
+        <div>
+          <h3 class="font-display font-semibold text-ink mb-1">Secure-by-design</h3>
+          <p class="text-sm text-ink-2 leading-relaxed">Security integrated into every layer: prompt injection prevention, data leakage protection, access controls, secrets management, and compliance automation following zero-trust principles.</p>
+        </div>
+      </div>
+      <div class="flex gap-4 rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">06</span>
+        <div>
+          <h3 class="font-display font-semibold text-ink mb-1">Platform Engineering expertise</h3>
+          <p class="text-sm text-ink-2 leading-relaxed">Our platform engineering foundation means we build AI infrastructure that enables teams. Self-service AI capabilities, golden paths, and automated governance built into the platform.</p>
+        </div>
+      </div>
+      <div class="flex gap-4 rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">07</span>
+        <div>
+          <h3 class="font-display font-semibold text-ink mb-1">Cloud-native architecture</h3>
+          <p class="text-sm text-ink-2 leading-relaxed">Containers, Kubernetes, serverless, and declarative infrastructure ensure portability across environments, efficient resource utilization, and automated scaling.</p>
+        </div>
+      </div>
+      <div class="flex gap-4 rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">08</span>
+        <div>
+          <h3 class="font-display font-semibold text-ink mb-1">Enterprise integration expertise</h3>
+          <p class="text-sm text-ink-2 leading-relaxed">Deep experience integrating AI systems with enterprise ERP, CRM, data warehouses, identity systems, and legacy applications across regulated industries.</p>
+        </div>
+      </div>
+      <div class="flex gap-4 rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">09</span>
+        <div>
+          <h3 class="font-display font-semibold text-ink mb-1">Long-term partnership</h3>
+          <p class="text-sm text-ink-2 leading-relaxed">Engagement models supporting organizations through every stage of AI maturity, from initial strategy through managed operations and continuous optimization.</p>
+        </div>
+      </div>
+      <div class="flex gap-4 rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">10</span>
+        <div>
+          <h3 class="font-display font-semibold text-ink mb-1">Knowledge transfer</h3>
+          <p class="text-sm text-ink-2 leading-relaxed">Structured knowledge transfer in every engagement. We document, train, and mentor your teams so they can operate and evolve AI systems independently.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 12. INDUSTRIES -->
+<section class="py-20 md:py-28 bg-graphite" aria-labelledby="industries-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="industries-heading"
+      index="12"
+      label="Industries"
+      title="AI-native solutions across every sector."
+      lede="Our AI engineering approach adapts to the specific requirements of each industry: regulatory frameworks, data sensitivity, integration complexity, and business objectives."
+      tone="graphite"
+    />
+    <div class="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3" data-reveal-group>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6"><h3 class="font-display font-semibold text-graphite-fg mb-2">Financial Services</h3><p class="text-sm text-graphite-fg-2">Fraud detection, risk assessment, compliance automation, personalized banking, and intelligent document processing for regulated financial environments.</p></div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6"><h3 class="font-display font-semibold text-graphite-fg mb-2">Healthcare</h3><p class="text-sm text-graphite-fg-2">Clinical decision support, medical imaging, patient outcome prediction, EHR intelligence, and HIPAA-compliant AI systems.</p></div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6"><h3 class="font-display font-semibold text-graphite-fg mb-2">Retail &amp; E-commerce</h3><p class="text-sm text-graphite-fg-2">Personalized recommendations, demand forecasting, dynamic pricing, visual search, and customer service automation.</p></div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6"><h3 class="font-display font-semibold text-graphite-fg mb-2">Manufacturing</h3><p class="text-sm text-graphite-fg-2">Predictive maintenance, quality inspection, production optimization, supply chain intelligence, and digital twin integration.</p></div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6"><h3 class="font-display font-semibold text-graphite-fg mb-2">Logistics</h3><p class="text-sm text-graphite-fg-2">Route optimization, warehouse automation, demand forecasting, fleet management, and real-time tracking systems.</p></div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6"><h3 class="font-display font-semibold text-graphite-fg mb-2">Telecommunications</h3><p class="text-sm text-graphite-fg-2">Network optimization, customer churn prediction, intelligent support, fraud prevention, and automated operations.</p></div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6"><h3 class="font-display font-semibold text-graphite-fg mb-2">Education</h3><p class="text-sm text-graphite-fg-2">Personalized learning paths, intelligent tutoring, content generation, assessment automation, and learning analytics.</p></div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6"><h3 class="font-display font-semibold text-graphite-fg mb-2">Government</h3><p class="text-sm text-graphite-fg-2">Citizen services automation, document processing, policy analysis, fraud detection, and secure AI for government standards.</p></div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6"><h3 class="font-display font-semibold text-graphite-fg mb-2">Legal</h3><p class="text-sm text-graphite-fg-2">Contract analysis, due diligence automation, legal research, document review, case prediction, and compliance monitoring.</p></div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6"><h3 class="font-display font-semibold text-graphite-fg mb-2">Media</h3><p class="text-sm text-graphite-fg-2">Content personalization, automated generation, media asset management, recommendation engines, and audience analytics.</p></div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6"><h3 class="font-display font-semibold text-graphite-fg mb-2">SaaS</h3><p class="text-sm text-graphite-fg-2">AI-native product features, intelligent automation, copilot integration, and scalable AI infrastructure for SaaS platforms.</p></div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6"><h3 class="font-display font-semibold text-graphite-fg mb-2">Life Sciences</h3><p class="text-sm text-graphite-fg-2">Drug discovery, clinical trial optimization, genomic analysis, research mining, and regulatory compliance for pharma and biotech.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 13. FREQUENTLY ASKED QUESTIONS -->
+<section class="py-20 md:py-28" aria-labelledby="faq-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="faq-heading"
+      index="13"
+      label="Frequently Asked Questions"
+      title="Common questions about AI-native engineering."
+      lede="Enterprise leaders evaluating AI-native engineering have specific concerns about strategy, architecture, security, and implementation."
+    />
+    <div class="mt-14 max-w-4xl space-y-4" data-reveal-group>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-sm font-medium text-ink hover:text-accent transition-colors [&::-webkit-details-marker]:hidden">
+          <span>What is the difference between AI-native and AI-enabled applications?</span>
+          <svg class="h-4 w-4 shrink-0 transition-transform duration-200 group-open:rotate-45" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5 text-sm text-ink-2 leading-relaxed">AI-enabled apps add AI features to existing architectures. AI-native apps are architected from the ground up with AI as a first-class concern. The distinction determines whether AI becomes a competitive advantage or a costly add-on.</div>
+      </details>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-sm font-medium text-ink hover:text-accent transition-colors [&::-webkit-details-marker]:hidden">
+          <span>How long does it take to build a production AI system?</span>
+          <svg class="h-4 w-4 shrink-0 transition-transform duration-200 group-open:rotate-45" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5 text-sm text-ink-2 leading-relaxed">A focused prototype can be delivered in 4-6 weeks. A production pilot takes 8-16 weeks. Full enterprise AI platforms may take 3-6 months. We structure engagements to deliver value incrementally at each phase.</div>
+      </details>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-sm font-medium text-ink hover:text-accent transition-colors [&::-webkit-details-marker]:hidden">
+          <span>How do I choose between LLMs and SLMs?</span>
+          <svg class="h-4 w-4 shrink-0 transition-transform duration-200 group-open:rotate-45" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5 text-sm text-ink-2 leading-relaxed">LLMs excel at complex reasoning and broad knowledge. SLMs are better for focused tasks requiring low latency and cost efficiency. Many systems use both: an SLM for routing, an LLM for reasoning, and embedding models for retrieval.</div>
+      </details>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-sm font-medium text-ink hover:text-accent transition-colors [&::-webkit-details-marker]:hidden">
+          <span>What is RAG and when should I use it?</span>
+          <svg class="h-4 w-4 shrink-0 transition-transform duration-200 group-open:rotate-45" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5 text-sm text-ink-2 leading-relaxed">RAG connects models to your knowledge base by retrieving relevant information before generating a response. It is recommended when your system needs to answer based on specific business data, maintain accuracy with evolving information, or reduce hallucination risk.</div>
+      </details>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-sm font-medium text-ink hover:text-accent transition-colors [&::-webkit-details-marker]:hidden">
+          <span>When should I fine-tune versus use RAG?</span>
+          <svg class="h-4 w-4 shrink-0 transition-transform duration-200 group-open:rotate-45" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5 text-sm text-ink-2 leading-relaxed">Fine-tuning is appropriate when the model needs to adopt a specific style or internalize specialized knowledge. RAG is better when knowledge changes often. Many production systems use both.</div>
+      </details>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-sm font-medium text-ink hover:text-accent transition-colors [&::-webkit-details-marker]:hidden">
+          <span>How do AI agents differ from traditional automation?</span>
+          <svg class="h-4 w-4 shrink-0 transition-transform duration-200 group-open:rotate-45" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5 text-sm text-ink-2 leading-relaxed">Traditional automation follows predefined rules. AI agents reason about goals, make decisions in ambiguity, and use tools dynamically. Agents suit tasks involving judgment and multiple possible paths.</div>
+      </details>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-sm font-medium text-ink hover:text-accent transition-colors [&::-webkit-details-marker]:hidden">
+          <span>How do you ensure AI system security?</span>
+          <svg class="h-4 w-4 shrink-0 transition-transform duration-200 group-open:rotate-45" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5 text-sm text-ink-2 leading-relaxed">Multi-layer security: prompt injection prevention, data leakage protection, authentication for AI APIs, secrets management, network isolation, content filtering, rate limiting, and audit logging for all AI interactions.</div>
+      </details>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-sm font-medium text-ink hover:text-accent transition-colors [&::-webkit-details-marker]:hidden">
+          <span>What is responsible AI and how do you implement it?</span>
+          <svg class="h-4 w-4 shrink-0 transition-transform duration-200 group-open:rotate-45" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5 text-sm text-ink-2 leading-relaxed">Responsible AI encompasses fairness, transparency, accountability, and privacy. We implement bias detection, explainability, privacy-preserving techniques, human oversight, and compliance documentation.</div>
+      </details>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-sm font-medium text-ink hover:text-accent transition-colors [&::-webkit-details-marker]:hidden">
+          <span>How do you handle data privacy and compliance?</span>
+          <svg class="h-4 w-4 shrink-0 transition-transform duration-200 group-open:rotate-45" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5 text-sm text-ink-2 leading-relaxed">Data classification, access controls, encryption at rest and in transit, data anonymization, audit logging, and compliance frameworks aligned with GDPR, HIPAA, SOC 2, and EU AI Act requirements.</div>
+      </details>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-sm font-medium text-ink hover:text-accent transition-colors [&::-webkit-details-marker]:hidden">
+          <span>What is the difference between MLOps and LLMOps?</span>
+          <svg class="h-4 w-4 shrink-0 transition-transform duration-200 group-open:rotate-45" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5 text-sm text-ink-2 leading-relaxed">MLOps focuses on traditional ML pipelines: model training, feature stores, experiment tracking, and deployment. LLMOps extends this with prompt management, response validation, cost tracking per token, and evaluation of generative output quality.</div>
+      </details>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-sm font-medium text-ink hover:text-accent transition-colors [&::-webkit-details-marker]:hidden">
+          <span>How do you optimize AI infrastructure costs?</span>
+          <svg class="h-4 w-4 shrink-0 transition-transform duration-200 group-open:rotate-45" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5 text-sm text-ink-2 leading-relaxed">Through model selection (SLMs vs. LLMs), caching strategies, prompt optimization, request batching, GPU instance right-sizing, spot instance usage, auto-scaling, and cost allocation tracking per team or feature.</div>
+      </details>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-sm font-medium text-ink hover:text-accent transition-colors [&::-webkit-details-marker]:hidden">
+          <span>What AI governance frameworks do you recommend?</span>
+          <svg class="h-4 w-4 shrink-0 transition-transform duration-200 group-open:rotate-45" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5 text-sm text-ink-2 leading-relaxed">We recommend a layered framework: model registry and versioning, approval workflows for model promotion, bias and fairness monitoring, explainability documentation, audit trails, and compliance reporting aligned with regulatory requirements.</div>
+      </details>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-sm font-medium text-ink hover:text-accent transition-colors [&::-webkit-details-marker]:hidden">
+          <span>Can you work with our existing cloud infrastructure?</span>
+          <svg class="h-4 w-4 shrink-0 transition-transform duration-200 group-open:rotate-45" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5 text-sm text-ink-2 leading-relaxed">Yes. We design AI systems that integrate with existing AWS, Azure, or GCP infrastructure. Our platform engineering approach extends your current investments rather than replacing them.</div>
+      </details>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-sm font-medium text-ink hover:text-accent transition-colors [&::-webkit-details-marker]:hidden">
+          <span>Do you build on open-source or proprietary technologies?</span>
+          <svg class="h-4 w-4 shrink-0 transition-transform duration-200 group-open:rotate-45" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5 text-sm text-ink-2 leading-relaxed">Both, based on your requirements. We are vendor-neutral and recommend the right technology for each use case. We have deep expertise in open-source LLMs, frameworks, and infrastructure, as well as commercial platforms.</div>
+      </details>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-sm font-medium text-ink hover:text-accent transition-colors [&::-webkit-details-marker]:hidden">
+          <span>How do you measure AI system performance in production?</span>
+          <svg class="h-4 w-4 shrink-0 transition-transform duration-200 group-open:rotate-45" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5 text-sm text-ink-2 leading-relaxed">Through multiple dimensions: accuracy (ground truth comparisons), relevance (retrieval quality metrics), latency (p50/p95/p99), cost (per-query token usage), user satisfaction (feedback scores), and safety (guardrail trigger rates).</div>
+      </details>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-sm font-medium text-ink hover:text-accent transition-colors [&::-webkit-details-marker]:hidden">
+          <span>What is your approach to AI vendor lock-in prevention?</span>
+          <svg class="h-4 w-4 shrink-0 transition-transform duration-200 group-open:rotate-45" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5 text-sm text-ink-2 leading-relaxed">We use abstraction layers that decouple applications from specific model providers, vector databases, and cloud platforms. Standardized interfaces, multi-provider support, and open standards ensure you can switch without rewriting.</div>
+      </details>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-sm font-medium text-ink hover:text-accent transition-colors [&::-webkit-details-marker]:hidden">
+          <span>How do you handle model hallucinations in production?</span>
+          <svg class="h-4 w-4 shrink-0 transition-transform duration-200 group-open:rotate-45" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5 text-sm text-ink-2 leading-relaxed">Through RAG architecture (grounding responses in retrieved knowledge), prompt engineering (explicit instructions to not fabricate), response validation (checking claims against sources), confidence thresholds, and human review for high-stakes outputs.</div>
+      </details>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-sm font-medium text-ink hover:text-accent transition-colors [&::-webkit-details-marker]:hidden">
+          <span>What team composition do you recommend for AI-native development?</span>
+          <svg class="h-4 w-4 shrink-0 transition-transform duration-200 group-open:rotate-45" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5 text-sm text-ink-2 leading-relaxed">We recommend cross-functional teams: AI/ML engineers, software engineers, platform engineers, data engineers, UX designers, and product managers. The specific composition depends on your use case, scale, and maturity.</div>
+      </details>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-sm font-medium text-ink hover:text-accent transition-colors [&::-webkit-details-marker]:hidden">
+          <span>How do you handle model updates and versioning?</span>
+          <svg class="h-4 w-4 shrink-0 transition-transform duration-200 group-open:rotate-45" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5 text-sm text-ink-2 leading-relaxed">Through model registry with versioning, automated evaluation against baselines before promotion, canary deployment with traffic shifting, A/B testing in production, automated rollback on performance degradation, and detailed changelogs.</div>
+      </details>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-sm font-medium text-ink hover:text-accent transition-colors [&::-webkit-details-marker]:hidden">
+          <span>Do you provide managed operations after deployment?</span>
+          <svg class="h-4 w-4 shrink-0 transition-transform duration-200 group-open:rotate-45" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5 text-sm text-ink-2 leading-relaxed">Yes. We offer managed AI operations including monitoring, incident response, cost optimization, model updates, and continuous improvement. SLAs are defined based on your requirements and criticality.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- 14. CALL TO ACTION -->
+<section class="py-24 md:py-36 relative overflow-hidden" aria-labelledby="cta-heading">
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--c-accent-soft)_0%,_transparent_60%)] pointer-events-none" aria-hidden="true" />
+  <div class="container-x relative z-10 text-center">
+    <div class="max-w-3xl mx-auto" data-reveal-group>
+      <p class="kicker text-accent mb-5" data-reveal>
+        <span class="text-accent">14</span><span aria-hidden="true">&nbsp;—&nbsp;</span>Get Started
+      </p>
+      <h2 id="cta-heading" class="display text-4xl md:text-[3.4rem] text-ink max-w-3xl mx-auto" data-reveal>
+        Ready to build AI-native systems that deliver measurable business outcomes?
+      </h2>
+      <p class="mt-6 text-lg text-ink-2 max-w-2xl mx-auto leading-relaxed" data-reveal>
+        Schedule an AI strategy and architecture consultation with our team. We will help you assess your current state, identify high-value opportunities, and build a roadmap to production AI.
+      </p>
+      <div class="mt-10 flex flex-wrap justify-center gap-4" data-reveal>
+        <Button href="/contact" variant="primary" size="md">Schedule an AI strategy consultation</Button>
+        <Button href="/about" variant="secondary" size="md">Learn about Substrate</Button>
+      </div>
+      <div class="mt-14 flex flex-wrap justify-center gap-x-12 gap-y-4 text-sm text-ink-3" data-reveal>
+        <span class="flex items-center gap-2"><span class="block h-2 w-2 rounded-full bg-accent" aria-hidden="true" /> No commitment required</span>
+        <span class="flex items-center gap-2"><span class="block h-2 w-2 rounded-full bg-accent" aria-hidden="true" /> 60-minute executive session</span>
+        <span class="flex items-center gap-2"><span class="block h-2 w-2 rounded-full bg-accent" aria-hidden="true" /> Tailored to your industry and scale</span>
+      </div>
+    </div>
+  </div>
+</section>
+</Base>

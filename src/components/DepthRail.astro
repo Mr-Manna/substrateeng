@@ -1,0 +1,378 @@
+---
+import { useTranslations } from '../i18n/useTranslations';
+
+const locale = Astro.currentLocale || 'en';
+const { t } = useTranslations(locale);
+---
+
+<!-- Core-sample scroll rail: hidden until the script builds its ticks from the
+     page's sections. Reduced motion or no JS leaves it hidden entirely. -->
+<nav id="depth-rail" class="depth-rail" aria-label={t('aria.depthRail')} hidden data-depth-rail>
+  <div class="rail-minor" aria-hidden="true"></div>
+  <div class="rail-spine" aria-hidden="true">
+    <div class="rail-fill" data-rail-fill></div>
+  </div>
+  <ol class="rail-ticks" data-rail-ticks></ol>
+  <p class="rail-depth" aria-hidden="true"><span data-rail-depth>000</span>m</p>
+</nav>
+
+<style>
+  .depth-rail {
+    position: fixed;
+    inset-inline-end: clamp(1rem, 2.2vw, 2.25rem);
+    top: 50%;
+    translate: 0 -50%;
+    height: clamp(300px, 58vh, 560px);
+    z-index: 40;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 0.35s ease,
+      visibility 0s 0.35s;
+  }
+  .depth-rail.is-engaged {
+    opacity: 1;
+    visibility: visible;
+    transition:
+      opacity 0.35s ease,
+      visibility 0s 0s;
+  }
+  @media (max-width: 767.98px) {
+    .depth-rail {
+      display: none;
+    }
+  }
+
+  .rail-spine {
+    position: absolute;
+    inset-block: 0;
+    inset-inline-end: 0;
+    width: 1px;
+    background: var(--c-line-2);
+    transform-origin: top;
+  }
+  .rail-fill {
+    position: absolute;
+    inset: 0;
+    background: var(--c-accent);
+    transform-origin: top;
+  }
+  /* dense minor graduations beside the spine — the core-sample scale */
+  .rail-minor {
+    position: absolute;
+    inset-block: 0;
+    inset-inline-end: 3px;
+    width: 6px;
+    background: repeating-linear-gradient(to bottom, transparent 0 11px, var(--c-line-2) 11px 12px);
+  }
+
+  .rail-ticks {
+    position: absolute;
+    inset-block: 0;
+    inset-inline-end: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .rail-ticks :global(li) {
+    position: absolute;
+    inset-inline-end: 0;
+    translate: 0 -50%;
+  }
+
+  .rail-ticks :global(.rail-tick) {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.6rem;
+    padding-block: 0.45rem;
+    padding-inline-start: 0.5rem;
+  }
+  .rail-ticks :global(.rail-mark) {
+    display: block;
+    width: 20px;
+    height: 2px;
+    flex: none;
+    overflow: visible;
+    transition: width 0.25s ease;
+  }
+  .rail-ticks :global(.rail-mark line) {
+    stroke: var(--c-ink-3);
+    stroke-width: 1.2;
+    transition: stroke 0.25s ease;
+  }
+  .rail-ticks :global(.rail-tick[aria-current='true'] .rail-mark) {
+    width: 30px;
+  }
+  .rail-ticks :global(.rail-tick[aria-current='true'] .rail-mark line) {
+    stroke: var(--c-accent);
+    stroke-width: 1.6;
+  }
+
+  .rail-ticks :global(.rail-label) {
+    display: flex;
+    align-items: baseline;
+    white-space: nowrap;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--c-ink-2);
+    background: var(--c-paper);
+    border: 1px solid var(--c-line);
+    padding: 0.2rem 0.55rem;
+    opacity: 0;
+    translate: 8px 0;
+    transition:
+      opacity 0.2s ease,
+      translate 0.2s ease;
+    pointer-events: none;
+  }
+  :global([dir='rtl']) .rail-ticks :global(.rail-label) {
+    translate: -8px 0;
+  }
+  .rail-ticks :global(.rail-tick:hover .rail-label),
+  .rail-ticks :global(.rail-tick:focus-visible .rail-label) {
+    opacity: 1;
+    translate: 0 0;
+  }
+  .rail-ticks :global(.rail-num) {
+    color: var(--c-accent);
+    margin-inline-end: 0.5ch;
+  }
+
+  .rail-depth {
+    position: absolute;
+    top: calc(100% + 0.9rem);
+    inset-inline-end: 0;
+    white-space: nowrap;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    font-variant-numeric: tabular-nums;
+    color: var(--c-ink-3);
+  }
+  .rail-depth span {
+    color: var(--c-accent);
+  }
+
+  /* over graphite sections the paper-tone hairlines vanish — remap */
+  .depth-rail[data-tone='graphite'] .rail-spine {
+    background: var(--c-graphite-line);
+  }
+  .depth-rail[data-tone='graphite'] .rail-fill {
+    background: var(--c-accent-bright);
+  }
+  .depth-rail[data-tone='graphite'] .rail-minor {
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent 0 11px,
+      var(--c-graphite-line) 11px 12px
+    );
+  }
+  .depth-rail[data-tone='graphite'] .rail-ticks :global(.rail-mark line) {
+    stroke: var(--c-graphite-fg-2);
+  }
+  .depth-rail[data-tone='graphite']
+    .rail-ticks
+    :global(.rail-tick[aria-current='true'] .rail-mark line) {
+    stroke: var(--c-accent-bright);
+  }
+  .depth-rail[data-tone='graphite'] .rail-ticks :global(.rail-label) {
+    color: var(--c-graphite-fg-2);
+    background: var(--c-graphite-2);
+    border-color: var(--c-graphite-line);
+  }
+  .depth-rail[data-tone='graphite'] .rail-ticks :global(.rail-num) {
+    color: var(--c-accent-bright);
+  }
+  .depth-rail[data-tone='graphite'] .rail-depth {
+    color: var(--c-graphite-fg-2);
+  }
+  .depth-rail[data-tone='graphite'] .rail-depth span {
+    color: var(--c-accent-bright);
+  }
+</style>
+
+<script>
+  import { gsap, ScrollTrigger, prefersReducedMotion, getLenis } from '../scripts/motion';
+
+  const SVG_NS = 'http://www.w3.org/2000/svg';
+
+  function init(nav: HTMLElement) {
+    const sections = Array.from(document.querySelectorAll<HTMLElement>('#main > section[id]'));
+    // sparse pages (about, legal, …) keep the plain header — no rail
+    if (sections.length < 3) return;
+
+    const header = document.getElementById('site-header');
+    const list = nav.querySelector<HTMLElement>('[data-rail-ticks]');
+    const spine = nav.querySelector<HTMLElement>('.rail-spine');
+    const fill = nav.querySelector<HTMLElement>('[data-rail-fill]');
+    const minor = nav.querySelector<HTMLElement>('.rail-minor');
+    const depthWrap = nav.querySelector<HTMLElement>('.rail-depth');
+    const depthEl = nav.querySelector<HTMLElement>('[data-rail-depth]');
+    if (!list || !spine || !fill) return;
+
+    // ticks are derived from the page: index + label come from each section's
+    // kicker (`<span>{index}</span><span aria-hidden>—</span>{label}`), with
+    // data-rail-index/data-rail-label as an override and the aria-labelledby
+    // heading as a last resort
+    sections.forEach((section, i) => {
+      let index = section.dataset.railIndex ?? '';
+      let name = section.dataset.railLabel ?? '';
+      const kicker = section.querySelector('.kicker');
+      if (kicker) {
+        if (!index) index = kicker.querySelector('span')?.textContent?.trim() ?? '';
+        if (!name) {
+          const clone = kicker.cloneNode(true) as HTMLElement;
+          clone.querySelectorAll('span').forEach((s) => s.remove());
+          name = clone.textContent?.trim() ?? '';
+        }
+      }
+      if (!name) {
+        const headingId = section.getAttribute('aria-labelledby');
+        const heading = headingId ? document.getElementById(headingId) : null;
+        name = heading?.textContent?.trim().slice(0, 28) || section.id;
+      }
+      if (!index) index = String(i + 1).padStart(2, '0');
+
+      const li = document.createElement('li');
+      li.style.top = `${(i / (sections.length - 1)) * 100}%`;
+
+      const link = document.createElement('a');
+      link.className = 'rail-tick';
+      link.href = `#${section.id}`;
+
+      const label = document.createElement('span');
+      label.className = 'rail-label';
+      const num = document.createElement('span');
+      num.className = 'rail-num';
+      num.textContent = index;
+      const nameEl = document.createElement('span');
+      nameEl.className = 'rail-name';
+      nameEl.textContent = name;
+      label.append(num, nameEl);
+
+      const mark = document.createElementNS(SVG_NS, 'svg');
+      mark.setAttribute('class', 'rail-mark');
+      mark.setAttribute('viewBox', '0 0 20 2');
+      mark.setAttribute('preserveAspectRatio', 'none');
+      mark.setAttribute('aria-hidden', 'true');
+      const line = document.createElementNS(SVG_NS, 'line');
+      line.setAttribute('x1', '0');
+      line.setAttribute('y1', '1');
+      line.setAttribute('x2', '20');
+      line.setAttribute('y2', '1');
+      line.setAttribute('pathLength', '1');
+      mark.append(line);
+
+      link.append(label, mark);
+      li.append(link);
+      list.append(li);
+    });
+
+    nav.hidden = false;
+
+    const links = Array.from(list.querySelectorAll<HTMLAnchorElement>('a.rail-tick'));
+    const marks = Array.from(list.querySelectorAll<SVGLineElement>('line'));
+
+    gsap.set(marks, { strokeDasharray: 1, strokeDashoffset: 1 });
+    gsap.set(spine, { scaleY: 0 });
+    gsap.set([minor, depthWrap], { opacity: 0 });
+
+    // header ↔ rail swap: one shared threshold at the first section
+    let drawn = false;
+    ScrollTrigger.create({
+      trigger: sections[0],
+      start: 'top 75%',
+      onEnter: () => {
+        // don't yank the header away while its dropdowns/toggles hold focus
+        if (header && !header.contains(document.activeElement)) header.classList.add('is-away');
+        nav.classList.add('is-engaged');
+        if (!drawn) {
+          drawn = true;
+          const tl = gsap.timeline({ defaults: { ease: 'power2.out' } });
+          tl.to(spine, { scaleY: 1, duration: 0.6 })
+            .to(marks, { strokeDashoffset: 0, duration: 0.4, ease: 'power1.inOut', stagger: 0.05 }, 0.15)
+            .to([minor, depthWrap], { opacity: 1, duration: 0.4 }, 0.35);
+        }
+      },
+      onLeaveBack: () => {
+        header?.classList.remove('is-away');
+        nav.classList.remove('is-engaged');
+      },
+    });
+
+    // active section = the one crossing viewport center (also what's behind
+    // the rail, so it drives the paper/graphite tone flip too)
+    const setActive = (i: number) => {
+      links.forEach((l, j) => {
+        if (j === i) l.setAttribute('aria-current', 'true');
+        else l.removeAttribute('aria-current');
+      });
+      nav.dataset.tone = sections[i].classList.contains('bg-graphite') ? 'graphite' : 'paper';
+    };
+    sections.forEach((section, i) => {
+      ScrollTrigger.create({
+        trigger: section,
+        start: 'top center',
+        end: 'bottom center',
+        onToggle: (self) => {
+          if (self.isActive) setActive(i);
+        },
+      });
+    });
+
+    // depth fill + readout track whole-page progress
+    const DEPTH_MAX = sections.length * 16;
+    ScrollTrigger.create({
+      start: 0,
+      end: 'max',
+      onUpdate: (self) => {
+        gsap.set(fill, { scaleY: self.progress });
+        if (depthEl) {
+          depthEl.textContent = String(Math.round(self.progress * DEPTH_MAX)).padStart(3, '0');
+        }
+      },
+    });
+
+    list.addEventListener('click', (e) => {
+      const link = (e.target as HTMLElement).closest<HTMLAnchorElement>('a.rail-tick');
+      if (!link) return;
+      e.preventDefault();
+      const id = link.getAttribute('href')!.slice(1);
+      const section = document.getElementById(id);
+      if (!section) return;
+      history.pushState(null, '', `#${id}`);
+      const focusSection = () => {
+        section.tabIndex = -1;
+        section.focus({ preventScroll: true });
+      };
+      const lenis = getLenis();
+      if (lenis) {
+        lenis.scrollTo(`#${id}`, { offset: -16, onComplete: focusSection });
+      } else {
+        section.scrollIntoView({ behavior: 'smooth' });
+        focusSection();
+      }
+    });
+
+    ScrollTrigger.refresh();
+  }
+
+  const nav = document.querySelector<HTMLElement>('[data-depth-rail]');
+  const mql = window.matchMedia('(min-width: 768px)');
+  if (nav && !prefersReducedMotion()) {
+    if (mql.matches) {
+      init(nav);
+    } else {
+      const onChange = (e: MediaQueryListEvent) => {
+        if (e.matches) {
+          mql.removeEventListener('change', onChange);
+          init(nav);
+        }
+      };
+      mql.addEventListener('change', onChange);
+    }
+  }
+</script>

@@ -1,12 +1,9 @@
 ---
 import Base from '../layouts/Base.astro';
-import { site } from '../data/site';
 import SectionHeading from '../components/SectionHeading.astro';
-import { capabilities } from '../data/capabilities';
+import Button from '../components/Button.astro';
 
-const platformCapability = capabilities.find(cap => cap.glyph === 'platform');
-
-const platformPath = [
+const breadcrumbs = [
   { name: 'Home', href: '/' },
   { name: 'Capabilities', href: '/#capabilities' },
   { name: 'Platform Engineering', href: '' },
@@ -14,183 +11,1175 @@ const platformPath = [
 ---
 
 <Base
-  title="Substrate — Platform Engineering"
-  description="Substrate architects internal developer platforms with golden paths, self-service infrastructure, and paved roads to production."
+  title="Platform Engineering Services | Substrate"
+  description="Substrate helps enterprises build internal developer platforms with golden paths, self-service infrastructure, and paved roads to production. Accelerate delivery, reduce complexity, and scale engineering."
 >
-<section class="py-20 md:py-32" aria-labelledby="platform-heading">
-  <div class="container-x">
-    <nav class="mb-8 text-sm text-ink-3">
-      {
-        platformPath.map((crumb, idx) => (
-          <span>
-            {idx > 0 && ' / '}
-            {crumb.href && idx < platformPath.length - 1
-              ? <a href={crumb.href} class="text-accent hover:underline">{crumb.name}</a>
-              : <span class={idx === platformPath.length - 1 ? 'font-medium text-ink' : ''}>{crumb.name}</span>
-            }
-          </span>
-        ))
-      }
+<!-- ============================================================ -->
+<!-- 1. HERO -->
+<!-- ============================================================ -->
+<section class="relative overflow-hidden py-24 md:py-40" aria-labelledby="hero-heading">
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--c-accent-soft)_0%,_transparent_60%)] pointer-events-none" aria-hidden="true" />
+  <div class="container-x relative z-10">
+    <nav class="mb-10 text-sm text-ink-3">
+      {breadcrumbs.map((crumb, idx) => (
+        <span>
+          {idx > 0 && ' / '}
+          {crumb.href && idx < breadcrumbs.length - 1
+            ? <a href={crumb.href} class="text-accent hover:underline">{crumb.name}</a>
+            : <span class={idx === breadcrumbs.length - 1 ? 'font-medium text-ink' : ''}>{crumb.name}</span>
+          }
+        </span>
+      ))}
     </nav>
 
+    <div class="max-w-4xl" data-reveal-group>
+      <p class="kicker text-accent mb-5" data-reveal>
+        <span class="text-accent">01</span><span aria-hidden="true">&nbsp;—&nbsp;</span>Platform Engineering
+      </p>
+      <h1 id="hero-heading" class="display text-5xl md:text-[4.5rem] text-ink max-w-5xl" data-reveal>
+        Ship software faster,<br />operate with less friction.
+      </h1>
+      <p class="mt-6 text-lg md:text-xl text-ink-2 max-w-2xl leading-relaxed" data-reveal>
+        Platform engineering is the practice of building internal developer platforms that reduce cognitive load, standardize infrastructure, and let engineering teams focus on what matters: delivering value to customers.
+      </p>
+      <div class="mt-10 flex flex-wrap gap-4" data-reveal>
+        <Button href="/contact" variant="primary" size="md">Talk to our team</Button>
+        <Button href="#what-is" variant="secondary" size="md">Learn more</Button>
+      </div>
+    </div>
+
+    <div class="mt-16 grid gap-6 md:grid-cols-3 max-w-4xl" data-reveal-group>
+      <div class="border-t border-line pt-5" data-reveal>
+        <p class="text-3xl font-display font-semibold text-accent">60-80%</p>
+        <p class="text-sm text-ink-2 mt-1">Fewer environment-related incidents with standardized platforms</p>
+      </div>
+      <div class="border-t border-line pt-5" data-reveal>
+        <p class="text-3xl font-display font-semibold text-accent">3-5x</p>
+        <p class="text-sm text-ink-2 mt-1">Faster deployment frequency with self-service infrastructure</p>
+      </div>
+      <div class="border-t border-line pt-5" data-reveal>
+        <p class="text-3xl font-display font-semibold text-accent">40%</p>
+        <p class="text-sm text-ink-2 mt-1">Reduction in cloud infrastructure costs through governance and standardization</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 2. WHAT IS PLATFORM ENGINEERING? -->
+<!-- ============================================================ -->
+<section id="what-is" class="py-20 md:py-28 bg-graphite" aria-labelledby="whatis-heading">
+  <div class="container-x">
     <SectionHeading
-      id="platform-heading"
+      id="whatis-heading"
       index="02"
-      label="Platform Engineering"
-      title="Internal developer platforms with golden paths, paved roads to production."
+      label="What is Platform Engineering"
+      title="An internal product that makes your engineering organization more efficient."
+      lede="Platform engineering is the discipline of designing and building internal developer platforms that provide self-service capabilities, standardized infrastructure, and paved paths to production. It treats the platform as a product, with the engineering organization as its customer."
+      tone="graphite"
     />
 
-    <div class="mt-12 md:mt-16 grid items-start gap-14 md:grid-cols-[1fr_380px] md:items-start">
-      <div>
-        <div class="relative rounded-lg border border-line-2 bg-paper p-8 md:rounded-xl md:p-10" data-reveal>
-          <div class="font-mono text-xs text-accent mb-6">PLATFORM ENGINEERING</div>
-          <h2 class="text-2xl md:text-3xl font-display font-semibold text-ink mb-6">
-            Where developer experience meets platform reliability.
-          </h2>
-          <p class="text-[1.05rem] leading-relaxed text-ink-2 mb-8">
-            Platform Engineering transforms the tension between developer autonomy and operational stability into a foundation you can actually build on. Think of it as internal developer platforms with golden paths that are as clear as a ski trail in Colorado versus the entire mountain range of possibility.
-          </p>
-
-          <h3 class="text-xl font-display font-semibold text-ink mt-10 mb-4">The Golden Path Principle</h3>
-          <p class="text-[1.05rem] leading-relaxed text-ink-2 mb-6">
-            Platform Engineering at Substrate means "paved roads, not scorched earth." We architect internal developer platforms that provide curated, well-tested pathways to production so developers don't have to reinvent the wheel every Monday morning. Each path is cleared, maintained, and monitored.
-          </p>
-
-          <h3 class="text-xl font-display font-semibold text-ink mt-8 mb-4">Why This Matters</h3>
-          <p class="text-[1.05rem] leading-relaxed text-ink-2 mb-6">
-            The true cost of choice isn't the sum of its parts, it's the computational entropy of dealing with infinite configuration possibilities. Engineers are drowning in tooling decisions, environment setup, and compliance requirements. Your platform becomes the one thing everyone can agree on, while still letting teams ship code.
-          </p>
-
-          <h3 class="text-xl font-display font-semibold text-ink mt-8 mb-4">Our Approach</h3>
-          <p class="text-[1.05rem] leading-relaxed text-ink-2 mb-6">
-            We build platforms with embedded best practices, continuous reliability testing, and the developer experience principle that if it's not intuitive for the junior engineer, it's not ready for production. Everything ships with observability by default, SLOs baked into the build process, and the ability to operate at scale without asking permission.
-          </p>
-
-          <h3 class="text-xl font-display font-semibold text-accent mt-10 mb-4">Core Capabilities</h3>
-          <ul class="space-y-4">
-            <li class="flex items-start">
-              <span class="text-accent mr-3">&#10003;</span>
-              <span class="text-[1.05rem] text-ink-2"><strong class="font-semibold text-ink">Self-service infrastructure</strong> &mdash; Automated provisioning of environments, services, and dependencies without manual intervention.</span>
-            </li>
-            <li class="flex items-start">
-              <span class="text-accent mr-3">&#10003;</span>
-              <span class="text-[1.05rem] text-ink-2"><strong class="font-semibold text-ink">Golden paths to production</strong> &mdash; Curated, tested deployment workflows that are error-proof and self-documenting.</span>
-            </li>
-            <li class="flex items-start">
-              <span class="text-accent mr-3">&#10003;</span>
-              <span class="text-[1.05rem] text-ink-2"><strong class="font-semibold text-ink">Paved roads</strong> &mdash; Standard infrastructure, tooling, and processes that scale across the entire organization.</span>
-            </li>
-            <li class="flex items-start">
-              <span class="text-accent mr-3">&#10003;</span>
-              <span class="text-[1.05rem] text-ink-2"><strong class="font-semibold text-ink">Developer joy</strong> &mdash; Interfaces designed for the junior engineer, with progressive disclosure and comprehensive documentation.</span>
-            </li>
-          </ul>
-        </div>
-
-        <div class="mt-10 grid gap-8 md:grid-cols-2" data-reveal-group>
-          <div class="rounded-lg border border-line-2 bg-paper p-7">
-            <div class="font-mono text-xs text-accent mb-4">NEEDS ASSESSMENT</div>
-            <h3 class="text-xl font-display font-semibold text-ink mb-4">Current State Analysis</h3>
-            <p class="text-[.95rem] leading-relaxed text-ink-2 mb-6">
-              We start by mapping your existing toolchains, identifying friction points, and creating a platform backlog that delivers immediate value while solving long-term architectural debt. The assessment includes a 30, 90, and 365-day roadmap.
-            </p>
-            <ul class="space-y-3">
-              <li class="flex items-center">
-                <span class="block h-2 w-2 shrink-0 rounded-full bg-accent mr-3"></span>
-                <span class="text-[.92rem] text-ink-2">Toolchain inventory &amp; pain points</span>
-              </li>
-              <li class="flex items-center">
-                <span class="block h-2 w-2 shrink-0 rounded-full bg-accent mr-3"></span>
-                <span class="text-[.92rem] text-ink-2">Compliance &amp; security gaps</span>
-              </li>
-              <li class="flex items-center">
-                <span class="block h-2 w-2 shrink-0 rounded-full bg-accent mr-3"></span>
-                <span class="text-[.92rem] text-ink-2">Team capability assessment</span>
-              </li>
-            </ul>
-          </div>
-
-          <div class="rounded-lg border border-line-2 bg-paper p-7">
-            <div class="font-mono text-xs text-accent mb-4">DELIVERY MODEL</div>
-            <h3 class="text-xl font-display font-semibold text-ink mb-4">Phase 1: Foundation</h3>
-            <p class="text-[.95rem] leading-relaxed text-ink-2 mb-6">
-              Fast-moving teams need platform results fast. We deploy the most valuable platform components first, giving teams immediate improvements while laying the groundwork for scale.
-            </p>
-            <ul class="space-y-3">
-              <li class="flex items-center">
-                <span class="block h-2 w-2 shrink-0 rounded-full bg-accent mr-3"></span>
-                <span class="text-[.92rem] text-ink-2">Standardized environments (1 week)</span>
-              </li>
-              <li class="flex items-center">
-                <span class="block h-2 w-2 shrink-0 rounded-full bg-accent mr-3"></span>
-                <span class="text-[.92rem] text-ink-2">Centralized secrets management (2 weeks)</span>
-              </li>
-              <li class="flex items-center">
-                <span class="block h-2 w-2 shrink-0 rounded-full bg-accent mr-3"></span>
-                <span class="text-[.92rem] text-ink-2">CI/CD platform setup (3 weeks)</span>
-              </li>
-            </ul>
-          </div>
-        </div>
+    <div class="mt-14 grid gap-10 md:grid-cols-2 lg:gap-16" data-reveal-group>
+      <div data-reveal>
+        <h3 class="text-xl font-display font-semibold text-graphite-fg mb-4">What it is</h3>
+        <p class="text-graphite-fg-2 leading-relaxed mb-4">
+          A platform is a curated set of tools, services, and workflows that developers use to build, deploy, and operate software. It abstracts away infrastructure complexity, enforces organizational standards, and provides self-service access to everything a team needs to go from idea to production.
+        </p>
+        <p class="text-graphite-fg-2 leading-relaxed">
+          The platform team builds and maintains this layer. Application teams consume it. The result is consistent, secure, and fast software delivery across the entire organization.
+        </p>
       </div>
 
-      <aside class="sticky top-24 space-y-8">
-        <div class="rounded-lg border border-line-2 bg-paper p-7">
-          <div class="font-mono text-xs text-accent mb-4">QUICK SUMMARY</div>
-          <h3 class="text-xl font-display font-semibold text-ink mb-5">Platform Engineering</h3>
-          <ul class="space-y-5">
-            <li>
-              <p class="text-[.92rem] font-semibold text-ink mb-2">Target Timeline</p>
-              <p class="text-[.92rem] text-ink-2">Day 1&ndash;90 (Foundational) &rarr; 3&ndash;6 months</p>
-            </li>
-            <li>
-              <p class="text-[.92rem] font-semibold text-ink mb-2">Team Size</p>
-              <p class="text-[.92rem] text-ink-2">4&ndash;8 engineers (platform + ops focus)</p>
-            </li>
-            <li>
-              <p class="text-[.92rem] font-semibold text-ink mb-2">ROI Target</p>
-              <p class="text-[.92rem] text-ink-2">3&times; developer throughput, 50% deployment frequency</p>
-            </li>
-          </ul>
-        </div>
+      <div data-reveal>
+        <h3 class="text-xl font-display font-semibold text-graphite-fg mb-4">Why companies adopt it</h3>
+        <p class="text-graphite-fg-2 leading-relaxed mb-4">
+          As engineering organizations grow, the ad hoc approach of each team managing its own infrastructure becomes unsustainable. Platform engineering provides a single source of truth for infrastructure, deployment, and operations. It reduces duplication, enforces security and compliance, and lets application teams move faster.
+        </p>
+        <p class="text-graphite-fg-2 leading-relaxed">
+          Organizations that adopt platform engineering see measurable improvements in deployment frequency, lead time, mean time to recovery, and developer satisfaction.
+        </p>
+      </div>
 
-        <div class="rounded-lg border border-line-2 bg-paper p-7">
-          <div class="font-mono text-xs text-accent mb-4">TECHNOLOGY STACK</div>
-          <div class="space-y-4">
-            <div>
-              <p class="text-[.92rem] font-semibold text-ink mb-2">Languages &amp; Frameworks</p>
-              <div class="flex flex-wrap gap-2">
-                <span class="rounded-full border border-line-2 px-3 py-1 text-xs text-ink-2">TypeScript</span>
-                <span class="rounded-full border border-line-2 px-3 py-1 text-xs text-ink-2">Go</span>
-                <span class="rounded-full border border-line-2 px-3 py-1 text-xs text-ink-2">React</span>
-              </div>
-            </div>
-            <div>
-              <p class="text-[.92rem] font-semibold text-ink mb-2">Platform Tools</p>
-              <div class="flex flex-wrap gap-2">
-                <span class="rounded-full border border-line-2 px-3 py-1 text-xs text-ink-2">Kubernetes</span>
-                <span class="rounded-full border border-line-2 px-3 py-1 text-xs text-ink-2">Argo CD</span>
-                <span class="rounded-full border border-line-2 px-3 py-1 text-xs text-ink-2">Terraform</span>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div data-reveal>
+        <h3 class="text-xl font-display font-semibold text-graphite-fg mb-4">Platform engineering vs. DevOps</h3>
+        <p class="text-graphite-fg-2 leading-relaxed mb-4">
+          DevOps is a cultural and operational philosophy focused on breaking down silos between development and operations. Platform engineering is an implementation discipline that builds the tools and systems to make that philosophy practical at scale.
+        </p>
+        <p class="text-graphite-fg-2 leading-relaxed">
+          Think of it this way: DevOps defines the <em>what</em> and <em>why</em>. Platform engineering delivers the <em>how</em>. The best platform engineering organizations are built on a strong DevOps culture.
+        </p>
+      </div>
 
-        <div class="rounded-lg bg-accent p-7 text-white">
-          <h3 class="text-xl font-display font-semibold mb-4">Start building better platforms.</h3>
-          <p class="text-[.95rem] mb-6">Book a discovery session to map your platform engineering journey.</p>
-          <a
-            href="/contact"
-            class="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 font-medium text-accent transition-colors hover:bg-[#e4e7ec]"
-          >
-            Start a conversation
-            <svg class="h-4 w-4" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <path d="M2 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
+      <div data-reveal>
+        <h3 class="text-xl font-display font-semibold text-graphite-fg mb-4">Common misconceptions</h3>
+        <ul class="space-y-3">
+          <li class="flex items-start gap-3 text-graphite-fg-2">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <span><strong class="text-graphite-fg">A platform is not a single tool.</strong> It is a cohesive system of tools, processes, and documentation.</span>
+          </li>
+          <li class="flex items-start gap-3 text-graphite-fg-2">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <span><strong class="text-graphite-fg">Platform engineering is not a product purchase.</strong> It requires organizational change, not just a software license.</span>
+          </li>
+          <li class="flex items-start gap-3 text-graphite-fg-2">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <span><strong class="text-graphite-fg">Platforms do not slow developers down.</strong> Well-designed platforms accelerate delivery by removing decisions and friction.</span>
+          </li>
+          <li class="flex items-start gap-3 text-graphite-fg-2">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <span><strong class="text-graphite-fg">It is not just for large enterprises.</strong> Any organization with multiple teams or services benefits from platform thinking.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 3. BUSINESS CHALLENGES -->
+<!-- ============================================================ -->
+<section class="py-20 md:py-28" aria-labelledby="challenges-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="challenges-heading"
+      index="03"
+      label="Business Challenges"
+      title="The operational debt of unmanaged complexity."
+      lede="Before investing in platform engineering, most organizations face a similar set of structural problems that slow delivery, increase costs, and frustrate teams."
+    />
+
+    <div class="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3" data-reveal-group>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">01</span>
+          <h3 class="font-display font-semibold text-ink">Slow software delivery</h3>
         </div>
-      </aside>
+        <p class="text-sm text-ink-2 leading-relaxed">Every team reinvents infrastructure, pipelines, and deployment processes. Velocity is lost to duplication and manual effort.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">02</span>
+          <h3 class="font-display font-semibold text-ink">Manual infrastructure</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Environments are provisioned by hand, leading to configuration drift, long setup times, and human error in production.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">03</span>
+          <h3 class="font-display font-semibold text-ink">Developer bottlenecks</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Operations and infrastructure teams become a blocker. Developers wait days or weeks for environments, access, and deployments.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">04</span>
+          <h3 class="font-display font-semibold text-ink">Inconsistent environments</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Developer, staging, and production environments diverge. The classic "works on my machine" problem scales across every team.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">05</span>
+          <h3 class="font-display font-semibold text-ink">Cloud cost growth</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Without governance, cloud spending grows faster than revenue. Orphaned resources, over-provisioned instances, and unused capacity accumulate.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">06</span>
+          <h3 class="font-display font-semibold text-ink">Security risks</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Credential sprawl, unpatched dependencies, and ad hoc network policies create attack surfaces that compliance teams cannot fully audit.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">07</span>
+          <h3 class="font-display font-semibold text-ink">Operational complexity</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Incident response is chaotic without standardized runbooks, observability, and alerting. On-call engineers lack the context to resolve issues quickly.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">08</span>
+          <h3 class="font-display font-semibold text-ink">Scaling difficulties</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">The practices that work for 20 engineers break at 100. What worked at 100 fails at 500. Infrastructure and processes do not scale linearly.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">09</span>
+          <h3 class="font-display font-semibold text-ink">Knowledge silos</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Critical infrastructure knowledge lives in individuals, not documentation. Bus factor is high. Onboarding new engineers takes months.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 4. HOW SUBSTRATE HELPS -->
+<!-- ============================================================ -->
+<section class="py-20 md:py-28 bg-graphite" aria-labelledby="approach-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="approach-heading"
+      index="04"
+      label="How Substrate Helps"
+      title="A systematic approach to platform engineering."
+      lede="We do not sell a product or prescribe a single methodology. We work with your organization to design, build, and operate a platform that fits your technical landscape, team structure, and business goals."
+      tone="graphite"
+    />
+
+    <div class="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4" data-reveal-group>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">01</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Platform Assessment</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Audit existing toolchains, workflows, pain points, and team capabilities. We produce a platform maturity assessment with prioritized recommendations.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">02</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Platform Strategy</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Define the platform vision, scope, adoption model, and roadmap. We align stakeholders around what the platform will and will not include.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">03</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Platform Design</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Architect the platform's technical foundation: APIs, abstractions, interfaces, security boundaries, and integration points with existing systems.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">04</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Developer Experience</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Design the interfaces developers interact with: CLI tools, portals, documentation, and APIs. We prioritize clarity, speed, and discoverability.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">05</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Automation</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Eliminate manual processes through infrastructure as code, CI/CD pipelines, automated testing, and policy enforcement. Reduce toil, increase reliability.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">06</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Self-Service Platforms</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Empower teams to provision environments, deploy services, and manage dependencies without opening a ticket. Guardrails, not gatekeeping.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">07</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Golden Paths</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Define and maintain paved roads for common workflows: creating a service, deploying to production, configuring observability, and rotating credentials.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">08</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Internal Developer Platforms</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Build the integrated platform layer that combines IDP components, developer portals, IaC modules, and observability into a single cohesive experience.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">09</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Observability</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Instrument everything: metrics, traces, logs. Establish SLOs, dashboards, and alerting so teams understand system health and can respond to issues.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">10</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Security</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Embed security into the platform: secrets management, policy as code, network policies, vulnerability scanning, and compliance automation from day one.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">11</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Infrastructure as Code</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Manage all infrastructure through version-controlled, tested, and reusable code modules. Environments are reproducible, auditable, and disposable.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">12</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Continuous Improvement</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Platforms are never finished. We establish feedback loops, adoption metrics, and iteration cycles to keep the platform aligned with evolving team needs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 5. PLATFORM ENGINEERING SERVICES -->
+<!-- ============================================================ -->
+<section class="py-20 md:py-28" aria-labelledby="services-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="services-heading"
+      index="05"
+      label="Our Services"
+      title="End-to-end platform engineering capabilities."
+      lede="From strategy through operations, we provide the full range of services needed to design, build, and run internal developer platforms at enterprise scale."
+    />
+
+    <div class="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3" data-reveal-group>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Platform Strategy</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Define your platform vision, scope, operating model, and adoption roadmap. We align technology decisions with business objectives and engineering culture.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Current state assessment</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Platform maturity model</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> 12-month phased roadmap</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Developer Platforms</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Design and build integrated platforms that combine compute, storage, networking, and developer tooling into a cohesive, self-service experience.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Platform architecture design</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> API and abstraction layer</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Reference implementations</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Internal Developer Platform</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Build a comprehensive IDP that provides golden paths, self-service infrastructure, and paved roads for every stage of the software delivery lifecycle.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Backstage or custom portal</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Service catalog &amp; templates</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Tech docs &amp; scorecards</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Infrastructure as Code</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Implement IaC practices across your entire infrastructure footprint. Terraform, Pulumi, CDK, or Cloud Formation modules that are tested, versioned, and reusable.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Module registry &amp; publishing</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> State management &amp; locking</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Drift detection &amp; remediation</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Kubernetes Platforms</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Design, deploy, and operate Kubernetes clusters as a platform. Multi-cluster management, service mesh, ingress, policy engines, and cost allocation built in.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Cluster architecture &amp; bootstrap</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Tenant isolation &amp; namespaces</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Upgrade &amp; lifecycle management</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">CI/CD Platforms</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Build continuous integration and delivery platforms that standardize build, test, and deploy workflows across all services and teams.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Pipeline templates &amp; composability</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Deployment strategies (blue/green, canary)</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Artifact management &amp; promotion</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Developer Portals</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Deploy and customize developer portals using Backstage, Port, or custom front ends. Provide a unified interface for services, docs, and self-service actions.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Service catalog integration</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Software templates &amp; scaffolder</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Plugin &amp; custom component development</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Cloud Platform Enablement</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Establish cloud landing zones, multi-account structures, networking foundations, and governance frameworks on AWS, Azure, or GCP.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Landing zone architecture</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Identity &amp; access management</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Cost governance &amp; budgeting</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">GitOps</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Implement GitOps workflows with Argo CD, Flux, or custom tooling. Declarative infrastructure and application delivery driven entirely through pull requests.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Git repository structuring</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Sync strategies &amp; prune policies</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Secrets management integration</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Observability Platforms</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Deploy and configure observability stacks covering metrics, traces, and logs. SLOs, dashboards, alerting, and on-call runbooks included.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> OpenTelemetry instrumentation</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> SLO framework &amp; burn rate alerts</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Unified dashboards &amp; tenant views</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Secrets Management</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Design and implement a secrets management strategy using Vault, AWS Secrets Manager, or Azure Key Vault. Rotation, auditing, and access control.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Secrets architecture &amp; dynamic secrets</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Integration with CI/CD &amp; Kubernetes</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Audit logging &amp; compliance reporting</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Policy as Code</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Enforce security, compliance, and operational policies through code. Open Policy Agent, Kyverno, or Sentinel policies that prevent misconfiguration before deployment.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Policy design &amp; authoring</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> CI/CD policy gating</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Compliance dashboards &amp; evidence</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Developer Experience</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Optimize the inner development loop. Fast feedback, local development environments, hot reloading, and seamless integration with the shared platform.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Local dev environment tooling</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Documentation &amp; onboarding</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> DX metrics &amp; feedback loops</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Platform Governance</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Define operating models, ownership boundaries, API stability guarantees, and deprecation policies. Ensure the platform remains reliable as it evolves.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Team topology &amp; ownership</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Versioning &amp; deprecation policies</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Adoption tracking &amp; feedback</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Migration &amp; Modernization</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Migrate existing workloads, monoliths, and legacy infrastructure onto the new platform. Reduce risk with proven migration patterns and automation.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Migration planning &amp; assessment</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Strangler fig &amp; parallel run</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Validation &amp; rollback procedures</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Platform Operations</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Run the platform day-to-day: upgrades, security patches, incident response, capacity planning, and continuous improvement. SLAs included.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> 24/7 platform monitoring</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Release &amp; change management</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Capacity &amp; cost optimization</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 6. TECHNOLOGIES -->
+<!-- ============================================================ -->
+<section class="py-20 md:py-28 bg-graphite" aria-labelledby="tech-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="tech-heading"
+      index="06"
+      label="Technologies"
+      title="Tools and platforms we work with."
+      lede="We maintain deep expertise across the cloud-native ecosystem. Our technology choices are driven by your specific requirements, not vendor relationships."
+      tone="graphite"
+    />
+
+    <div class="mt-14 grid gap-8 md:grid-cols-3 lg:grid-cols-4" data-reveal-group>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-4">Cloud</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2">AWS</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Azure</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">GCP</li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-4">Containers</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2">Kubernetes</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Docker</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">containerd</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 mt-2">Helm</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Istio</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Linkerd</li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-4">IaC</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2">Terraform</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Pulumi</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">AWS CDK</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 mt-2">Crossplane</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Ansible</li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-4">CI/CD</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2">GitHub Actions</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">GitLab CI</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Argo CD</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 mt-2">Flux</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Jenkins</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Buildkite</li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-4">Observability</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2">OpenTelemetry</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Prometheus</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Grafana</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 mt-2">Datadog</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Honeycomb</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Grafana Loki</li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-4">Programming Languages</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2">Go</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">TypeScript</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Python</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 mt-2">Rust</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Java</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">.NET</li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-4">Databases</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2">PostgreSQL</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">MySQL</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">MongoDB</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 mt-2">Redis</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Kafka</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Cassandra</li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-4">Security</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2">HashiCorp Vault</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">OPA</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Kyverno</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 mt-2">SOPS</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">cert-manager</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Trivy</li>
+        </ul>
+      </div>
+      <div data-reveal class="md:col-span-3 lg:col-span-4">
+        <h3 class="font-mono text-xs text-accent-bright mb-4">Developer Portals</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2">Backstage</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Port</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Cortex</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Humanitec</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Rafter</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Kratix</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 7. BENEFITS -->
+<!-- ============================================================ -->
+<section class="py-20 md:py-28" aria-labelledby="benefits-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="benefits-heading"
+      index="07"
+      label="Benefits"
+      title="What platform engineering delivers."
+      lede="The return on platform engineering is measured in velocity, reliability, cost, and team satisfaction. These are the outcomes our clients achieve."
+    />
+
+    <div class="mt-14 grid gap-10 md:grid-cols-2" data-reveal-group>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent mb-4">BUSINESS BENEFITS</h3>
+        <ul class="space-y-4">
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-ink">Faster time to market</p>
+              <p class="text-sm text-ink-2">Self-service infrastructure and golden paths reduce the time from idea to production from weeks to hours.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-ink">Lower operational costs</p>
+              <p class="text-sm text-ink-2">Standardized infrastructure reduces waste, eliminates duplicate tooling, and optimizes cloud spend.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-ink">Improved compliance posture</p>
+              <p class="text-sm text-ink-2">Policy as code and automated enforcement make audits straightforward and compliance continuous.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-ink">Engineering team scalability</p>
+              <p class="text-sm text-ink-2">Onboard new engineers and teams in days, not months. The platform encodes organizational best practices.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent mb-4">TECHNICAL BENEFITS</h3>
+        <ul class="space-y-4">
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-ink">Consistent environments</p>
+              <p class="text-sm text-ink-2">Every environment is identical, reproducible, and disposable. No more configuration drift.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-ink">Improved reliability</p>
+              <p class="text-sm text-ink-2">Standardized deployments, automated rollbacks, and built-in observability reduce MTTR and increase uptime.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-ink">Security by default</p>
+              <p class="text-sm text-ink-2">Secrets management, network policies, and vulnerability scanning are built into the platform, not bolted on.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-ink">Vendor flexibility</p>
+              <p class="text-sm text-ink-2">Platform abstractions prevent vendor lock-in. Switching cloud providers or tooling becomes an internal migration, not a crisis.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent mb-4">DEVELOPER BENEFITS</h3>
+        <ul class="space-y-4">
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-ink">Reduced cognitive load</p>
+              <p class="text-sm text-ink-2">Developers focus on business logic, not infrastructure. The platform handles the complexity.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-ink">Self-service autonomy</p>
+              <p class="text-sm text-ink-2">Provision environments, deploy services, and manage dependencies without waiting for another team.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-ink">Faster feedback loops</p>
+              <p class="text-sm text-ink-2">Instant development environments, automated testing, and rapid deployment cycles keep flow state intact.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-ink">Clear paved roads</p>
+              <p class="text-sm text-ink-2">Golden paths provide clear guidance on how to build, deploy, and operate services. No more guesswork.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent mb-4">OPERATIONAL BENEFITS</h3>
+        <ul class="space-y-4">
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-ink">Reduced toil</p>
+              <p class="text-sm text-ink-2">Automation eliminates manual infrastructure management, environment setup, and deployment tasks.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-ink">Better incident response</p>
+              <p class="text-sm text-ink-2">Standardized observability, runbooks, and automated remediation reduce mean time to resolution.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-ink">Knowledge preservation</p>
+              <p class="text-sm text-ink-2">Platform documentation, code, and runbooks ensure critical knowledge is never lost when team members leave.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-ink">Cost visibility</p>
+              <p class="text-sm text-ink-2">Granular cost allocation, budgeting, and showback mechanisms make infrastructure spending transparent and accountable.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 8. ENGAGEMENT MODEL -->
+<!-- ============================================================ -->
+<section class="py-20 md:py-28 bg-graphite" aria-labelledby="engagement-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="engagement-heading"
+      index="08"
+      label="Engagement Model"
+      title="How we work with your team."
+      lede="Every engagement is structured around outcomes, not hours. We adapt our working model to your organization's culture, constraints, and maturity."
+      tone="graphite"
+    />
+
+    <div class="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4" data-reveal-group>
+      <div class="relative rounded-lg border border-graphite-line bg-graphite-2 p-7 pt-12" data-reveal>
+        <span class="absolute top-5 left-5 font-mono text-2xl font-semibold text-accent-bright/30">01</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Discovery</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">We map your current state: team topology, toolchain inventory, pain points, compliance requirements, and business objectives. The output is a platform assessment report with findings and recommendations.</p>
+        <p class="text-xs text-accent-bright mt-4 font-mono">1&ndash;3 weeks</p>
+      </div>
+      <div class="relative rounded-lg border border-graphite-line bg-graphite-2 p-7 pt-12" data-reveal>
+        <span class="absolute top-5 left-5 font-mono text-2xl font-semibold text-accent-bright/30">02</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Architecture</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">We design the target platform architecture: abstractions, APIs, integration points, security boundaries, and migration strategy. Blueprints, decision logs, and an implementation roadmap are delivered.</p>
+        <p class="text-xs text-accent-bright mt-4 font-mono">2&ndash;4 weeks</p>
+      </div>
+      <div class="relative rounded-lg border border-graphite-line bg-graphite-2 p-7 pt-12" data-reveal>
+        <span class="absolute top-5 left-5 font-mono text-2xl font-semibold text-accent-bright/30">03</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Implementation</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">We build the platform incrementally, starting with the highest-value capabilities. Each sprint delivers working, production-ready infrastructure that teams can start using immediately.</p>
+        <p class="text-xs text-accent-bright mt-4 font-mono">4&ndash;16 weeks</p>
+      </div>
+      <div class="relative rounded-lg border border-graphite-line bg-graphite-2 p-7 pt-12" data-reveal>
+        <span class="absolute top-5 left-5 font-mono text-2xl font-semibold text-accent-bright/30">04</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Migration</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">We work with your application teams to migrate existing workloads onto the new platform. Low-risk parallel runs, rollback procedures, and validation gates at every step.</p>
+        <p class="text-xs text-accent-bright mt-4 font-mono">4&ndash;12 weeks</p>
+      </div>
+      <div class="relative rounded-lg border border-graphite-line bg-graphite-2 p-7 pt-12" data-reveal>
+        <span class="absolute top-5 left-5 font-mono text-2xl font-semibold text-accent-bright/30">05</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Training</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">We train your platform team and application developers through workshops, pair programming sessions, and structured documentation. The goal is capability transfer, not dependency.</p>
+        <p class="text-xs text-accent-bright mt-4 font-mono">Ongoing</p>
+      </div>
+      <div class="relative rounded-lg border border-graphite-line bg-graphite-2 p-7 pt-12" data-reveal>
+        <span class="absolute top-5 left-5 font-mono text-2xl font-semibold text-accent-bright/30">06</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Support</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">We provide ongoing platform support: incident response, upgrades, security patches, and operational runbooks. SLAs defined based on criticality and coverage hours.</p>
+        <p class="text-xs text-accent-bright mt-4 font-mono">Ongoing</p>
+      </div>
+      <div class="relative rounded-lg border border-graphite-line bg-graphite-2 p-7 pt-12 md:col-span-2 lg:col-span-2" data-reveal>
+        <span class="absolute top-5 left-5 font-mono text-2xl font-semibold text-accent-bright/30">07</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Continuous Improvement</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Platforms must evolve with your organization. We establish feedback loops, adoption metrics, platform satisfaction surveys, and regular iteration cycles to keep the platform aligned with team needs and industry best practices.</p>
+        <p class="text-xs text-accent-bright mt-4 font-mono">Quarterly reviews</p>
+      </div>
+    </div>
+
+    <div class="mt-14 rounded-lg border border-graphite-line bg-graphite-2 p-8 text-center" data-reveal>
+      <p class="text-graphite-fg-2 text-sm max-w-2xl mx-auto">
+        Every engagement includes a dedicated delivery lead, transparent weekly reporting, and a shared roadmap that evolves as we learn. <br class="hidden md:inline" />We bill for outcomes, not hours.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 9. WHY CHOOSE SUBSTRATE -->
+<!-- ============================================================ -->
+<section class="py-20 md:py-28" aria-labelledby="why-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="why-heading"
+      index="09"
+      label="Why Choose Substrate"
+      title="Built by engineers, for engineering organizations."
+      lede="We bring deep platform engineering experience, enterprise discipline, and a commitment to knowledge transfer in every engagement."
+    />
+
+    <div class="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3" data-reveal-group>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-accent-soft text-accent" aria-hidden="true">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </span>
+          <h3 class="font-display font-semibold text-ink">Engineering-first</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">We are engineers who build platforms. Every recommendation is grounded in real implementation experience, not theory or vendor certifications.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-accent-soft text-accent" aria-hidden="true">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </span>
+          <h3 class="font-display font-semibold text-ink">Vendor Neutral</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">We have no partnerships or incentives to push specific products. Every technology decision is made based on your requirements, not our relationships.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-accent-soft text-accent" aria-hidden="true">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </span>
+          <h3 class="font-display font-semibold text-ink">Automation Focused</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Every process we design is automated by default. Manual intervention is the exception, not the rule. We measure success by the amount of toil eliminated.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-accent-soft text-accent" aria-hidden="true">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+          </span>
+          <h3 class="font-display font-semibold text-ink">Enterprise Standards</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">We deliver production systems with SLAs, runbooks, disaster recovery plans, and compliance documentation. Enterprise-ready from day one.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-accent-soft text-accent" aria-hidden="true">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </span>
+          <h3 class="font-display font-semibold text-ink">Security by Design</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Security is integrated into the platform architecture, not added as an afterthought. Zero-trust principles, policy as code, and continuous compliance.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-accent-soft text-accent" aria-hidden="true">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </span>
+          <h3 class="font-display font-semibold text-ink">Performance</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Platforms we build are optimized for speed: low-latency APIs, fast deployment pipelines, and responsive developer tooling. Performance is a feature.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-accent-soft text-accent" aria-hidden="true">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7"/></svg>
+          </span>
+          <h3 class="font-display font-semibold text-ink">Scalable Architecture</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">We design for scale from the start. Platforms that work for 10 teams and 100 services will also work for 100 teams and 1,000 services.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-accent-soft text-accent" aria-hidden="true">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </span>
+          <h3 class="font-display font-semibold text-ink">Transparent Communication</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Weekly status reports, public roadmaps, shared Slack channels, and honest conversations about risks and trade-offs. No surprises.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-accent-soft text-accent" aria-hidden="true">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </span>
+          <h3 class="font-display font-semibold text-ink">Knowledge Transfer</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Our goal is to make your team self-sufficient. Every engagement includes structured training, pair programming, documentation, and capability building.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 10. INDUSTRIES -->
+<!-- ============================================================ -->
+<section class="py-20 md:py-28 bg-graphite" aria-labelledby="industries-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="industries-heading"
+      index="10"
+      label="Industries"
+      title="Platform engineering across sectors."
+      lede="Organizations in every industry face the same fundamental challenge: delivering software faster without sacrificing reliability or security. Here is how platform engineering applies to specific sectors."
+      tone="graphite"
+    />
+
+    <div class="mt-14 grid gap-6 md:grid-cols-3" data-reveal-group>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Financial Services</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Regulatory compliance, audit trails, and zero-downtime deployments are non-negotiable. Our platforms enforce policy as code and provide immutable audit records for every change.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Healthcare</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">HIPAA compliance, data sovereignty, and patient data protection require platforms with strong identity boundaries, encryption, and access controls baked in.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Retail</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Seasonal traffic spikes, rapid feature experimentation, and omnichannel integration demand platforms that auto-scale and support frequent, safe deployments.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Manufacturing</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">IoT telemetry, supply chain systems, and operational technology integration require platforms that bridge IT and OT with strong security boundaries.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Education</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Large-scale digital learning platforms, student data privacy, and diverse institutional stakeholders require multi-tenant platforms with strong isolation.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Media</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Content streaming, real-time personalization, and global distribution require edge-native platforms with low-latency delivery and elastic capacity.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">SaaS</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Multi-tenant architecture, rapid iteration, and customer-specific compliance requirements are addressed through platform-level tenant isolation and feature flagging.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Government</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Security clearances, FedRAMP compliance, and legacy system integration require platforms with strict access controls, audit trails, and gradual modernization paths.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Logistics</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Real-time tracking, route optimization, and global supply chain visibility require event-driven platforms with stream processing and low-latency data pipelines.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 11. FAQ -->
+<!-- ============================================================ -->
+<section class="py-20 md:py-28" aria-labelledby="faq-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="faq-heading"
+      index="11"
+      label="Frequently Asked Questions"
+      title="Common questions about platform engineering."
+      lede="Answers to the questions we hear most often from engineering leaders evaluating platform engineering investments."
+    />
+
+    <div class="mt-14 max-w-3xl mx-auto space-y-4" data-reveal-group>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-ink list-none">
+          What is the difference between a platform and a set of tools?
+          <svg class="h-4 w-4 shrink-0 text-ink-2 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-ink-2 leading-relaxed">A platform is a cohesive, integrated system with abstractions, APIs, and self-service capabilities. A set of tools is a collection of independent products that each team configures separately. The platform provides consistency, governance, and a unified experience that individual tools cannot.</p>
+        </div>
+      </details>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-ink list-none">
+          How long does it take to build an internal developer platform?
+          <svg class="h-4 w-4 shrink-0 text-ink-2 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-ink-2 leading-relaxed">A functional platform with core capabilities can be delivered in 8 to 12 weeks. A mature platform with broad adoption and deep integration typically takes 6 to 18 months, depending on organizational complexity, existing infrastructure, and team capacity. We prioritize early value and iterate.</p>
+        </div>
+      </details>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-ink list-none">
+          Do we need a dedicated platform team?
+          <svg class="h-4 w-4 shrink-0 text-ink-2 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-ink-2 leading-relaxed">Yes. A platform team ensures the platform is maintained, documented, and improved over time. The team size depends on the scope of the platform and the number of application teams it serves. A typical ratio is one platform engineer for every 10 to 15 application developers.</p>
+        </div>
+      </details>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-center between p-5 text-[1rem] font-medium text-ink list-none">
+          What is a golden path?
+          <svg class="h-4 w-4 shrink-0 text-ink-2 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-ink-2 leading-relaxed">A golden path is a curated, well-documented, and fully automated workflow for a common engineering task: creating a new service, deploying to production, configuring monitoring, or rotating credentials. It is the recommended way to do something, not the only way. Teams can deviate when needed, but the golden path provides the fastest, safest route.</p>
+        </div>
+      </details>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-ink list-none">
+          How do you measure platform success?
+          <svg class="h-4 w-4 shrink-0 text-ink-2 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-ink-2 leading-relaxed">We track deployment frequency, lead time, mean time to recovery, change failure rate, developer satisfaction (via survey), platform adoption rate, infrastructure cost per service, and time-to-prod for new services. These metrics map directly to business outcomes.</p>
+        </div>
+      </details>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-ink list-none">
+          How does platform engineering handle multi-cloud?
+          <svg class="h-4 w-4 shrink-0 text-ink-2 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-ink-2 leading-relaxed">A well-designed platform abstracts cloud-specific services behind unified APIs and IaC modules. Teams interact with the platform, not directly with cloud consoles. This makes multi-cloud deployments practical without requiring every team to be experts in each cloud provider.</p>
+        </div>
+      </details>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-ink list-none">
+          What if we already have Kubernetes?
+          <svg class="h-4 w-4 shrink-0 text-ink-2 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-ink-2 leading-relaxed">Kubernetes is a platform substrate, not a platform itself. Most organizations running Kubernetes still lack developer self-service, golden paths, and integrated tooling. We build the layers on top of Kubernetes that make it truly usable for application teams.</p>
+        </div>
+      </details>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-ink list-none">
+          How do you ensure platform adoption?
+          <svg class="h-4 w-4 shrink-0 text-ink-2 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-ink-2 leading-relaxed">Adoption is driven by value, not mandates. We focus on making the platform measurably better than the alternatives: faster, safer, and easier. We work with early adopter teams, gather feedback, iterate, and let organic adoption spread through demonstrated results.</p>
+        </div>
+      </details>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-ink list-none">
+          What about existing legacy systems?
+          <svg class="h-4 w-4 shrink-0 text-ink-2 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-ink-2 leading-relaxed">Legacy systems are integrated into the platform incrementally. We use strangler fig patterns, sidecar integrations, and API facades to bring legacy workloads onto the platform without risky big-bang migrations. Some systems may never fully migrate, and the platform accommodates that.</p>
+        </div>
+      </details>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-ink list-none">
+          How does platform engineering affect team structure?
+          <svg class="h-4 w-4 shrink-0 text-ink-2 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-ink-2 leading-relaxed">Platform engineering typically introduces or formalizes a platform team that works alongside application teams. The platform team is a multiplier, not a bottleneck. Application teams retain ownership of their services but consume standardized infrastructure and tooling from the platform.</p>
+        </div>
+      </details>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-ink list-none">
+          What is the typical ROI timeline?
+          <svg class="h-4 w-4 shrink-0 text-ink-2 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-ink-2 leading-relaxed">Most organizations see measurable returns within 3 to 6 months: reduced deployment times, fewer environment-related incidents, and lower infrastructure costs. Full ROI, including developer productivity gains and organizational scalability, materializes within 12 to 18 months.</p>
+        </div>
+      </details>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-ink list-none">
+          How do you handle platform security?
+          <svg class="h-4 w-4 shrink-0 text-ink-2 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-ink-2 leading-relaxed">Security is built into every layer of the platform: network policies, identity-aware access control, secrets management, encryption in transit and at rest, vulnerability scanning in CI/CD pipelines, and policy as code that prevents non-compliant configurations from reaching production.</p>
+        </div>
+      </details>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-ink list-none">
+          Can platform engineering reduce cloud costs?
+          <svg class="h-4 w-4 shrink-0 text-ink-2 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-ink-2 leading-relaxed">Yes. Platforms reduce cloud costs through right-sizing policies, automatic cleanup of unused resources, standardized instance selection, reserved instance management, and cost allocation visibility. Our clients typically see 20 to 40 percent cloud cost reduction within the first year.</p>
+        </div>
+      </details>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-ink list-none">
+          What is the difference between Backstage and an IDP?
+          <svg class="h-4 w-4 shrink-0 text-ink-2 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-ink-2 leading-relaxed">Backstage is a developer portal framework that provides the user interface and service catalog for an IDP. An internal developer platform is the full system: compute, networking, storage, CI/CD, secrets, observability, and the portal. Backstage is one component of a complete platform, not the platform itself.</p>
+        </div>
+      </details>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-ink list-none">
+          How do you handle platform documentation?
+          <svg class="h-4 w-4 shrink-0 text-ink-2 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-ink-2 leading-relaxed">Documentation is treated as a first-class deliverable. We provide architecture decision records, runbooks, onboarding guides, API references, and golden path documentation. All documentation lives alongside the code and is automatically updated through CI/CD pipelines.</p>
+        </div>
+      </details>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-ink list-none">
+          What happens after the engagement ends?
+          <svg class="h-4 w-4 shrink-0 text-ink-2 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-ink-2 leading-relaxed">Your team is equipped to operate and evolve the platform independently. We offer ongoing support and advisory retainers for organizations that want continued access to our expertise. Many clients engage us for quarterly platform reviews and major version upgrades.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 12. CALL TO ACTION -->
+<!-- ============================================================ -->
+<section class="relative overflow-hidden py-24 md:py-36 bg-graphite" aria-labelledby="cta-heading">
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--c-accent)_0%,_transparent_50%)] opacity-[0.04] pointer-events-none" aria-hidden="true" />
+  <div class="container-x relative z-10 text-center">
+    <p class="kicker text-accent-bright mb-4" data-reveal>
+      <span class="text-accent-bright">12</span><span aria-hidden="true">&nbsp;—&nbsp;</span>Start the conversation
+    </p>
+    <h2 id="cta-heading" class="display text-4xl md:text-[3.5rem] text-graphite-fg max-w-3xl mx-auto" data-reveal>
+      Ready to build a platform that scales with your engineering organization?
+    </h2>
+    <p class="mt-6 text-lg text-graphite-fg-2 max-w-xl mx-auto leading-relaxed" data-reveal>
+      Book a no-obligation discovery session. We will map your current state, identify quick wins, and outline a platform roadmap tailored to your business.
+    </p>
+
+    <div class="mt-10 flex flex-wrap justify-center gap-4" data-reveal>
+      <a
+        href="/contact"
+        class="inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 font-medium text-white transition-colors hover:bg-accent-hover"
+      >
+        Book a discovery session
+        <svg class="h-4 w-4" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M2 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <a
+        href="mailto:hello@substrate.engineering"
+        class="inline-flex items-center gap-2 rounded-full border border-graphite-line px-7 py-3.5 font-medium text-graphite-fg transition-colors hover:bg-graphite-2"
+      >
+        hello@substrate.engineering
+      </a>
+    </div>
+
+    <div class="mt-14 flex flex-wrap justify-center gap-8 text-sm text-graphite-fg-3" data-reveal>
+      <span>No commitment required</span>
+      <span class="hidden md:inline" aria-hidden="true">&middot;</span>
+      <span>Tailored to your stack</span>
+      <span class="hidden md:inline" aria-hidden="true">&middot;</span>
+      <span>45-minute session</span>
+      <span class="hidden md:inline" aria-hidden="true">&middot;</span>
+      <span>Delivered by senior engineers</span>
     </div>
   </div>
 </section>
 </Base>
+
+<style is:global>
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+  details > summary {
+    list-style: none;
+  }
+  details > summary::marker,
+  details > summary::-webkit-details-marker {
+    display: none;
+    content: '';
+  }
+</style>

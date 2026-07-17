@@ -1,0 +1,1446 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import Button from '../components/Button.astro';
+
+const breadcrumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Capabilities', href: '/#capabilities' },
+  { name: 'SRE & Operations', href: '' },
+];
+---
+
+<Base
+  title="Site Reliability Engineering Services | Substrate"
+  description="Substrate helps enterprises build reliable, observable, and automated platforms with SRE, platform engineering, and cloud operations. Reduce downtime, accelerate deployments, and operate at scale."
+>
+<!-- ============================================================ -->
+<!-- 1. HERO -->
+<!-- ============================================================ -->
+<section class="relative overflow-hidden py-24 md:py-40" aria-labelledby="hero-heading">
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--c-accent-soft)_0%,_transparent_60%)] pointer-events-none" aria-hidden="true" />
+  <div class="container-x relative z-10">
+    <nav class="mb-10 text-sm text-ink-3">
+      {breadcrumbs.map((crumb, idx) => (
+        <span>
+          {idx > 0 && ' / '}
+          {crumb.href && idx < breadcrumbs.length - 1
+            ? <a href={crumb.href} class="text-accent hover:underline">{crumb.name}</a>
+            : <span class={idx === breadcrumbs.length - 1 ? 'font-medium text-ink' : ''}>{crumb.name}</span>
+          }
+        </span>
+      ))}
+    </nav>
+
+    <div class="max-w-4xl" data-reveal-group>
+      <p class="kicker text-accent mb-5" data-reveal>
+        <span class="text-accent">01</span><span aria-hidden="true">&nbsp;—&nbsp;</span>Site Reliability Engineering
+      </p>
+      <h1 id="hero-heading" class="display text-5xl md:text-[4.5rem] text-ink max-w-5xl" data-reveal>
+        Reliable systems.<br />Automated operations.<br />Engineering-led resilience.
+      </h1>
+      <p class="mt-6 text-lg md:text-xl text-ink-2 max-w-2xl leading-relaxed" data-reveal>
+        Site Reliability Engineering is the practice of applying software engineering principles to infrastructure and operations. Substrate helps organizations adopt SRE to reduce downtime, eliminate toil, increase deployment confidence, and build platforms that scale with your business.
+      </p>
+      <div class="mt-10 flex flex-wrap gap-4" data-reveal>
+        <Button href="/contact" variant="primary" size="md">Schedule an SRE assessment</Button>
+        <Button href="#what-is" variant="secondary" size="md">Learn more</Button>
+      </div>
+    </div>
+
+    <div class="mt-16 grid gap-6 md:grid-cols-3 max-w-4xl" data-reveal-group>
+      <div class="border-t border-line pt-5" data-reveal>
+        <p class="text-3xl font-display font-semibold text-accent">99.99%</p>
+        <p class="text-sm text-ink-2 mt-1">Target availability achieved through SLO-driven operations and automated recovery</p>
+      </div>
+      <div class="border-t border-line pt-5" data-reveal>
+        <p class="text-3xl font-display font-semibold text-accent">70%</p>
+        <p class="text-sm text-ink-2 mt-1">Reduction in operational toil through automation-first incident response and runbooks</p>
+      </div>
+      <div class="border-t border-line pt-5" data-reveal>
+        <p class="text-3xl font-display font-semibold text-accent">5x</p>
+        <p class="text-sm text-ink-2 mt-1">Faster mean time to recovery with structured incident management and chaos engineering</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 2. WHAT IS SITE RELIABILITY ENGINEERING? -->
+<!-- ============================================================ -->
+<section id="what-is" class="py-20 md:py-28 bg-graphite" aria-labelledby="whatis-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="whatis-heading"
+      index="02"
+      label="What is Site Reliability Engineering"
+      title="Engineering discipline for operating reliably at scale."
+      lede="SRE is what happens when you ask a software engineer to design an operations team. It is a set of principles, practices, and organizational patterns that make systems reliable without sacrificing velocity."
+      tone="graphite"
+    />
+
+    <div class="mt-14 grid gap-10 md:grid-cols-2 lg:gap-16" data-reveal-group>
+      <div data-reveal>
+        <h3 class="text-xl font-display font-semibold text-graphite-fg mb-4">Definition and core principles</h3>
+        <p class="text-graphite-fg-2 leading-relaxed mb-4">
+          Site Reliability Engineering, originally defined at Google, is the discipline of operating large-scale systems with software engineering rigor. It treats operations as a software problem: automate everything, measure everything, and use data to drive decisions.
+        </p>
+        <p class="text-graphite-fg-2 leading-relaxed">
+          The core principles are: service level objectives define acceptable risk, error budgets balance reliability with velocity, toil must be systematically eliminated, monitoring must be actionable, and incidents are learning opportunities. Every operational process should be evaluated on whether it can be automated, reduced, or eliminated.
+        </p>
+      </div>
+
+      <div data-reveal>
+        <h3 class="text-xl font-display font-semibold text-graphite-fg mb-4">SRE, DevOps, Platform Engineering, and IT Operations</h3>
+        <p class="text-graphite-fg-2 leading-relaxed mb-4">
+          These disciplines are complementary, not competing. DevOps is the cultural foundation that breaks down silos between development and operations. SRE provides the engineering methodology and metrics to operate reliably. Platform Engineering builds the self-service infrastructure that makes both scalable. Traditional IT Operations handles the steady-state management of established systems.
+        </p>
+        <p class="text-graphite-fg-2 leading-relaxed">
+          In practice, SRE sits at the intersection: applying software engineering to operations, using data to drive decisions, and building automation that makes the entire organization more effective.
+        </p>
+      </div>
+
+      <div data-reveal>
+        <h3 class="text-xl font-display font-semibold text-graphite-fg mb-4">Why modern businesses adopt SRE</h3>
+        <p class="text-graphite-fg-2 leading-relaxed mb-4">
+          Organizations adopt SRE when the cost of downtime exceeds the cost of prevention. As systems grow, traditional operations approaches break down: manual runbooks cannot keep pace, incident response becomes chaotic, and engineering velocity stalls because every deployment carries too much risk.
+        </p>
+        <p class="text-graphite-fg-2 leading-relaxed">
+          SRE provides a framework for making explicit decisions about reliability. How reliable does this system need to be? What are we willing to trade for faster delivery? How do we know when we have succeeded? These questions are answered with data, not intuition.
+        </p>
+      </div>
+
+      <div data-reveal>
+        <h3 class="text-xl font-display font-semibold text-graphite-fg mb-4">Common misconceptions</h3>
+        <ul class="space-y-3">
+          <li class="flex items-start gap-3 text-graphite-fg-2">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <span><strong class="text-graphite-fg">SRE is not just monitoring and alerting.</strong> Observability is a prerequisite, but SRE encompasses incident response, capacity planning, change management, and cultural transformation.</span>
+          </li>
+          <li class="flex items-start gap-3 text-graphite-fg-2">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <span><strong class="text-graphite-fg">Error budgets do not mean lowering standards.</strong> They provide a data-driven mechanism for deciding when reliability is good enough and when to invest in features versus stability.</span>
+          </li>
+          <li class="flex items-start gap-3 text-graphite-fg-2">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <span><strong class="text-graphite-fg">SRE is not only for Google-scale companies.</strong> The principles scale down as effectively as they scale up. Any organization with production systems benefits from SRE practices.</span>
+          </li>
+          <li class="flex items-start gap-3 text-graphite-fg-2">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <span><strong class="text-graphite-fg">SRE is not a team title.</strong> It is a practice and a culture. A team called SRE without SLOs, error budgets, and automation is an operations team with a different name.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- 3. BUSINESS CHALLENGES -->
+<!-- ============================================================ -->
+<section class="py-20 md:py-28" aria-labelledby="challenges-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="challenges-heading"
+      index="03"
+      label="Business Challenges"
+      title="The operational cost of unreliable systems."
+      lede="Without SRE practices, organizations accumulate technical debt, operational risk, and engineering friction. These are the patterns we see across every industry and scale."
+    />
+
+    <div class="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3" data-reveal-group>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">01</span>
+          <h3 class="font-display font-semibold text-ink">Frequent production incidents</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Unplanned outages and degraded performance erode customer trust and drain engineering resources. Each incident pulls teams away from strategic work.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">02</span>
+          <h3 class="font-display font-semibold text-ink">Service outages</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Extended downtime directly impacts revenue, SLA penalties, brand reputation, and regulatory compliance. Recovery is slow without automated runbooks.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">03</span>
+          <h3 class="font-display font-semibold text-ink">Unreliable deployments</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Every deployment carries risk. Without canary releases, feature flags, and automated rollback, a bad deploy can impact all users for hours.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">04</span>
+          <h3 class="font-display font-semibold text-ink">High operational overhead</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Manual processes for provisioning, deployment, and incident response consume engineering time that should be spent on product development and improvement.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">05</span>
+          <h3 class="font-display font-semibold text-ink">Alert fatigue</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Noisy, poorly configured alerting desensitizes on-call engineers. Critical signals are lost in a flood of notifications that nobody trusts or acts on.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">06</span>
+          <h3 class="font-display font-semibold text-ink">Poor monitoring</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Without comprehensive metrics, traces, and logs, teams operate blind. Root cause analysis takes hours or days. Blind spots create risk in every change.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">07</span>
+          <h3 class="font-display font-semibold text-ink">Slow incident response</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Unstructured incident response prolongs downtime. Teams lack clear roles, communication channels, and escalation paths during critical events.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">08</span>
+          <h3 class="font-display font-semibold text-ink">Scaling challenges</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Infrastructure and operational processes that work for ten services fail at one hundred. Complexity grows non-linearly with system scale.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">09</span>
+          <h3 class="font-display font-semibold text-ink">Infrastructure complexity</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Multi-cloud, hybrid, and distributed architectures create operational blind spots. Configuration drift, networking issues, and dependency management become unmanageable.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">10</span>
+          <h3 class="font-display font-semibold text-ink">Cloud cost growth</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Without capacity planning and cost governance, cloud spending grows faster than revenue. Over-provisioned resources and orphaned capacity accumulate silently.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">11</span>
+          <h3 class="font-display font-semibold text-ink">Security risks</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Unpatched dependencies, misconfigured services, and ad hoc access controls create vulnerabilities that compliance frameworks cannot adequately address.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">12</span>
+          <h3 class="font-display font-semibold text-ink">Knowledge silos</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Critical operational knowledge lives in individuals, not documentation or automation. Bus factor is high. On-call rotations are stressful and unsustainable.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">13</span>
+          <h3 class="font-display font-semibold text-ink">Manual operations</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Repetitive manual tasks create human error risk, slow response times, and prevent engineers from focusing on high-value improvements and automation.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">14</span>
+          <h3 class="font-display font-semibold text-ink">Low engineering productivity</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Operational burden reduces feature velocity. Engineers spend more time firefighting and maintaining than building. Deployment frequency drops and lead time increases.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- 4. OUR RELIABILITY ENGINEERING APPROACH -->
+<!-- ============================================================ -->
+<section class="py-20 md:py-28 bg-graphite" aria-labelledby="approach-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="approach-heading"
+      index="04"
+      label="Our Approach"
+      title="A systematic methodology for reliability."
+      lede="We follow a phased approach that starts with understanding your current state and ends with continuous operational improvement. Every engagement is tailored to your architecture, team, and business context."
+      tone="graphite"
+    />
+
+    <div class="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3" data-reveal-group>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">01</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Reliability Assessment</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Evaluate current system reliability, incident patterns, monitoring coverage, and operational processes. We produce a quantified reliability baseline with prioritized gaps.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">02</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Operational Maturity Review</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Assess incident response, change management, on-call practices, runbook coverage, and automation maturity against industry standards and SRE best practices.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">03</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Architecture Review</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Analyze system architecture for single points of failure, scalability bottlenecks, dependency chains, and resilience patterns. We identify specific reliability risks and remediation paths.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">04</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">SRE Strategy</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Define your SRE adoption roadmap: team structure, practice areas, tooling strategy, and success metrics. We align reliability investments with business priorities and risk tolerance.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">05</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Service Level Objectives</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Define SLOs for critical services based on user expectations and business requirements. We help you determine the right reliability targets, not maximum theoretical uptime.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">06</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Service Level Indicators</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Identify and instrument the metrics that matter: availability, latency, throughput, error rate, and durability. Every SLI is chosen for its direct relationship to user experience.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">07</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Error Budget Strategy</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Implement error budgets that create a shared language between product and reliability teams. When the budget is available, ship features. When it is depleted, invest in stability.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">08</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Reliability Roadmap</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">A prioritized, phased plan for improving reliability across your organization. Each initiative includes expected impact, effort estimate, and success criteria.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">09</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Automation Strategy</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Identify and eliminate toil. We prioritize automation opportunities by frequency, complexity, and impact. Every automated process reduces incident risk and frees engineering capacity.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">10</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Operational Excellence</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Establish operational runbooks, change management procedures, release processes, and on-call best practices. Every process is documented, tested, and continuously improved.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">11</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Continuous Improvement</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">SRE is never done. We establish feedback loops, reliability reviews, post-incident processes, and maturity tracking to drive ongoing operational improvement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- 5. SRE & OPERATIONS SERVICES -->
+<!-- ============================================================ -->
+<section class="py-20 md:py-28" aria-labelledby="services-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="services-heading"
+      index="05"
+      label="Our Services"
+      title="End-to-end SRE and operations capabilities."
+      lede="From assessment through managed operations, we provide the full spectrum of services needed to build, operate, and continuously improve reliable systems."
+    />
+
+    <div class="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3" data-reveal-group>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Site Reliability Engineering</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Full SRE practice implementation including SLO framework, error budgets, automation, incident management, and cultural transformation across your engineering organization.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> SLO design and implementation</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Error budget policy and governance</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Toil reduction and automation</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Production Readiness Reviews</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Comprehensive evaluation of services before they reach production. We assess observability, reliability, security, scalability, and operational readiness against defined standards.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Pre-production checklist and review</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Reliability scoring and recommendations</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Launch readiness certification</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Incident Management</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Design and implement structured incident management processes. Clear severity classifications, escalation paths, communication templates, and post-incident review procedures.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Severity matrix and classification</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Escalation and communication workflows</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Post-incident review facilitation</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Incident Response</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Establish rapid, structured incident response capabilities. Declared responders, war rooms, status page integration, and automated response actions reduce MTTR significantly.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Response team structure and roles</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Automated runbooks and remediation</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Status page and stakeholder updates</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">On-call Engineering</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Design sustainable on-call rotations, escalation policies, and pagers. We balance coverage with wellbeing, ensure proper handoffs, and eliminate alert fatigue.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Rotation design and scheduling</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Alert routing and noise reduction</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> On-call training and shadow programs</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Reliability Consulting</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Expert guidance on reliability strategy, architecture decisions, tool selection, and operational practices. Fractional SRE leadership for organizations building their practice.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> SRE practice design and coaching</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Architectural reliability review</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Vendor and tool evaluation</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Infrastructure Operations</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Day-to-day management of production infrastructure including server provisioning, network management, storage administration, and capacity monitoring across all environments.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> 24/7 infrastructure monitoring</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Patch and lifecycle management</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Performance and capacity monitoring</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Platform Operations</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Operate internal developer platforms and shared infrastructure services. Manage upgrades, security patches, tenant onboarding, and platform-level incident response.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Platform lifecycle management</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Tenant onboarding and support</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Platform SLOs and reporting</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Kubernetes Operations</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Full lifecycle management of Kubernetes clusters including deployment, upgrade, scaling, security hardening, networking, and day-2 operations across multi-cluster environments.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Cluster provisioning and configuration</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Upgrade and version management</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Security hardening and compliance</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Cloud Operations</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Manage multi-cloud and hybrid cloud environments across AWS, Azure, and GCP. Account structure, networking, identity management, cost optimization, and compliance enforcement.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Cloud landing zone operations</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Cost governance and optimization</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Compliance and security operations</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Infrastructure Automation</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Automate provisioning, configuration, deployment, and operations. Terraform, Ansible, Pulumi, and custom automation that eliminates manual processes and reduces human error.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Infrastructure as Code implementation</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Configuration management automation</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Self-service infrastructure tooling</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Configuration Management</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Centralized, version-controlled configuration management for all environments. Drift detection, automated remediation, and audit-compliant change tracking.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Configuration as code standards</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Drift detection and remediation</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Secret and credential management</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">CI/CD Operations</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Manage continuous integration and delivery pipelines. Pipeline maintenance, optimization, security scanning integration, and deployment automation across all services.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Pipeline monitoring and optimization</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Deployment automation and strategies</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Security and compliance gating</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Release Engineering</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Establish release processes, versioning strategies, artifact management, and deployment orchestration. Canary releases, blue-green deployments, and feature flags managed as code.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Release process and governance</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Artifact management and promotion</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Deployment strategy implementation</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Capacity Planning</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Data-driven capacity forecasting and resource management. Model usage trends, plan for growth, optimize allocation, and prevent performance degradation under load.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Usage trend analysis and forecasting</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Resource right-sizing and optimization</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Cost modeling and budget planning</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Performance Optimization</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Identify and eliminate performance bottlenecks. Load testing, profiling, database query optimization, caching strategy, and infrastructure tuning for peak efficiency.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Performance baseline and benchmarking</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Load testing and bottleneck analysis</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Optimization implementation and validation</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">High Availability Architecture</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Design and implement architectures that eliminate single points of failure. Multi-region deployment, active-active configurations, load balancing, and automatic failover.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> HA architecture design and review</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Multi-region and multi-zone deployment</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Failover testing and validation</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Disaster Recovery</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Design, document, and test disaster recovery plans. RTO and RPO definition, backup strategies, replication architecture, and regular DR drills to validate recovery procedures.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> DR strategy and architecture</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Backup and replication automation</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Regular DR testing and reporting</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Business Continuity</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Comprehensive business continuity planning aligned with disaster recovery. Ensure critical business functions can continue during and after a major disruption.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Business impact analysis</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Continuity plan development</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Plan testing and maintenance</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Chaos Engineering</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Proactively test system resilience through controlled experiments. Inject failures, simulate dependencies, and validate that your systems behave correctly under adverse conditions.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Chaos experiment design and planning</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Steady-state hypothesis definition</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Automated resilience testing</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Platform Monitoring</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Comprehensive monitoring infrastructure covering metrics, traces, logs, synthetic checks, and real user monitoring. Dashboards, alerting, and health checks for every layer.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Monitoring stack implementation</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Dashboard and alert configuration</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> SLO monitoring and burn rate alerts</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Operational Runbooks</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Create and maintain comprehensive runbooks for every operational procedure. Incident response, deployment, maintenance, and recovery procedures documented and automated.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Runbook creation and standardization</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Automated runbook execution</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Regular review and testing</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Reliability Audits</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Independent audit of your systems, processes, and practices against SRE best practices and industry standards. Comprehensive report with prioritized recommendations and remediation plans.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Architecture and process audit</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Maturity assessment and scoring</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Remediation roadmap</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Managed SRE Services</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Full managed SRE coverage for your production systems. Monitoring, incident response, on-call, capacity planning, and continuous improvement delivered as a service with defined SLAs.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> 24/7 production monitoring and alerting</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Incident response and on-call coverage</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Monthly reliability reviews and reporting</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- 6. CORE CAPABILITIES -->
+<!-- ============================================================ -->
+<section class="py-20 md:py-28 bg-graphite" aria-labelledby="capabilities-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="capabilities-heading"
+      index="06"
+      label="Core Capabilities"
+      title="Deep expertise across the reliability engineering spectrum."
+      lede="Our team combines deep systems engineering knowledge with practical operations experience. These are the capabilities we bring to every engagement."
+      tone="graphite"
+    />
+
+    <div class="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4" data-reveal-group>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Reliability Engineering</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">SLO-driven operations, error budget policies, toil elimination, and systematic reliability improvement through data-driven decision making.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Automation</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Infrastructure as Code, configuration management, automated remediation, self-healing systems, and pipeline automation that eliminates manual toil.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Observability</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Metrics, distributed tracing, logging, synthetic monitoring, and real user monitoring. Unified dashboards and actionable alerting that reduces MTTR.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Incident Response</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Structured incident management, declared response roles, automated runbooks, post-incident reviews, and continuous improvement through blameless learning.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Distributed Systems</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Microservices architecture, service mesh, event-driven systems, message queues, distributed databases, and consensus protocols at production scale.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Capacity Planning</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Usage forecasting, resource modeling, cost optimization, right-sizing, and proactive scaling to ensure performance under any load condition.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Scalability</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Horizontal and vertical scaling, auto-scaling policies, database sharding, caching strategies, CDN optimization, and stateless architecture patterns.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">High Availability</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Multi-region deployment, active-active configurations, load balancing, circuit breakers, bulkheads, graceful degradation, and zero-downtime deployments.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Fault Tolerance</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Redundancy strategies, failover automation, retry with backoff, timeout management, rate limiting, and graceful degradation under partial failure.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Self-Healing Systems</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Automated health checks, auto-remediation, auto-scaling, instance replacement, and circuit breakers that restore system health without human intervention.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Release Engineering</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Canary deployments, blue-green releases, feature flags, progressive delivery, artifact management, and rollback automation for safe, fast releases.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Performance Engineering</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Load testing, profiling, bottleneck analysis, query optimization, caching strategy, and infrastructure tuning to meet latency and throughput targets.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Disaster Recovery</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">RTO and RPO definition, backup and replication strategies, DR testing, failover automation, and business continuity planning for catastrophic events.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Operational Governance</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Change management, access control, compliance automation, audit trails, policy as code, and governance frameworks aligned with regulatory requirements.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Risk Management</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Risk identification and quantification, blast radius analysis, dependency mapping, failure mode analysis, and proactive mitigation planning.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Security Operations</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Vulnerability management, patch automation, secrets management, container security, network policy enforcement, and incident response for security events.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 7. OBSERVABILITY & MONITORING -->
+<!-- ============================================================ -->
+<section class="py-20 md:py-28" aria-labelledby="observability-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="observability-heading"
+      index="07"
+      label="Observability & Monitoring"
+      title="See everything. Understand everything. Respond to anything."
+      lede="Observability is the foundation of reliability. You cannot improve what you cannot measure. We build comprehensive observability stacks that provide actionable insight into every layer of your systems."
+    />
+
+    <div class="mt-14 grid gap-10 md:grid-cols-2 lg:gap-16" data-reveal-group>
+      <div data-reveal>
+        <h3 class="text-lg font-display font-semibold text-ink mb-4">The three pillars of observability</h3>
+        <div class="space-y-5">
+          <div class="flex items-start gap-3">
+            <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">M</span>
+            <div>
+              <p class="font-medium text-ink">Metrics</p>
+              <p class="text-sm text-ink-2">Time-series data that tracks system health, resource utilization, request rates, error rates, and latency distributions. Prometheus, VictoriaMetrics, and Grafana for visualization and alerting.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">L</span>
+            <div>
+              <p class="font-medium text-ink">Logs</p>
+              <p class="text-sm text-ink-2">Structured, searchable, and aggregated log data from every service and infrastructure component. Loki, ELK Stack, and OpenSearch for centralized log management.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">T</span>
+            <div>
+              <p class="font-medium text-ink">Distributed Tracing</p>
+              <p class="text-sm text-ink-2">End-to-end request tracing across distributed services. OpenTelemetry instrumentation, Jaeger, Tempo, and Zipkin for understanding request flows and performance bottlenecks.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div data-reveal>
+        <h3 class="text-lg font-display font-semibold text-ink mb-4">Advanced observability practices</h3>
+        <ul class="space-y-4">
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-ink">Synthetic Monitoring</p>
+              <p class="text-sm text-ink-2">Automated, scripted checks that simulate user interactions and API calls from multiple geographic locations. Detect issues before users do.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-ink">Real User Monitoring</p>
+              <p class="text-sm text-ink-2">Collect and analyze actual user interaction data: page load times, route changes, API call latency, and error rates from production user sessions.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-ink">Dashboards and Alerting</p>
+              <p class="text-sm text-ink-2">Purpose-built dashboards for different audiences: executive, service owner, on-call engineer. Alerting with proper severity levels and minimal noise.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-ink">Root Cause Analysis</p>
+              <p class="text-sm text-ink-2">Correlate metrics, traces, and logs to identify root causes quickly. Service dependency mapping and event correlation reduce analysis time from hours to minutes.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-14 grid gap-5 md:grid-cols-3" data-reveal-group>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h4 class="font-display font-semibold text-ink mb-2">Health Checks</h4>
+        <p class="text-sm text-ink-2">Liveness, readiness, and startup probes for every service. Automated health verification at the application, infrastructure, and network layers.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h4 class="font-display font-semibold text-ink mb-2">Service Dependency Mapping</h4>
+        <p class="text-sm text-ink-2">Automated discovery and visualization of service dependencies, data flows, and integration points. Critical for understanding blast radius and change impact.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h4 class="font-display font-semibold text-ink mb-2">Event Correlation</h4>
+        <p class="text-sm text-ink-2">Intelligent correlation of events across metrics, logs, traces, and alerts. Reduce noise, identify patterns, and accelerate root cause identification.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- 8. RELIABILITY METRICS -->
+<!-- ============================================================ -->
+<section class="py-20 md:py-28 bg-graphite" aria-labelledby="metrics-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="metrics-heading"
+      index="08"
+      label="Reliability Metrics"
+      title="Measure what matters. Improve what you measure."
+      lede="SRE is a data-driven discipline. These are the metrics we use to define, measure, and improve reliability across your systems. Each metric is chosen for its direct relationship to user experience and business outcomes."
+      tone="graphite"
+    />
+
+    <div class="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3" data-reveal-group>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Service Level Indicators</h3>
+        <p class="text-sm text-graphite-fg-2">Quantitative measures of service performance. The metrics that directly reflect user experience: request latency, error rate, throughput, availability, and durability. Every SLI is carefully chosen and precisely measured.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Service Level Objectives</h3>
+        <p class="text-sm text-graphite-fg-2">Target values for each SLI that define acceptable service performance. SLOs create a shared understanding of what reliable means for each service. They are the basis for error budgets and reliability decisions.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Service Level Agreements</h3>
+        <p class="text-sm text-graphite-fg-2">Contractual commitments to customers, typically stricter than internal SLOs. SLAs define penalties for non-compliance. We help you set achievable SLAs backed by SLOs that give early warning of breach risk.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Error Budgets</h3>
+        <p class="text-sm text-graphite-fg-2">The acceptable amount of unreliability over a time window (1 - SLO). Error budgets create a data-driven mechanism for balancing feature velocity with reliability. When the budget is available, ship features. When it is depleted, stop shipping and invest in stability.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">MTTR</h3>
+        <p class="text-sm text-graphite-fg-2">Mean Time To Recover. The average time from incident detection to full recovery. Lower MTTR means faster recovery, reduced customer impact, and less engineering time spent on incidents.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">MTTD</h3>
+        <p class="text-sm text-graphite-fg-2">Mean Time To Detect. The average time between when a failure occurs and when it is detected. Lower MTTD means faster awareness and reduced blast radius. Improved by better monitoring, alerting, and synthetic checks.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">MTBF</h3>
+        <p class="text-sm text-graphite-fg-2">Mean Time Between Failures. The average time between consecutive system failures. Higher MTBF indicates more reliable systems. Improved through better architecture, testing, and change management.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Availability</h3>
+        <p class="text-sm text-graphite-fg-2">The proportion of time a service is operational and accessible. Measured as uptime divided by total time. Target availability depends on business requirements, not theoretical maximums.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Latency</h3>
+        <p class="text-sm text-graphite-fg-2">The time taken to process a request. Measured at various percentiles: p50, p95, p99. Latency directly impacts user experience and conversion rates. Consistent low latency is a primary SLO for most services.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Throughput</h3>
+        <p class="text-sm text-graphite-fg-2">The number of requests a system can process per unit time. Measured as requests per second, transactions per second, or messages processed. Throughput capacity determines scaling requirements.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Saturation</h3>
+        <p class="text-sm text-graphite-fg-2">The degree to which a resource is utilized. CPU, memory, disk I/O, network bandwidth, and connection pool usage. Saturation is an early indicator of capacity constraints before they impact users.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Error Rate</h3>
+        <p class="text-sm text-graphite-fg-2">The proportion of requests that result in errors. HTTP 5xx, application exceptions, and business logic failures. Error rate spikes are a primary indicator of system degradation or bugs.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Deployment Frequency</h3>
+        <p class="text-sm text-graphite-fg-2">How often your organization deploys code to production. Higher deployment frequency correlates with higher engineering velocity and organizational performance. Enabled by automation and reliable release processes.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Change Failure Rate</h3>
+        <p class="text-sm text-graphite-fg-2">The percentage of deployments that result in degraded service or require remediation. Lower change failure rate indicates safer release processes. Tracked alongside deployment frequency for a complete reliability picture.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 9. TECHNOLOGIES -->
+<!-- ============================================================ -->
+<section class="py-20 md:py-28" aria-labelledby="tech-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="tech-heading"
+      index="09"
+      label="Technologies"
+      title="Tools and platforms we operate."
+      lede="We maintain deep expertise across the full technology stack. Our recommendations are driven by your requirements, not vendor relationships."
+    />
+
+    <div class="mt-14 grid gap-8 md:grid-cols-3 lg:grid-cols-4" data-reveal-group>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent mb-4">Cloud</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2">AWS</li>
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 ml-2">Microsoft Azure</li>
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 ml-2">Google Cloud</li>
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 mt-2">OpenStack</li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent mb-4">Containers</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2">Docker</li>
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 ml-2">Kubernetes</li>
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 ml-2">Helm</li>
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 mt-2">Kustomize</li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent mb-4">Infrastructure as Code</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2">Terraform</li>
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 ml-2">OpenTofu</li>
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 ml-2">Pulumi</li>
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 mt-2">Ansible</li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent mb-4">GitOps</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2">Argo CD</li>
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 ml-2">Flux CD</li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent mb-4">Monitoring</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2">Prometheus</li>
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 ml-2">Grafana</li>
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 ml-2">VictoriaMetrics</li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent mb-4">Logging</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2">Loki</li>
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 ml-2">ELK Stack</li>
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 ml-2">OpenSearch</li>
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 mt-2">Fluent Bit</li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent mb-4">Tracing</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2">OpenTelemetry</li>
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 ml-2">Jaeger</li>
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 ml-2">Tempo</li>
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 mt-2">Zipkin</li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent mb-4">Incident Management</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2">PagerDuty</li>
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 ml-2">Opsgenie</li>
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 ml-2">Grafana OnCall</li>
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 mt-2">Alertmanager</li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent mb-4">CI/CD</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2">GitHub Actions</li>
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 ml-2">GitLab CI</li>
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 ml-2">Jenkins</li>
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 mt-2">Tekton</li>
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 ml-2">Azure DevOps</li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent mb-4">Programming Languages</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2">Go</li>
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 ml-2">Python</li>
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 ml-2">Bash</li>
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 mt-2">Node.js</li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent mb-4">Security</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2">Vault</li>
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 ml-2">OPA</li>
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 ml-2">Kyverno</li>
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 mt-2">Falco</li>
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 ml-2">Trivy</li>
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 ml-2">Cosign</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- 10. BENEFITS -->
+<!-- ============================================================ -->
+<section class="py-20 md:py-28 bg-graphite" aria-labelledby="benefits-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="benefits-heading"
+      index="10"
+      label="Benefits"
+      title="What SRE and operations excellence delivers."
+      lede="The return on reliability engineering is measured in reduced downtime, faster delivery, lower costs, and improved team satisfaction. These are the outcomes our clients achieve."
+      tone="graphite"
+    />
+
+    <div class="mt-14 grid gap-10 md:grid-cols-2" data-reveal-group>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-4">FOR THE BUSINESS</h3>
+        <ul class="space-y-4">
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-graphite-fg">Reduced downtime and revenue protection</p>
+              <p class="text-sm text-graphite-fg-2">Fewer incidents, faster recovery, and SLA compliance protect revenue and brand reputation.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-graphite-fg">Faster feature delivery</p>
+              <p class="text-sm text-graphite-fg-2">Error budgets give product teams confidence to ship. Automation removes bottlenecks. Deployment frequency increases.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-graphite-fg">Lower operational costs</p>
+              <p class="text-sm text-graphite-fg-2">Automation reduces toil. Capacity optimization lowers cloud spend. Standardization eliminates duplicate tooling.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-graphite-fg">Competitive advantage</p>
+              <p class="text-sm text-graphite-fg-2">Reliable platforms enable faster experimentation, better user experiences, and higher engineering productivity.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-4">FOR ENGINEERING</h3>
+        <ul class="space-y-4">
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-graphite-fg">Less toil, more innovation</p>
+              <p class="text-sm text-graphite-fg-2">Automation eliminates repetitive manual work. Engineers spend time on high-value improvements, not firefighting.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-graphite-fg">Confident deployments</p>
+              <p class="text-sm text-graphite-fg-2">Canary releases, automated rollbacks, and feature flags make every deployment safe. Teams deploy with confidence, not fear.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-graphite-fg">Better developer experience</p>
+              <p class="text-sm text-graphite-fg-2">Self-service infrastructure, clear runbooks, and reliable platforms reduce friction. Engineers focus on building, not operations.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-graphite-fg">Sustainable on-call</p>
+              <p class="text-sm text-graphite-fg-2">Structured rotations, noise-free alerting, and automated runbooks make on-call manageable. Engineer wellbeing improves.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-4">FOR OPERATIONS</h3>
+        <ul class="space-y-4">
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-graphite-fg">Actionable observability</p>
+              <p class="text-sm text-graphite-fg-2">Comprehensive monitoring with clear dashboards, precise alerting, and automated runbooks. Know what is happening and what to do.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-graphite-fg">Structured incident response</p>
+              <p class="text-sm text-graphite-fg-2">Clear severity levels, escalation paths, and communication protocols. Every incident is managed consistently and reviewed for improvement.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-graphite-fg">Data-driven decisions</p>
+              <p class="text-sm text-graphite-fg-2">Capacity planning, performance optimization, and reliability investments guided by data, not intuition.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-4">FOR DEVELOPERS, CUSTOMERS, AND LEADERSHIP</h3>
+        <ul class="space-y-4">
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-graphite-fg">Developers ship faster</p>
+              <p class="text-sm text-graphite-fg-2">Self-service platforms, automated pipelines, and reliable infrastructure let developers focus on features.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-graphite-fg">Customers experience reliability</p>
+              <p class="text-sm text-graphite-fg-2">Consistent performance, fast response times, and minimal downtime. Trust is earned through reliable service.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-graphite-fg">Leaders get transparency</p>
+              <p class="text-sm text-graphite-fg-2">Clear metrics, regular reliability reports, and executive dashboards. Understand system health and engineering effectiveness at a glance.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 11. ENGAGEMENT MODEL -->
+<!-- ============================================================ -->
+<section class="py-20 md:py-28" aria-labelledby="engagement-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="engagement-heading"
+      index="11"
+      label="Engagement Model"
+      title="How we work with your team."
+      lede="Every engagement is structured to deliver immediate value while building long-term capability. We adapt our approach to your organization's size, maturity, and specific needs."
+    />
+
+    <div class="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3" data-reveal-group>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent mb-3">PHASE 01</span>
+        <h3 class="font-display font-semibold text-ink mb-2">Discovery</h3>
+        <p class="text-sm text-ink-2">Understand your business context, technical landscape, team structure, and reliability goals. We interview stakeholders, review documentation, and analyze existing metrics.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent mb-3">PHASE 02</span>
+        <h3 class="font-display font-semibold text-ink mb-2">Assessment</h3>
+        <p class="text-sm text-ink-2">Comprehensive evaluation of systems, processes, and practices. We identify reliability gaps, operational risks, automation opportunities, and quick wins.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent mb-3">PHASE 03</span>
+        <h3 class="font-display font-semibold text-ink mb-2">Architecture Review</h3>
+        <p class="text-sm text-ink-2">Deep analysis of system architecture for reliability, scalability, and resilience. We produce a prioritized list of architectural improvements with expected impact.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent mb-3">PHASE 04</span>
+        <h3 class="font-display font-semibold text-ink mb-2">Implementation</h3>
+        <p class="text-sm text-ink-2">Execute the reliability roadmap. We work alongside your teams to implement SLOs, automation, observability, incident management, and operational improvements.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent mb-3">PHASE 05</span>
+        <h3 class="font-display font-semibold text-ink mb-2">Automation</h3>
+        <p class="text-sm text-ink-2">Systematically identify and eliminate toil. Automate deployments, incident response, configuration management, scaling, and recovery processes.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent mb-3">PHASE 06</span>
+        <h3 class="font-display font-semibold text-ink mb-2">Operational Enablement</h3>
+        <p class="text-sm text-ink-2">Equip your team with runbooks, dashboards, alerting, and on-call procedures. We ensure your engineers can operate effectively after we transition.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent mb-3">PHASE 07</span>
+        <h3 class="font-display font-semibold text-ink mb-2">Training</h3>
+        <p class="text-sm text-ink-2">Hands-on training for your engineering teams. SRE fundamentals, incident response, observability practices, and tool-specific workshops tailored to your stack.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent mb-3">PHASE 08</span>
+        <h3 class="font-display font-semibold text-ink mb-2">Knowledge Transfer</h3>
+        <p class="text-sm text-ink-2">Documented systems, processes, and runbooks. Pair programming and shadowing sessions. Your team builds the skills to own reliability independently.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent mb-3">PHASE 09</span>
+        <h3 class="font-display font-semibold text-ink mb-2">Managed Operations</h3>
+        <p class="text-sm text-ink-2">Ongoing SRE coverage including monitoring, incident response, on-call, and continuous improvement. We operate your production systems to defined SLAs.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6 md:col-span-2 lg:col-span-1" data-reveal>
+        <span class="block font-mono text-xs text-accent mb-3">PHASE 10</span>
+        <h3 class="font-display font-semibold text-ink mb-2">Continuous Improvement</h3>
+        <p class="text-sm text-ink-2">Regular reliability reviews, incident analysis, maturity assessments, and roadmap updates. SRE is a practice, not a project. We ensure it keeps delivering value.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- 12. WHY CHOOSE SUBSTRATE -->
+<!-- ============================================================ -->
+<section class="py-20 md:py-28 bg-graphite" aria-labelledby="why-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="why-heading"
+      index="12"
+      label="Why Choose Substrate"
+      title="Ten reasons organizations trust us with their reliability."
+      lede="We are an engineering company that happens to do consulting, not a consulting company that happens to do engineering. Every decision we make is driven by what is best for your systems and your team."
+      tone="graphite"
+    />
+
+    <div class="mt-14 grid gap-5 md:grid-cols-2" data-reveal-group>
+      <div class="flex items-start gap-4 rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-graphite text-sm font-semibold text-accent-bright">01</span>
+        <div>
+          <h3 class="font-display font-semibold text-graphite-fg">Engineering-first mindset</h3>
+          <p class="text-sm text-graphite-fg-2">We solve operational problems with software. Automation, not documentation. Code, not tickets. Our engineers write production software, not slide decks.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-graphite text-sm font-semibold text-accent-bright">02</span>
+        <div>
+          <h3 class="font-display font-semibold text-graphite-fg">Automation-first operations</h3>
+          <p class="text-sm text-graphite-fg-2">Every manual process is a candidate for automation. We measure toil and systematically eliminate it. Our goal is systems that run themselves.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-graphite text-sm font-semibold text-accent-bright">03</span>
+        <div>
+          <h3 class="font-display font-semibold text-graphite-fg">Cloud-neutral approach</h3>
+          <p class="text-sm text-graphite-fg-2">We recommend the right cloud for your workload, not our preferred vendor. Multi-cloud, hybrid, and private cloud expertise without bias.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-graphite text-sm font-semibold text-accent-bright">04</span>
+        <div>
+          <h3 class="font-display font-semibold text-graphite-fg">Platform Engineering expertise</h3>
+          <p class="text-sm text-graphite-fg-2">We build internal developer platforms that make reliability standard practice. Golden paths, self-service infrastructure, and paved roads to production.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-graphite text-sm font-semibold text-accent-bright">05</span>
+        <div>
+          <h3 class="font-display font-semibold text-graphite-fg">Deep observability knowledge</h3>
+          <p class="text-sm text-graphite-fg-2">We do not just install monitoring tools. We design observability strategies that provide actionable insight and drive reliability improvement.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-graphite text-sm font-semibold text-accent-bright">06</span>
+        <div>
+          <h3 class="font-display font-semibold text-graphite-fg">Reliability-driven architecture</h3>
+          <p class="text-sm text-graphite-fg-2">Every architectural decision is evaluated for reliability impact. We design for failure, build for recovery, and validate through chaos engineering.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-graphite text-sm font-semibold text-accent-bright">07</span>
+        <div>
+          <h3 class="font-display font-semibold text-graphite-fg">Security by design</h3>
+          <p class="text-sm text-graphite-fg-2">Security is embedded in every layer: policy as code, secrets management, container scanning, network policies, and compliance automation from day one.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-graphite text-sm font-semibold text-accent-bright">08</span>
+        <div>
+          <h3 class="font-display font-semibold text-graphite-fg">Open standards</h3>
+          <p class="text-sm text-graphite-fg-2">We prefer open standards and open source tools. OpenTelemetry, Prometheus, Kubernetes, Terraform. No proprietary lock-in. Your team can run what we build.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-graphite text-sm font-semibold text-accent-bright">09</span>
+        <div>
+          <h3 class="font-display font-semibold text-graphite-fg">Transparent communication</h3>
+          <p class="text-sm text-graphite-fg-2">Regular status updates, clear reporting, honest risk assessments. We tell you what is working, what is not, and what we recommend. No surprises.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-graphite text-sm font-semibold text-accent-bright">10</span>
+        <div>
+          <h3 class="font-display font-semibold text-graphite-fg">Long-term engineering partnership</h3>
+          <p class="text-sm text-graphite-fg-2">We invest in your team's capabilities. Knowledge transfer, training, and mentorship ensure your organization can sustain and build on our work.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 13. INDUSTRIES -->
+<!-- ============================================================ -->
+<section class="py-20 md:py-28" aria-labelledby="industries-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="industries-heading"
+      index="13"
+      label="Industries"
+      title="Reliability engineering for every sector."
+      lede="Every industry faces unique operational challenges. We adapt our SRE approach to your regulatory environment, compliance requirements, and business context."
+    />
+
+    <div class="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3" data-reveal-group>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-display font-semibold text-ink mb-2">Financial Services</h3>
+        <p class="text-sm text-ink-2">Regulatory compliance, transaction integrity, low-latency trading systems, and fraud detection require zero-downtime architectures and rigorous change management.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-display font-semibold text-ink mb-2">Healthcare</h3>
+        <p class="text-sm text-ink-2">HIPAA compliance, patient data protection, clinical system availability, and health information exchange demand reliability practices with audit-ready governance.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-display font-semibold text-ink mb-2">Retail</h3>
+        <p class="text-sm text-ink-2">Seasonal traffic spikes, inventory accuracy, payment processing, and personalized experiences require elastic scaling and bulletproof checkout flows.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-display font-semibold text-ink mb-2">Manufacturing</h3>
+        <p class="text-sm text-ink-2">IoT data pipelines, supply chain systems, and operational technology integration demand edge-to-cloud reliability and real-time data processing.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-display font-semibold text-ink mb-2">Telecommunications</h3>
+        <p class="text-sm text-ink-2">Network infrastructure, 5G services, subscriber management, and real-time communications require carrier-grade reliability and automated operations.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-display font-semibold text-ink mb-2">Logistics</h3>
+        <p class="text-sm text-ink-2">Route optimization, fleet management, warehouse automation, and real-time tracking systems require high-availability platforms with global distribution.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-display font-semibold text-ink mb-2">Government</h3>
+        <p class="text-sm text-ink-2">Citizen services, data sovereignty, security classification, and procurement compliance demand reliability practices with stringent audit and control requirements.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-display font-semibold text-ink mb-2">Education</h3>
+        <p class="text-sm text-ink-2">Learning management systems, student information systems, and remote learning platforms require reliable access during peak usage periods.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-display font-semibold text-ink mb-2">SaaS</h3>
+        <p class="text-sm text-ink-2">Multi-tenant architectures, continuous delivery, customer SLAs, and rapid feature development make SRE practices critical for SaaS platform success.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-display font-semibold text-ink mb-2">Media & Entertainment</h3>
+        <p class="text-sm text-ink-2">Content delivery, streaming infrastructure, live events, and global audience distribution demand high-throughput, low-latency platforms with elastic capacity.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-display font-semibold text-ink mb-2">Artificial Intelligence Platforms</h3>
+        <p class="text-sm text-ink-2">ML model serving, training infrastructure, data pipelines, and GPU cluster management require specialized reliability engineering for AI workloads.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- 14. FREQUENTLY ASKED QUESTIONS -->
+<!-- ============================================================ -->
+<section class="py-20 md:py-28 bg-graphite" aria-labelledby="faq-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="faq-heading"
+      index="14"
+      label="Frequently Asked Questions"
+      title="Common questions about SRE and operations."
+      lede="Answers to the questions we hear most from engineering leaders evaluating SRE adoption."
+      tone="graphite"
+    />
+
+    <div class="mt-14 grid gap-6 md:grid-cols-2" data-reveal-group>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">How long does it take to adopt SRE?</h3>
+        <p class="text-sm text-graphite-fg-2">SRE adoption is a journey, not a project. Most organizations see meaningful improvements within three months of implementing SLOs and structured incident response. Full cultural transformation typically takes six to twelve months depending on organizational size and maturity.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Do we need a dedicated SRE team?</h3>
+        <p class="text-sm text-graphite-fg-2">Not initially. Many organizations start with embedded SRE practitioners within existing teams and evolve to a dedicated function as the practice matures. The right structure depends on your team size, system complexity, and reliability requirements.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">What is the difference between SLO and SLA?</h3>
+        <p class="text-sm text-graphite-fg-2">An SLO is an internal target for service reliability, defined by your engineering team. An SLA is a contractual commitment to customers. SLOs are typically stricter than SLAs to provide early warning before contractual breach. We recommend setting SLOs that give at least one error budget window of warning before SLA violation.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">How do you define meaningful SLIs?</h3>
+        <p class="text-sm text-graphite-fg-2">Good SLIs are user-facing, measurable, and actionable. We start by asking: what does user happiness look like for this service? Latency, error rate, and availability are common starting points. Every SLI should have a clear relationship to the user experience and be measurable with existing or easily added instrumentation.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">What is an error budget and how does it work?</h3>
+        <p class="text-sm text-graphite-fg-2">An error budget is 1 minus your SLO over a time window. For a 99.9% monthly SLO, you have 43 minutes of allowable unreliability per month. When the budget is available, teams can deploy features freely. When it is depleted, releases pause and reliability work takes priority. This removes subjective decisions about when to prioritize stability over features.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">How do you measure incident response effectiveness?</h3>
+        <p class="text-sm text-graphite-fg-2">Key metrics include: Mean Time To Detect, Mean Time To Respond, Mean Time To Mitigate, and Mean Time To Recover. We also track incident frequency by severity, percentage of incidents with post-incident reviews, and action item closure rate. The goal is year-over-year reduction in both frequency and impact.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">What is the ideal on-call rotation?</h3>
+        <p class="text-sm text-graphite-fg-2">We recommend secondary rotations of one week with at least three people per rotation to ensure sustainability. Primary and secondary responder models provide fallback. Frequency depends on team size and incident volume. The goal is balance: enough coverage for reliable response without burning out engineers.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">How do you handle Kubernetes cluster operations?</h3>
+        <p class="text-sm text-graphite-fg-2">We follow a structured approach: declarative cluster provisioning with Terraform or Cluster API, GitOps for application configuration, automated upgrades, security hardening with Pod Security Standards and network policies, resource quotas and limits, and comprehensive observability with Prometheus and Grafana. Day-2 operations are automated where possible.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">What availability should we target?</h3>
+        <p class="text-sm text-graphite-fg-2">The right availability target depends on user expectations, business impact of downtime, and engineering cost. Five nines (99.999%) is exponentially more expensive than three nines (99.9%). We help you determine the optimal target by analyzing user behavior, revenue impact, and operational cost at each availability level.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">How do you approach disaster recovery?</h3>
+        <p class="text-sm text-graphite-fg-2">We start with business requirements: Recovery Time Objective and Recovery Point Objective for each critical system. Then we design the appropriate architecture: backup and restore, pilot light, warm standby, or active-active. Every DR plan is documented, automated, and tested regularly with scheduled drills.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Can SRE work in a regulated industry?</h3>
+        <p class="text-sm text-graphite-fg-2">Yes. SRE practices are compatible with regulatory frameworks like SOC 2, HIPAA, PCI DSS, and FedRAMP. In fact, the automation, change management, and observability that SRE provides make compliance easier to achieve and audit. We have experience implementing SRE in the most regulated environments.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">What is the difference between monitoring and observability?</h3>
+        <p class="text-sm text-graphite-fg-2">Monitoring tells you when something is wrong. Observability lets you understand why. Monitoring is dashboards and alerts for known failure modes. Observability is the ability to explore unknown unknowns by querying rich telemetry data. Both are necessary. Observability enables faster root cause analysis and more confident debugging.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">How do you measure reliability improvement?</h3>
+        <p class="text-sm text-graphite-fg-2">We track a balanced set of metrics: SLO attainment, error budget burn rate, MTTR, deployment frequency, change failure rate, and toil percentage. Quarterly reliability reviews compare these metrics against baselines and targets. The goal is continuous improvement, not perfection.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">What does a managed SRE service include?</h3>
+        <p class="text-sm text-graphite-fg-2">24/7 monitoring and alerting, incident response and on-call coverage, SLO monitoring and reporting, capacity planning, release support, regular reliability reviews, and continuous improvement initiatives. Services are delivered against defined SLAs with monthly reporting and quarterly business reviews.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">How do you handle capacity planning?</h3>
+        <p class="text-sm text-graphite-fg-2">We use a data-driven approach combining trend analysis, usage forecasting, and business input. Monitor resource utilization trends, model growth scenarios, set provisioning thresholds, and automate scaling. Regular capacity reviews ensure resources are right-sized and cost-optimized.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">What is chaos engineering and do we need it?</h3>
+        <p class="text-sm text-graphite-fg-2">Chaos engineering is the practice of proactively testing system resilience by injecting failures in a controlled manner. It is valuable for organizations with complex distributed systems where failure modes are difficult to predict. We start with low-risk experiments in non-production environments and gradually expand scope as confidence grows.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">How do you reduce alert fatigue?</h3>
+        <p class="text-sm text-graphite-fg-2">We apply a systematic approach: eliminate noisy alerts by tuning thresholds, aggregate related alerts, implement alert deduplication, define clear severity levels, ensure every alert is actionable, and route alerts to the right team. We also implement burn rate alerts on SLOs that provide early warning without noise.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">What is the role of AI in SRE?</h3>
+        <p class="text-sm text-graphite-fg-2">AI and ML enhance SRE practices through anomaly detection, intelligent alert correlation, automated root cause analysis, and predictive capacity planning. We integrate AI capabilities where they provide clear value, but foundational SRE practices (SLOs, error budgets, automation) remain the primary drivers of reliability.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">How do you handle multi-cloud operations?</h3>
+        <p class="text-sm text-graphite-fg-2">We use cloud-agnostic tooling and abstractions: Terraform or Pulumi for infrastructure, Kubernetes for compute, Prometheus and OpenTelemetry for observability. Each cloud provider is managed through consistent practices with provider-specific optimizations where they add value. The goal is portability without sacrificing native capabilities.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">How do you ensure knowledge transfer?</h3>
+        <p class="text-sm text-graphite-fg-2">Knowledge transfer is built into every engagement. We document systems and processes, create runbooks, work in pairs with your engineers, conduct training sessions, and establish documentation standards. Our goal is to make your team fully self-sufficient. We measure success by your team's ability to operate independently.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 15. CALL TO ACTION -->
+<!-- ============================================================ -->
+<section class="relative overflow-hidden py-24 md:py-32" aria-labelledby="cta-heading">
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--c-accent-soft)_0%,_transparent_70%)] pointer-events-none" aria-hidden="true" />
+  <div class="container-x relative z-10">
+    <div class="mx-auto max-w-3xl text-center" data-reveal-group>
+      <p class="kicker text-accent mb-5" data-reveal>
+        <span class="text-accent">15</span><span aria-hidden="true">&nbsp;—&nbsp;</span>Get Started
+      </p>
+      <h2 id="cta-heading" class="display text-4xl md:text-5xl text-ink max-w-3xl mx-auto" data-reveal>
+        Ready to build a more reliable platform?
+      </h2>
+      <p class="mt-6 text-lg text-ink-2 max-w-2xl mx-auto leading-relaxed" data-reveal>
+        Schedule an SRE and Operations assessment with our team. We will evaluate your current reliability posture, identify quick wins, and provide a roadmap for measurable improvement.
+      </p>
+      <div class="mt-10 flex flex-wrap justify-center gap-4" data-reveal>
+        <Button href="/contact" variant="primary" size="md">Schedule an SRE assessment</Button>
+        <Button href="#what-is" variant="secondary" size="md">Return to top</Button>
+      </div>
+      <p class="mt-6 text-sm text-ink-3" data-reveal>
+        No commitment required. We will provide actionable findings regardless of whether we work together.
+      </p>
+    </div>
+  </div>
+</section>
+</Base>
