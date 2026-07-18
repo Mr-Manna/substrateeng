@@ -1,0 +1,55 @@
+---
+import SectionHeading from '../../SectionHeading.astro';
+import { useTranslations } from '../../../i18n/useTranslations';
+
+const locale = (Astro.currentLocale || 'en') as string;
+const { t, tRaw } = useTranslations(locale);
+
+interface FaqItem {
+  q: string;
+  a: string;
+}
+
+const faqs = tRaw<FaqItem[]>('contactFAQ.items');
+---
+
+<section class="py-20 md:py-28 bg-graphite" aria-labelledby="contact-faq-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="contact-faq-heading"
+      index="—"
+      label="FAQ"
+      title={t('contactFAQ.heading')}
+      lede={t('contactFAQ.lede')}
+      tone="graphite"
+    />
+
+    <div class="mt-14 max-w-3xl mx-auto space-y-3" data-reveal-group>
+      {faqs.map((faq, i) => (
+        <details
+          class="group rounded-lg border border-graphite-line bg-graphite-2 transition-colors duration-200 open:border-accent-bright/30"
+          data-reveal
+        >
+          <summary class="flex items-center justify-between gap-4 cursor-pointer px-6 py-4 list-none text-graphite-fg font-display font-medium hover:text-accent-bright transition-colors">
+            <span>{faq.q}</span>
+            <svg
+              class="h-4 w-4 shrink-0 text-graphite-fg-2 transition-transform duration-200 group-open:rotate-180"
+              viewBox="0 0 16 16"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M4 6l4 4 4-4" />
+            </svg>
+          </summary>
+          <div class="px-6 pb-5 text-sm text-graphite-fg-2 leading-relaxed">
+            {faq.a}
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,1658 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import Button from '../components/Button.astro';
+
+const breadcrumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Capabilities', href: '/#capabilities' },
+  { name: 'Enterprise Architecture', href: '' },
+];
+---
+
+<Base
+  title="Enterprise Architecture Services | Substrate"
+  description="Substrate helps enterprises design technology strategies, modernize legacy systems, and build scalable digital platforms through modern Enterprise Architecture. TOGAF, ArchiMate, and business-driven architecture."
+>
+
+
+<!-- 1. HERO -->
+<section class="relative overflow-hidden py-24 md:py-40" aria-labelledby="hero-heading">
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--c-accent-soft)_0%,_transparent_60%)] pointer-events-none" aria-hidden="true" />
+  <div class="container-x relative z-10">
+    <nav class="mb-10 text-sm text-ink-3">
+      {breadcrumbs.map((crumb, idx) => (
+        <span>
+          {idx > 0 && ' / '}
+          {crumb.href && idx < breadcrumbs.length - 1
+            ? <a href={crumb.href} class="text-accent hover:underline">{crumb.name}</a>
+            : <span class={idx === breadcrumbs.length - 1 ? 'font-medium text-ink' : ''}>{crumb.name}</span>
+          }
+        </span>
+      ))}
+    </nav>
+    <div class="max-w-4xl" data-reveal-group>
+      <p class="kicker text-accent mb-5" data-reveal>
+        <span class="text-accent">01</span><span aria-hidden="true">&nbsp;—&nbsp;</span>Enterprise Architecture
+      </p>
+      <h1 id="hero-heading" class="display text-5xl md:text-[4.5rem] text-ink max-w-5xl" data-reveal>
+        Align technology strategy<br />with business outcomes.
+      </h1>
+      <p class="mt-6 text-lg md:text-xl text-ink-2 max-w-2xl leading-relaxed" data-reveal>
+        Enterprise Architecture is the discipline of translating business strategy into technology execution. Substrate helps organizations design enterprise-wide architectures that improve agility, reduce complexity, strengthen governance, and enable sustainable digital transformation.
+      </p>
+      <div class="mt-10 flex flex-wrap gap-4" data-reveal>
+        <Button href="/contact" variant="primary" size="md">Schedule a strategy workshop</Button>
+        <Button href="#what-is" variant="secondary" size="md">Learn more</Button>
+      </div>
+    </div>
+    <div class="mt-16 grid gap-6 md:grid-cols-3 max-w-4xl" data-reveal-group>
+      <div class="border-t border-line pt-5" data-reveal>
+        <p class="text-3xl font-display font-semibold text-accent">40%</p>
+        <p class="text-sm text-ink-2 mt-1">Reduction in IT operating costs through portfolio rationalization and application consolidation</p>
+      </div>
+      <div class="border-t border-line pt-5" data-reveal>
+        <p class="text-3xl font-display font-semibold text-accent">3x</p>
+        <p class="text-sm text-ink-2 mt-1">Faster technology change delivery with clear architecture roadmaps and governed standards</p>
+      </div>
+      <div class="border-t border-line pt-5" data-reveal>
+        <p class="text-3xl font-display font-semibold text-accent">60%</p>
+        <p class="text-sm text-ink-2 mt-1">Fewer integration failures with standardized APIs, event-driven architectures, and governed interfaces</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. WHAT IS ENTERPRISE ARCHITECTURE? -->
+<section id="what-is" class="py-20 md:py-28 bg-graphite" aria-labelledby="whatis-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="whatis-heading"
+      index="02"
+      label="What is Enterprise Architecture"
+      title="The connective tissue between business strategy and technology execution."
+      lede="Enterprise Architecture provides a structured framework for aligning business capabilities, processes, data, applications, and technology with organizational strategy. It is the practice of designing, governing, and evolving the enterprise technology ecosystem as a coherent system rather than a collection of independent projects."
+      tone="graphite"
+    />
+    <div class="mt-14 grid gap-10 md:grid-cols-2 lg:gap-16" data-reveal-group>
+      <div data-reveal>
+        <h3 class="text-xl font-display font-semibold text-graphite-fg mb-4">Definition and purpose</h3>
+        <p class="text-graphite-fg-2 leading-relaxed mb-4">
+          Enterprise Architecture is the practice of analyzing, designing, planning, and governing the enterprise technology ecosystem to ensure it supports business strategy and delivers measurable outcomes. It provides a holistic view of the organization's capabilities, processes, applications, data, and infrastructure, and establishes the standards, principles, and roadmaps that guide technology decisions.
+        </p>
+        <p class="text-graphite-fg-2 leading-relaxed">
+          The purpose of Enterprise Architecture is to reduce complexity, eliminate redundancy, improve integration, strengthen governance, and accelerate change. It ensures that every technology investment is justified by strategic business value and that the enterprise technology portfolio remains coherent, manageable, and aligned with long-term goals.
+        </p>
+      </div>
+      <div data-reveal>
+        <h3 class="text-xl font-display font-semibold text-graphite-fg mb-4">Why Enterprise Architecture matters</h3>
+        <p class="text-graphite-fg-2 leading-relaxed mb-4">
+          Organizations without effective Enterprise Architecture accumulate technical debt, duplicate systems, inconsistent standards, and integration bottlenecks. Digital transformation initiatives stall. Cloud migrations exceed budgets. Security vulnerabilities persist. Business units bypass IT. IT costs grow faster than revenue.
+        </p>
+        <p class="text-graphite-fg-2 leading-relaxed">
+          Enterprise Architecture addresses these problems by providing the strategic context, governance structures, and technical standards that enable organizations to make consistent, informed technology decisions. It transforms IT from a cost center to a strategic enabler of business outcomes.
+        </p>
+      </div>
+      <div data-reveal>
+        <h3 class="text-xl font-display font-semibold text-graphite-fg mb-4">Enterprise Architecture vs. Solution Architecture</h3>
+        <p class="text-graphite-fg-2 leading-relaxed mb-4">
+          Enterprise Architecture operates at the level of the entire organization, defining the strategic technology direction, standards, and principles that guide all technology decisions. Solution Architecture operates at the level of individual projects or solutions, designing the specific architecture for a given business problem within the enterprise context.
+        </p>
+        <p class="text-graphite-fg-2 leading-relaxed">
+          Enterprise Architecture establishes the "why" and "what." Solution Architecture establishes the "how." Enterprise Architects define the technology landscape and governance. Solution Architects design systems that fit within that landscape.
+        </p>
+      </div>
+      <div data-reveal>
+        <h3 class="text-xl font-display font-semibold text-graphite-fg mb-4">Enterprise Architecture vs. Software Architecture</h3>
+        <p class="text-graphite-fg-2 leading-relaxed mb-4">
+          Software Architecture focuses on the internal structure of software systems: components, modules, interfaces, and design patterns. Enterprise Architecture encompasses software architecture but extends to business processes, data flows, organizational structures, application portfolios, infrastructure, and the relationships between them.
+        </p>
+        <p class="text-graphite-fg-2 leading-relaxed">
+          Enterprise Architecture considers the entire enterprise as a system of systems. Software architecture considers individual systems within that enterprise. Both are necessary. Enterprise Architecture provides the context that makes software architecture decisions consistent and strategically aligned.
+        </p>
+      </div>
+      <div data-reveal class="md:col-span-2">
+        <h3 class="text-xl font-display font-semibold text-graphite-fg mb-4">Common misconceptions</h3>
+        <div class="grid gap-4 md:grid-cols-2">
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3 text-graphite-fg-2">
+              <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+              <span><strong class="text-graphite-fg">EA is not just documentation.</strong> Architecture artifacts are tools for decision-making, not shelfware. The value is in the analysis, decisions, and governance, not the diagrams.</span>
+            </li>
+            <li class="flex items-start gap-3 text-graphite-fg-2">
+              <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+              <span><strong class="text-graphite-fg">EA is not an ivory tower.</strong> Effective EA is embedded in delivery teams, guiding decisions with practical standards and real engagement.</span>
+            </li>
+            <li class="flex items-start gap-3 text-graphite-fg-2">
+              <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+              <span><strong class="text-graphite-fg">EA does not slow innovation.</strong> Clear architecture standards and governance accelerate delivery by reducing rework, integration failures, and decision paralysis.</span>
+            </li>
+          </ul>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3 text-graphite-fg-2">
+              <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+              <span><strong class="text-graphite-fg">EA is not IT-only.</strong> Business capabilities, processes, data, and strategy are core EA domains. EA is a business discipline enabled by technology.</span>
+            </li>
+            <li class="flex items-start gap-3 text-graphite-fg-2">
+              <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+              <span><strong class="text-graphite-fg">EA is not a one-time project.</strong> Architecture is never finished. Markets, technology, and business strategy evolve. EA is a continuous practice, not a project with an end date.</span>
+            </li>
+            <li class="flex items-start gap-3 text-graphite-fg-2">
+              <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+              <span><strong class="text-graphite-fg">EA does not require a giant framework.</strong> We apply as much framework as needed. Pragmatic EA adapts TOGAF, ArchiMate, and other methods to your organizational context.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. BUSINESS CHALLENGES -->
+<section class="py-20 md:py-28" aria-labelledby="challenges-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="challenges-heading"
+      index="03"
+      label="Business Challenges"
+      title="The cost of operating without coherent architecture."
+      lede="Organizations that neglect Enterprise Architecture accumulate structural complexity that erodes agility, inflates costs, and constrains growth. These are the symptoms we see across every industry."
+    />
+    <div class="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3" data-reveal-group>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">01</span>
+          <h3 class="font-display font-semibold text-ink">Legacy systems</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Aging mainframes and monolithic applications become increasingly expensive to maintain, difficult to integrate, and risky to change. Skilled maintainers retire. Vendor support ends.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">02</span>
+          <h3 class="font-display font-semibold text-ink">Technology sprawl</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Hundreds of unmanaged tools, platforms, and frameworks accumulate across the organization. Duplicate capabilities, unsupported versions, and integration complexity spiral out of control.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">03</span>
+          <h3 class="font-display font-semibold text-ink">Poor system integration</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Point-to-point integrations create brittle, untestable connections between systems. Changes propagate unpredictably. Integration failures become a leading cause of incidents.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">04</span>
+          <h3 class="font-display font-semibold text-ink">Lack of governance</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Without architecture governance, teams make independent technology decisions that create inconsistency, security gaps, and integration problems.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">05</span>
+          <h3 class="font-display font-semibold text-ink">Slow digital transformation</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Digital initiatives stall due to unclear architecture direction, unplanned dependencies, and the complexity of navigating existing systems. Transformation becomes a series of failed projects.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">06</span>
+          <h3 class="font-display font-semibold text-ink">High IT costs</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Duplicate applications, over-provisioned infrastructure, unused licenses, and maintenance of low-value systems inflate IT spend without proportional business value.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">07</span>
+          <h3 class="font-display font-semibold text-ink">Security and compliance risks</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Inconsistent security controls, unpatched systems, unknown data flows, and undocumented architectures create compliance gaps and expose the organization to breaches and regulatory penalties.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">08</span>
+          <h3 class="font-display font-semibold text-ink">Duplicate applications</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Multiple applications serving the same business function, each with its own data store, integration pattern, and support team. Maintenance costs multiply without additional business value.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">09</span>
+          <h3 class="font-display font-semibold text-ink">Data silos</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Business-critical data trapped in application-specific databases with no shared schema, governance, or integration. Reporting requires manual extraction and reconciliation across sources.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">10</span>
+          <h3 class="font-display font-semibold text-ink">Inconsistent technology standards</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Every team chooses its own frameworks, languages, and platforms. Skills are fragmented. Organizational mobility is reduced. No single team can work across the entire portfolio.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">11</span>
+          <h3 class="font-display font-semibold text-ink">Cloud migration complexity</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Migrating to the cloud without architecture clarity leads to lift-and-shift of legacy problems, cost overruns, and architectures that fail to leverage cloud-native capabilities.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">12</span>
+          <h3 class="font-display font-semibold text-ink">Limited business agility</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">When technology is rigid and tightly coupled, the business cannot respond to market changes quickly. Every new initiative requires months of dependency analysis and integration work.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. OUR ENTERPRISE ARCHITECTURE APPROACH -->
+<section class="py-20 md:py-28 bg-graphite" aria-labelledby="approach-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="approach-heading"
+      index="04"
+      label="Our Approach"
+      title="A phased methodology for architecture transformation."
+      lede="We follow a structured, business-outcome-driven approach to Enterprise Architecture. Every phase is tailored to your organizational context, maturity level, and strategic priorities."
+      tone="graphite"
+    />
+    <div class="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3" data-reveal-group>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">01</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Business Capability Assessment</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Map the organization's business capabilities, their maturity, and their supporting technology. Identify capability gaps, redundancies, and opportunities for optimization.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">02</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Current-State Architecture Assessment</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Document and analyze the existing architecture: applications, data flows, integrations, infrastructure, security controls, and governance maturity. Baseline every domain.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">03</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Future-State Vision</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Define the target architecture aligned with business strategy. Business capabilities, application portfolio, data architecture, technology platform, and governance model for the desired future state.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">04</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Technology Strategy</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Develop the technology strategy that bridges current and future states. Technology standards, platform decisions, build-vs-buy recommendations, and innovation priorities.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">05</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Architecture Roadmap</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Create a phased, multi-year architecture roadmap with prioritized work streams, milestones, dependencies, and business outcomes mapped to each phase.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">06</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Portfolio Rationalization</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Analyze the application and technology portfolio to identify retirement, consolidation, migration, and investment candidates. Reduce duplication and technical debt systematically.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">07</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Cloud Strategy</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Define the cloud adoption strategy: which workloads migrate, which stay on-premises, cloud provider selection, landing zone design, and cloud operating model.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">08</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Integration Strategy</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Design the enterprise integration architecture: API gateways, event brokers, service mesh, integration platforms, and data synchronization patterns across the entire landscape.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">09</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Governance Framework</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Establish architecture governance: principles, standards, review processes, decision records, architecture review boards, and exception management procedures.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">10</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Implementation Planning</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Translate the roadmap into actionable implementation plans: project initiation, resource allocation, dependency management, risk mitigation, and success criteria.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">11</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Continuous Architecture Review</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Establish ongoing architecture review cycles to monitor alignment, assess new initiatives, update roadmaps, and evolve standards as business needs and technology change.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. ENTERPRISE ARCHITECTURE SERVICES -->
+<section class="py-20 md:py-28" aria-labelledby="services-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="services-heading"
+      index="05"
+      label="Our Services"
+      title="Comprehensive enterprise architecture capabilities."
+      lede="From strategic advisory to hands-on architecture delivery, we provide the full spectrum of services needed to design, govern, and evolve your enterprise technology ecosystem."
+    />
+    <div class="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3" data-reveal-group>
+      
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Enterprise Architecture Consulting</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Strategic architecture advisory for CIOs, CTOs, and Chief Architects. Define architecture vision, establish governance, and align technology strategy with business outcomes.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Architecture strategy and vision</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Executive advisory and board support</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Architecture team coaching</li>
+        </ul>
+      </div>
+
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Business Architecture</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Map business capabilities, value streams, processes, and organizational structures. Align business strategy with technology investments and identify capability gaps.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Capability mapping and maturity assessment</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Value stream analysis</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Business process modeling</li>
+        </ul>
+      </div>
+
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Technology Architecture</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Design the enterprise technology platform strategy: infrastructure standards, platform selection, technology reference architectures, and innovation roadmaps.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Technology stack standardization</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Platform strategy and selection</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Technology lifecycle management</li>
+        </ul>
+      </div>
+
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Application Architecture</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Design the application portfolio strategy: application rationalization, modernization roadmaps, microservice decomposition, and application integration patterns.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Application portfolio rationalization</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Modernization roadmap</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Domain-driven design workshops</li>
+        </ul>
+      </div>
+
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Data Architecture</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Design the enterprise data architecture: data domains, data products, data lakes and warehouses, master data management, and data governance frameworks.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Data domain and product design</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Data mesh and data fabric architecture</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Data governance and lineage</li>
+        </ul>
+      </div>
+
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Cloud Architecture</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Define cloud strategy, landing zones, migration plans, and cloud operating models. Multi-cloud, hybrid, and single-cloud architectures aligned to business requirements.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Cloud strategy and provider selection</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Landing zone and network design</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Cloud operating model and FinOps</li>
+        </ul>
+      </div>
+
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Integration Architecture</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Design the enterprise integration strategy: API management, event-driven integration, ESB modernization, and hybrid integration platforms.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Integration platform selection</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> API and event architecture</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Legacy integration modernization</li>
+        </ul>
+      </div>
+
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Solution Architecture</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Design solution architectures for specific business initiatives within the enterprise architecture context. System design, technology selection, and implementation guidance.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Solution design and documentation</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Technology evaluation and selection</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Architecture decision records</li>
+        </ul>
+      </div>
+
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Digital Transformation Strategy</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Develop comprehensive digital transformation strategies with architecture roadmaps, capability building plans, and business case development for enterprise-wide change.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Transformation vision and strategy</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Business case and ROI modeling</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Change management and adoption</li>
+        </ul>
+      </div>
+
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Legacy Modernization</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Modernize legacy applications and platforms using proven patterns: rehost, replatform, refactor, rebuild, or replace. Strangler fig, parallel run, and incremental migration.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Legacy system assessment and analysis</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Modernization pattern selection</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Incremental migration execution</li>
+        </ul>
+      </div>
+
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Architecture Assessments</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Comprehensive architecture assessments covering business, application, data, technology, security, and governance domains. Maturity scoring and prioritized recommendations.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Multi-domain architecture review</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Maturity model assessment</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Remediation roadmap and business case</li>
+        </ul>
+      </div>
+
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Technology Roadmaps</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Develop multi-year technology roadmaps that translate architecture vision into sequenced, actionable work streams with clear milestones, dependencies, and business outcomes.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Current-state to future-state gap analysis</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Phased delivery planning</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Investment and resource modeling</li>
+        </ul>
+      </div>
+
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">IT Portfolio Rationalization</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Analyze and rationalize the application and technology portfolio. Identify retirement, consolidation, migration, and investment candidates with business case support.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Portfolio discovery and inventory</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Fitness and value scoring</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Rationalization roadmap and execution</li>
+        </ul>
+      </div>
+
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Architecture Governance</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Establish architecture governance frameworks: principles, standards, review processes, decision records, architecture review boards, and exception management procedures.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Governance framework design</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Architecture review board setup</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Standard and policy development</li>
+        </ul>
+      </div>
+
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Architecture Review Boards</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Establish and operate architecture review boards that evaluate solution architectures for alignment with enterprise standards, principles, and strategic direction.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> ARB charter and operating model</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Review criteria and scoring</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Escalation and exception handling</li>
+        </ul>
+      </div>
+
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Reference Architecture Development</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Create reusable reference architectures for common patterns: microservices, event-driven, cloud-native, data mesh, API platforms, and security architectures.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Reference architecture design</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Pattern library development</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Architecture decision guidance</li>
+        </ul>
+      </div>
+
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">API Strategy</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Define enterprise API strategy: API-first design, API platform architecture, governance, lifecycle management, developer portal, and API monetization models.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> API strategy and roadmap</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> API gateway and platform design</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> API governance and standards</li>
+        </ul>
+      </div>
+
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Event-Driven Architecture</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Design enterprise event-driven architectures: event taxonomy, event brokers, stream processing, event sourcing, CQRS, and event governance frameworks.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Event strategy and domain events</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Event broker architecture and selection</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Event schema governance and registry</li>
+        </ul>
+      </div>
+
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Enterprise Integration</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Design and deliver enterprise integration solutions connecting applications, data sources, and partners across on-premises, cloud, and hybrid environments.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Integration platform architecture</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Legacy integration modernization</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> B2B and partner integration</li>
+        </ul>
+      </div>
+
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Cloud Migration Strategy</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Develop comprehensive cloud migration strategies: workload assessment, migration wave planning, target architecture, and cloud adoption roadmaps with business cases.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Migration readiness assessment</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Wave planning and sequencing</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Migration execution and validation</li>
+        </ul>
+      </div>
+
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Architecture Modernization</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Transform enterprise architectures from monolithic, tightly coupled designs to modular, loosely coupled, cloud-native architectures that support rapid change.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Architecture transformation roadmap</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Modularization and decomposition</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Incremental architecture evolution</li>
+        </ul>
+      </div>
+
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Architecture Documentation</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Create and maintain comprehensive architecture documentation: architecture descriptions, decision records, reference architectures, standards, and landscape diagrams.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Architecture repository setup</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Decision record standards</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Landscape and context diagrams</li>
+        </ul>
+      </div>
+
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Architecture Enablement</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Build architecture capability within your organization: training, mentoring, tooling, and establishing architecture practices that your teams can sustain independently.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Architecture training and workshops</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Architecture tooling and repositories</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Community of practice establishment</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. ARCHITECTURE DOMAINS -->
+<section class="py-20 md:py-28 bg-graphite" aria-labelledby="domains-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="domains-heading"
+      index="06"
+      label="Architecture Domains"
+      title="Deep expertise across every architecture layer."
+      lede="Enterprise Architecture spans multiple domains. Our team brings deep expertise across every layer, from business capability mapping through infrastructure and security."
+      tone="graphite"
+    />
+    <div class="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4" data-reveal-group>
+      
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Business Architecture</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Business strategy, operating models, value streams, organizational structures, and business capability modeling aligned with technology investments and outcomes.</p>
+      </div>
+
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Capability Mapping</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Business capability modeling, maturity assessment, heat mapping, and capability-based planning to align technology investments with strategic business outcomes.</p>
+      </div>
+
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Application Architecture</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Application portfolio management, rationalization, modernization roadmaps, microservice architecture, and application integration patterns across the enterprise.</p>
+      </div>
+
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Technology Architecture</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Technology platform strategy, infrastructure standards, platform selection, technology lifecycle management, and emerging technology evaluation.</p>
+      </div>
+
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Information Architecture</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Information models, data classification, metadata management, information flows, and the relationships between business information and the systems that manage it.</p>
+      </div>
+
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Data Architecture</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Data domains and products, data lakes and warehouses, data mesh and data fabric, master data management, data governance, and data lifecycle management.</p>
+      </div>
+
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Security Architecture</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Zero-trust architecture, identity and access management, security controls, compliance frameworks, threat modeling, and security governance across the enterprise.</p>
+      </div>
+
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Cloud Architecture</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Cloud strategy, landing zones, migration planning, multi-cloud architecture, cloud-native platform design, FinOps, and cloud governance frameworks.</p>
+      </div>
+
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Platform Architecture</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Internal developer platforms, platform engineering, API platforms, integration platforms, and data platforms designed for self-service and developer productivity.</p>
+      </div>
+
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Integration Architecture</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Enterprise integration patterns, API management, event-driven architecture, service mesh, integration platform selection, and hybrid integration strategy.</p>
+      </div>
+
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">AI Architecture</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">AI/ML platform architecture, model serving infrastructure, data pipelines for AI, LLM architecture, RAG systems, and AI governance frameworks.</p>
+      </div>
+
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Infrastructure Architecture</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Data center, network, compute, and storage architecture. Hybrid infrastructure, edge computing, infrastructure as code, and infrastructure lifecycle management.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. ENTERPRISE ARCHITECTURE FRAMEWORK -->
+<section class="py-20 md:py-28" aria-labelledby="framework-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="framework-heading"
+      index="07"
+      label="Enterprise Architecture Framework"
+      title="A layered framework for enterprise-wide architecture design."
+      lede="We organize Enterprise Architecture across ten integrated layers. Each layer represents a distinct architectural concern with its own standards, patterns, and governance. Together they form a coherent, end-to-end architecture description."
+    />
+    <div class="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3" data-reveal-group>
+      
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">01</span>
+          <h3 class="font-display font-semibold text-ink">Business Layer</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Business strategy, goals, objectives, operating models, value streams, and stakeholder concerns. The business layer defines the context and requirements for all other architecture layers.</p>
+      </div>
+
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">02</span>
+          <h3 class="font-display font-semibold text-ink">Capability Layer</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Business capabilities, capability maturity levels, and the mapping of capabilities to business strategy, processes, applications, and technology. The bridge between business and IT.</p>
+      </div>
+
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">03</span>
+          <h3 class="font-display font-semibold text-ink">Process Layer</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Business processes, workflows, procedures, and process ownership. Process models define how business capabilities are delivered and how applications and data support them.</p>
+      </div>
+
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">04</span>
+          <h3 class="font-display font-semibold text-ink">Application Layer</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Application portfolio, application interfaces, application services, and application interactions. Defines what applications exist, what they do, and how they relate to business capabilities.</p>
+      </div>
+
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">05</span>
+          <h3 class="font-display font-semibold text-ink">Data Layer</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Data entities, data domains, data products, data stores, data flows, data governance, and data lifecycle management. Defines how data is created, stored, shared, and retired.</p>
+      </div>
+
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">06</span>
+          <h3 class="font-display font-semibold text-ink">Integration Layer</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">APIs, event brokers, integration platforms, service mesh, and integration patterns. Defines how applications and data services communicate across the enterprise.</p>
+      </div>
+
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">07</span>
+          <h3 class="font-display font-semibold text-ink">Platform Layer</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Internal platforms, developer platforms, API platforms, data platforms, and AI platforms. Shared infrastructure and services that enable consistent, self-service delivery.</p>
+      </div>
+
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">08</span>
+          <h3 class="font-display font-semibold text-ink">Infrastructure Layer</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Compute, storage, networking, data centers, cloud resources, and edge infrastructure. The physical and virtual foundation that supports all other layers.</p>
+      </div>
+
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">09</span>
+          <h3 class="font-display font-semibold text-ink">Security Layer</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Security controls, identity and access management, encryption, threat detection, compliance monitoring, and security governance. Cross-cutting across all other layers.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6 md:col-span-2 lg:col-span-3" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">10</span>
+          <h3 class="font-display font-semibold text-ink">Governance Layer</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Architecture principles, technology standards, architecture review processes, decision records (ADRs), reference architectures, and compliance monitoring. Governance is the cross-cutting layer that ensures all other layers remain aligned, consistent, and strategically directed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. METHODOLOGIES & FRAMEWORKS -->
+<section class="py-20 md:py-28 bg-graphite" aria-labelledby="methodologies-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="methodologies-heading"
+      index="08"
+      label="Methodologies & Frameworks"
+      title="Industry-standard frameworks, pragmatically applied."
+      lede="We are fluent in the major Enterprise Architecture frameworks and modern architecture practices. We apply the right level of framework rigor for your organizational context."
+      tone="graphite"
+    />
+    <div class="mt-14 grid gap-10 md:grid-cols-2" data-reveal-group>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-4">ENTERPRISE FRAMEWORKS</h3>
+        <ul class="space-y-4">
+          
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-graphite-fg">TOGAF</p>
+              <p class="text-sm text-graphite-fg-2">The Open Group Architecture Framework for developing and governing enterprise architectures. We apply TOGAFs Architecture Development Method (ADM) adapted to your maturity and context.</p>
+            </div>
+          </li>
+
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-graphite-fg">Zachman Framework</p>
+              <p class="text-sm text-graphite-fg-2">The foundational Enterprise Architecture ontology. We use the Zachman classification schema for organizing architectural artifacts and ensuring complete coverage across perspectives.</p>
+            </div>
+          </li>
+
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-graphite-fg">ArchiMate</p>
+              <p class="text-sm text-graphite-fg-2">The Open Group modeling language for Enterprise Architecture. We use ArchiMate for creating consistent, communicable architecture models across business, application, data, and technology layers.</p>
+            </div>
+          </li>
+
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-graphite-fg">BIZBOK</p>
+              <p class="text-sm text-graphite-fg-2">The Business Architecture Body of Knowledge guide. We apply BIZBOK for business capability modeling, value stream analysis, and business architecture governance.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-4">ARCHITECTURE PRACTICES</h3>
+        <ul class="space-y-4">
+          
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-graphite-fg">Domain-Driven Design (DDD)</p>
+              <p class="text-sm text-graphite-fg-2">Strategic DDD for aligning software boundaries with business domains. Bounded contexts, aggregates, domain events, and ubiquitous language as architecture tools.</p>
+            </div>
+          </li>
+
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-graphite-fg">Event-Driven Architecture</p>
+              <p class="text-sm text-graphite-fg-2">Enterprise event-driven design: event taxonomy, event brokers, stream processing, CQRS, event sourcing, and saga patterns for distributed business processes.</p>
+            </div>
+          </li>
+
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-graphite-fg">Microservices</p>
+              <p class="text-sm text-graphite-fg-2">Service decomposition, bounded context alignment, inter-service communication, data ownership, and deployment independence for enterprise-scale microservice architectures.</p>
+            </div>
+          </li>
+
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-graphite-fg">API-First Design</p>
+              <p class="text-sm text-graphite-fg-2">API as product: contract-first development, API governance, versioning strategies, developer experience, and API lifecycle management across the enterprise.</p>
+            </div>
+          </li>
+
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-graphite-fg">Cloud-Native Architecture</p>
+              <p class="text-sm text-graphite-fg-2">Cloud-native design patterns: containers, orchestration, immutable infrastructure, declarative APIs, automated delivery, and observability as architectural principles.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div data-reveal class="md:col-span-2">
+        <h3 class="font-mono text-xs text-accent-bright mb-4">GOVERNANCE</h3>
+        <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          
+          <div class="rounded-lg border border-graphite-line bg-graphite-2 p-5">
+            <h4 class="font-display font-semibold text-graphite-fg mb-2">Architecture Principles</h4>
+            <p class="text-sm text-graphite-fg-2">A concise set of enduring principles that guide technology decisions. Principles are derived from business strategy and provide the foundation for all architecture standards.</p>
+          </div>
+
+          <div class="rounded-lg border border-graphite-line bg-graphite-2 p-5">
+            <h4 class="font-display font-semibold text-graphite-fg mb-2">Technology Standards</h4>
+            <p class="text-sm text-graphite-fg-2">Curated technology standards covering languages, frameworks, platforms, tools, and services. Standards reduce fragmentation while allowing managed diversity for genuine need.</p>
+          </div>
+
+          <div class="rounded-lg border border-graphite-line bg-graphite-2 p-5">
+            <h4 class="font-display font-semibold text-graphite-fg mb-2">Decision Records (ADR)</h4>
+            <p class="text-sm text-graphite-fg-2">Architecture Decision Records capture the context, options, decision, and consequences of each architecture decision. The ADR log provides organizational memory and decision transparency.</p>
+          </div>
+
+          <div class="rounded-lg border border-graphite-line bg-graphite-2 p-5">
+            <h4 class="font-display font-semibold text-graphite-fg mb-2">Reference Architectures</h4>
+            <p class="text-sm text-graphite-fg-2">Reusable architecture templates for common patterns: microservices, event-driven, cloud-native, data mesh, and security. Reference architectures accelerate delivery and ensure consistency.</p>
+          </div>
+
+          <div class="rounded-lg border border-graphite-line bg-graphite-2 p-5">
+            <h4 class="font-display font-semibold text-graphite-fg mb-2">Architecture Review Process</h4>
+            <p class="text-sm text-graphite-fg-2">Structured review process for evaluating solution architectures against enterprise standards, principles, and strategic alignment. Tiered review based on risk and complexity.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. TECHNOLOGIES -->
+<section class="py-20 md:py-28" aria-labelledby="tech-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="tech-heading"
+      index="09"
+      label="Technologies"
+      title="Technologies we work with."
+      lede="We maintain deep expertise across the enterprise technology ecosystem. Our recommendations are vendor-neutral and driven by your specific requirements."
+    />
+    <div class="mt-14 grid gap-8 md:grid-cols-3 lg:grid-cols-4" data-reveal-group>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent mb-4">Cloud</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2">AWS</li>
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 ml-2">Microsoft Azure</li>
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 ml-2">Google Cloud</li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent mb-4">Integration</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2">Apache Kafka</li>
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 ml-2">Redpanda</li>
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 ml-2">RabbitMQ</li>
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 mt-2">MuleSoft</li>
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 ml-2">Kong</li>
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 ml-2">NGINX</li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent mb-4">Containers</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2">Docker</li>
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 ml-2">Kubernetes</li>
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 ml-2">Helm</li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent mb-4">Infrastructure</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2">Terraform</li>
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 ml-2">OpenTofu</li>
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 ml-2">Ansible</li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent mb-4">Observability</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2">Prometheus</li>
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 ml-2">Grafana</li>
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 ml-2">OpenTelemetry</li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent mb-4">Programming</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2">Go</li>
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 ml-2">Java</li>
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 ml-2">Python</li>
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 mt-2">TypeScript</li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent mb-4">Databases</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2">PostgreSQL</li>
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 ml-2">MySQL</li>
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 ml-2">MongoDB</li>
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 mt-2">Redis</li>
+          <li class="inline-block rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 ml-2">ClickHouse</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. BENEFITS -->
+<section class="py-20 md:py-28 bg-graphite" aria-labelledby="benefits-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="benefits-heading"
+      index="10"
+      label="Benefits"
+      title="What Enterprise Architecture delivers."
+      lede="The return on Enterprise Architecture is measured in reduced complexity, faster change, lower costs, and stronger alignment between business and technology."
+      tone="graphite"
+    />
+    <div class="mt-14 grid gap-10 md:grid-cols-2" data-reveal-group>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-4">FOR EXECUTIVE LEADERSHIP</h3>
+        <ul class="space-y-4">
+          
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-graphite-fg">Strategic clarity</p>
+              <p class="text-sm text-graphite-fg-2">Clear line of sight from business strategy to technology investments. Architecture roadmaps show exactly how technology enables strategic outcomes.</p>
+            </div>
+          </li>
+
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-graphite-fg">Cost transparency</p>
+              <p class="text-sm text-graphite-fg-2">Full visibility into IT spending by capability, application, and domain. Rationalization targets clear cost reduction opportunities without sacrificing capability.</p>
+            </div>
+          </li>
+
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-graphite-fg">Risk management</p>
+              <p class="text-sm text-graphite-fg-2">Architecture governance provides early visibility into technology risks, compliance gaps, and security vulnerabilities before they become incidents.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-4">FOR BUSINESS UNITS</h3>
+        <ul class="space-y-4">
+          
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-graphite-fg">Faster time to market</p>
+              <p class="text-sm text-graphite-fg-2">Clear architecture standards and reusable patterns accelerate new initiatives. Business capabilities are delivered faster with less rework.</p>
+            </div>
+          </li>
+
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-graphite-fg">Better integration</p>
+              <p class="text-sm text-graphite-fg-2">Standardized APIs, event-driven integration, and governed interfaces mean business units can compose new capabilities from existing services.</p>
+            </div>
+          </li>
+
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-graphite-fg">Business agility</p>
+              <p class="text-sm text-graphite-fg-2">Loosely coupled architecture enables rapid response to market changes. New business models can be supported without rebuilding foundational technology.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-4">FOR ENGINEERING TEAMS</h3>
+        <ul class="space-y-4">
+          
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-graphite-fg">Clear architecture guidance</p>
+              <p class="text-sm text-graphite-fg-2">Reference architectures, standards, and decision records provide engineering teams with clear guidance without requiring them to become architects.</p>
+            </div>
+          </li>
+
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-graphite-fg">Reduced integration burden</p>
+              <p class="text-sm text-graphite-fg-2">Standard APIs, event schemas, and integration patterns eliminate point-to-point integration work. Teams build services, not connectors.</p>
+            </div>
+          </li>
+
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-graphite-fg">Technology flexibility</p>
+              <p class="text-sm text-graphite-fg-2">Managed diversity through technology standards. Teams have choice within curated guardrails, reducing fragmentation while preserving autonomy.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-4">FOR IT OPERATIONS, SECURITY &amp; COMPLIANCE</h3>
+        <ul class="space-y-4">
+          
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-graphite-fg">Operational efficiency</p>
+              <p class="text-sm text-graphite-fg-2">Standardized platforms, rationalized portfolios, and automated governance reduce operational overhead and simplify day-to-day IT operations.</p>
+            </div>
+          </li>
+
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-graphite-fg">Security by design</p>
+              <p class="text-sm text-graphite-fg-2">Security architecture is embedded in every layer. Consistent controls, automated compliance monitoring, and clear security standards reduce risk.</p>
+            </div>
+          </li>
+
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-graphite-fg">Compliance automation</p>
+              <p class="text-sm text-graphite-fg-2">Policy as code, audit trails, and automated evidence collection make regulatory compliance continuous rather than point-in-time.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-4">FOR CUSTOMERS &amp; LONG-TERM GROWTH</h3>
+        <ul class="space-y-4">
+          
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-graphite-fg">Better customer experience</p>
+              <p class="text-sm text-graphite-fg-2">Integrated systems, consistent data, and fast delivery cycles translate directly to better digital experiences for customers and partners.</p>
+            </div>
+          </li>
+
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-graphite-fg">Sustainable growth</p>
+              <p class="text-sm text-graphite-fg-2">Architecture that scales. Portfolio rationalization frees budget for innovation. Governance prevents re-accumulation of technical debt.</p>
+            </div>
+          </li>
+
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-graphite-fg">Innovation capacity</p>
+              <p class="text-sm text-graphite-fg-2">Reducing maintenance burden on legacy systems frees engineering capacity for innovation. Clear architecture enables rapid experimentation with new technologies.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 11. ENGAGEMENT MODEL -->
+<section class="py-20 md:py-28" aria-labelledby="engagement-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="engagement-heading"
+      index="11"
+      label="Engagement Model"
+      title="How we work with your organization."
+      lede="Every engagement is structured around outcomes. We adapt our working model to your organizations culture, maturity, and strategic priorities."
+    />
+    <div class="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3" data-reveal-group>
+      
+      <div class="relative rounded-lg border border-line-2 bg-paper p-7 pt-12" data-reveal>
+        <span class="absolute top-5 left-5 font-mono text-2xl font-semibold text-accent/30">01</span>
+        <h3 class="font-display font-semibold text-ink mb-2">Executive Discovery</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">We meet with executive stakeholders to understand business strategy, strategic objectives, key challenges, and organizational priorities. This frames the entire engagement.</p>
+        <p class="text-xs text-accent mt-4 font-mono">1-2 weeks</p>
+      </div>
+
+      <div class="relative rounded-lg border border-line-2 bg-paper p-7 pt-12" data-reveal>
+        <span class="absolute top-5 left-5 font-mono text-2xl font-semibold text-accent/30">02</span>
+        <h3 class="font-display font-semibold text-ink mb-2">Business Assessment</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">Map business capabilities, value streams, processes, and organizational structures. Identify capability gaps, redundancies, and strategic priorities for the architecture.</p>
+        <p class="text-xs text-accent mt-4 font-mono">2-4 weeks</p>
+      </div>
+
+      <div class="relative rounded-lg border border-line-2 bg-paper p-7 pt-12" data-reveal>
+        <span class="absolute top-5 left-5 font-mono text-2xl font-semibold text-accent/30">03</span>
+        <h3 class="font-display font-semibold text-ink mb-2">Architecture Assessment</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">Deep analysis of current-state architecture across all domains: applications, data, technology, integration, security, and governance. Maturity scoring and gap analysis delivered.</p>
+        <p class="text-xs text-accent mt-4 font-mono">3-6 weeks</p>
+      </div>
+
+      <div class="relative rounded-lg border border-line-2 bg-paper p-7 pt-12" data-reveal>
+        <span class="absolute top-5 left-5 font-mono text-2xl font-semibold text-accent/30">04</span>
+        <h3 class="font-display font-semibold text-ink mb-2">Current-State Analysis</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">Comprehensive documentation and analysis of the current architecture: application portfolio, data landscape, integration topology, technology inventory, and governance maturity.</p>
+        <p class="text-xs text-accent mt-4 font-mono">2-4 weeks</p>
+      </div>
+
+      <div class="relative rounded-lg border border-line-2 bg-paper p-7 pt-12" data-reveal>
+        <span class="absolute top-5 left-5 font-mono text-2xl font-semibold text-accent/30">05</span>
+        <h3 class="font-display font-semibold text-ink mb-2">Future-State Design</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">Design the target architecture: business capabilities, application portfolio, data architecture, technology platform, integration model, and governance framework for the desired future.</p>
+        <p class="text-xs text-accent mt-4 font-mono">3-6 weeks</p>
+      </div>
+
+      <div class="relative rounded-lg border border-line-2 bg-paper p-7 pt-12" data-reveal>
+        <span class="absolute top-5 left-5 font-mono text-2xl font-semibold text-accent/30">06</span>
+        <h3 class="font-display font-semibold text-ink mb-2">Roadmap Development</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">Create a phased, multi-year architecture roadmap with prioritized work streams, milestones, dependencies, resource requirements, and business outcomes for each phase.</p>
+        <p class="text-xs text-accent mt-4 font-mono">2-4 weeks</p>
+      </div>
+
+      <div class="relative rounded-lg border border-line-2 bg-paper p-7 pt-12" data-reveal>
+        <span class="absolute top-5 left-5 font-mono text-2xl font-semibold text-accent/30">07</span>
+        <h3 class="font-display font-semibold text-ink mb-2">Governance Setup</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">Establish architecture governance: principles, standards, review processes, architecture review board, decision record templates, and governance tooling.</p>
+        <p class="text-xs text-accent mt-4 font-mono">3-5 weeks</p>
+      </div>
+
+      <div class="relative rounded-lg border border-line-2 bg-paper p-7 pt-12" data-reveal>
+        <span class="absolute top-5 left-5 font-mono text-2xl font-semibold text-accent/30">08</span>
+        <h3 class="font-display font-semibold text-ink mb-2">Implementation Support</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">Provide architecture oversight and guidance during implementation. Review solution architectures, support decision-making, and ensure alignment with enterprise architecture.</p>
+        <p class="text-xs text-accent mt-4 font-mono">Ongoing</p>
+      </div>
+
+      <div class="relative rounded-lg border border-line-2 bg-paper p-7 pt-12" data-reveal>
+        <span class="absolute top-5 left-5 font-mono text-2xl font-semibold text-accent/30">09</span>
+        <h3 class="font-display font-semibold text-ink mb-2">Knowledge Transfer</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">Build architecture capability within your organization through training, workshops, pair-working, and comprehensive documentation. Your team owns the architecture.</p>
+        <p class="text-xs text-accent mt-4 font-mono">Ongoing</p>
+      </div>
+      <div class="relative rounded-lg border border-line-2 bg-paper p-7 pt-12 md:col-span-2 lg:col-span-2" data-reveal>
+        <span class="absolute top-5 left-5 font-mono text-2xl font-semibold text-accent/30">10</span>
+        <h3 class="font-display font-semibold text-ink mb-2">Continuous Architecture Advisory</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">Ongoing architecture advisory through executive check-ins, architecture reviews, roadmap updates, and strategic guidance. An architecture partner who knows your business and technology landscape.</p>
+        <p class="text-xs text-accent mt-4 font-mono">Quarterly reviews</p>
+      </div>
+    </div>
+    <div class="mt-14 rounded-lg border border-line-2 bg-paper p-8 text-center" data-reveal>
+      <p class="text-ink-2 text-sm max-w-2xl mx-auto">
+        Every engagement includes a dedicated engagement lead, transparent weekly reporting, and a shared roadmap that evolves as we learn. <br class="hidden md:inline" />We focus on outcomes, not deliverables.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- 12. WHY CHOOSE SUBSTRATE -->
+<section class="py-20 md:py-28 bg-graphite" aria-labelledby="why-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="why-heading"
+      index="12"
+      label="Why Choose Substrate"
+      title="Architecture built by engineers, for business outcomes."
+      lede="We combine deep Enterprise Architecture expertise with hands-on engineering experience. Our recommendations are practical, independent, and grounded in real delivery."
+      tone="graphite"
+    />
+    <div class="mt-14 grid gap-5 md:grid-cols-2" data-reveal-group>
+      
+      <div class="flex items-start gap-4 rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-graphite text-sm font-semibold text-accent-bright">01</span>
+        <div>
+          <h3 class="font-display font-semibold text-graphite-fg">Business-first thinking</h3>
+          <p class="text-sm text-graphite-fg-2">Every architecture recommendation starts with business strategy and outcomes. We measure success by business results, not technical purity or framework compliance.</p>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-4 rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-graphite text-sm font-semibold text-accent-bright">02</span>
+        <div>
+          <h3 class="font-display font-semibold text-graphite-fg">Engineering excellence</h3>
+          <p class="text-sm text-graphite-fg-2">We are engineers who architect, build, and operate systems. Every recommendation is grounded in real implementation experience, not framework certifications or theory.</p>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-4 rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-graphite text-sm font-semibold text-accent-bright">03</span>
+        <div>
+          <h3 class="font-display font-semibold text-graphite-fg">Vendor-neutral recommendations</h3>
+          <p class="text-sm text-graphite-fg-2">We have no vendor incentives, reseller agreements, or cloud commission arrangements. Every technology decision is made based on your requirements.</p>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-4 rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-graphite text-sm font-semibold text-accent-bright">04</span>
+        <div>
+          <h3 class="font-display font-semibold text-graphite-fg">Cloud-native expertise</h3>
+          <p class="text-sm text-graphite-fg-2">Deep experience designing and building cloud-native architectures. We understand how to leverage cloud platforms without creating lock-in or operational complexity.</p>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-4 rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-graphite text-sm font-semibold text-accent-bright">05</span>
+        <div>
+          <h3 class="font-display font-semibold text-graphite-fg">Modern architecture practices</h3>
+          <p class="text-sm text-graphite-fg-2">Domain-driven design, event-driven architecture, microservices, API-first, and cloud-native are core competencies. We apply modern practices without dogma.</p>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-4 rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-graphite text-sm font-semibold text-accent-bright">06</span>
+        <div>
+          <h3 class="font-display font-semibold text-graphite-fg">Strong governance</h3>
+          <p class="text-sm text-graphite-fg-2">Governance that enables rather than restricts. We establish practical standards, lightweight review processes, and decision frameworks that teams actually follow.</p>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-4 rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-graphite text-sm font-semibold text-accent-bright">07</span>
+        <div>
+          <h3 class="font-display font-semibold text-graphite-fg">Open standards</h3>
+          <p class="text-sm text-graphite-fg-2">We prefer open standards and open source: TOGAF, ArchiMate, OpenTelemetry, Kubernetes, Terraform. No proprietary lock-in. Your team can run what we build.</p>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-4 rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-graphite text-sm font-semibold text-accent-bright">08</span>
+        <div>
+          <h3 class="font-display font-semibold text-graphite-fg">Practical implementation focus</h3>
+          <p class="text-sm text-graphite-fg-2">Architecture is only valuable when implemented. We stay engaged through delivery, ensuring architecture decisions translate to working systems.</p>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-4 rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-graphite text-sm font-semibold text-accent-bright">09</span>
+        <div>
+          <h3 class="font-display font-semibold text-graphite-fg">Long-term partnership</h3>
+          <p class="text-sm text-graphite-fg-2">We invest in your teams architecture capability. Knowledge transfer, training, and mentorship ensure your organization sustains and evolves the architecture independently.</p>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-4 rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-graphite text-sm font-semibold text-accent-bright">10</span>
+        <div>
+          <h3 class="font-display font-semibold text-graphite-fg">Knowledge transfer</h3>
+          <p class="text-sm text-graphite-fg-2">Our goal is your self-sufficiency. Structured training, pair-working, architecture community setup, and comprehensive documentation ensure your team owns the architecture.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 13. INDUSTRIES -->
+<section class="py-20 md:py-28" aria-labelledby="industries-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="industries-heading"
+      index="13"
+      label="Industries"
+      title="Enterprise Architecture across sectors."
+      lede="Every industry faces unique architecture challenges. Here is how Enterprise Architecture applies to specific sectors."
+    />
+    <div class="mt-14 grid gap-6 md:grid-cols-3" data-reveal-group>
+      
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-display font-semibold text-ink mb-2">Financial Services</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">Core banking modernization, regulatory compliance (Basel III, SOX), real-time payments, fraud detection architecture, and legacy mainframe integration strategies.</p>
+      </div>
+
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-display font-semibold text-ink mb-2">Healthcare</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">HIPAA-compliant data architecture, FHIR-based interoperability, clinical system integration, patient data platforms, and health information exchange design.</p>
+      </div>
+
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-display font-semibold text-ink mb-2">Retail & E-commerce</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">Omnichannel architecture, order management systems, real-time inventory, personalization platforms, and elastic commerce platforms for seasonal traffic patterns.</p>
+      </div>
+
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-display font-semibold text-ink mb-2">Manufacturing</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">IT/OT convergence, Industry 4.0 architecture, IoT platform design, supply chain integration, digital twin architecture, and MES modernization.</p>
+      </div>
+
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-display font-semibold text-ink mb-2">Logistics</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">Real-time tracking platforms, route optimization architecture, fleet management systems, warehouse management integration, and global supply chain visibility.</p>
+      </div>
+
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-display font-semibold text-ink mb-2">Telecommunications</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">5G network architecture, OSS/BSS modernization, real-time billing, network function virtualization, and subscriber data management platforms.</p>
+      </div>
+
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-display font-semibold text-ink mb-2">Government</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">Digital service platforms, identity and registry systems, secure data exchange, legacy system modernization, and FedRAMP-compliant cloud architectures.</p>
+      </div>
+
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-display font-semibold text-ink mb-2">Education</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">Learning management platforms, student information systems integration, research data architecture, identity federation, and multi-institutional data sharing.</p>
+      </div>
+
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-display font-semibold text-ink mb-2">Media</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">Content management platforms, streaming architecture, digital rights management, personalization engines, and global content distribution networks.</p>
+      </div>
+
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-display font-semibold text-ink mb-2">SaaS</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">Multi-tenant architecture, tenant isolation patterns, API platform design, scaling architecture, and customer-specific compliance for global SaaS products.</p>
+      </div>
+
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-display font-semibold text-ink mb-2">Energy & Utilities</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">Grid telemetry platforms, smart meter integration, demand forecasting, asset management systems, and OT security architecture for critical infrastructure.</p>
+      </div>
+
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-display font-semibold text-ink mb-2">Life Sciences</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">Clinical trial data platforms, research data management, regulatory submission systems, lab information management, and GxP-compliant system architecture.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 14. FAQ -->
+<section class="py-20 md:py-28 bg-graphite" aria-labelledby="faq-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="faq-heading"
+      index="14"
+      label="Frequently Asked Questions"
+      title="Common questions about Enterprise Architecture."
+      lede="Answers to the questions we hear most often from executives and architects evaluating Enterprise Architecture engagement."
+      tone="graphite"
+    />
+    <div class="mt-14 max-w-3xl mx-auto space-y-4" data-reveal-group>
+      
+      <details class="group rounded-lg border border-graphite-line bg-graphite-2 open:border-accent-bright transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-graphite-fg list-none">
+          What is Enterprise Architecture?
+          <svg class="h-4 w-4 shrink-0 text-graphite-fg-3 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-graphite-fg-2 leading-relaxed">Enterprise Architecture is the practice of analyzing, designing, planning, and governing the enterprise technology ecosystem to ensure it supports business strategy. It provides a holistic view of capabilities, processes, applications, data, and infrastructure, and establishes the standards and roadmaps that guide technology decisions.</p>
+        </div>
+      </details>
+
+      <details class="group rounded-lg border border-graphite-line bg-graphite-2 open:border-accent-bright transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-graphite-fg list-none">
+          What is the difference between Enterprise Architecture and Solution Architecture?
+          <svg class="h-4 w-4 shrink-0 text-graphite-fg-3 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-graphite-fg-2 leading-relaxed">Enterprise Architecture operates at the organizational level, defining strategic direction, standards, and principles. Solution Architecture operates at the project level, designing specific systems within the enterprise context. EA sets the rules; SA plays within them.</p>
+        </div>
+      </details>
+
+      <details class="group rounded-lg border border-graphite-line bg-graphite-2 open:border-accent-bright transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-graphite-fg list-none">
+          What is the difference between Enterprise Architecture and Software Architecture?
+          <svg class="h-4 w-4 shrink-0 text-graphite-fg-3 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-graphite-fg-2 leading-relaxed">Software Architecture focuses on the internal structure of software systems: components, modules, interfaces, and design patterns. Enterprise Architecture covers business processes, data flows, application portfolios, infrastructure, and their interrelationships across the entire organization.</p>
+        </div>
+      </details>
+
+      <details class="group rounded-lg border border-graphite-line bg-graphite-2 open:border-accent-bright transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-graphite-fg list-none">
+          What is TOGAF and why does it matter?
+          <svg class="h-4 w-4 shrink-0 text-graphite-fg-3 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-graphite-fg-2 leading-relaxed">TOGAF (The Open Group Architecture Framework) is the industry-standard framework for developing and governing enterprise architectures. It provides the Architecture Development Method (ADM), architecture content framework, and capability framework. We apply TOGAF pragmatically, adapting it to each organizations context.</p>
+        </div>
+      </details>
+
+      <details class="group rounded-lg border border-graphite-line bg-graphite-2 open:border-accent-bright transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-graphite-fg list-none">
+          Do we need TOGAF certification to practice Enterprise Architecture?
+          <svg class="h-4 w-4 shrink-0 text-graphite-fg-3 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-graphite-fg-2 leading-relaxed">No. While TOGAF provides a useful framework and vocabulary, many organizations practice effective Enterprise Architecture without formal certification. We adapt the framework to your maturity level. The goal is architecture outcomes, not framework compliance.</p>
+        </div>
+      </details>
+
+      <details class="group rounded-lg border border-graphite-line bg-graphite-2 open:border-accent-bright transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-graphite-fg list-none">
+          How long does an Enterprise Architecture engagement take?
+          <svg class="h-4 w-4 shrink-0 text-graphite-fg-3 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-graphite-fg-2 leading-relaxed">A focused architecture assessment typically takes 4 to 8 weeks. A full architecture transformation including strategy, roadmap, and governance setup takes 3 to 6 months. Ongoing architecture advisory continues as the practice matures.</p>
+        </div>
+      </details>
+
+      <details class="group rounded-lg border border-graphite-line bg-graphite-2 open:border-accent-bright transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-graphite-fg list-none">
+          What does an Architecture Review Board do?
+          <svg class="h-4 w-4 shrink-0 text-graphite-fg-3 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-graphite-fg-2 leading-relaxed">An Architecture Review Board evaluates solution architectures for alignment with enterprise standards, principles, and strategic direction. It provides governance, identifies risks, approves or rejects exceptions, and ensures consistency across the technology portfolio.</p>
+        </div>
+      </details>
+
+      <details class="group rounded-lg border border-graphite-line bg-graphite-2 open:border-accent-bright transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-graphite-fg list-none">
+          What is a technology roadmap and how is it created?
+          <svg class="h-4 w-4 shrink-0 text-graphite-fg-3 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-graphite-fg-2 leading-relaxed">A technology roadmap is a strategic plan that maps current-state to future-state architecture over time. It is created by analyzing the gap between current and target architecture, prioritizing initiatives based on business value and dependencies, and sequencing work into phased delivery waves.</p>
+        </div>
+      </details>
+
+      <details class="group rounded-lg border border-graphite-line bg-graphite-2 open:border-accent-bright transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-graphite-fg list-none">
+          How does cloud transformation relate to Enterprise Architecture?
+          <svg class="h-4 w-4 shrink-0 text-graphite-fg-3 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-graphite-fg-2 leading-relaxed">Cloud transformation touches every EA domain: application architecture, data architecture, security architecture, integration architecture, and governance. EA provides the framework for a coherent cloud strategy.</p>
+        </div>
+      </details>
+
+      <details class="group rounded-lg border border-graphite-line bg-graphite-2 open:border-accent-bright transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-graphite-fg list-none">
+          How do you approach legacy system modernization?
+          <svg class="h-4 w-4 shrink-0 text-graphite-fg-3 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-graphite-fg-2 leading-relaxed">We assess legacy systems on business value and technical condition, then select the appropriate strategy: retain, retire, replace, rehost, replatform, refactor, or rebuild. We use incremental patterns like strangler fig and parallel run to reduce risk.</p>
+        </div>
+      </details>
+
+      <details class="group rounded-lg border border-graphite-line bg-graphite-2 open:border-accent-bright transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-graphite-fg list-none">
+          What is business capability mapping?
+          <svg class="h-4 w-4 shrink-0 text-graphite-fg-3 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-graphite-fg-2 leading-relaxed">Business capability mapping identifies and categorizes what the business does (its capabilities), not how it does it (its processes). Capabilities are organized in a hierarchical map that shows the relationship between business functions and supporting technology systems.</p>
+        </div>
+      </details>
+
+      <details class="group rounded-lg border border-graphite-line bg-graphite-2 open:border-accent-bright transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-graphite-fg list-none">
+          What is a reference architecture?
+          <svg class="h-4 w-4 shrink-0 text-graphite-fg-3 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-graphite-fg-2 leading-relaxed">A reference architecture is a reusable architecture template for a common pattern or domain. Examples include microservice reference architecture, event-driven reference architecture, data mesh reference architecture, and cloud landing zone reference architecture.</p>
+        </div>
+      </details>
+
+      <details class="group rounded-lg border border-graphite-line bg-graphite-2 open:border-accent-bright transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-graphite-fg list-none">
+          How does Enterprise Architecture handle data?
+          <svg class="h-4 w-4 shrink-0 text-graphite-fg-3 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-graphite-fg-2 leading-relaxed">Data architecture within EA covers data domains, data products, data stores, data flows, data governance, master data management, metadata management, and data lifecycle policies. A well-designed data architecture eliminates silos and enables analytics and AI initiatives.</p>
+        </div>
+      </details>
+
+      <details class="group rounded-lg border border-graphite-line bg-graphite-2 open:border-accent-bright transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-graphite-fg list-none">
+          How does security fit into Enterprise Architecture?
+          <svg class="h-4 w-4 shrink-0 text-graphite-fg-3 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-graphite-fg-2 leading-relaxed">Security architecture is an integral EA domain. It defines security principles, controls, identity and access management, encryption standards, network security, threat detection, and compliance frameworks. Security is designed into every architecture layer.</p>
+        </div>
+      </details>
+
+      <details class="group rounded-lg border border-graphite-line bg-graphite-2 open:border-accent-bright transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-graphite-fg list-none">
+          How do you measure Enterprise Architecture success?
+          <svg class="h-4 w-4 shrink-0 text-graphite-fg-3 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-graphite-fg-2 leading-relaxed">We measure EA success through business outcomes: reduced IT costs, faster time to market, improved integration success rates, reduced technical debt, higher architecture compliance, and faster cloud migration velocity.</p>
+        </div>
+      </details>
+
+      <details class="group rounded-lg border border-graphite-line bg-graphite-2 open:border-accent-bright transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-graphite-fg list-none">
+          What is the difference between EA and IT strategy?
+          <svg class="h-4 w-4 shrink-0 text-graphite-fg-3 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-graphite-fg-2 leading-relaxed">IT strategy defines what the organization will achieve with technology and why. Enterprise Architecture defines how the technology landscape is structured to deliver that strategy. IT strategy sets direction; EA provides the blueprint and governance.</p>
+        </div>
+      </details>
+
+      <details class="group rounded-lg border border-graphite-line bg-graphite-2 open:border-accent-bright transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-graphite-fg list-none">
+          How do you implement architecture governance without slowing teams?
+          <svg class="h-4 w-4 shrink-0 text-graphite-fg-3 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-graphite-fg-2 leading-relaxed">Good governance accelerates delivery. We implement lightweight, risk-based review processes where low-risk changes follow automated or expedited paths. Clear standards reduce decision overhead. Reference architectures provide ready-made templates.</p>
+        </div>
+      </details>
+
+      <details class="group rounded-lg border border-graphite-line bg-graphite-2 open:border-accent-bright transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-graphite-fg list-none">
+          How does Enterprise Architecture support digital transformation?
+          <svg class="h-4 w-4 shrink-0 text-graphite-fg-3 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-graphite-fg-2 leading-relaxed">Enterprise Architecture provides the strategic context, current-state understanding, future-state vision, and transformation roadmap that make digital transformation achievable. Without EA, transformation initiatives lack coherence and direction.</p>
+        </div>
+      </details>
+
+      <details class="group rounded-lg border border-graphite-line bg-graphite-2 open:border-accent-bright transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-graphite-fg list-none">
+          When should an organization start practicing Enterprise Architecture?
+          <svg class="h-4 w-4 shrink-0 text-graphite-fg-3 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-graphite-fg-2 leading-relaxed">The right time is when technology complexity begins to slow the business. Symptoms include rising IT costs, integration challenges, slow project delivery, and inconsistent technology choices. Starting early is better than waiting for a crisis.</p>
+        </div>
+      </details>
+
+      <details class="group rounded-lg border border-graphite-line bg-graphite-2 open:border-accent-bright transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-graphite-fg list-none">
+          How do you ensure architecture decisions are followed?
+          <svg class="h-4 w-4 shrink-0 text-graphite-fg-3 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-graphite-fg-2 leading-relaxed">Through lightweight governance, clear communication of value, and embedding architects in delivery teams. Architecture standards are enforced through automated checks in CI/CD pipelines, not through gatekeeping or manual approvals.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- 15. CALL TO ACTION -->
+<section class="relative overflow-hidden py-24 md:py-36 bg-graphite" aria-labelledby="cta-heading">
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--c-accent)_0%,_transparent_50%)] opacity-[0.04] pointer-events-none" aria-hidden="true" />
+  <div class="container-x relative z-10 text-center">
+    <p class="kicker text-accent-bright mb-4" data-reveal>
+      <span class="text-accent-bright">15</span><span aria-hidden="true">&nbsp;—&nbsp;</span>Start the conversation
+    </p>
+    <h2 id="cta-heading" class="display text-4xl md:text-[3.5rem] text-graphite-fg max-w-3xl mx-auto" data-reveal>
+      Ready to align your technology architecture with your business strategy?
+    </h2>
+    <p class="mt-6 text-lg text-graphite-fg-2 max-w-xl mx-auto leading-relaxed" data-reveal>
+      Schedule a no-obligation Enterprise Architecture strategy workshop. We will map your current architecture landscape, identify quick wins, and outline a transformation roadmap tailored to your organization.
+    </p>
+    <div class="mt-10 flex flex-wrap justify-center gap-4" data-reveal>
+      <a
+        href="/contact"
+        class="inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 font-medium text-white transition-colors hover:bg-accent-hover"
+      >
+        Schedule a strategy workshop
+        <svg class="h-4 w-4" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M2 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <a
+        href="mailto:hello@substrate.engineering"
+        class="inline-flex items-center gap-2 rounded-full border border-graphite-line px-7 py-3.5 font-medium text-graphite-fg transition-colors hover:bg-graphite-2"
+      >
+        hello@substrate.engineering
+      </a>
+    </div>
+    <div class="mt-14 flex flex-wrap justify-center gap-8 text-sm text-graphite-fg-3" data-reveal>
+      <span>No commitment required</span>
+      <span class="hidden md:inline" aria-hidden="true">&middot;</span>
+      <span>Tailored to your organization</span>
+      <span class="hidden md:inline" aria-hidden="true">&middot;</span>
+      <span>90-minute executive session</span>
+      <span class="hidden md:inline" aria-hidden="true">&middot;</span>
+      <span>Delivered by senior architects</span>
+    </div>
+  </div>
+</section>
+
+
+</Base>
+
+<style is:global>
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+  details > summary {
+    list-style: none;
+  }
+  details > summary::marker,
+  details > summary::-webkit-details-marker {
+    display: none;
+    content: '';
+  }
+</style>

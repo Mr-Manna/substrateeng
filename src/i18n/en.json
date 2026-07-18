@@ -11,6 +11,15 @@
         "href": "/#capabilities",
         "items": [
           {
+            "label": "Engineering Discovery & Assessment",
+            "href": "/engineering-discovery-assessment",
+            "items": [
+              { "label": "Technology landscape review", "href": "/engineering-discovery-assessment#what-we-assess" },
+              { "label": "Architecture & maturity assessment", "href": "/engineering-discovery-assessment#framework-heading" },
+              { "label": "Prioritized modernization roadmap", "href": "/engineering-discovery-assessment#deliverables-heading" }
+            ]
+          },
+          {
             "label": "Distributed Systems",
             "href": "#",
             "items": [
@@ -767,6 +776,377 @@
     "description": "Get in touch with Substrate. Tell us what's slow, what's fragile, or what you can't ship yet — it lands with an engineer, not a sales queue.",
     "breadcrumbHome": "Home"
   },
+  "contactHero": {
+    "supportingHeadline": "Replies in two working days — from an engineer, not a queue.",
+    "intro": "Whether you are planning a platform initiative, need architecture guidance, or want to discuss a specific engineering challenge, the right person at Substrate will read your message. We do not route inquiries through a sales development process.",
+    "responseTime": "Average first response: 1.8 working days",
+    "cta": "Send an inquiry"
+  },
+  "contactOptions": {
+    "heading": "How we can help",
+    "lede": "Every inquiry reaches the relevant practice lead. Select the area that best matches your needs.",
+    "sales": {
+      "title": "Sales",
+      "description": "New projects, proposals, and commercial inquiries.",
+      "items": [
+        "Planning a new platform initiative",
+        "Architecture consultation",
+        "Request a proposal",
+        "Digital transformation programs"
+      ]
+    },
+    "engineering": {
+      "title": "Engineering",
+      "description": "Technical consultations across our practice areas.",
+      "items": [
+        "Technical consultation",
+        "Platform Engineering",
+        "Cloud Architecture",
+        "AI Engineering",
+        "Data Engineering",
+        "Migration & modernization",
+        "SRE & operations"
+      ]
+    },
+    "partnerships": {
+      "title": "Partnerships",
+      "description": "Strategic relationships and ecosystem collaboration.",
+      "items": [
+        "Technology partners",
+        "Agency partners",
+        "Strategic alliances",
+        "Speaking opportunities"
+      ]
+    },
+    "careers": {
+      "title": "Careers",
+      "description": "Join the team building the layer beneath.",
+      "items": [
+        "Engineering roles",
+        "Internships",
+        "Graduate opportunities"
+      ]
+    },
+    "support": {
+      "title": "Support",
+      "description": "Existing clients and general inquiries.",
+      "items": [
+        "General questions",
+        "Existing client support",
+        "Technical support",
+        "Documentation requests"
+      ]
+    }
+  },
+  "contactForm": {
+    "heading": "Send an inquiry",
+    "lede": "Provide as much context as you can. The more we understand about your situation, the better our first response will be.",
+    "fields": {
+      "fullName": {
+        "label": "Full name",
+        "placeholder": "Your full name",
+        "required": true,
+        "error": "Please enter your full name"
+      },
+      "companyName": {
+        "label": "Company name",
+        "placeholder": "Your organisation",
+        "required": true,
+        "error": "Please enter your company name"
+      },
+      "businessEmail": {
+        "label": "Business email",
+        "placeholder": "you@company.com",
+        "required": true,
+        "error": "Please enter a valid business email address",
+        "typeError": "Enter an email address in the format name@domain.com"
+      },
+      "phone": {
+        "label": "Phone number",
+        "placeholder": "+1 (555) 000-0000",
+        "required": false,
+        "error": "Please enter a valid phone number"
+      },
+      "country": {
+        "label": "Country",
+        "placeholder": "Select your country",
+        "required": true,
+        "error": "Please select your country"
+      },
+      "industry": {
+        "label": "Industry",
+        "placeholder": "Select your industry",
+        "required": true,
+        "error": "Please select your industry"
+      },
+      "companySize": {
+        "label": "Company size",
+        "placeholder": "Select approximate size",
+        "required": true,
+        "error": "Please select your company size"
+      },
+      "jobTitle": {
+        "label": "Job title",
+        "placeholder": "e.g. CTO, VP Engineering",
+        "required": true,
+        "error": "Please enter your job title"
+      },
+      "serviceInterestedIn": {
+        "label": "Service interested in",
+        "placeholder": "Select a service",
+        "required": true,
+        "error": "Please select a service"
+      },
+      "projectBudget": {
+        "label": "Project budget",
+        "placeholder": "Select approximate range",
+        "required": false
+      },
+      "expectedTimeline": {
+        "label": "Expected timeline",
+        "placeholder": "Select a timeframe",
+        "required": true,
+        "error": "Please select an expected timeline"
+      },
+      "currentChallenge": {
+        "label": "Current challenge",
+        "placeholder": "Briefly describe the problem you are solving",
+        "required": false
+      },
+      "projectDescription": {
+        "label": "Project description",
+        "placeholder": "Tell us about your project, goals, and any constraints we should know about",
+        "required": true,
+        "error": "Please provide a description of your project"
+      },
+      "preferredContact": {
+        "label": "Preferred contact method",
+        "required": true,
+        "error": "Please select a preferred contact method",
+        "options": ["Email", "Phone", "Video call"]
+      },
+      "consent": {
+        "label": "I agree to Substrate processing my data in accordance with the privacy policy.",
+        "required": true,
+        "error": "You must agree to the privacy policy"
+      },
+      "newsletter": {
+        "label": "Subscribe to engineering insights and field notes from our engineers."
+      }
+    },
+    "submit": "Submit inquiry",
+    "submitting": "Sending...",
+    "success": {
+      "title": "Inquiry received",
+      "message": "Thank you for reaching out. A member of our engineering team will respond within two working days.",
+      "nextSteps": "What happens next",
+      "steps": [
+        "We review your inquiry and assign it to the relevant practice lead.",
+        "An engineer schedules a discovery call to understand your context.",
+        "We prepare a proposal with scope, timeline, and pricing — or a straight recommendation if we are not the right fit."
+      ]
+    },
+    "error": {
+      "title": "Something went wrong",
+      "message": "We could not send your message. Please try again or email us directly at hello@substrate.engineering.",
+      "retry": "Try again"
+    },
+    "spamNotice": "This site is protected by basic spam detection. Your information will be handled in accordance with our privacy policy.",
+    "charCounter": " characters"
+  },
+  "consultationCTA": {
+    "heading": "Not ready to submit a full inquiry?",
+    "title": "Book a discovery call.",
+    "lede": "A 30-minute conversation with a practice lead. No pitch, no obligation. We will listen to what you are working on, ask clarifying questions, and tell you honestly whether we can help.",
+    "whatHappens": "After you reach out",
+    "steps": [
+      {
+        "step": "01",
+        "title": "Discovery call",
+        "text": "A 30-minute conversation with a practice lead. We listen to your situation and determine if there is a fit."
+      },
+      {
+        "step": "02",
+        "title": "Architecture discussion",
+        "text": "A deeper working session, under NDA if you prefer. We review your current architecture and discuss options."
+      },
+      {
+        "step": "03",
+        "title": "Proposal",
+        "text": "A written proposal with scope, timeline, team composition, and pricing. No pressure, no expiry gimmicks."
+      },
+      {
+        "step": "04",
+        "title": "Delivery",
+        "text": "If we proceed, your engagement begins with a kickoff week: environment setup, knowledge transfer, and the first sprint."
+      }
+    ]
+  },
+  "officeInfo": {
+    "heading": "Office & company information",
+    "title": "Global reach, engineering depth.",
+    "lede": "Substrate operates across three regions with a remote-first engineering culture. We work in the timezone that suits your team.",
+    "offices": [
+      {
+        "city": "London",
+        "country": "United Kingdom",
+        "role": "Headquarters",
+        "timezone": "GMT/BST",
+        "address": "London, UK"
+      },
+      {
+        "city": "Singapore",
+        "country": "Singapore",
+        "role": "APAC hub",
+        "timezone": "SGT (UTC+8)",
+        "address": "Singapore"
+      },
+      {
+        "city": "Toronto",
+        "country": "Canada",
+        "role": "Americas hub",
+        "timezone": "EST/EDT",
+        "address": "Toronto, ON"
+      }
+    ],
+    "remoteFirst": "Remote-first, globally distributed. Our engineers work across 14 countries. We collaborate asynchronously by default and meet in person for key milestones.",
+    "globalDelivery": "Global delivery model: we staff engagements with the right engineers regardless of location. Our clients benefit from timezone coverage across three continents.",
+    "businessHours": "Business hours: Monday to Friday, 09:00–18:00 in each regional office. Core collaboration hours overlap between 14:00–17:00 UTC.",
+    "registeredOffice": "Registered office: London, United Kingdom. Substrate delivers services globally through local entities where required."
+  },
+  "whyContact": {
+    "heading": "Why contact Substrate",
+    "lede": "Organizations reach out to us for the same reasons their teams stay for years. These are the qualities that define every engagement.",
+    "points": [
+      {
+        "title": "Engineering-first",
+        "text": "You speak to an engineer from the first message. We do not have a sales qualification process."
+      },
+      {
+        "title": "Vendor neutral",
+        "text": "No reseller agreements, no commissions. Our recommendations are based on what fits your problem."
+      },
+      {
+        "title": "Enterprise standards",
+        "text": "SOC 2 principles, GDPR compliance, ISO-aligned processes. We operate at the standard enterprises require."
+      },
+      {
+        "title": "Cloud native expertise",
+        "text": "AWS, Azure, and GCP at production scale. Multi-cloud strategy when it makes sense, not because we sell it."
+      },
+      {
+        "title": "Automation focused",
+        "text": "Manual operations are technical debt. We automate everything that can be automated, from day one."
+      },
+      {
+        "title": "Transparent communication",
+        "text": "Architecture decisions, trade-offs, risks, and progress — shared in plain language, especially when it is bad news."
+      },
+      {
+        "title": "Security mindset",
+        "text": "Zero-trust architecture, policy as code, and compliance automation are standard practice, not optional extras."
+      },
+      {
+        "title": "Long-term partnership",
+        "text": "We prefer multi-year relationships over single projects. The best outcomes come from deep understanding."
+      }
+    ]
+  },
+  "contactIndustries": {
+    "heading": "Industries we work with",
+    "lede": "Regulated, high-stakes sectors where engineering quality determines outcomes. The domain changes; our approach does not.",
+    "items": [
+      "Financial Services",
+      "Healthcare",
+      "Retail & Commerce",
+      "Manufacturing",
+      "Logistics & Supply Chain",
+      "Education",
+      "Government & Public Sector",
+      "Telecommunications",
+      "SaaS & Technology",
+      "Media & Entertainment",
+      "Artificial Intelligence",
+      "Energy & Utilities"
+    ]
+  },
+  "contactFAQ": {
+    "heading": "Frequently asked questions",
+    "lede": "Enterprise buyers evaluate engineering partners thoroughly. These are the questions we hear most often.",
+    "items": [
+      {
+        "q": "How quickly will I hear back after submitting an inquiry?",
+        "a": "Our team aims to respond within two working days. The reply comes from an engineer in the relevant practice area, not from a sales representative."
+      },
+      {
+        "q": "What happens after I submit the contact form?",
+        "a": "Your inquiry is reviewed by the relevant practice lead. If there is a clear fit, we schedule a discovery call. If your needs fall outside our expertise, we will tell you directly."
+      },
+      {
+        "q": "Do I need a detailed brief before contacting you?",
+        "a": "No. A high-level description of your situation is sufficient to start the conversation. We will help you scope the details during the discovery process."
+      },
+      {
+        "q": "How does Substrate charge for engagements?",
+        "a": "We provide fixed-price proposals for well-scoped projects and team-based pricing for ongoing engagements. All pricing is transparent and itemized. We do not charge markup on contractor rates."
+      },
+      {
+        "q": "Can we sign an NDA before discussing our project?",
+        "a": "Yes. We routinely sign NDAs before discovery conversations. We treat every client's information as confidential from the first contact."
+      },
+      {
+        "q": "Do you work with international clients?",
+        "a": "Yes. We deliver services across North America, Europe, and Asia-Pacific. Our global delivery model allows us to staff engagements with the right engineers regardless of geography."
+      },
+      {
+        "q": "How does remote collaboration work?",
+        "a": "We collaborate asynchronously by default using tools your team already uses: Slack, Teams, GitHub, Jira, or similar. We schedule synchronous working sessions for architecture discussions and sprint ceremonies."
+      },
+      {
+        "q": "What does project onboarding look like?",
+        "a": "Engagements begin with a kickoff week: environment access, knowledge transfer sessions, tooling setup, and the first sprint planning. We aim to deliver value by the end of week one."
+      },
+      {
+        "q": "Do you provide ongoing support after a project?",
+        "a": "Yes. Many clients transition from project delivery to managed operations or retainer-based advisory. We structure engagement transitions to match your operational needs."
+      },
+      {
+        "q": "What technology stacks do you work with?",
+        "a": "We are proficient across AWS, Azure, GCP, Kubernetes, Terraform, TypeScript, Python, Go, Rust, PostgreSQL, Kafka, and modern AI/ML stacks. Our full technology ecosystem is documented on our capabilities page."
+      },
+      {
+        "q": "What is a discovery workshop?",
+        "a": "A structured working session where we map your current state, identify constraints, define success metrics, and agree on a target architecture. It typically runs one to three days."
+      },
+      {
+        "q": "Do you conduct architecture reviews?",
+        "a": "Yes. Architecture reviews are one of our most common engagement types. We review your existing systems, identify risks and improvement opportunities, and provide a written report with actionable recommendations."
+      },
+      {
+        "q": "What size enterprise engagements do you handle?",
+        "a": "We work with organizations from growth-stage startups to Fortune 500 enterprises. Engagement sizes range from two-week advisory sprints to multi-year platform programs with distributed teams."
+      },
+      {
+        "q": "How do you handle data security and compliance?",
+        "a": "Security is integrated into our engineering process from day one. We design for SOC 2, GDPR, HIPAA, PCI-DSS, and FedRAMP requirements where applicable. Data residency and sovereignty are treated as architectural constraints."
+      },
+      {
+        "q": "Can you work alongside our existing engineering team?",
+        "a": "Yes. We commonly work embedded within client engineering organizations. Our engineers integrate into your existing workflows, attend your ceremonies, and collaborate directly with your team."
+      },
+      {
+        "q": "What is the typical engagement duration?",
+        "a": "Engagements range from short-term advisory (two to six weeks) to multi-year platform partnerships. We prefer longer engagements because deep understanding produces better outcomes."
+      }
+    ]
+  },
+  "contactFinalCTA": {
+    "heading": "Discuss your engineering challenges.",
+    "lede": "Every engagement at Substrate starts with a conversation. Tell us about the problem you are solving, and we will tell you honestly whether we can help. No pitch decks, no sales process, no obligation.",
+    "cta": "Submit an inquiry",
+    "secondaryCta": "Email us directly",
+    "email": "hello@substrate.engineering"
+  },
   "footer": {
     "navItems": [
       { "label": "About", "href": "/about" },
@@ -803,7 +1183,12 @@
   },
   "buttons": {
     "startConversation": "Start a conversation",
-    "exploreCapabilities": "Explore capabilities"
+    "exploreCapabilities": "Explore capabilities",
+    "submitInquiry": "Submit an inquiry",
+    "bookDiscovery": "Book a discovery call",
+    "sendInquiry": "Send an inquiry",
+    "emailUs": "Email us directly",
+    "viewCapabilities": "View our capabilities"
   },
   "aria": {
     "heroSection": "Introduction",
@@ -823,6 +1208,14 @@
     "contactSvg": "Depth gauge: a borehole descending past every section of this page — scale, capabilities, industries, technology, process, work, insights — ending at bedrock, marked contact, you are here",
     "trustedClientsList": "Client placeholder logos",
     "footerNav": "Footer",
-    "skipLink": "Skip to content"
+    "skipLink": "Skip to content",
+    "contactOptionsSection": "Contact options — how Substrate can help you",
+    "contactFormSection": "Contact form — send Substrate an inquiry",
+    "consultationSection": "Book a discovery call with Substrate",
+    "officeSection": "Substrate office and company information",
+    "whyContactSection": "Why contact Substrate",
+    "contactIndustriesSection": "Industries Substrate works with",
+    "contactFaqSection": "Frequently asked questions about contacting Substrate",
+    "contactFinalCtaSection": "Final call to action"
   }
 }

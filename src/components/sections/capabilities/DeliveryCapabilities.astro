@@ -1,0 +1,95 @@
+---
+import SectionHeading from '../../SectionHeading.astro';
+
+interface DeliveryItem {
+  number: string;
+  title: string;
+  description: string;
+}
+
+const items: DeliveryItem[] = [
+  {
+    number: '01',
+    title: 'Consulting',
+    description: 'Expert guidance on technology strategy, architecture decisions, and engineering practices. We help teams make informed choices with clear trade-offs.',
+  },
+  {
+    number: '02',
+    title: 'Architecture',
+    description: 'Detailed architectural design for systems, platforms, and infrastructure. We produce architecture that is documented, reasoned about, and ready for implementation.',
+  },
+  {
+    number: '03',
+    title: 'Strategy',
+    description: 'Technology roadmaps, platform visions, and multi-year engineering plans aligned to business objectives. We help organizations decide what to build and in what order.',
+  },
+  {
+    number: '04',
+    title: 'Implementation',
+    description: 'Hands-on engineering delivery. Our engineers write code, configure infrastructure, build pipelines, and ship working systems alongside your teams.',
+  },
+  {
+    number: '05',
+    title: 'Migration',
+    description: 'Low-risk migration of workloads, data, and platforms. Strangler fig patterns, parallel runs, automated validation, and rollback procedures built into every plan.',
+  },
+  {
+    number: '06',
+    title: 'Automation',
+    description: 'Design and implementation of automation across infrastructure, deployment, testing, compliance, and operations. Repeatability through code.',
+  },
+  {
+    number: '07',
+    title: 'Optimization',
+    description: 'Performance tuning, cost optimization, and architecture refinement for existing systems. Measurable improvements without full redesign.',
+  },
+  {
+    number: '08',
+    title: 'Operations',
+    description: 'Day-to-day platform operations including monitoring, incident response, capacity management, upgrades, and security patching.',
+  },
+  {
+    number: '09',
+    title: 'Training',
+    description: 'Structured knowledge transfer and capability building. Workshops, pair programming, and documentation that leaves your team self-sufficient.',
+  },
+  {
+    number: '10',
+    title: 'Managed Services',
+    description: 'Ongoing management of platforms and infrastructure. SLAs, incident response, and continuous improvement delivered as a service.',
+  },
+  {
+    number: '11',
+    title: 'Technical Advisory',
+    description: 'Fractional CTO, architecture review board participation, and ongoing technical guidance for leadership teams navigating complex decisions.',
+  },
+  {
+    number: '12',
+    title: 'Fractional Architecture Leadership',
+    description: 'Part-time architectural leadership for organizations that need senior technical direction without full-time executive overhead.',
+  },
+];
+---
+
+<section class="py-20 md:py-28 bg-graphite" aria-labelledby="delivery-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="delivery-heading"
+      index="06"
+      label="Delivery Capabilities"
+      title="How we work with organizations."
+      lede="We engage across the full spectrum of engineering delivery — from strategic advisory to hands-on implementation to ongoing operations. The engagement model adapts to the problem."
+      tone="graphite"
+    />
+
+    <div class="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4" data-reveal-group>
+      {items.map((item) => (
+        <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+          <span class="block font-mono text-xs text-accent-bright mb-3">{item.number}</span>
+          <h3 class="font-display font-semibold text-graphite-fg mb-2">{item.title}</h3>
+          <p class="text-sm text-graphite-fg-2 leading-relaxed">{item.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

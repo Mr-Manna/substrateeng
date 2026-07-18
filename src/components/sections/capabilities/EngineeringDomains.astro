@@ -1,0 +1,127 @@
+---
+import SectionHeading from '../../SectionHeading.astro';
+
+interface DomainGroup {
+  category: string;
+  items: string[];
+}
+
+const groups: DomainGroup[] = [
+  {
+    category: 'Cloud Platforms',
+    items: ['AWS', 'Azure', 'GCP', 'Multi-cloud architecture', 'Cloud governance', 'Landing zones', 'Hybrid cloud'],
+  },
+  {
+    category: 'Distributed Systems',
+    items: ['Consensus protocols', 'Replication strategies', 'Partition tolerance', 'Consistency models', 'CAP theorem', 'Distributed consensus'],
+  },
+  {
+    category: 'Microservices',
+    items: ['Service decomposition', 'Domain-driven design', 'Bounded contexts', 'Inter-service communication', 'Service discovery'],
+  },
+  {
+    category: 'Containers & Kubernetes',
+    items: ['Cluster architecture', 'Multi-cluster management', 'Service mesh', 'Pod security', 'Resource quotas', 'Namespace isolation'],
+  },
+  {
+    category: 'Infrastructure as Code',
+    items: ['Terraform', 'Pulumi', 'AWS CDK', 'Crossplane', 'Ansible', 'State management', 'Drift detection'],
+  },
+  {
+    category: 'Networking',
+    items: ['VPC design', 'Transit gateways', 'Private links', 'DNS architecture', 'CDN strategy', 'Load balancing', 'Firewall policies'],
+  },
+  {
+    category: 'Identity & Security',
+    items: ['Zero-trust architecture', 'IAM policies', 'Secrets management', 'Policy as code', 'Compliance automation'],
+  },
+  {
+    category: 'Automation',
+    items: ['Workflow orchestration', 'Event-driven automation', 'Runbook automation', 'Self-healing systems', 'ChatOps'],
+  },
+  {
+    category: 'Developer Platforms',
+    items: ['Internal developer portals', 'Service catalogs', 'Golden paths', 'Backstage', 'Port', 'Humanitec'],
+  },
+  {
+    category: 'CI/CD & GitOps',
+    items: ['Pipeline design', 'Deployment strategies', 'Argo CD', 'Flux', 'GitHub Actions', 'GitLab CI', 'Buildkite'],
+  },
+  {
+    category: 'Observability',
+    items: ['Metrics', 'Distributed tracing', 'Logging', 'OpenTelemetry', 'Prometheus', 'Grafana', 'Datadog', 'SLOs'],
+  },
+  {
+    category: 'Databases & Caching',
+    items: ['PostgreSQL', 'MySQL', 'MongoDB', 'Redis', 'Memcached', 'Cassandra', 'CockroachDB', 'DynamoDB'],
+  },
+  {
+    category: 'Messaging & Event Streaming',
+    items: ['Apache Kafka', 'RabbitMQ', 'NATS', 'Amazon SQS/SNS', 'Event sourcing', 'CQRS'],
+  },
+  {
+    category: 'API Platforms',
+    items: ['API gateways', 'REST', 'gRPC', 'GraphQL', 'OpenAPI', 'Rate limiting', 'API versioning'],
+  },
+  {
+    category: 'AI Infrastructure',
+    items: ['GPU clusters', 'Model serving', 'vLLM', 'Ray', 'Inference optimization', 'Model caching'],
+  },
+  {
+    category: 'Vector Databases & LLMs',
+    items: ['pgvector', 'Pinecone', 'Weaviate', 'Qdrant', 'Chroma', 'LLM orchestration', 'RAG pipelines'],
+  },
+  {
+    category: 'Knowledge Systems',
+    items: ['Knowledge graphs', 'Semantic search', 'Document retrieval', 'Agentic workflows', 'Memory systems'],
+  },
+  {
+    category: 'Analytics & Data Platforms',
+    items: ['Data warehouses', 'Data lakes', 'Lakehouse architecture', 'Iceberg', 'Delta Lake', 'dbt'],
+  },
+  {
+    category: 'Serverless & Edge',
+    items: ['Lambda', 'Cloud Functions', 'Fargate', 'Edge computing', 'CDN compute', 'IoT processing'],
+  },
+  {
+    category: 'Platform Operations',
+    items: ['Release engineering', 'Change management', 'Capacity planning', 'Patch management', 'Backup & restore'],
+  },
+  {
+    category: 'Chaos Engineering',
+    items: ['Failure injection', 'Game days', 'Resilience testing', 'Blast radius analysis'],
+  },
+  {
+    category: 'FinOps & Cloud Governance',
+    items: ['Cost allocation', 'Budgeting', 'Reserved instances', 'Spot usage', 'Cost optimization', 'Policy enforcement'],
+  },
+];
+---
+
+<section class="py-20 md:py-28 bg-graphite" aria-labelledby="domains-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="domains-heading"
+      index="04"
+      label="Engineering Domains"
+      title="Deep expertise across the full technology stack."
+      lede="These are the technical domains where Substrate engineers operate day to day. Each domain represents real production experience solving hard problems at scale."
+      tone="graphite"
+    />
+
+    <div class="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3" data-reveal-group>
+      {groups.map((group) => (
+        <div data-reveal>
+          <h3 class="font-mono text-xs text-accent-bright mb-4 uppercase tracking-wider">{group.category}</h3>
+          <div class="flex flex-wrap gap-2">
+            {group.items.map((item) => (
+              <span class="rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 transition-colors duration-200 hover:border-accent-bright/30 hover:text-graphite-fg">
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

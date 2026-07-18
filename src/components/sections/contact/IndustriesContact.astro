@@ -1,0 +1,60 @@
+---
+import SectionHeading from '../../SectionHeading.astro';
+import { useTranslations } from '../../../i18n/useTranslations';
+
+const locale = (Astro.currentLocale || 'en') as string;
+const { t, tRaw } = useTranslations(locale);
+
+const industries = tRaw<string[]>('contactIndustries.items');
+
+const industryIcons: Record<string, string> = {
+  'Financial Services': 'M3 10h18v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V10Z M7 10V6a5 5 0 0 1 10 0v4 M12 16v1',
+  'Healthcare': 'M12 3.5v17M3.5 12h17 M7.5 8v8M16.5 8v8',
+  'Retail & Commerce': 'M4 7.5h16l-1.5 12H5.5L4 7.5Z M8.5 7.5V5a3.5 3.5 0 0 1 7 0v2.5',
+  'Manufacturing': 'M3 19V8.5L12 3l9 5.5V19 M3 14h18 M7 14v5h10v-5',
+  'Logistics & Supply Chain': 'M2 8h20v11a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 19V8Z M6.5 19.5v-3M17.5 19.5v-3M10 8V5h4v3',
+  'Education': 'M12 3.5 2 9l10 5.5L22 9 12 3.5Z M2 14.5v4.5c0 1.5 4.5 2.5 10 2.5s10-1 10-2.5v-4.5',
+  'Government & Public Sector': 'M5 10.5h14l-2-6H7l-2 6Z M4 10.5h16v9H4z M10 14.5h4v5h-4z',
+  'Telecommunications': 'M2 15a10 10 0 0 1 20 0 M5 15a7 7 0 0 1 14 0 M8 15a4 4 0 0 1 8 0 M12 17v2',
+  'SaaS & Technology': 'M3 3h18v18H3V3Z M8 12h8 M12 8v8',
+  'Media & Entertainment': 'M6 9v10l8-5-8-5Z M14 9h4v10h-4Z M2 9h2v10H2Z',
+  'Artificial Intelligence': 'M12 3.5c.6 4.6 3.3 7.3 7.9 7.9-4.6.6-7.3 3.3-7.9 7.9-.6-4.6-3.3-7.3-7.9-7.9 4.6-.6 7.3-3.3 7.9-7.9Z',
+  'Energy & Utilities': 'M12 2v6l4-2-4 8v6l6-8-4 2 4-8-6 4Z',
+};
+---
+
+<section class="py-20 md:py-28 bg-graphite" aria-labelledby="contact-industries-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="contact-industries-heading"
+      index="—"
+      label="Industries"
+      title={t('contactIndustries.heading')}
+      lede={t('contactIndustries.lede')}
+      tone="graphite"
+    />
+
+    <div class="mt-14 grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4" data-reveal-group>
+      {industries.map((ind) => (
+        <div
+          class="flex items-center gap-4 rounded-lg border border-graphite-line bg-graphite-2 p-5 transition-colors duration-200 hover:border-accent-bright/30"
+          data-reveal
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="h-6 w-6 shrink-0 text-accent-bright"
+            aria-hidden="true"
+          >
+            <path d={industryIcons[ind] || 'M12 3.5c.6 4.6 3.3 7.3 7.9 7.9-4.6.6-7.3 3.3-7.9 7.9'} />
+          </svg>
+          <span class="font-display font-medium text-graphite-fg text-sm leading-tight">{ind}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,45 @@
+---
+import Base from '../../layouts/Base.astro';
+import Hero from '../../components/sections/capabilities/Hero.astro';
+import EngineeringPhilosophy from '../../components/sections/capabilities/EngineeringPhilosophy.astro';
+import CapabilityOverview from '../../components/sections/capabilities/CapabilityOverview.astro';
+import EngineeringDomains from '../../components/sections/capabilities/EngineeringDomains.astro';
+import BusinessProblems from '../../components/sections/capabilities/BusinessProblems.astro';
+import DeliveryCapabilities from '../../components/sections/capabilities/DeliveryCapabilities.astro';
+import TechnologyEcosystem from '../../components/sections/capabilities/TechnologyEcosystem.astro';
+import Industries from '../../components/sections/capabilities/Industries.astro';
+import WhyChooseSubstrate from '../../components/sections/capabilities/WhyChooseSubstrate.astro';
+import DeliveryProcess from '../../components/sections/capabilities/DeliveryProcess.astro';
+import CapabilityMaturity from '../../components/sections/capabilities/CapabilityMaturity.astro';
+import FAQ from '../../components/sections/capabilities/FAQ.astro';
+import CTA from '../../components/sections/capabilities/CTA.astro';
+import { locales } from '../../i18n/config';
+
+export function getStaticPaths() {
+  return locales
+    .filter((l) => l !== 'en')
+    .map((locale) => ({ params: { locale } }));
+}
+
+const locale = Astro.params.locale ?? 'en';
+---
+
+<Base
+  locale={locale}
+  title="Engineering Capabilities | Substrate"
+  description="Substrate's complete engineering capabilities: platform engineering, cloud architecture, AI-native systems, data engineering, SRE, enterprise architecture, and more. For CTOs and engineering leaders."
+>
+  <Hero />
+  <EngineeringPhilosophy />
+  <CapabilityOverview />
+  <EngineeringDomains />
+  <BusinessProblems />
+  <DeliveryCapabilities />
+  <TechnologyEcosystem />
+  <Industries />
+  <WhyChooseSubstrate />
+  <DeliveryProcess />
+  <CapabilityMaturity />
+  <FAQ />
+  <CTA />
+</Base>

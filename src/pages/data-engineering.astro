@@ -1,0 +1,1596 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import Button from '../components/Button.astro';
+
+const breadcrumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Capabilities', href: '/#capabilities' },
+  { name: 'Data Engineering', href: '' },
+];
+---
+
+<Base
+  title="Data Engineering Services | Substrate"
+  description="Substrate helps enterprises design, build, modernize, and operate data platforms. Reliable data pipelines, robust architecture, and trusted insights at scale."
+>
+<!-- ============================================================ -->
+<!-- 1. HERO -->
+<!-- ============================================================ -->
+<section class="relative overflow-hidden py-24 md:py-40" aria-labelledby="hero-heading">
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--c-accent-soft)_0%,_transparent_60%)] pointer-events-none" aria-hidden="true" />
+  <div class="container-x relative z-10">
+    <nav class="mb-10 text-sm text-ink-3">
+      {breadcrumbs.map((crumb, idx) => (
+        <span>
+          {idx > 0 && ' / '}
+          {crumb.href && idx < breadcrumbs.length - 1
+            ? <a href={crumb.href} class="text-accent hover:underline">{crumb.name}</a>
+            : <span class={idx === breadcrumbs.length - 1 ? 'font-medium text-ink' : ''}>{crumb.name}</span>
+          }
+        </span>
+      ))}
+    </nav>
+
+    <div class="max-w-4xl" data-reveal-group>
+      <p class="kicker text-accent mb-5" data-reveal>
+        <span class="text-accent">01</span><span aria-hidden="true">&nbsp;—&nbsp;</span>Data Engineering
+      </p>
+      <h1 id="hero-heading" class="display text-5xl md:text-[4.5rem] text-ink max-w-5xl" data-reveal>
+        Reliable data platforms.<br />Trusted insights at scale.
+      </h1>
+      <p class="mt-6 text-lg md:text-xl text-ink-2 max-w-2xl leading-relaxed" data-reveal>
+        Data engineering is the foundation of every data-driven organization. Substrate helps enterprises design, build, and operate robust data platforms that transform raw data into trusted, actionable insights.
+      </p>
+      <div class="mt-10 flex flex-wrap gap-4" data-reveal>
+        <Button href="/contact" variant="primary" size="md">Talk to our team</Button>
+        <Button href="#what-is" variant="secondary" size="md">Learn more</Button>
+      </div>
+    </div>
+
+    <div class="mt-16 grid gap-6 md:grid-cols-3 max-w-4xl" data-reveal-group>
+      <div class="border-t border-line pt-5" data-reveal>
+        <p class="text-3xl font-display font-semibold text-accent">70%</p>
+        <p class="text-sm text-ink-2 mt-1">Enterprise data sits unused — locked in silos, unprocessed, or inaccessible to decision-makers</p>
+      </div>
+      <div class="border-t border-line pt-5" data-reveal>
+        <p class="text-3xl font-display font-semibold text-accent">3-5x</p>
+        <p class="text-sm text-ink-2 mt-1">Faster time-to-insight with modern data pipelines and automated dataOps practices</p>
+      </div>
+      <div class="border-t border-line pt-5" data-reveal>
+        <p class="text-3xl font-display font-semibold text-accent">40%</p>
+        <p class="text-sm text-ink-2 mt-1">Average infrastructure cost reduction through modern data architecture and optimization</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 2. WHAT IS DATA ENGINEERING? -->
+<!-- ============================================================ -->
+<section id="what-is" class="py-20 md:py-28 bg-graphite" aria-labelledby="whatis-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="whatis-heading"
+      index="02"
+      label="What is Data Engineering"
+      title="The discipline of turning raw data into reliable, production-grade systems."
+      lede="Data engineering is the practice of designing, building, and maintaining the infrastructure and pipelines that collect, store, process, and make data available for analysis, machine learning, and operational use cases. It is the engineering backbone of every data-driven organization."
+      tone="graphite"
+    />
+
+    <div class="mt-14 grid gap-10 md:grid-cols-2 lg:gap-16" data-reveal-group>
+      <div data-reveal>
+        <h3 class="text-xl font-display font-semibold text-graphite-fg mb-4">Definition and scope</h3>
+        <p class="text-graphite-fg-2 leading-relaxed mb-4">
+          Data engineering encompasses the entire lifecycle of data: ingestion from source systems, transformation and cleaning, storage in optimized formats, orchestration of pipelines, and delivery to consumers. It includes the platforms, tools, and processes that make data reliable, accessible, and governable at scale.
+        </p>
+        <p class="text-graphite-fg-2 leading-relaxed">
+          A well-engineered data platform abstracts the complexity of underlying infrastructure, enforces data quality and governance, and provides self-service access to data consumers across the organization. It is the difference between a data swamp and a data asset.
+        </p>
+      </div>
+
+      <div data-reveal>
+        <h3 class="text-xl font-display font-semibold text-graphite-fg mb-4">Why it matters for business</h3>
+        <p class="text-graphite-fg-2 leading-relaxed mb-4">
+          Organizations invest in data engineering to unlock the value of their data assets. Without robust data engineering, analytics is built on fragile foundations, machine learning models train on unreliable data, and operational decisions are made without accurate information.
+        </p>
+        <p class="text-graphite-fg-2 leading-relaxed">
+          Companies that invest in modern data engineering practices report faster time-to-insight, higher trust in data, lower total cost of ownership, and the ability to scale data operations without proportionally scaling headcount.
+        </p>
+      </div>
+
+      <div data-reveal>
+        <h3 class="text-xl font-display font-semibold text-graphite-fg mb-4">Data engineering vs. data science vs. analytics</h3>
+        <p class="text-graphite-fg-2 leading-relaxed mb-4">
+          Data engineering builds the infrastructure and pipelines. Data science explores and models data to generate predictions and insights. Analytics consumes data through reports, dashboards, and ad hoc queries. All three are essential, but data engineering is the foundation upon which the others depend.
+        </p>
+        <p class="text-graphite-fg-2 leading-relaxed">
+          Without strong data engineering, data scientists spend 80% of their time cleaning and preparing data. With it, they focus on creating value. The best data organizations invest in engineering first and science second.
+        </p>
+      </div>
+
+      <div data-reveal>
+        <h3 class="text-xl font-display font-semibold text-graphite-fg mb-4">Common misconceptions</h3>
+        <ul class="space-y-3">
+          <li class="flex items-start gap-3 text-graphite-fg-2">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <span><strong class="text-graphite-fg">Data engineering is not just ETL.</strong> Modern data engineering includes streaming, real-time processing, dataOps, data governance, and platform engineering.</span>
+          </li>
+          <li class="flex items-start gap-3 text-graphite-fg-2">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <span><strong class="text-graphite-fg">It is not only for big data.</strong> Organizations of all sizes benefit from systematic data engineering. Scale matters, but so does reliability and quality.</span>
+          </li>
+          <li class="flex items-start gap-3 text-graphite-fg-2">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <span><strong class="text-graphite-fg">A data warehouse is not a data platform.</strong> Warehouses are components. A data platform includes ingestion, transformation, orchestration, governance, cataloging, and delivery.</span>
+          </li>
+          <li class="flex items-start gap-3 text-graphite-fg-2">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+            <span><strong class="text-graphite-fg">Cloud does not solve data engineering automatically.</strong> Lift-and-shift to the cloud without rearchitecting data pipelines replicates existing problems at higher cost.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ============================================================ -->
+<!-- 3. BUSINESS CHALLENGES -->
+<!-- ============================================================ -->
+<section class="py-20 md:py-28" aria-labelledby="challenges-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="challenges-heading"
+      index="03"
+      label="Business Challenges"
+      title="The cost of fragmented, unreliable data infrastructure."
+      lede="Organizations that neglect data engineering accumulate technical debt, data quality issues, and operational overhead that prevent them from becoming truly data-driven."
+    />
+
+    <div class="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3" data-reveal-group>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">01</span>
+          <h3 class="font-display font-semibold text-ink">Data silos</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Data is scattered across departments, systems, and formats. No single source of truth exists. Business users cannot get a complete view of operations or customers.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">02</span>
+          <h3 class="font-display font-semibold text-ink">Poor data quality</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Duplicate records, missing values, inconsistent formats, and outdated data erode trust. Decisions are made on bad data, leading to wrong outcomes.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">03</span>
+          <h3 class="font-display font-semibold text-ink">Legacy ETL complexity</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Ancient ETL jobs running on fragile infrastructure. Scheduled batch windows, hard-coded transformations, and unmaintained code that no one wants to touch.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">04</span>
+          <h3 class="font-display font-semibold text-ink">Slow reporting</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Dashboards and reports take days or weeks to build. Data refreshes are slow. Business users cannot get answers to urgent questions in real time.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">05</span>
+          <h3 class="font-display font-semibold text-ink">Fragmented systems</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Data warehouses, lakes, operational databases, and analytics tools exist in isolation. No unified data mesh or fabric connects them coherently.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">06</span>
+          <h3 class="font-display font-semibold text-ink">Scaling challenges</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Data volumes grow exponentially. Existing pipelines cannot keep up. Infrastructure costs spiral as manual scaling and over-provisioning become the norm.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">07</span>
+          <h3 class="font-display font-semibold text-ink">High infrastructure costs</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Over-provisioned compute, orphaned storage, and inefficient query patterns drive cloud data costs higher than necessary without clear allocation or governance.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">08</span>
+          <h3 class="font-display font-semibold text-ink">Data governance gaps</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">No clear ownership, lineage tracking, or metadata management. Compliance audits are painful. Data cataloging is manual or nonexistent.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">09</span>
+          <h3 class="font-display font-semibold text-ink">Security and compliance</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">PII, sensitive data, and regulated data are not properly classified, encrypted, or access-controlled. GDPR, CCPA, HIPAA, and SOC 2 compliance is at risk.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">10</span>
+          <h3 class="font-display font-semibold text-ink">Lack of real-time data</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Batch processing is the only option. Business decisions are made on data that is hours or days old. Real-time streaming capabilities are absent.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">11</span>
+          <h3 class="font-display font-semibold text-ink">Manual data processing</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Data pipelines require manual intervention to run, monitor, and fix. DataOps maturity is low. Pipeline failures go undetected for hours or days.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">12</span>
+          <h3 class="font-display font-semibold text-ink">Integration complexity</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Connecting SaaS applications, on-premises databases, APIs, and external data sources requires custom integration work that is fragile and hard to maintain.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 4. DATA ENGINEERING APPROACH -->
+<!-- ============================================================ -->
+<section class="py-20 md:py-28 bg-graphite" aria-labelledby="approach-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="approach-heading"
+      index="04"
+      label="Our Approach"
+      title="A systematic methodology for modern data platforms."
+      lede="We follow a structured, outcome-driven approach that meets you where you are. From legacy ETL to modern event-driven architectures, every phase is tailored to your data maturity and business goals."
+      tone="graphite"
+    />
+
+    <div class="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3" data-reveal-group>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">01</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Discovery</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Map existing data landscape: sources, pipelines, storage, consumers, pain points, and business objectives. We produce a comprehensive data maturity assessment.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">02</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Assessment</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Deep analysis of data quality, pipeline reliability, infrastructure cost, governance maturity, and team capabilities. Prioritized remediation roadmap delivered.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">03</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Strategy</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Define the target data architecture, technology stack, migration approach, and adoption roadmap. Aligned with business priorities and budget constraints.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">04</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Architecture Design</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Design the data platform architecture: ingestion layer, storage, processing, orchestration, catalog, governance, and consumption interfaces. Blueprints and decision logs delivered.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">05</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Data Modeling</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Design logical and physical data models optimized for query performance, storage efficiency, and business semantics. Dimensional, data vault, and lakehouse modeling.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">06</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Pipeline Design</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Design data pipelines for batch and streaming workloads. Error handling, retry logic, idempotency, and monitoring built into every pipeline from day one.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">07</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Platform Engineering</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Build the data platform foundation: infrastructure as code, CI/CD for data, self-service environments, and automated provisioning for data teams.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">08</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Data Governance</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Implement governance frameworks: data catalog, lineage tracking, ownership, access controls, retention policies, and compliance automation from the start.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">09</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Data Quality</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Establish data quality frameworks: validation rules, profiling, monitoring dashboards, alerting, and remediation workflows. Trusted data as a service.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">10</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Data Security</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Implement data security: encryption at rest and in transit, row-level security, dynamic data masking, PII detection, and audit logging for compliance.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">11</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Automation</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Automate everything: data ingestion, transformation, testing, deployment, monitoring, and incident response. DataOps practices eliminate manual toil.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">12</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Monitoring</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Comprehensive data observability: pipeline health, data freshness, volume trends, schema changes, and quality metrics. Proactive alerting prevents data incidents.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">13</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Continuous Optimization</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Data platforms are never finished. Establish cost governance, performance tuning, reliability reviews, and maturity tracking to drive ongoing improvement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 5. DATA ENGINEERING SERVICES -->
+<!-- ============================================================ -->
+<section class="py-20 md:py-28" aria-labelledby="services-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="services-heading"
+      index="05"
+      label="Our Services"
+      title="End-to-end data engineering capabilities."
+      lede="From strategy through managed operations, we provide the full range of services needed to design, build, and run enterprise data platforms at scale."
+    />
+
+    <div class="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3" data-reveal-group>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Data Strategy &amp; Consulting</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Define your data vision, target architecture, technology stack, and multi-year roadmap aligned with business outcomes and data maturity.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Current state assessment</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Data maturity model</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Phased implementation roadmap</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Platform Engineering</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Build the data platform foundation: infrastructure as code, automated provisioning, self-service environments, and CI/CD pipelines for data teams.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Data platform architecture</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> IaC for data infrastructure</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Self-service data environments</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Data Architecture</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Design modern data architectures: data mesh, data fabric, lakehouse, or cloud-native warehouse. Scalable, cost-effective, and fit for purpose.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Reference architecture design</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Technology stack selection</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Architecture decision records</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Pipeline Development</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Build robust, production-grade data pipelines. Error handling, retry logic, monitoring, and data quality checks built into every pipeline from day one.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Custom pipeline development</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Pipeline testing framework</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Monitoring and alerting</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Batch Processing</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Design and optimize batch processing pipelines for large-scale data transformations. Spark, dbt, Airflow, and orchestration at enterprise scale.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Batch pipeline architecture</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Incremental processing strategies</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Cost and performance optimization</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Real-Time Streaming</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Architect and implement real-time data streaming platforms using Kafka, Flink, Kinesis, or Pulsar. Event-driven architectures for immediate insights.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Streaming platform architecture</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Event schema and governance</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Stream processing pipelines</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">ETL/ELT</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Modernize legacy ETL to scalable ELT patterns. dbt, Fivetran, Airbyte, or custom frameworks for extraction, loading, and transformation at enterprise scale.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> ETL to ELT migration</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Connector development</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Incremental loading strategies</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Data Lake</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Design and build modern data lakes on cloud object storage. Iceberg, Delta Lake, or Hudi for ACID transactions, time travel, and schema evolution.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Lake architecture design</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Table format selection</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Partitioning and optimization</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Data Warehouse</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Design, build, and optimize cloud data warehouses on Snowflake, BigQuery, Redshift, or Databricks. Performance, cost, and concurrency tuned for your workloads.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Warehouse architecture design</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Query performance optimization</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Cost governance and budgeting</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Lakehouse</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Architect lakehouse platforms combining data lake flexibility with warehouse reliability. Delta Lake, Iceberg, or Hudi with Databricks or open-source engines.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Lakehouse architecture design</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Unity Catalog or Polaris</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> BI and ML workload unification</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Data Migration</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Migrate data platforms from on-premises to cloud, between cloud providers, or from legacy to modern architectures. Minimal downtime and data integrity guaranteed.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Migration planning and assessment</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Parallel run and validation</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Rollback and cutover procedures</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Cloud Data Engineering</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Leverage cloud-native data services on AWS, Azure, or GCP. Serverless, managed services, and auto-scaling data infrastructure with pay-per-use economics.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Cloud data platform setup</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Multi-cloud data strategy</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Cost-optimized architecture</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Data Integration</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Connect and integrate data across SaaS applications, databases, APIs, and file stores. Real-time and batch integration patterns for enterprise data fabrics.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> API and event-driven integration</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> SaaS connector development</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Change data capture (CDC)</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Data Transformation</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Build maintainable, tested, and documented transformation layers using dbt, SQLMesh, or custom frameworks. Data contracts and version control included.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> dbt project setup and modeling</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Data contract definitions</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> CI/CD for data transformations</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Data Quality</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Implement comprehensive data quality frameworks: profiling, validation rules, monitoring dashboards, alerting, and automated remediation workflows.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Data quality framework design</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Automated quality monitoring</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Quality scorecards and SLAs</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Metadata Management</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Build a comprehensive metadata management system. Data catalogs, business glossaries, technical lineage, and impact analysis for enterprise data platforms.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Data catalog implementation</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Automated lineage tracking</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Business glossary curation</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Master Data Management</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Establish golden records for customers, products, suppliers, and other critical business entities. MDM strategy, tooling, and stewardship processes.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> MDM strategy and architecture</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Identity resolution and matching</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Data stewardship workflows</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Data Governance</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Design and implement data governance programs: policies, roles, processes, and technology. Compliance, ownership, and data lineage across the enterprise.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Governance framework design</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Policy as code implementation</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Compliance automation and auditing</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Data Catalog</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Deploy and configure data catalogs using Datahub, Apache Atlas, Amundsen, or cloud-native services. Searchable, browsable, and governed data discovery.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Catalog platform deployment</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Automated metadata ingestion</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Data discovery and certification</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">BI Enablement</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Bridge data engineering with business intelligence. Semantic layers, metric stores, and curated data marts optimized for Looker, Tableau, Power BI, or Metabase.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Semantic layer design</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Metric store implementation</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> BI tool optimization</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Analytics Engineering</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Bridge the gap between data engineering and analytics. Define metrics, build transformation layers, and deliver curated datasets for self-service analytics.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Metric definition and modeling</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Curated data marts</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Self-service analytics enablement</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Data API</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Design and build data APIs that provide real-time and batch access to trusted data. GraphQL, REST, or gRPC interfaces with governance and rate limiting.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Data API architecture design</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> API gateway and security</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Documentation and developer portal</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Platform Operations</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Run the data platform day-to-day: monitoring, incident response, upgrades, capacity planning, and continuous improvement. SLAs included.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> 24/7 platform monitoring</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Incident response and on-call</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Cost and capacity optimization</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Managed Services</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Full managed operations for your data platform. Monitoring, incident response, upgrades, and continuous improvement delivered with defined SLAs and reporting.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Data platform operations</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Pipeline monitoring and support</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Quarterly optimization reviews</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 6. CORE CAPABILITIES -->
+<!-- ============================================================ -->
+<section class="py-20 md:py-28 bg-graphite" aria-labelledby="capabilities-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="capabilities-heading"
+      index="06"
+      label="Core Capabilities"
+      title="Deep expertise across the data engineering stack."
+      lede="Our team combines deep systems engineering knowledge with hands-on data platform implementation experience. These are the capabilities we bring to every engagement."
+      tone="graphite"
+    />
+
+    <div class="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4" data-reveal-group>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Data Architecture</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Modern data architecture design including data mesh, data fabric, lakehouse, and cloud-native warehouse patterns for enterprise-scale data platforms.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Distributed Systems</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Distributed data processing at scale. Consensus protocols, partitioning strategies, replication, and consistency models for reliable data infrastructure.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Batch Processing</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Large-scale batch processing with Apache Spark, dbt, and cloud-native tools. Incremental processing, partitioning, and cost-optimized execution.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Stream Processing</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Real-time stream processing with Apache Flink, Kafka Streams, and Spark Streaming. Event-time processing, state management, and exactly-once semantics.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Data Modeling</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Dimensional modeling, data vault 2.0, anchor modeling, and OneBigTable approaches. Optimized for query performance and business semantics.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Data Pipelines</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Production-grade pipeline development with Airflow, Dagster, Prefect, or cloud-native orchestrators. Testing, monitoring, and error handling built in.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Data Warehousing</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Cloud data warehouse expertise: Snowflake, BigQuery, Redshift, and Databricks. Performance tuning, cost optimization, and multi-cluster architecture.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Data Lakes</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Modern data lake architecture with open table formats. Iceberg, Delta Lake, Hudi, and cloud object storage for scalable, cost-effective data storage.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Lakehouse</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Lakehouse architecture combining data lake flexibility with warehouse reliability. Delta Sharing, Unity Catalog, and open formats for interoperability.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Data Mesh</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Domain-oriented data mesh architecture. Federated governance, data products, self-serve infrastructure, and interoperability standards across domains.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Data Fabric</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Data fabric design for unified data access across hybrid and multi-cloud environments. Virtualization, federation, and automated data integration.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Data Integration</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Enterprise data integration patterns: ETL, ELT, CDC, API, and event-driven. Connector development and integration platform deployment.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Data Lineage</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Automated data lineage tracking across the entire data lifecycle. Impact analysis, root cause identification, and compliance reporting.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Data Governance</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Enterprise data governance programs: ownership, policies, classification, retention, and automated policy enforcement across the data platform.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Data Quality</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Data quality frameworks with automated profiling, validation, monitoring, and remediation. Trusted data delivered as a service to all consumers.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Metadata Management</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Comprehensive metadata management: technical, business, and operational metadata. Catalogs, glossaries, and automated discovery and classification.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Data Security</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Data security at every layer: encryption, masking, row-level security, access controls, PII detection, and audit logging for regulatory compliance.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Data Observability</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Comprehensive data observability: pipeline health, data freshness, volume trends, schema evolution, quality metrics, and proactive incident alerting.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Data Reliability</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Data reliability engineering: SLAs, SLIs, error budgets, data quality SLOs, and automated remediation for production data platforms.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 7. MODERN DATA PLATFORM ARCHITECTURE -->
+<!-- ============================================================ -->
+<section class="py-20 md:py-28" aria-labelledby="architecture-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="architecture-heading"
+      index="07"
+      label="Modern Data Platform Architecture"
+      title="A layered approach to enterprise data platforms."
+      lede="Modern data platforms are composed of distinct layers that work together to ingest, process, store, govern, and serve data. Each layer is independently scalable and evolvable."
+    />
+
+    <div class="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3" data-reveal-group>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">01</span>
+          <h3 class="font-display font-semibold text-ink">Data Sources</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">All data originating from operational databases, SaaS applications, APIs, IoT devices, file stores, and external data feeds.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">02</span>
+          <h3 class="font-display font-semibold text-ink">Data Ingestion</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Reliable ingestion layer that captures data from sources via batch, CDC, API polling, or event-driven patterns. Scalable, fault-tolerant, and schema-aware.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">03</span>
+          <h3 class="font-display font-semibold text-ink">Streaming Layer</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Real-time event streaming platform for data in motion. Apache Kafka, Pulsar, or Kinesis provide durable, scalable, and low-latency event transport.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">04</span>
+          <h3 class="font-display font-semibold text-ink">Batch Processing</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Large-scale batch processing engine for complex transformations. Apache Spark, dbt, or cloud-native processing with orchestration via Airflow or Dagster.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">05</span>
+          <h3 class="font-display font-semibold text-ink">Data Lake</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Scalable, cost-effective storage for raw and curated data. Open table formats like Iceberg and Delta Lake provide ACID transactions and schema evolution.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">06</span>
+          <h3 class="font-display font-semibold text-ink">Data Warehouse</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Cloud data warehouse for structured analytics. Snowflake, BigQuery, Redshift, or Databricks SQL provide high-performance querying and concurrency.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">07</span>
+          <h3 class="font-display font-semibold text-ink">Lakehouse</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Unified platform combining data lake and warehouse capabilities. Single copy of data for BI, analytics, ML, and data science workloads.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">08</span>
+          <h3 class="font-display font-semibold text-ink">Catalog &amp; Metadata</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Central metadata platform for data discovery, lineage, governance, and cataloging. Datahub, Apache Atlas, or Unity Catalog for enterprise metadata management.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">09</span>
+          <h3 class="font-display font-semibold text-ink">Data Governance</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Policy engine for data access, classification, retention, and compliance. Automated policy enforcement, audit logging, and regulatory reporting.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">10</span>
+          <h3 class="font-display font-semibold text-ink">Analytics Layer</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Curated data marts, semantic layers, and metric stores for business intelligence. Looker, Tableau, Power BI, and embedded analytics interfaces.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">11</span>
+          <h3 class="font-display font-semibold text-ink">API Layer</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Data APIs for real-time and batch data access. GraphQL, REST, or gRPC interfaces with governance, rate limiting, and developer portal.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">12</span>
+          <h3 class="font-display font-semibold text-ink">Data Security</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Security layer spanning encryption, access controls, data masking, PII detection, and audit. Zero-trust principles applied to every data access pattern.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">13</span>
+          <h3 class="font-display font-semibold text-ink">Monitoring &amp; Observability</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Comprehensive observability across all layers: pipeline health, data quality, freshness, volume, cost, and performance. Proactive alerting and automated remediation.</p>
+      </div>
+    </div>
+
+    <div class="mt-10 rounded-lg border border-accent/20 bg-accent-soft/10 p-6 md:p-8" data-reveal>
+      <div class="flex items-start gap-4">
+        <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent-soft text-accent" aria-hidden="true">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </span>
+        <div>
+          <h3 class="font-display font-semibold text-ink mb-2">Architecture design recommendation</h3>
+          <p class="text-sm text-ink-2 leading-relaxed">Every data platform we design is documented with architecture decision records, layer diagrams, data flow maps, and technology rationales. We prioritize simplicity, cost efficiency, and alignment with your team's capabilities.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 8. TECHNOLOGIES -->
+<!-- ============================================================ -->
+<section class="py-20 md:py-28 bg-graphite" aria-labelledby="tech-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="tech-heading"
+      index="08"
+      label="Technologies"
+      title="Tools and platforms we work with."
+      lede="We maintain deep expertise across the data engineering ecosystem. Our technology choices are driven by your specific requirements, not vendor relationships."
+      tone="graphite"
+    />
+
+    <div class="mt-14 grid gap-8 md:grid-cols-3 lg:grid-cols-4" data-reveal-group>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-4">Cloud Platforms</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2">AWS</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Azure</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">GCP</li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-4">Data Warehouses</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2">Snowflake</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">BigQuery</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Redshift</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 mt-2">Databricks SQL</li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-4">Data Lakes</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2">Delta Lake</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Apache Iceberg</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Apache Hudi</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 mt-2">AWS Lake Formation</li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-4">Data Processing</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2">Apache Spark</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Apache Flink</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">dbt</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 mt-2">Presto / Trino</li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-4">Orchestration</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2">Apache Airflow</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Dagster</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Prefect</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 mt-2">Apache NiFi</li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-4">Streaming</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2">Apache Kafka</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Apache Pulsar</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Kinesis</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 mt-2">Kafka Connect</li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-4">Databases</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2">PostgreSQL</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">MySQL</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">MongoDB</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 mt-2">Cassandra</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">ClickHouse</li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-4">Analytics &amp; BI</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2">Looker</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Tableau</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Power BI</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 mt-2">Metabase</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Sigma</li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-4">Programming Languages</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2">Python</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">SQL</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Scala</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 mt-2">Java</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Rust</li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-4">Infrastructure</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2">Terraform</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Kubernetes</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Docker</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 mt-2">Helm</li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-4">Data Observability</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2">Great Expectations</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">dbt Test</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Soda</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 mt-2">Monte Carlo</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Prometheus</li>
+        </ul>
+      </div>
+      <div data-reveal class="md:col-span-3 lg:col-span-4">
+        <h3 class="font-mono text-xs text-accent-bright mb-4">Security &amp; Governance</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2">Apache Atlas</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Datahub</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Unity Catalog</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Collibra</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Alation</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Open Policy Agent</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 9. BENEFITS -->
+<!-- ============================================================ -->
+<section class="py-20 md:py-28" aria-labelledby="benefits-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="benefits-heading"
+      index="09"
+      label="Benefits"
+      title="What modern data engineering delivers."
+      lede="The return on data engineering investment is measured in trust, velocity, cost, and competitive advantage. These are the outcomes our clients achieve."
+    />
+
+    <div class="mt-14 grid gap-10 md:grid-cols-2" data-reveal-group>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent mb-4">FOR THE BUSINESS</h3>
+        <ul class="space-y-4">
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-ink">Trusted data as a strategic asset</p>
+              <p class="text-sm text-ink-2">Reliable, high-quality data enables confident decision-making across the organization. Data becomes a competitive advantage, not a liability.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-ink">Faster time-to-insight</p>
+              <p class="text-sm text-ink-2">Modern data pipelines reduce the time from data generation to actionable insight from days to minutes.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-ink">Reduced data infrastructure costs</p>
+              <p class="text-sm text-ink-2">Optimized architectures, right-sized resources, and automated governance reduce total cost of ownership by 30-50% on average.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent mb-4">FOR ENGINEERING</h3>
+        <ul class="space-y-4">
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-ink">Self-service data infrastructure</p>
+              <p class="text-sm text-ink-2">Data teams provision their own environments, pipelines, and datasets without waiting for platform teams or IT operations.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-ink">Automated dataOps</p>
+              <p class="text-sm text-ink-2">CI/CD for data, automated testing, monitoring, and alerting eliminate manual pipeline management and reduce incidents.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-ink">Standardized tooling and best practices</p>
+              <p class="text-sm text-ink-2">Consistent patterns for ingestion, transformation, testing, and deployment across all data teams.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent mb-4">FOR ANALYTICS TEAMS</h3>
+        <ul class="space-y-4">
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-ink">Curated, trusted datasets</p>
+              <p class="text-sm text-ink-2">Analysts access clean, documented, and certified datasets through a data catalog. No more hunting for the right table.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-ink">Semantic consistency</p>
+              <p class="text-sm text-ink-2">Shared metric definitions ensure every dashboard tells the same story. No more metric disagreements between teams.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-ink">Self-service analytics</p>
+              <p class="text-sm text-ink-2">Business users explore data independently through semantic layers and governed self-service tools.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent mb-4">FOR DATA TEAMS</h3>
+        <ul class="space-y-4">
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-ink">Modern, scalable infrastructure</p>
+              <p class="text-sm text-ink-2">Data engineers work with modern tools and cloud-native platforms. No more maintaining legacy ETL servers.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-ink">Reduced pipeline incidents</p>
+              <p class="text-sm text-ink-2">Automated monitoring, alerting, and self-healing pipelines reduce data incidents by 70%.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-ink">Clear career growth paths</p>
+              <p class="text-sm text-ink-2">Modern data engineering practices attract and retain top talent.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent mb-4">FOR SECURITY &amp; COMPLIANCE</h3>
+        <ul class="space-y-4">
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-ink">Automated compliance</p>
+              <p class="text-sm text-ink-2">Policy as code and continuous compliance monitoring make SOC 2, HIPAA, GDPR, and PCI DSS audits straightforward.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-ink">Data protection by design</p>
+              <p class="text-sm text-ink-2">Encryption, masking, access controls, and PII detection are built into every layer of the data platform.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-ink">Complete audit trail</p>
+              <p class="text-sm text-ink-2">Every data access and transformation is logged with full lineage tracking.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent mb-4">FOR EXECUTIVE LEADERSHIP</h3>
+        <ul class="space-y-4">
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-ink">Clear ROI on data investments</p>
+              <p class="text-sm text-ink-2">Measurable outcomes: faster time-to-insight, lower TCO, and improved team productivity.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-ink">Scalable data operations</p>
+              <p class="text-sm text-ink-2">Data platforms that scale with the business. 10x data volume growth does not require 10x team growth.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="block h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" aria-hidden="true" />
+            <div>
+              <p class="font-medium text-ink">Competitive differentiation</p>
+              <p class="text-sm text-ink-2">Data-driven organizations outperform peers. Modern data engineering enables AI/ML initiatives and data product innovation.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 10. ENGAGEMENT MODEL -->
+<!-- ============================================================ -->
+<section class="py-20 md:py-28 bg-graphite" aria-labelledby="engagement-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="engagement-heading"
+      index="10"
+      label="Engagement Model"
+      title="How we work with your team."
+      lede="Every engagement is structured around outcomes, not hours. We adapt our working model to your organization's culture, constraints, and data maturity."
+      tone="graphite"
+    />
+
+    <div class="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4" data-reveal-group>
+      <div class="relative rounded-lg border border-graphite-line bg-graphite-2 p-7 pt-12" data-reveal>
+        <span class="absolute top-5 left-5 font-mono text-2xl font-semibold text-accent-bright/30">01</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Discovery</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Map your current data landscape: sources, pipelines, storage, consumers, pain points, and business objectives. We deliver a comprehensive data maturity assessment.</p>
+        <p class="text-xs text-accent-bright mt-4 font-mono">1&ndash;3 weeks</p>
+      </div>
+      <div class="relative rounded-lg border border-graphite-line bg-graphite-2 p-7 pt-12" data-reveal>
+        <span class="absolute top-5 left-5 font-mono text-2xl font-semibold text-accent-bright/30">02</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Assessment</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Deep analysis of data quality, pipeline reliability, infrastructure cost, governance maturity, and team capabilities with prioritized remediation roadmap.</p>
+        <p class="text-xs text-accent-bright mt-4 font-mono">2&ndash;4 weeks</p>
+      </div>
+      <div class="relative rounded-lg border border-graphite-line bg-graphite-2 p-7 pt-12" data-reveal>
+        <span class="absolute top-5 left-5 font-mono text-2xl font-semibold text-accent-bright/30">03</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Architecture Design</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Design the target data platform architecture: ingestion, storage, processing, governance, and consumption. Blueprints, ADRs, and implementation roadmap delivered.</p>
+        <p class="text-xs text-accent-bright mt-4 font-mono">2&ndash;4 weeks</p>
+      </div>
+      <div class="relative rounded-lg border border-graphite-line bg-graphite-2 p-7 pt-12" data-reveal>
+        <span class="absolute top-5 left-5 font-mono text-2xl font-semibold text-accent-bright/30">04</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Proof of Concept</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Build a focused PoC to validate architecture decisions, technology choices, and migration approach before full investment.</p>
+        <p class="text-xs text-accent-bright mt-4 font-mono">2&ndash;6 weeks</p>
+      </div>
+      <div class="relative rounded-lg border border-graphite-line bg-graphite-2 p-7 pt-12" data-reveal>
+        <span class="absolute top-5 left-5 font-mono text-2xl font-semibold text-accent-bright/30">05</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Implementation</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Build the data platform incrementally, starting with highest-value capabilities. Each sprint delivers production-ready pipelines and infrastructure.</p>
+        <p class="text-xs text-accent-bright mt-4 font-mono">4&ndash;16 weeks</p>
+      </div>
+      <div class="relative rounded-lg border border-graphite-line bg-graphite-2 p-7 pt-12" data-reveal>
+        <span class="absolute top-5 left-5 font-mono text-2xl font-semibold text-accent-bright/30">06</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Migration</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Migrate existing data workloads onto the new platform. Parallel run validation, rollback procedures, and data integrity checks at every step.</p>
+        <p class="text-xs text-accent-bright mt-4 font-mono">4&ndash;12 weeks</p>
+      </div>
+      <div class="relative rounded-lg border border-graphite-line bg-graphite-2 p-7 pt-12" data-reveal>
+        <span class="absolute top-5 left-5 font-mono text-2xl font-semibold text-accent-bright/30">07</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Validation</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Rigorous validation of data accuracy, completeness, freshness, and quality. Stakeholder sign-off at each phase.</p>
+        <p class="text-xs text-accent-bright mt-4 font-mono">1&ndash;3 weeks</p>
+      </div>
+      <div class="relative rounded-lg border border-graphite-line bg-graphite-2 p-7 pt-12" data-reveal>
+        <span class="absolute top-5 left-5 font-mono text-2xl font-semibold text-accent-bright/30">08</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Training</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Train your data teams through workshops, pair programming, and structured documentation. Skills transferred for long-term self-sufficiency.</p>
+        <p class="text-xs text-accent-bright mt-4 font-mono">Ongoing</p>
+      </div>
+      <div class="relative rounded-lg border border-graphite-line bg-graphite-2 p-7 pt-12" data-reveal>
+        <span class="absolute top-5 left-5 font-mono text-2xl font-semibold text-accent-bright/30">09</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Managed Services</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Full managed operations: monitoring, incident response, upgrades, SLA management, and continuous improvement delivered by our team.</p>
+        <p class="text-xs text-accent-bright mt-4 font-mono">Ongoing</p>
+      </div>
+      <div class="relative rounded-lg border border-graphite-line bg-graphite-2 p-7 pt-12 md:col-span-2 lg:col-span-2" data-reveal>
+        <span class="absolute top-5 left-5 font-mono text-2xl font-semibold text-accent-bright/30">10</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Continuous Optimization</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Establish feedback loops, performance reviews, cost optimization, and quarterly maturity assessments to keep the platform aligned with business needs.</p>
+        <p class="text-xs text-accent-bright mt-4 font-mono">Quarterly reviews</p>
+      </div>
+    </div>
+
+    <div class="mt-14 rounded-lg border border-graphite-line bg-graphite-2 p-8 text-center" data-reveal>
+      <p class="text-graphite-fg-2 text-sm max-w-2xl mx-auto">
+        Every engagement includes a dedicated delivery lead, transparent weekly reporting, and a shared roadmap that evolves as we learn. <br class="hidden md:inline" />We bill for outcomes, not hours.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 11. WHY CHOOSE SUBSTRATE -->
+<!-- ============================================================ -->
+<section class="py-20 md:py-28" aria-labelledby="why-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="why-heading"
+      index="11"
+      label="Why Choose Substrate"
+      title="Built by engineers, for data-driven organizations."
+      lede="We bring deep data engineering expertise, enterprise discipline, and a commitment to knowledge transfer in every engagement."
+    />
+
+    <div class="mt-14 grid gap-5 md:grid-cols-2" data-reveal-group>
+      <div class="flex items-start gap-4 rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">01</span>
+        <div>
+          <h3 class="font-display font-semibold text-ink">Engineering-first</h3>
+          <p class="text-sm text-ink-2">We are engineers who build data platforms. Every recommendation is grounded in real implementation experience, not theory or vendor certifications.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">02</span>
+        <div>
+          <h3 class="font-display font-semibold text-ink">Vendor-neutral</h3>
+          <p class="text-sm text-ink-2">We have no partnerships or incentives to push specific products. Every technology decision is based on your requirements.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">03</span>
+        <div>
+          <h3 class="font-display font-semibold text-ink">Cloud-native</h3>
+          <p class="text-sm text-ink-2">We design for cloud from the ground up. Serverless, managed services, and auto-scaling infrastructure with pay-per-use economics.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">04</span>
+        <div>
+          <h3 class="font-display font-semibold text-ink">Modern by design</h3>
+          <p class="text-sm text-ink-2">Open table formats, data mesh principles, event-driven architectures. We build for the future, not the past.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">05</span>
+        <div>
+          <h3 class="font-display font-semibold text-ink">Automation-first</h3>
+          <p class="text-sm text-ink-2">Every process we design is automated by default. Manual intervention is the exception. DataOps eliminates toil.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">06</span>
+        <div>
+          <h3 class="font-display font-semibold text-ink">Security by design</h3>
+          <p class="text-sm text-ink-2">Security is integrated into every layer of the data platform. Encryption, access controls, masking, and compliance automation from day one.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">07</span>
+        <div>
+          <h3 class="font-display font-semibold text-ink">Enterprise governance</h3>
+          <p class="text-sm text-ink-2">We deliver production data platforms with SLAs, runbooks, disaster recovery plans, and compliance documentation. Enterprise-ready from day one.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">08</span>
+        <div>
+          <h3 class="font-display font-semibold text-ink">Reliable and scalable</h3>
+          <p class="text-sm text-ink-2">Platforms that work for terabytes will also work for petabytes. Cost governance built into every architectural decision.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">09</span>
+        <div>
+          <h3 class="font-display font-semibold text-ink">Long-term partnership</h3>
+          <p class="text-sm text-ink-2">We invest in your team's capabilities. Knowledge transfer, training, and mentorship ensure your organization can sustain our work.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">10</span>
+        <div>
+          <h3 class="font-display font-semibold text-ink">Knowledge transfer</h3>
+          <p class="text-sm text-ink-2">Our goal is your self-sufficiency. Structured training, pair programming, and comprehensive documentation ensure your team owns the platform.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 12. INDUSTRIES -->
+<!-- ============================================================ -->
+<section class="py-20 md:py-28 bg-graphite" aria-labelledby="industries-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="industries-heading"
+      index="12"
+      label="Industries"
+      title="Data engineering across sectors."
+      lede="Every industry faces unique data challenges. Here is how modern data engineering applies to specific sectors and the outcomes we deliver."
+      tone="graphite"
+    />
+
+    <div class="mt-14 grid gap-6 md:grid-cols-3" data-reveal-group>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Financial Services</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Real-time fraud detection, regulatory reporting, risk analytics, and customer 360 views require reliable, low-latency data platforms with strong governance.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Healthcare</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">HIPAA-compliant data platforms for clinical analytics, population health, claims processing, and research with strong privacy controls and data lineage.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Retail</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Omnichannel analytics, personalization, inventory optimization, and demand forecasting need real-time pipelines integrating POS, e-commerce, and supply chain data.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Manufacturing</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">IoT telemetry, predictive maintenance, supply chain analytics, and quality control require scalable platforms for high-velocity sensor data.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Logistics</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Real-time tracking, route optimization, fleet management, and global supply chain visibility require event-driven platforms with stream processing.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Telecom</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Network analytics, customer churn prediction, billing data processing, and 5G service assurance demand high-throughput data platforms.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Education</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Learning analytics, student performance tracking, and institutional reporting require platforms integrating LMS, SIS, and assessment data.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Government</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Citizen services analytics, policy impact assessment, and open data initiatives require secure, compliant platforms with strong audit trails.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Media &amp; Entertainment</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Content recommendation, audience analytics, ad targeting, and streaming quality monitoring require platforms processing petabytes of behavioral data.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">SaaS</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Product analytics, customer health scoring, usage-based billing, and feature adoption require multi-tenant platforms with self-service analytics.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Energy &amp; Utilities</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Smart meter data, grid analytics, predictive maintenance, and sustainability reporting require scalable platforms for massive time-series data.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Life Sciences</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Clinical trial data, genomic processing, drug discovery analytics, and regulatory submissions require secure, compliant, and scalable data platforms.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 13. FAQ -->
+<!-- ============================================================ -->
+<section class="py-20 md:py-28" aria-labelledby="faq-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="faq-heading"
+      index="13"
+      label="Frequently Asked Questions"
+      title="Common questions about data engineering."
+      lede="Answers to the questions we hear most often from engineering leaders evaluating data platform investments."
+    />
+
+    <div class="mt-14 max-w-3xl mx-auto space-y-4" data-reveal-group>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-ink list-none">
+          What is the difference between a data lake and a data warehouse?
+          <svg class="h-4 w-4 shrink-0 text-ink-2 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-ink-2 leading-relaxed">A data lake stores raw data in native format on object storage. A data warehouse stores processed structured data optimized for analytics. Modern lakehouse architectures combine both: lake storage with warehouse-quality performance and ACID transactions.</p>
+        </div>
+      </details>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-ink list-none">
+          How long does it take to build a modern data platform?
+          <svg class="h-4 w-4 shrink-0 text-ink-2 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-ink-2 leading-relaxed">A functional data platform with core pipelines can be delivered in 8 to 12 weeks. A mature platform with broad adoption, governance, and self-service capabilities typically takes 6 to 18 months. We prioritize early value.</p>
+        </div>
+      </details>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-ink list-none">
+          Do I need both a data lake and a data warehouse?
+          <svg class="h-4 w-4 shrink-0 text-ink-2 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-ink-2 leading-relaxed">Not necessarily. A lakehouse architecture like Delta Lake or Apache Iceberg with an engine like Databricks or Trino can serve both raw data exploration and structured analytics from a single copy of data.</p>
+        </div>
+      </details>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-ink list-none">
+          What is data mesh and should we adopt it?
+          <svg class="h-4 w-4 shrink-0 text-ink-2 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-ink-2 leading-relaxed">Data mesh is an organizational pattern where domain teams own their data as products. It works well for large organizations with autonomous teams. For smaller organizations, a data fabric or lakehouse may be more practical.</p>
+        </div>
+      </details>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-ink list-none">
+          How do you ensure data quality in production?
+          <svg class="h-4 w-4 shrink-0 text-ink-2 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-ink-2 leading-relaxed">Through automated validation at every stage: schema validation at ingestion, quality checks in transformations, profiling and monitoring dashboards, and proactive alerting. Data contracts between producers and consumers maintain trust.</p>
+        </div>
+      </details>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-ink list-none">
+          What is the difference between batch and stream processing?
+          <svg class="h-4 w-4 shrink-0 text-ink-2 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-ink-2 leading-relaxed">Batch processes data in scheduled intervals for large-scale transformations. Stream processes data continuously as it arrives for real-time analytics. Modern platforms combine both: batch for historical, streaming for real-time.</p>
+        </div>
+      </details>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-ink list-none">
+          How do you handle PII and sensitive data?
+          <svg class="h-4 w-4 shrink-0 text-ink-2 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-ink-2 leading-relaxed">PII is detected through automated classification, encrypted at rest and in transit, and access-controlled through row-level security and dynamic data masking. Retention policies and audit logging ensure regulatory compliance.</p>
+        </div>
+      </details>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-ink list-none">
+          What is dataOps and why does it matter?
+          <svg class="h-4 w-4 shrink-0 text-ink-2 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-ink-2 leading-relaxed">DataOps applies DevOps to data: CI/CD for pipelines, automated testing, monitoring, and incident response. It reduces pipeline failures, improves data quality, and accelerates data product delivery.</p>
+        </div>
+      </details>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-ink list-none">
+          How do you choose between ETL and ELT?
+          <svg class="h-4 w-4 shrink-0 text-ink-2 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-ink-2 leading-relaxed">ETL transforms before loading, useful when targets have limited processing. ELT loads raw data first and transforms using warehouse compute. Modern platforms favor ELT for flexibility, scalability, and the ability to reprocess data.</p>
+        </div>
+      </details>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-ink list-none">
+          Can we migrate our legacy data warehouse to the cloud?
+          <svg class="h-4 w-4 shrink-0 text-ink-2 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-ink-2 leading-relaxed">Yes. We have extensive experience migrating from Teradata, Oracle, Netezza, and on-premises SQL Server to Snowflake, BigQuery, Redshift, and Databricks with parallel run validation and minimal downtime.</p>
+        </div>
+      </details>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-ink list-none">
+          What is data lineage and why is it important?
+          <svg class="h-4 w-4 shrink-0 text-ink-2 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-ink-2 leading-relaxed">Data lineage tracks the origin, transformation, and movement of data through pipelines. It is essential for impact analysis, root cause investigation, compliance audits, and building trust in data.</p>
+        </div>
+      </details>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-ink list-none">
+          How do you handle real-time data processing?
+          <svg class="h-4 w-4 shrink-0 text-ink-2 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-ink-2 leading-relaxed">We architect real-time pipelines using Apache Kafka or Kinesis for event transport, Flink or Kafka Streams for stream processing, and real-time sinks for analytics, databases, or APIs. Event-time processing and exactly-once semantics are standard.</p>
+        </div>
+      </details>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-ink list-none">
+          What is the typical ROI for data engineering investments?
+          <svg class="h-4 w-4 shrink-0 text-ink-2 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-ink-2 leading-relaxed">Most organizations see measurable returns within 3 to 6 months: reduced pipeline failures, lower infrastructure costs, and faster report delivery. Full ROI including productivity gains and data trust materializes within 12 to 18 months.</p>
+        </div>
+      </details>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-ink list-none">
+          How do you ensure data platform security?
+          <svg class="h-4 w-4 shrink-0 text-ink-2 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-ink-2 leading-relaxed">Security is built into every layer: encryption at rest and in transit, row-level and column-level access controls, dynamic data masking, PII detection and classification, audit logging, and policy as code for compliance automation.</p>
+        </div>
+      </details>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-ink list-none">
+          What is a data contract and why use it?
+          <svg class="h-4 w-4 shrink-0 text-ink-2 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-ink-2 leading-relaxed">A data contract is a formal agreement between data producers and consumers defining schema, quality SLAs, freshness expectations, and ownership. It prevents breaking changes and ensures trust across the data ecosystem.</p>
+        </div>
+      </details>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-ink list-none">
+          How do you manage data platform costs?
+          <svg class="h-4 w-4 shrink-0 text-ink-2 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-ink-2 leading-relaxed">We implement cost governance through resource tagging, budget alerts, auto-scaling policies, right-sizing recommendations, query optimization, and scheduled shutdowns for non-production environments. FinOps practices ensure cost visibility.</p>
+        </div>
+      </details>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-ink list-none">
+          Can we adopt data engineering practices incrementally?
+          <svg class="h-4 w-4 shrink-0 text-ink-2 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-ink-2 leading-relaxed">Yes. Data platform modernization is incremental. Start with a single data domain, a critical reporting use case, or a migration pilot. We prioritize early wins and build organizational confidence before scaling.</p>
+        </div>
+      </details>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-ink list-none">
+          What happens after the engagement ends?
+          <svg class="h-4 w-4 shrink-0 text-ink-2 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-ink-2 leading-relaxed">Your team is equipped to operate and evolve the platform independently. We provide comprehensive documentation, runbooks, and training. Ongoing support and advisory retainers are available for continued access to our expertise.</p>
+        </div>
+      </details>
+      <details class="group rounded-lg border border-line-2 bg-paper open:border-accent transition-colors" data-reveal>
+        <summary class="flex cursor-pointer items-center justify-between p-5 text-[1rem] font-medium text-ink list-none">
+          How do you measure data platform success?
+          <svg class="h-4 w-4 shrink-0 text-ink-2 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-5 pb-5">
+          <p class="text-sm text-ink-2 leading-relaxed">We track data freshness, pipeline reliability, data quality scores, query performance, infrastructure cost per workload, platform adoption rate, data consumer satisfaction, and time from data generation to insight.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 14. CALL TO ACTION -->
+<!-- ============================================================ -->
+<section class="relative overflow-hidden py-24 md:py-36 bg-graphite" aria-labelledby="cta-heading">
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--c-accent)_0%,_transparent_50%)] opacity-[0.04] pointer-events-none" aria-hidden="true" />
+  <div class="container-x relative z-10 text-center">
+    <p class="kicker text-accent-bright mb-4" data-reveal>
+      <span class="text-accent-bright">14</span><span aria-hidden="true">&nbsp;—&nbsp;</span>Start the conversation
+    </p>
+    <h2 id="cta-heading" class="display text-4xl md:text-[3.5rem] text-graphite-fg max-w-3xl mx-auto" data-reveal>
+      Ready to build a data platform that transforms your business?
+    </h2>
+    <p class="mt-6 text-lg text-graphite-fg-2 max-w-xl mx-auto leading-relaxed" data-reveal>
+      Book a no-obligation data engineering consultation. We will map your current state, identify quick wins, and outline a roadmap tailored to your organization.
+    </p>
+
+    <div class="mt-10 flex flex-wrap justify-center gap-4" data-reveal>
+      <a
+        href="/contact"
+        class="inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 font-medium text-white transition-colors hover:bg-accent-hover"
+      >
+        Schedule a consultation
+        <svg class="h-4 w-4" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M2 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <a
+        href="mailto:hello@substrate.engineering"
+        class="inline-flex items-center gap-2 rounded-full border border-graphite-line px-7 py-3.5 font-medium text-graphite-fg transition-colors hover:bg-graphite-2"
+      >
+        hello@substrate.engineering
+      </a>
+    </div>
+
+    <div class="mt-14 flex flex-wrap justify-center gap-8 text-sm text-graphite-fg-3" data-reveal>
+      <span>No commitment required</span>
+      <span class="hidden md:inline" aria-hidden="true">&middot;</span>
+      <span>Tailored to your stack</span>
+      <span class="hidden md:inline" aria-hidden="true">&middot;</span>
+      <span>60-minute session</span>
+      <span class="hidden md:inline" aria-hidden="true">&middot;</span>
+      <span>Delivered by senior engineers</span>
+    </div>
+  </div>
+</section>
+</Base>
+
+<style is:global>
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+  details > summary {
+    list-style: none;
+  }
+  details > summary::marker,
+  details > summary::-webkit-details-marker {
+    display: none;
+    content: '';
+  }
+</style>

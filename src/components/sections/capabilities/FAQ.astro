@@ -1,0 +1,140 @@
+---
+import SectionHeading from '../../SectionHeading.astro';
+
+interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+const faqs: FaqItem[] = [
+  {
+    question: 'What exactly is Substrate?',
+    answer: 'Substrate is an engineering company. We design, build, and operate the platforms, infrastructure, and systems that modern enterprises depend on. We are not a staffing agency, a consultancy in the traditional sense, or a product company. We deliver engineering outcomes through hands-on technical work.',
+  },
+  {
+    question: 'What makes Substrate different from a traditional consultancy?',
+    answer: 'Traditional consultancies produce recommendations. Substrate produces working systems. Our engineers write code, configure infrastructure, build pipelines, and operate platforms. We are measured by outcomes, not deliverables.',
+  },
+  {
+    question: 'How do you engage with client teams?',
+    answer: 'We work embedded with your engineering teams, as an independent delivery team, or in a hybrid model depending on the engagement. Our default is close collaboration rather than handing work over a wall.',
+  },
+  {
+    question: 'What is the typical engagement duration?',
+    answer: 'Engagements range from short-term advisory (weeks) to multi-year platform partnerships. We prefer long-term relationships because the best outcomes come from deep understanding of your business, team, and constraints.',
+  },
+  {
+    question: 'Do you work with organizations that have no cloud experience?',
+    answer: 'Yes. We have taken organizations from on-premises infrastructure to fully cloud-native platforms. We meet teams where they are and build capability as we deliver.',
+  },
+  {
+    question: 'What cloud platforms do you support?',
+    answer: 'AWS, Azure, and GCP at production scale. We do not have a preferred cloud provider. Our recommendations are based on your requirements, existing investments, and team capabilities.',
+  },
+  {
+    question: 'How do you approach multi-cloud strategy?',
+    answer: 'We treat multi-cloud as a deliberate architectural choice, not a default position. Most organizations benefit from a primary cloud with specific workloads on secondary clouds when there is a clear technical or business reason.',
+  },
+  {
+    question: 'What is platform engineering and when does an organization need it?',
+    answer: 'Platform engineering is the discipline of building internal developer platforms that reduce cognitive load, standardize infrastructure, and accelerate delivery. Organizations typically need it when they have multiple engineering teams, growing complexity, and bottlenecks in operations.',
+  },
+  {
+    question: 'Do you build platforms from scratch or use existing tools?',
+    answer: 'We prefer to compose platforms from existing tools and open-source components rather than building from scratch. The platform should be assembled, not invented. We use tools like Backstage, Crossplane, Argo CD, and Terraform as building blocks.',
+  },
+  {
+    question: 'How do you ensure platforms get adopted by development teams?',
+    answer: 'Adoption is designed into the platform, not added after. We focus on developer experience, golden paths that solve real problems, and self-service interfaces that remove friction. We also measure adoption metrics and iterate based on feedback.',
+  },
+  {
+    question: 'What is your approach to AI in production?',
+    answer: 'We treat AI systems as engineering products, not experiments. This means defined evaluation pipelines, guardrails for safety and cost, observability for model behavior, and infrastructure designed for inference at scale. RAG, agentic workflows, and fine-tuning are implementation patterns we deliver.',
+  },
+  {
+    question: 'Do you build AI models or work with existing ones?',
+    answer: 'We work with existing foundation models (Claude, GPT, Llama, open-source models) and build the infrastructure, pipelines, and applications around them. Model training is a different discipline that we generally do not practice in-house.',
+  },
+  {
+    question: 'What does data engineering at Substrate look like?',
+    answer: 'We build data platforms that are reliable, observable, and governed. This includes data warehouse and lakehouse architecture, streaming pipelines, data mesh implementations, catalog and lineage tooling, and the infrastructure that makes data accessible to the teams that need it.',
+  },
+  {
+    question: 'How do you approach legacy system modernization?',
+    answer: 'We use incremental migration patterns: strangler fig, parallel run, and feature toggles. We never recommend big-bang rewrites. Every migration plan includes automated validation, rollback procedures, and measurable success criteria.',
+  },
+  {
+    question: 'What does a typical engagement cost?',
+    answer: 'Engagement costs vary widely based on scope, duration, and team composition. We are transparent about pricing and provide detailed estimates during the discovery phase. We do not charge markup on contractor rates or take finder\'s fees.',
+  },
+  {
+    question: 'How do you handle knowledge transfer?',
+    answer: 'Knowledge transfer is built into every engagement. We document architectures and runbooks, conduct training sessions, pair program with your engineers, and define success by your team\'s ability to operate independently after our engagement concludes.',
+  },
+  {
+    question: 'What is your approach to security?',
+    answer: 'Security is integrated from day one, not added at the end. Zero-trust architecture, least privilege access, policy as code, secrets management, and compliance automation are standard practice in every engagement.',
+  },
+  {
+    question: 'How do you measure success?',
+    answer: 'We define measurable outcomes at the start of every engagement: deployment frequency, lead time, MTTR, change failure rate, system availability, cost efficiency, developer satisfaction, or other metrics relevant to your objectives.',
+  },
+  {
+    question: 'What size organizations do you work with?',
+    answer: 'We work with organizations ranging from growth-stage startups to large enterprises. The common factor is technical complexity that requires experienced engineering judgment, not organizational size.',
+  },
+  {
+    question: 'Do you provide ongoing support after a project completes?',
+    answer: 'Yes. Many clients transition from project delivery to ongoing managed services or retainer-based advisory relationships. We structure engagements to provide the level of ongoing support that matches your operational needs.',
+  },
+  {
+    question: 'How do you handle data residency and compliance requirements?',
+    answer: 'Data residency, sovereignty, and regulatory compliance (SOC 2, HIPAA, GDPR, PCI-DSS, FedRAMP) are architectural constraints we design for. We have experience building systems that meet these requirements across multiple jurisdictions.',
+  },
+  {
+    question: 'What is your approach to cloud cost management?',
+    answer: 'Cost governance is built into the platform architecture. We implement tagging strategies, budget alerts, resource rightsizing, reserved instance planning, and FinOps practices that make cloud costs predictable and attributable to the teams that incur them.',
+  },
+];
+---
+
+<section class="py-20 md:py-28 bg-graphite" aria-labelledby="faq-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="faq-heading"
+      index="12"
+      label="Frequently Asked Questions"
+      title="Common questions about our capabilities."
+      lede="Enterprise buyers evaluate engineering partners rigorously. These are the questions we hear most often during discovery conversations."
+      tone="graphite"
+    />
+
+    <div class="mt-14 max-w-3xl mx-auto space-y-3" data-reveal-group>
+      {faqs.map((faq, i) => (
+        <details
+          class="group rounded-lg border border-graphite-line bg-graphite-2 transition-colors duration-200 open:border-accent-bright/30"
+          data-reveal
+        >
+          <summary class="flex items-center justify-between gap-4 cursor-pointer px-6 py-4 list-none text-graphite-fg font-display font-medium hover:text-accent-bright transition-colors">
+            <span>{faq.question}</span>
+            <svg
+              class="h-4 w-4 shrink-0 text-graphite-fg-2 transition-transform duration-200 group-open:rotate-180"
+              viewBox="0 0 16 16"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M4 6l4 4 4-4" />
+            </svg>
+          </summary>
+          <div class="px-6 pb-5 text-sm text-graphite-fg-2 leading-relaxed">
+            {faq.answer}
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

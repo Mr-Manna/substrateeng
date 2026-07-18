@@ -1,0 +1,170 @@
+---
+import SectionHeading from '../../SectionHeading.astro';
+
+interface CapabilityCard {
+  title: string;
+  description: string;
+  href?: string;
+  glyph: string;
+}
+
+const cards: CapabilityCard[] = [
+  {
+    title: 'Platform Engineering',
+    description: 'Design and build internal developer platforms with golden paths, self-service infrastructure, and paved roads to production. We treat the platform as a product and the engineering organization as its customer.',
+    href: '/platform',
+    glyph: 'platform',
+  },
+  {
+    title: 'Cloud Architecture',
+    description: 'Multi-account, multi-region cloud foundations on AWS, Azure, and GCP. Landing zones, networking, identity, and governance designed for security, cost control, and operational clarity.',
+    href: '/cloud-architecture',
+    glyph: 'cloud',
+  },
+  {
+    title: 'Cloud Native Engineering',
+    description: 'Containers, orchestration, service meshes, and serverless architectures born in the cloud. We design systems that leverage cloud primitives rather than simulating on-premises infrastructure.',
+    href: '/cloud-native',
+    glyph: 'cloudnative',
+  },
+  {
+    title: 'Enterprise Architecture',
+    description: 'Target-state architectures, domain boundaries, capability maps, and technology roadmaps that survive contact with the organization. We align technology strategy with business intent.',
+    href: '/enterprise-architecture',
+    glyph: 'enterprise',
+  },
+  {
+    title: 'AI-Native Engineering',
+    description: 'Products designed around models from the first line of code. Retrieval-augmented generation, evaluation pipelines, guardrails, and cost control built into the architecture from day one.',
+    href: '/ai-native-engineering',
+    glyph: 'ai',
+  },
+  {
+    title: 'Data Engineering',
+    description: 'Warehouses, lakes, streaming pipelines, and mesh architectures that make data a dependable interface. We build data systems that are observable, governed, and performant at scale.',
+    href: '/data-engineering',
+    glyph: 'data',
+  },
+  {
+    title: 'Site Reliability Engineering',
+    description: 'SLO frameworks, incident response, observability, and reliability practices that keep mission-critical systems running. We make production boring — in the best possible way.',
+    href: '/sre-operations',
+    glyph: 'sre',
+  },
+  {
+    title: 'DevOps & Automation',
+    description: 'Pipelines, provisioning, and operational toil engineered out of the system. Everything as code, everything repeatable, everything tested. Automation is not a project — it is a discipline.',
+    href: '#',
+    glyph: 'automation',
+  },
+  {
+    title: 'Performance Engineering',
+    description: 'Load modeling, profiling, capacity planning, and latency budgeting. We turn performance requirements into engineering specifications and verify them under realistic conditions.',
+    href: '#',
+    glyph: 'performance',
+  },
+  {
+    title: 'Application Modernization',
+    description: 'Replatforming, refactoring, and rearchitecting legacy systems. We reduce risk with strangler fig patterns, parallel runs, and automated validation at every step.',
+    href: '#',
+    glyph: 'distributed',
+  },
+  {
+    title: 'API Engineering',
+    description: 'API-first design, contract-driven development, gateway architecture, and lifecycle management. We build APIs that are consistent, discoverable, and versioned from the start.',
+    href: '#',
+    glyph: 'distributed',
+  },
+  {
+    title: 'Infrastructure Engineering',
+    description: 'Physical and virtual infrastructure designed for density, resilience, and operational efficiency. From data center migrations to edge deployments, we engineer the substrate.',
+    href: '#',
+    glyph: 'platform',
+  },
+  {
+    title: 'Security Engineering',
+    description: 'Zero-trust architectures, policy-as-code, secrets management, and compliance automation. We embed security into the platform rather than adding it as an afterthought.',
+    href: '#',
+    glyph: 'security',
+  },
+  {
+    title: 'Developer Experience',
+    description: 'Local development environments, inner loop optimization, documentation, and onboarding workflows. We measure developer satisfaction and design for flow state.',
+    href: '#',
+    glyph: 'platform',
+  },
+  {
+    title: 'Integration Engineering',
+    description: 'Connecting disparate systems through well-defined boundaries. Event-driven integration, API gateways, message brokers, and data synchronization at enterprise scale.',
+    href: '#',
+    glyph: 'agentic',
+  },
+  {
+    title: 'Technology Strategy',
+    description: 'Technology assessments, vendor evaluation, build-vs-buy analysis, and roadmap development. We help organizations make defensible technology decisions with clear trade-offs.',
+    href: '#',
+    glyph: 'enterprise',
+  },
+];
+
+const glyphs: Record<string, string> = {
+  distributed: `<circle cx="7" cy="7" r="2.8"/><circle cx="17" cy="5" r="2.8"/><circle cx="17" cy="19" r="2.8"/><circle cx="7" cy="17" r="2.8"/><path d="M9.6 8.2 14.4 6M14.4 18l-4.8-2.2M9.6 8.2v6.8M14.4 6v12"/>`,
+  cloudnative: `<path d="M6 16c-2.2 0-4-1.8-4-4a4 4 0 0 1 3.2-3.9A6 6 0 0 1 17 8a3 3 0 0 1 .5 6"/><rect x="8.5" y="11" width="7" height="8" rx="1.2"/><path d="M11 12.5v2M13 12.5v2M12 15.5v2"/>`,
+  enterprise: `<rect x="3.5" y="3.5" width="7" height="7" rx="1"/><rect x="13.5" y="3.5" width="7" height="7" rx="1"/><rect x="3.5" y="13.5" width="7" height="7" rx="1"/><rect x="13.5" y="13.5" width="7" height="7" rx="1" fill="currentColor" fill-opacity="0.15"/>`,
+  cloud: `<path d="M12 3.5l8 4-8 4-8-4 8-4Z"/><path d="M4 13l8 4 8-4"/><path d="M4 17l8 4 8-4"/>`,
+  platform: `<rect x="3.5" y="15.5" width="17" height="4.5" rx="1"/><path d="M7.5 15.5v-5M12 15.5V4.5M16.5 15.5V8"/>`,
+  automation: `<path d="M20 12a8 8 0 1 1-2.3-5.6"/><path d="M20 3.5V8h-4.5"/><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/>`,
+  ai: `<path d="M12 3.5c.6 4.6 3.3 7.3 7.9 7.9-4.6.6-7.3 3.3-7.9 7.9-.6-4.6-3.3-7.3-7.9-7.9 4.6-.6 7.3-3.3 7.9-7.9Z"/>`,
+  agentic: `<circle cx="6" cy="6" r="2.4"/><circle cx="18" cy="8" r="2.4"/><circle cx="10" cy="18" r="2.4"/><path d="M8.4 6.4l7.2 1.2M6.8 8.2l2.5 7.5M16.6 10L11.6 16"/>`,
+  data: `<ellipse cx="12" cy="6" rx="7.5" ry="2.8"/><path d="M4.5 6v12c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8V6"/><path d="M4.5 12c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8"/>`,
+  performance: `<path d="M4 20v-6M9.3 20V9M14.6 20v-8M20 20V4.5"/>`,
+  security: `<path d="M12 3.5 4.5 7v6c0 5.2 7.5 7.5 7.5 7.5s7.5-2.3 7.5-7.5V7L12 3.5Z"/><path d="M10 12.5l1.5 1.5 3-3.5"/>`,
+  sre: `<path d="M3 12.5h4l2.5-6.5 4.5 12 2.5-5.5H21"/>`,
+};
+---
+
+<section id="capability-overview" class="py-20 md:py-28" aria-labelledby="overview-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="overview-heading"
+      index="03"
+      label="Capability Overview"
+      title="Fifteen engineering disciplines, one integrated practice."
+      lede="These are the capabilities we apply to solve complex engineering problems. Each represents a depth of expertise built through repeated application across enterprise environments."
+    />
+
+    <div class="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3" data-reveal-group>
+      {cards.map((card, i) => (
+        <div class="group relative rounded-lg border border-line-2 bg-paper p-7 transition-colors duration-300 hover:border-accent/30" data-reveal>
+          <span class="absolute top-0 start-0 h-[2px] w-0 bg-accent transition-[width] duration-300 ease-out group-hover:w-full motion-reduce:transition-none" aria-hidden="true" />
+          <div class="flex items-center justify-between mb-5">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="h-6 w-6 text-accent"
+              aria-hidden="true"
+              set:html={glyphs[card.glyph] || glyphs.distributed}
+            />
+            <span class="font-mono text-xs text-ink-3">{String(i + 1).padStart(2, '0')}</span>
+          </div>
+          <h3 class="font-display font-semibold text-ink mb-2.5 text-lg">
+            {card.href && card.href !== '#'
+              ? <a href={card.href} class="hover:text-accent transition-colors">{card.title}</a>
+              : card.title
+            }
+          </h3>
+          <p class="text-sm text-ink-2 leading-relaxed">{card.description}</p>
+          {card.href && card.href !== '#' && (
+            <a href={card.href} class="mt-4 inline-flex items-center gap-1.5 text-xs font-mono text-accent hover:underline" aria-label={`Learn more about ${card.title}`}>
+              Learn more <span aria-hidden="true">&rarr;</span>
+            </a>
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

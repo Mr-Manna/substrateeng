@@ -1,0 +1,72 @@
+---
+import SectionHeading from '../../SectionHeading.astro';
+
+interface Industry {
+  name: string;
+  icon: string;
+}
+
+const industries: Industry[] = [
+  { name: 'Financial Services', icon: 'finance' },
+  { name: 'Healthcare', icon: 'healthcare' },
+  { name: 'Retail & Commerce', icon: 'retail' },
+  { name: 'Manufacturing', icon: 'manufacturing' },
+  { name: 'Logistics & Supply Chain', icon: 'logistics' },
+  { name: 'Education', icon: 'education' },
+  { name: 'Government & Public Sector', icon: 'government' },
+  { name: 'Media & Entertainment', icon: 'media' },
+  { name: 'Telecommunications', icon: 'telecom' },
+  { name: 'SaaS & Technology', icon: 'saas' },
+  { name: 'Artificial Intelligence', icon: 'aiindustry' },
+  { name: 'Energy & Utilities', icon: 'energy' },
+  { name: 'Life Sciences', icon: 'lifescience' },
+];
+
+const icons: Record<string, string> = {
+  finance: `<path d="M3 10h18v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V10Z"/><path d="M7 10V6a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1.5" fill="currentColor" stroke="none"/>`,
+  healthcare: `<path d="M12 3.5v17M3.5 12h17"/><path d="M7.5 8v8M16.5 8v8"/>`,
+  retail: `<path d="M4 7.5h16l-1.5 12H5.5L4 7.5Z"/><path d="M8.5 7.5V5a3.5 3.5 0 0 1 7 0v2.5"/>`,
+  manufacturing: `<path d="M3 19V8.5L12 3l9 5.5V19"/><path d="M3 14h18"/><rect x="7" y="14" width="10" height="5" rx="1"/>`,
+  logistics: `<rect x="2" y="8" width="20" height="11" rx="1.5"/><circle cx="6.5" cy="19" r="2"/><circle cx="17.5" cy="19" r="2"/><path d="M6.5 17v2M17.5 17v2M10 8V4.5h4V8"/>`,
+  education: `<path d="M12 3.5 2 9l10 5.5L22 9 12 3.5Z"/><path d="M2 14.5v4.5c0 1.5 4.5 2.5 10 2.5s10-1 10-2.5v-4.5"/>`,
+  government: `<path d="M5 10.5h14l-2-6H7l-2 6Z"/><path d="M4 10.5h16v9H4z"/><path d="M10 14h4v5.5h-4z"/>`,
+  media: `<circle cx="7" cy="12" r="4"/><path d="M11 8v8l8-4-8-4Z"/>`,
+  telecom: `<path d="M2 15a10 10 0 0 1 20 0"/><path d="M5 15a7 7 0 0 1 14 0"/><path d="M8 15a4 4 0 0 1 8 0"/><circle cx="12" cy="17" r="1.5" fill="currentColor" stroke="none"/>`,
+  saas: `<rect x="2.5" y="2.5" width="19" height="19" rx="2"/><path d="M7.5 12h9"/><path d="M12 7.5v9"/>`,
+  aiindustry: `<path d="M12 3.5c.6 4.6 3.3 7.3 7.9 7.9-4.6.6-7.3 3.3-7.9 7.9-.6-4.6-3.3-7.3-7.9-7.9 4.6-.6 7.3-3.3 7.9-7.9Z"/>`,
+  energy: `<path d="M12 2v6l4-2-4 8v6l6-8-4 2 4-8-6 4Z"/><path d="M12 2v6l-4-2 4 8v6l-6-8 4 2-4-8 6 4Z" opacity="0.3"/>`,
+  lifescience: `<path d="M7 2h10v4H7V2Z"/><path d="M7 6v10a5 5 0 0 0 5 5v0a5 5 0 0 0 5-5V6"/>`,
+};
+---
+
+<section class="py-20 md:py-28 bg-graphite" aria-labelledby="industries-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="industries-heading"
+      index="08"
+      label="Industries"
+      title="Cross-industry engineering experience."
+      lede="We have delivered engineering solutions across a wide range of industries. The engineering challenges differ, but our approach to solving them is consistent: understand the domain, apply rigorous engineering, deliver measurable outcomes."
+      tone="graphite"
+    />
+
+    <div class="mt-14 grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4" data-reveal-group>
+      {industries.map((ind) => (
+        <div class="rounded-lg border border-graphite-line bg-graphite-2 p-5 flex items-center gap-4 transition-colors duration-200 hover:border-accent-bright/30" data-reveal>
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.4"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="h-6 w-6 shrink-0 text-accent-bright"
+            aria-hidden="true"
+            set:html={icons[ind.icon]}
+          />
+          <span class="font-display font-medium text-graphite-fg">{ind.name}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

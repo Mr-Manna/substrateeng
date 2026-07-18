@@ -1,0 +1,90 @@
+---
+import SectionHeading from '../../SectionHeading.astro';
+
+interface TechGroup {
+  category: string;
+  items: string[];
+}
+
+const groups: TechGroup[] = [
+  {
+    category: 'Cloud',
+    items: ['AWS', 'Azure', 'GCP', 'Oracle Cloud', 'Cloudflare'],
+  },
+  {
+    category: 'Containers & Orchestration',
+    items: ['Kubernetes', 'Docker', 'containerd', 'Helm', 'Istio', 'Linkerd', 'Consul'],
+  },
+  {
+    category: 'Infrastructure as Code',
+    items: ['Terraform', 'Pulumi', 'AWS CDK', 'Crossplane', 'Ansible', 'CloudFormation'],
+  },
+  {
+    category: 'Programming Languages',
+    items: ['Go', 'TypeScript', 'Python', 'Rust', 'Java', 'Kotlin', '.NET', 'C#'],
+  },
+  {
+    category: 'Databases',
+    items: ['PostgreSQL', 'MySQL', 'MongoDB', 'DynamoDB', 'Cassandra', 'CockroachDB', 'SQLite'],
+  },
+  {
+    category: 'Streaming & Messaging',
+    items: ['Apache Kafka', 'RabbitMQ', 'NATS', 'Redpanda', 'Amazon SQS', 'Amazon SNS'],
+  },
+  {
+    category: 'Data & Analytics',
+    items: ['Snowflake', 'BigQuery', 'Redshift', 'Databricks', 'dbt', 'Iceberg', 'Delta Lake'],
+  },
+  {
+    category: 'AI & ML',
+    items: ['PyTorch', 'TensorFlow', 'vLLM', 'Ray', 'LangChain', 'LlamaIndex', 'Hugging Face'],
+  },
+  {
+    category: 'Developer Platforms',
+    items: ['Backstage', 'Port', 'Cortex', 'Humanitec', 'Kratix', 'Crossplane'],
+  },
+  {
+    category: 'Observability',
+    items: ['OpenTelemetry', 'Prometheus', 'Grafana', 'Datadog', 'Honeycomb', 'Loki', 'Tempo'],
+  },
+  {
+    category: 'Security',
+    items: ['HashiCorp Vault', 'OPA', 'Kyverno', 'cert-manager', 'Trivy', 'SOPS'],
+  },
+  {
+    category: 'CI/CD & GitOps',
+    items: ['GitHub Actions', 'GitLab CI', 'Argo CD', 'Flux', 'Jenkins', 'Buildkite', 'CircleCI'],
+  },
+  {
+    category: 'Networking',
+    items: ['Cilium', 'Calico', 'nginx', 'HAProxy', 'Envoy', 'Traefik', 'CoreDNS'],
+  },
+];
+---
+
+<section id="technology-ecosystem" class="py-20 md:py-28" aria-labelledby="tech-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="tech-heading"
+      index="07"
+      label="Technology Ecosystem"
+      title="Tools, platforms, and frameworks we work with."
+      lede="Our engineers maintain hands-on expertise across a broad technology landscape. Technology choices are driven by problem requirements, not vendor relationships or tool preference."
+    />
+
+    <div class="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3" data-reveal-group>
+      {groups.map((group) => (
+        <div data-reveal>
+          <h3 class="font-mono text-xs text-accent mb-4 uppercase tracking-wider">{group.category}</h3>
+          <div class="flex flex-wrap gap-2">
+            {group.items.map((item) => (
+              <span class="rounded-full border border-line-2 px-3.5 py-1.5 text-sm text-ink-2 transition-colors duration-200 hover:border-accent/30 hover:text-ink">
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,31 @@
+---
+import Button from '../../Button.astro';
+import { useTranslations } from '../../../i18n/useTranslations';
+
+const locale = (Astro.currentLocale || 'en') as string;
+const { t } = useTranslations(locale);
+---
+
+<section class="relative overflow-hidden py-24 md:py-36" aria-labelledby="final-cta-heading">
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--c-accent-soft)_0%,_transparent_50%)] pointer-events-none" aria-hidden="true" />
+  <div class="container-x relative z-10 text-center">
+    <div class="max-w-2xl mx-auto" data-reveal-group>
+      <p class="kicker text-accent mb-5" data-reveal>
+        <span class="text-accent">—</span><span aria-hidden="true">&nbsp;—&nbsp;</span>Start a Conversation
+      </p>
+      <h2 id="final-cta-heading" class="display text-4xl md:text-5xl text-ink" data-reveal>
+        {t('contactFinalCTA.heading')}
+      </h2>
+      <p class="mt-6 text-lg text-ink-2 leading-relaxed" data-reveal>
+        {t('contactFinalCTA.lede')}
+      </p>
+      <div class="mt-10 flex flex-wrap justify-center gap-4" data-reveal>
+        <Button href="#contact-form" variant="primary">{t('buttons.submitInquiry')}</Button>
+        <Button href={`mailto:${t('contactFinalCTA.email')}`} variant="secondary">{t('buttons.emailUs')}</Button>
+      </div>
+      <p class="mt-6 font-mono text-xs tracking-[0.12em] text-ink-3" data-reveal>
+        {t('contactFinalCTA.email')}
+      </p>
+    </div>
+  </div>
+</section>

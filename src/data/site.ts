@@ -28,7 +28,7 @@ export interface MegaMenuItem {
 export const navItems: MegaMenuItem[] = [
   {
     label: 'Capabilities',
-    href: '/#capabilities',
+    href: '/capabilities',
     items: [
       {
         label: 'Distributed Systems',
@@ -59,7 +59,7 @@ export const navItems: MegaMenuItem[] = [
       },
       {
         label: 'Enterprise Architecture',
-        href: '/capabilities/enterprise-architecture',
+        href: '/enterprise-architecture',
         items: [
           { label: 'Domain-driven design', href: '#' },
           { label: 'Technology roadmaps', href: '#' },

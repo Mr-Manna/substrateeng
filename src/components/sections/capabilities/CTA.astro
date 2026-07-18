@@ -1,0 +1,26 @@
+---
+import Button from '../../Button.astro';
+---
+
+<section class="relative overflow-hidden py-24 md:py-36" aria-labelledby="cta-heading">
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--c-accent-soft)_0%,_transparent_50%)] pointer-events-none" aria-hidden="true" />
+  <div class="container-x relative z-10 text-center">
+    <div class="max-w-2xl mx-auto" data-reveal-group>
+      <p class="kicker text-accent mb-5" data-reveal>
+        <span class="text-accent">13</span><span aria-hidden="true">&nbsp;—&nbsp;</span>Start a Conversation
+      </p>
+      <h2 id="cta-heading" class="display text-4xl md:text-5xl text-ink" data-reveal>
+        Ready to discuss your engineering challenges?
+      </h2>
+      <p class="mt-6 text-lg text-ink-2 leading-relaxed" data-reveal>
+        Every engagement starts with a conversation. Tell us about the problem you are solving, 
+        and we will tell you how we can help. No pitch decks, no obligation, just an honest 
+        assessment of whether we are the right partner for your work.
+      </p>
+      <div class="mt-10 flex flex-wrap justify-center gap-4" data-reveal>
+        <Button href="/contact" variant="primary" size="lg">Talk to our team</Button>
+        <Button href="/" variant="secondary" size="lg">Explore our work</Button>
+      </div>
+    </div>
+  </div>
+</section>

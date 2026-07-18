@@ -1,0 +1,52 @@
+---
+import SectionHeading from '../../SectionHeading.astro';
+import Button from '../../Button.astro';
+import { useTranslations } from '../../../i18n/useTranslations';
+
+const locale = (Astro.currentLocale || 'en') as string;
+const { t, tRaw } = useTranslations(locale);
+
+const steps = tRaw<Array<{ step: string; title: string; text: string }>>('consultationCTA.steps');
+---
+
+<section class="relative overflow-hidden py-20 md:py-28" aria-labelledby="consult-heading">
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--c-accent-soft)_0%,_transparent_50%)] pointer-events-none" aria-hidden="true" />
+  <div class="container-x relative z-10">
+    <SectionHeading
+      id="consult-heading"
+      index="—"
+      label={t('consultationCTA.heading')}
+      title={t('consultationCTA.title')}
+      lede={t('consultationCTA.lede')}
+    />
+
+    <div class="mt-14 grid gap-x-16 gap-y-12 lg:grid-cols-[1fr_1.2fr]" data-reveal-group>
+      <div class="space-y-5">
+        {steps.map((s) => (
+          <div
+            class="grid grid-cols-[40px_minmax(0,1fr)] gap-x-4 border-b border-line py-4"
+            data-reveal
+          >
+            <span class="font-mono text-sm text-accent">{s.step}</span>
+            <div>
+              <h3 class="font-display font-semibold text-ink">{s.title}</h3>
+              <p class="mt-1 text-sm text-ink-2 leading-relaxed">{s.text}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="flex flex-col items-start justify-center rounded-xl border border-line-2 bg-paper p-8" data-reveal>
+        <p class="kicker text-accent">Typical timeline</p>
+        <div class="mt-6 flex items-center gap-4">
+          <span class="font-mono text-3xl font-bold text-accent">48&nbsp;hrs</span>
+          <span class="text-sm text-ink-2 leading-relaxed">Average first response from an engineer</span>
+        </div>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <Button href="#contact-form">{t('buttons.sendInquiry')}</Button>
+          <Button href={`mailto:${t('contactFinalCTA.email')}`} variant="secondary">{t('buttons.emailUs')}</Button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

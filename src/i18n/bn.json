@@ -11,6 +11,15 @@
         "href": "/#capabilities",
         "items": [
           {
+            "label": "Engineering Discovery & Assessment",
+            "href": "/engineering-discovery-assessment",
+            "items": [
+              { "label": "Technology landscape review", "href": "/engineering-discovery-assessment#what-we-assess" },
+              { "label": "Architecture & maturity assessment", "href": "/engineering-discovery-assessment#framework-heading" },
+              { "label": "Prioritized modernization roadmap", "href": "/engineering-discovery-assessment#deliverables-heading" }
+            ]
+          },
+          {
             "label": "ডিস্ট্রিবিউটেড সিস্টেম",
             "href": "#",
             "items": [

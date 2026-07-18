@@ -228,24 +228,23 @@ const navItems = tRaw<{ label: string; href: string; items?: { label: string; hr
   const nav = document.querySelector<HTMLElement>('[data-nav]');
   const overlay = document.querySelector<HTMLElement>('[data-overlay]');
   const triggers = document.querySelectorAll<HTMLElement>('[data-trigger]');
+  const isHover = window.matchMedia('(hover: hover)').matches;
 
   if (nav && overlay) {
     let activeIdx: number | null = null;
+    let closeTimer: ReturnType<typeof setTimeout> | null = null;
+    const CLOSE_DELAY = 250;
 
     function getPanel(idx: number): HTMLElement | null {
       return overlay.querySelector(`[data-panel="${idx}"]`);
     }
 
-    function togglePanel(idx: number) {
-      if (activeIdx === idx && overlay.classList.contains('open')) {
-        overlay.classList.remove('open');
-        const panel = getPanel(idx);
-        panel?.classList.add('hidden');
-        activeIdx = null;
-        document.body.style.overflow = '';
-        setTimeout(() => overlay.classList.add('hidden'), 300);
-        return;
+    function openPanel(idx: number) {
+      if (closeTimer) {
+        clearTimeout(closeTimer);
+        closeTimer = null;
       }
+      if (activeIdx === idx && overlay.classList.contains('open')) return;
 
       if (activeIdx !== null) {
         const prev = getPanel(activeIdx);
@@ -257,62 +256,98 @@ const navItems = tRaw<{ label: string; href: string; items?: { label: string; hr
       if (panel) {
         panel.classList.remove('hidden');
         overlay.classList.remove('hidden');
-        overlay.offsetHeight;
+        overlay.offsetHeight; // force reflow
         overlay.classList.add('open');
         document.body.style.overflow = 'hidden';
       }
     }
 
-    function closePanel() {
-      overlay.classList.remove('open');
-      if (activeIdx !== null) {
-        const panel = getPanel(activeIdx);
-        panel?.classList.add('hidden');
+    function scheduleClose() {
+      if (closeTimer) return;
+      closeTimer = setTimeout(() => {
+        closeTimer = null;
+        overlay.classList.remove('open');
+        if (activeIdx !== null) {
+          const panel = getPanel(activeIdx);
+          panel?.classList.add('hidden');
+        }
+        activeIdx = null;
+        document.body.style.overflow = '';
+        setTimeout(() => overlay.classList.add('hidden'), 300);
+      }, CLOSE_DELAY);
+    }
+
+    function cancelClose() {
+      if (closeTimer) {
+        clearTimeout(closeTimer);
+        closeTimer = null;
       }
-      activeIdx = null;
-      document.body.style.overflow = '';
-      setTimeout(() => overlay.classList.add('hidden'), 300);
     }
 
     triggers.forEach((trigger, idx) => {
       const link = trigger.querySelector<HTMLAnchorElement>('a');
-      if (!link) return;
+      if (!link || !getPanel(idx)) return;
 
+      // Hover behaviour
+      if (isHover) {
+        trigger.addEventListener('mouseenter', () => openPanel(idx));
+        trigger.addEventListener('mouseleave', scheduleClose);
+      }
+
+      // Click navigates normally; for touch devices, toggle instead
       link.addEventListener('click', (e) => {
-        if (!getPanel(idx)) return;
+        if (isHover) return; // navigate naturally
         e.preventDefault();
-        togglePanel(idx);
+        if (overlay.classList.contains('open') && activeIdx === idx) {
+          scheduleClose();
+        } else {
+          openPanel(idx);
+        }
       });
 
       trigger.addEventListener('focusin', () => {
         if (!overlay.classList.contains('open')) {
-          const link = trigger.querySelector<HTMLAnchorElement>('a');
-          if (link && getPanel(idx)) {
-            togglePanel(idx);
-          }
+          openPanel(idx);
         }
       });
     });
 
+    // Keep overlay open while hovering over it
+    if (isHover) {
+      overlay.addEventListener('mouseenter', cancelClose);
+      overlay.addEventListener('mouseleave', scheduleClose);
+    }
+
     document.addEventListener('focusin', (e) => {
       if (overlay.classList.contains('open') && !header!.contains(e.target as Node)) {
-        closePanel();
+        cancelClose();
+        overlay.classList.remove('open');
+        if (activeIdx !== null) {
+          const panel = getPanel(activeIdx);
+          panel?.classList.add('hidden');
+        }
+        activeIdx = null;
+        document.body.style.overflow = '';
+        setTimeout(() => overlay.classList.add('hidden'), 300);
       }
     });
 
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && overlay.classList.contains('open')) {
-        closePanel();
+        const lastIdx = activeIdx;
+        cancelClose();
+        overlay.classList.remove('open');
         if (activeIdx !== null) {
-          const link = triggers[activeIdx]?.querySelector<HTMLAnchorElement>('a');
+          const panel = getPanel(activeIdx);
+          panel?.classList.add('hidden');
+        }
+        activeIdx = null;
+        document.body.style.overflow = '';
+        setTimeout(() => overlay.classList.add('hidden'), 300);
+        if (lastIdx !== null) {
+          const link = triggers[lastIdx]?.querySelector<HTMLAnchorElement>('a');
           link?.focus();
         }
-      }
-    });
-
-    document.addEventListener('click', (e) => {
-      if (overlay.classList.contains('open') && !header!.contains(e.target as Node)) {
-        closePanel();
       }
     });
   }

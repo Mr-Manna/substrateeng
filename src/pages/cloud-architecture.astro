@@ -1,0 +1,1546 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import Button from '../components/Button.astro';
+
+const breadcrumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Capabilities', href: '/#capabilities' },
+  { name: 'Cloud Architecture', href: '' },
+];
+---
+
+<Base
+  title="Cloud Architecture Services for Enterprise | Substrate"
+  description="Substrate helps enterprises design secure, scalable, and cost-efficient cloud architectures. Cloud strategy, multi-cloud, hybrid cloud, landing zones, and cloud-native platforms."
+>
+<!-- 1. HERO -->
+<section class="relative overflow-hidden py-24 md:py-40" aria-labelledby="hero-heading">
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--c-accent-soft)_0%,_transparent_60%)] pointer-events-none" aria-hidden="true" />
+  <div class="container-x relative z-10">
+    <nav class="mb-10 text-sm text-ink-3">
+      {breadcrumbs.map((crumb, idx) => (
+        <span>
+          {idx > 0 && ' / '}
+          {crumb.href && idx < breadcrumbs.length - 1
+            ? <a href={crumb.href} class="text-accent hover:underline">{crumb.name}</a>
+            : <span class={idx === breadcrumbs.length - 1 ? 'font-medium text-ink' : ''}>{crumb.name}</span>
+          }
+        </span>
+      ))}
+    </nav>
+    <div class="max-w-4xl" data-reveal-group>
+      <p class="kicker text-accent mb-5" data-reveal>
+        <span class="text-accent">01</span><span aria-hidden="true">&nbsp;&mdash;&nbsp;</span>Cloud Architecture
+      </p>
+      <h1 id="hero-heading" class="display text-5xl md:text-[4.5rem] text-ink max-w-5xl" data-reveal>
+        Design cloud architectures<br />that scale with your business.
+      </h1>
+      <p class="mt-6 text-lg md:text-xl text-ink-2 max-w-2xl leading-relaxed" data-reveal>
+        Cloud architecture is the practice of designing technology environments that are secure, resilient, observable, and cost-efficient. Substrate helps organizations architect cloud platforms that accelerate innovation while maintaining enterprise-grade governance and control.
+      </p>
+      <div class="mt-10 flex flex-wrap gap-4" data-reveal>
+        <Button href="/contact" variant="primary" size="md">Schedule an architecture review</Button>
+        <Button href="#what-is" variant="secondary" size="md">Learn more</Button>
+      </div>
+    </div>
+    <div class="mt-16 grid gap-6 md:grid-cols-3 max-w-4xl" data-reveal-group>
+      <div class="border-t border-line pt-5" data-reveal>
+        <p class="text-3xl font-display font-semibold text-accent">40-60%</p>
+        <p class="text-sm text-ink-2 mt-1">Reduction in cloud infrastructure costs through architecture optimization and FinOps governance</p>
+      </div>
+      <div class="border-t border-line pt-5" data-reveal>
+        <p class="text-3xl font-display font-semibold text-accent">99.99%</p>
+        <p class="text-sm text-ink-2 mt-1">Target architecture availability through multi-region, multi-AZ, and self-healing infrastructure design</p>
+      </div>
+      <div class="border-t border-line pt-5" data-reveal>
+        <p class="text-3xl font-display font-semibold text-accent">3-5x</p>
+        <p class="text-sm text-ink-2 mt-1">Faster workload delivery with well-architected landing zones, automation, and self-service platforms</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. WHAT IS CLOUD ARCHITECTURE? -->
+<section id="what-is" class="py-20 md:py-28 bg-graphite" aria-labelledby="whatis-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="whatis-heading"
+      index="02"
+      label="What is Cloud Architecture"
+      title="The blueprint for how your organization operates in the cloud."
+      lede="Cloud architecture is the practice of designing and governing the structural components of a cloud environment: compute, networking, storage, security, identity, and the policies that connect them. It is the foundation upon which all cloud capabilities are built."
+      tone="graphite"
+    />
+    <div class="mt-14 grid gap-10 md:grid-cols-2 lg:gap-16" data-reveal-group>
+      <div data-reveal>
+        <h3 class="text-xl font-display font-semibold text-graphite-fg mb-4">Definition and core principles</h3>
+        <p class="text-graphite-fg-2 leading-relaxed mb-4">
+          Cloud architecture is the systematic design of cloud environments to meet specific business, technical, and operational requirements. It encompasses everything from account structure and network topology to identity federation, security controls, observability pipelines, and cost governance.
+        </p>
+        <p class="text-graphite-fg-2 leading-relaxed">
+          The core principles include security by design, least privilege access, infrastructure as code, immutable infrastructure, automated recovery, cost awareness, and continuous optimization.
+        </p>
+      </div>
+      <div data-reveal>
+        <h3 class="text-xl font-display font-semibold text-graphite-fg mb-4">Why cloud architecture matters</h3>
+        <p class="text-graphite-fg-2 leading-relaxed mb-4">
+          Without deliberate architecture, cloud environments evolve organically. Teams provision resources independently. Security policies are applied inconsistently. Costs grow without visibility. The resulting environment is fragile, expensive, and difficult to govern.
+        </p>
+        <p class="text-graphite-fg-2 leading-relaxed">
+          A well-designed cloud architecture transforms the cloud from a collection of services into a cohesive platform. It provides standard patterns for networking, security, and deployment while enabling self-service with guardrails.
+        </p>
+      </div>
+      <div data-reveal>
+        <h3 class="text-xl font-display font-semibold text-graphite-fg mb-4">Cloud architecture vs. cloud migration</h3>
+        <p class="text-graphite-fg-2 leading-relaxed mb-4">
+          Cloud migration is the process of moving workloads from on-premises or one cloud to another. Cloud architecture is the design that determines how those workloads will run once they arrive. Migration without architecture produces lift-and-shift outcomes that replicate on-premises limitations in the cloud.
+        </p>
+        <p class="text-graphite-fg-2 leading-relaxed">
+          Architecture must precede migration. The target architecture defines networking, security, identity, observability, and operational models before workloads begin moving.
+        </p>
+      </div>
+      <div data-reveal>
+        <h3 class="text-xl font-display font-semibold text-graphite-fg mb-4">Cloud architecture vs. infrastructure management</h3>
+        <p class="text-graphite-fg-2 leading-relaxed mb-4">
+          Infrastructure management focuses on day-to-day operations: provisioning, patching, monitoring, and incident response. Cloud architecture defines the structure, standards, and patterns that make infrastructure management effective.
+        </p>
+        <p class="text-graphite-fg-2 leading-relaxed">
+          Architecture is the design phase. Management is the operational phase. Well-architected environments are easier to manage, cheaper to operate, and more resilient.
+        </p>
+      </div>
+      <div data-reveal class="md:col-span-2">
+        <h3 class="text-xl font-display font-semibold text-graphite-fg mb-4">Common misconceptions</h3>
+        <div class="grid gap-4 md:grid-cols-2">
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3 text-graphite-fg-2">
+              <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+              <span><strong class="text-graphite-fg">Architecture is not just diagrams.</strong> Cloud architecture produces decisions, standards, and automation, not just Visio files.</span>
+            </li>
+            <li class="flex items-start gap-3 text-graphite-fg-2">
+              <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+              <span><strong class="text-graphite-fg">Cloud is not inherently cheaper.</strong> Without architecture and FinOps, cloud costs can exceed on-premises.</span>
+            </li>
+            <li class="flex items-start gap-3 text-graphite-fg-2">
+              <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+              <span><strong class="text-graphite-fg">Multi-cloud is not always the answer.</strong> A well-architected single cloud often outperforms a poorly architected multi-cloud.</span>
+            </li>
+          </ul>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3 text-graphite-fg-2">
+              <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+              <span><strong class="text-graphite-fg">Cloud architecture is not a one-time project.</strong> Architecture must be continuously reviewed and adapted.</span>
+            </li>
+            <li class="flex items-start gap-3 text-graphite-fg-2">
+              <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+              <span><strong class="text-graphite-fg">Security is not separate from architecture.</strong> Security must be designed into every layer, not added as an afterthought.</span>
+            </li>
+            <li class="flex items-start gap-3 text-graphite-fg-2">
+              <span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" />
+              <span><strong class="text-graphite-fg">Kubernetes is not required for cloud-native.</strong> Cloud-native encompasses serverless, containers, managed services, and PaaS.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. BUSINESS CHALLENGES -->
+<section class="py-20 md:py-28" aria-labelledby="challenges-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="challenges-heading"
+      index="03"
+      label="Business Challenges"
+      title="The cost of operating without cloud architecture."
+      lede="Organizations that neglect cloud architecture accumulate technical debt, operational risk, and cost inefficiencies that compound over time. These are the challenges we address across every engagement."
+    />
+    <div class="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3" data-reveal-group>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">01</span>
+          <h3 class="font-display font-semibold text-ink">Legacy infrastructure</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Aging on-premises data centers require capital-intensive hardware refreshes, complex maintenance, and specialized staff. Architectural debt limits the ability to adopt modern practices.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">02</span>
+          <h3 class="font-display font-semibold text-ink">Cloud migration complexity</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Migrating to the cloud without a defined target architecture leads to cost overruns, security gaps, and architectures that fail to leverage cloud-native capabilities.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">03</span>
+          <h3 class="font-display font-semibold text-ink">Security risks</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Misconfigured cloud resources are the leading cause of data breaches. Without architecture-level security controls, environments are vulnerable to attack and data exfiltration.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">04</span>
+          <h3 class="font-display font-semibold text-ink">High cloud costs</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Unmanaged cloud spending grows faster than revenue. Orphaned resources, over-provisioned instances, and lack of cost allocation create budget overruns.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">05</span>
+          <h3 class="font-display font-semibold text-ink">Vendor lock-in</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Tight coupling to proprietary cloud services makes migration costly and reduces negotiating leverage. Architecture should preserve optionality.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">06</span>
+          <h3 class="font-display font-semibold text-ink">Poor scalability</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Manual scaling, fixed capacity, and monolithic designs cannot respond to traffic variations or support business growth.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">07</span>
+          <h3 class="font-display font-semibold text-ink">Low resilience</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Single points of failure, lack of redundancy, and manual recovery procedures cause prolonged outages that impact customers.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">08</span>
+          <h3 class="font-display font-semibold text-ink">Operational complexity</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Ad hoc environments, manual processes, and inconsistent tooling create operational overhead that grows faster than the engineering team.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">09</span>
+          <h3 class="font-display font-semibold text-ink">Disaster recovery limitations</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Traditional backup and restore approaches are slow, fragile, and rarely tested. RTO and RPO cannot be met without automated replication and multi-region architecture.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">10</span>
+          <h3 class="font-display font-semibold text-ink">Compliance requirements</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Frameworks such as SOC 2, HIPAA, PCI DSS, GDPR, and FedRAMP require demonstrable controls that cannot be retrofitted easily.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">11</span>
+          <h3 class="font-display font-semibold text-ink">Multi-cloud management</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Operating across multiple cloud providers without consistent architecture multiplies complexity. Each provider has different APIs and security models.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">12</span>
+          <h3 class="font-display font-semibold text-ink">Performance bottlenecks</h3>
+        </div>
+        <p class="text-sm text-ink-2 leading-relaxed">Poorly architected networking, suboptimal instance selection, and unoptimized databases create latency and throughput issues.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. OUR CLOUD ARCHITECTURE APPROACH -->
+<section class="py-20 md:py-28 bg-graphite" aria-labelledby="approach-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="approach-heading"
+      index="04"
+      label="Our Approach"
+      title="A phased methodology for cloud architecture."
+      lede="We follow a structured, outcome-driven approach to cloud architecture. Every phase is grounded in your business context, technical requirements, and risk tolerance."
+      tone="graphite"
+    />
+    <div class="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3" data-reveal-group>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">01</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Cloud Readiness Assessment</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Evaluate your current infrastructure, applications, security posture, team skills, and operational maturity. We produce a cloud readiness score with prioritized recommendations.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">02</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Current-State Architecture Review</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Analyze your existing architecture across all domains: networking, security, identity, compute, storage, databases, observability, and operations.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">03</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Business & Technical Requirements</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Capture and prioritize business objectives, compliance requirements, performance targets, availability SLAs, cost constraints, and team capabilities.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">04</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Cloud Strategy</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Define the cloud strategy: provider selection, deployment model, migration approach, and high-level architecture direction aligned with business goals.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">05</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Target Architecture Design</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Design the target-state architecture: account structure, network topology, security boundaries, identity federation, compute platforms, and integration patterns.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">06</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Security Architecture</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Design security across all layers: network segmentation, encryption standards, secrets management, identity and access management, and security monitoring.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">07</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Network Architecture</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Design network topology: VPC architecture, transit connectivity, hybrid networking, load balancing, CDN, DNS, and network security controls.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">08</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Identity & Access Design</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Design identity architecture: federation, directory services, RBAC, privilege management, workload identity, and just-in-time access.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">09</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Infrastructure Automation</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Design the automation foundation: IaC strategy, module registry, state management, CI/CD pipelines, GitOps workflows, and compliance validation.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">10</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Platform Engineering</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Design internal developer platforms: self-service infrastructure, golden paths, developer portals, service catalog, and paved roads.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">11</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Observability</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Design observability architecture: metrics, traces, and logs pipelines, instrumentation standards, SLO frameworks, and incident management integration.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">12</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Governance</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Establish cloud governance: policy as code, budget controls, compliance automation, cost allocation, tagging standards, and architecture review processes.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">13</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Optimization</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Optimize for cost, performance, and reliability. Right-sizing, reserved and spot instance strategies, auto-scaling policies, and storage tiering.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent-bright mb-3">14</span>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Continuous Improvement</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Establish review cycles, maturity tracking, feedback loops, and iteration practices to ensure architecture evolves with your business and technology.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. CLOUD ARCHITECTURE SERVICES -->
+<section class="py-20 md:py-28" aria-labelledby="services-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="services-heading"
+      index="05"
+      label="Our Services"
+      title="End-to-end cloud architecture capabilities."
+      lede="From strategic advisory through hands-on implementation and managed operations, we provide the full spectrum of cloud architecture services."
+    />
+    <div class="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3" data-reveal-group>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Cloud Strategy & Advisory</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Define your cloud vision, strategy, and roadmap. Provider selection, adoption model, migration sequencing, and business case development.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Cloud maturity assessment</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Provider evaluation and selection</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> 3-5 year cloud roadmap</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Cloud Architecture Design</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Comprehensive architecture design covering account structure, networking, security, identity, compute, storage, databases, and operations.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Target-state architecture design</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Architecture decision records</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Reference architecture development</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Cloud Migration Planning</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Develop comprehensive migration plans with workload assessment, dependency mapping, wave sequencing, and rollback procedures.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Workload discovery and assessment</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Migration wave planning</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Cutover, validation, and rollback</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Multi-Cloud Architecture</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Design multi-cloud architectures that distribute workloads strategically. Avoid lock-in, optimize costs, leverage best-in-class services.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Provider selection and placement</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Inter-cloud networking and data</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Consistent identity and policy</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Hybrid Cloud Architecture</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Design hybrid architectures bridging on-premises and cloud. Consistent networking, identity, security, and operations across all environments.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Hybrid networking and connectivity</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Consistent Kubernetes across sites</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Data synchronization and replication</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Cloud-Native Architecture</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Design architectures leveraging containers, serverless, managed services, and event-driven patterns for scalability and resilience.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Container and serverless strategy</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Managed service evaluation</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Event-driven and microservices</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Kubernetes Architecture</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Design production-grade Kubernetes platforms: cluster topology, networking, security, multi-tenancy, GitOps, and day-2 operations.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Cluster architecture and lifecycle</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Multi-tenancy and network policy</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Service mesh and ingress</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Platform Architecture</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Design internal developer platforms with self-service infrastructure, golden paths, and paved roads that accelerate delivery.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> IDP design and architecture</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Developer portal and catalog</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Golden path and templates</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Infrastructure as Code</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Implement IaC across your cloud footprint with Terraform, OpenTofu, Pulumi, or Crossplane. Tested, versioned, and reusable modules.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Module registry and publishing</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> State management and locking</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Drift detection and remediation</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Landing Zone Design</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Design cloud landing zones: multi-account structure, network architecture, security baselines, identity federation, and governance.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Multi-account architecture</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Network and security baseline</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Logging, monitoring, and cost</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Identity & Access Architecture</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Design enterprise identity: federated identity, SSO, RBAC, privilege access management, workload identity, and just-in-time access.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Identity federation and directory</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> RBAC and ABAC design</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Privileged access management</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Network Architecture</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Design cloud network architectures: VPC design, transit networking, hybrid connectivity, load balancing, CDN, DNS, and security.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> VPC and subnet architecture</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Transit gateway and hybrid connectivity</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Load balancing, CDN, and DNS</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Disaster Recovery Design</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Design DR architectures: RTO/RPO definition, replication strategies, failover automation, testing, and multi-region patterns.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> DR strategy and objectives</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Multi-region and multi-zone design</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Automated failover and testing</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">High Availability Architecture</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Design HA architectures: multi-AZ deployment, auto-scaling, load balancing, health checks, circuit breakers, and graceful degradation.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Multi-AZ and multi-region HA</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Auto-scaling and elasticity</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Health checking and self-healing</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">API Architecture</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Design API platforms: gateways, authentication, rate limiting, schema validation, versioning, developer portals, and lifecycle management.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> API gateway architecture</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> API security and rate limiting</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Developer portal and docs</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Event-Driven Architecture</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Design event-driven systems: event taxonomy, message brokers, stream processing, event sourcing, CQRS, and event governance.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Event schema and governance</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Message broker and streaming</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Idempotency and exactly-once</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Cost Optimization</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Analyze and optimize cloud spending. Right-sizing, reserved and spot instances, auto-scaling, storage tiering, and FinOps practices.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Cost analysis and observability</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Resource right-sizing</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Reserved and spot strategy</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Security Architecture</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Design comprehensive security: network security, encryption, secrets management, identity, vulnerability management, and monitoring.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Cloud security posture management</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Encryption and secrets</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Security monitoring and SIEM</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Compliance Architecture</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Design architectures meeting regulatory requirements: data residency, encryption, access controls, audit trails, and automation.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Compliance control mapping</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Automated compliance validation</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Audit evidence and reporting</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Cloud Modernization</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Modernize existing cloud architectures to leverage cloud-native capabilities. Migration from legacy patterns to managed services.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Modernization assessment</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Managed service adoption</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Legacy pattern migration</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Cloud Governance</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Establish governance frameworks: policy as code, budget controls, cost allocation, tagging standards, and compliance monitoring.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Governance framework design</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Cost governance and FinOps</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Compliance monitoring</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-7" data-reveal>
+        <div class="font-mono text-xs text-accent mb-3">SERVICE</div>
+        <h3 class="text-lg font-display font-semibold text-ink mb-2">Managed Cloud Architecture</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Ongoing architecture advisory and management. Continuous review, optimization, governance, and evolution as a managed service.</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Continuous architecture advisory</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Ongoing optimization</li>
+          <li class="flex items-center gap-2 text-xs text-ink-3"><span class="block h-1 w-1 rounded-full bg-accent" aria-hidden="true" /> Maturity tracking</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. ARCHITECTURE DOMAINS -->
+<section class="py-20 md:py-28 bg-graphite" aria-labelledby="domains-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="domains-heading"
+      index="06"
+      label="Architecture Domains"
+      title="Deep expertise across every cloud architecture layer."
+      lede="Cloud architecture spans multiple technical domains. Our team brings deep hands-on expertise across every layer, from infrastructure through application architecture and operations."
+      tone="graphite"
+    />
+    <div class="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4" data-reveal-group>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Infrastructure Architecture</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Compute, storage, and networking design. Instance families, auto-scaling, storage tiers, volume management, and infrastructure lifecycle automation.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Network Architecture</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">VPC design, subnetting, transit gateways, VPN, Direct Connect, load balancing, CDN, DNS, network segmentation, and firewall architecture.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Identity & Access Management</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Federated identity, SSO, RBAC, ABAC, privileged access, workload identity, OAuth 2.0, OIDC, SAML, and just-in-time access.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Cloud Security</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Zero-trust architecture, encryption, secrets management, vulnerability management, security monitoring, CSPM, and incident response.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Kubernetes Platforms</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Production cluster design, multi-cluster management, networking, security policies, service mesh, GitOps, and day-2 operations.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Platform Engineering</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Internal developer platforms, developer portals, self-service infrastructure, golden paths, service catalogs, and paved roads.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Storage Architecture</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Object, block, and file storage. Data lifecycle policies, storage classes, backup strategies, and replication across regions.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Database Architecture</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Relational and NoSQL selection, managed services, replication, read replicas, sharding, connection pooling, and migration planning.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">API Architecture</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">API gateway design, REST and gRPC patterns, authentication, rate limiting, schema validation, versioning, and developer portals.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Integration Architecture</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Enterprise integration patterns, message brokers, event buses, service mesh, data synchronization, and hybrid integration.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Event-Driven Systems</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Event sourcing, CQRS, stream processing, event schema governance, broker selection, and exactly-once processing semantics.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">High Availability</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Multi-AZ and multi-region architecture, active-active and active-passive patterns, health checking, auto-scaling, and circuit breakers.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Disaster Recovery</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">RTO and RPO definition, backup and restore, pilot light, warm standby, multi-region active-active, and failover automation.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Observability</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Metrics, traces, and logs pipelines, OpenTelemetry instrumentation, SLO frameworks, burn-rate alerting, and dashboards.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Cost Optimization</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">FinOps, cost allocation and showback, right-sizing, reserved and spot instances, auto-scaling, storage tiering, and continuous optimization.</p>
+      </div>
+      <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <h3 class="font-display font-semibold text-graphite-fg mb-2">Cloud Governance</h3>
+        <p class="text-sm text-graphite-fg-2 leading-relaxed">Policy as code, compliance automation, resource tagging, budget controls, approval workflows, and architecture review.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. CLOUD ARCHITECTURE FRAMEWORK -->
+<section class="py-20 md:py-28" aria-labelledby="framework-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="framework-heading"
+      index="07"
+      label="Architecture Framework"
+      title="A layered framework for enterprise cloud architecture."
+      lede="We organize cloud architecture into distinct layers, each with specific concerns, standards, and best practices. This layered framework ensures complete coverage for every architectural domain."
+    />
+    <div class="mt-14 space-y-16" data-reveal-group>
+      <div class="grid gap-8 md:grid-cols-5" data-reveal>
+        <div class="md:col-span-2">
+          <span class="block font-mono text-xs text-accent mb-2">LAYER 01</span>
+          <h3 class="text-2xl font-display font-semibold text-ink">Business Layer</h3>
+          <p class="mt-2 text-sm text-ink-2">Business capabilities, value streams, organizational structure, and strategic objectives driving all architecture decisions.</p>
+        </div>
+        <div class="md:col-span-3 grid gap-4 md:grid-cols-2">
+          <div class="rounded-lg border border-line-2 bg-paper-2 p-4">
+            <p class="text-xs font-mono text-accent">KEY CONCERNS</p>
+<p class='mt-1 text-sm text-ink-2'>Business capability mapping</p><p class='mt-1 text-sm text-ink-2'>Value stream analysis</p><p class='mt-1 text-sm text-ink-2'>Operating model design</p><p class='mt-1 text-sm text-ink-2'>Investment planning</p>
+          </div>
+          <div class="rounded-lg border border-line-2 bg-paper-2 p-4">
+            <p class="text-xs font-mono text-accent">RECOMMENDED DIAGRAM</p>
+            <p class="mt-1 text-sm text-ink-2">Business capability map showing capabilities, maturity levels, and supporting technology systems.</p>
+          </div>
+        </div>
+      </div>
+      <div class="grid gap-8 md:grid-cols-5" data-reveal>
+        <div class="md:col-span-2">
+          <span class="block font-mono text-xs text-accent mb-2">LAYER 02</span>
+          <h3 class="text-2xl font-display font-semibold text-ink">Cloud Strategy Layer</h3>
+          <p class="mt-2 text-sm text-ink-2">Cloud adoption strategy, provider selection, deployment model, landing zone architecture, and migration roadmap.</p>
+        </div>
+        <div class="md:col-span-3 grid gap-4 md:grid-cols-2">
+          <div class="rounded-lg border border-line-2 bg-paper-2 p-4">
+            <p class="text-xs font-mono text-accent">KEY CONCERNS</p>
+<p class='mt-1 text-sm text-ink-2'>Provider selection</p><p class='mt-1 text-sm text-ink-2'>Landing zone design</p><p class='mt-1 text-sm text-ink-2'>Account structure</p><p class='mt-1 text-sm text-ink-2'>Migration planning</p>
+          </div>
+          <div class="rounded-lg border border-line-2 bg-paper-2 p-4">
+            <p class="text-xs font-mono text-accent">RECOMMENDED DIAGRAM</p>
+            <p class="mt-1 text-sm text-ink-2">Landing zone diagram showing multi-account structure, network topology, and shared services.</p>
+          </div>
+        </div>
+      </div>
+      <div class="grid gap-8 md:grid-cols-5" data-reveal>
+        <div class="md:col-span-2">
+          <span class="block font-mono text-xs text-accent mb-2">LAYER 03</span>
+          <h3 class="text-2xl font-display font-semibold text-ink">Identity Layer</h3>
+          <p class="mt-2 text-sm text-ink-2">Identity federation, directory services, authentication, authorization, privilege management, and workload identity.</p>
+        </div>
+        <div class="md:col-span-3 grid gap-4 md:grid-cols-2">
+          <div class="rounded-lg border border-line-2 bg-paper-2 p-4">
+            <p class="text-xs font-mono text-accent">KEY CONCERNS</p>
+<p class='mt-1 text-sm text-ink-2'>Federated identity and SSO</p><p class='mt-1 text-sm text-ink-2'>RBAC and ABAC</p><p class='mt-1 text-sm text-ink-2'>Privileged access management</p><p class='mt-1 text-sm text-ink-2'>Secrets management</p>
+          </div>
+          <div class="rounded-lg border border-line-2 bg-paper-2 p-4">
+            <p class="text-xs font-mono text-accent">RECOMMENDED DIAGRAM</p>
+            <p class="mt-1 text-sm text-ink-2">Identity diagram showing federation, directory integration, authentication flows, and access boundaries.</p>
+          </div>
+        </div>
+      </div>
+      <div class="grid gap-8 md:grid-cols-5" data-reveal>
+        <div class="md:col-span-2">
+          <span class="block font-mono text-xs text-accent mb-2">LAYER 04</span>
+          <h3 class="text-2xl font-display font-semibold text-ink">Network Layer</h3>
+          <p class="mt-2 text-sm text-ink-2">Network topology, connectivity, segmentation, load balancing, CDN, DNS, and network security across all environments.</p>
+        </div>
+        <div class="md:col-span-3 grid gap-4 md:grid-cols-2">
+          <div class="rounded-lg border border-line-2 bg-paper-2 p-4">
+            <p class="text-xs font-mono text-accent">KEY CONCERNS</p>
+<p class='mt-1 text-sm text-ink-2'>VPC and subnet design</p><p class='mt-1 text-sm text-ink-2'>Transit and hybrid connectivity</p><p class='mt-1 text-sm text-ink-2'>Load balancing and CDN</p><p class='mt-1 text-sm text-ink-2'>Firewall and segmentation</p>
+          </div>
+          <div class="rounded-lg border border-line-2 bg-paper-2 p-4">
+            <p class="text-xs font-mono text-accent">RECOMMENDED DIAGRAM</p>
+            <p class="mt-1 text-sm text-ink-2">Network topology diagram showing VPCs, subnets, transit gateways, VPN, and CDN distribution.</p>
+          </div>
+        </div>
+      </div>
+      <div class="grid gap-8 md:grid-cols-5" data-reveal>
+        <div class="md:col-span-2">
+          <span class="block font-mono text-xs text-accent mb-2">LAYER 05</span>
+          <h3 class="text-2xl font-display font-semibold text-ink">Compute Layer</h3>
+          <p class="mt-2 text-sm text-ink-2">Virtual machines, container orchestration, serverless, auto-scaling, instance families, and compute lifecycle management.</p>
+        </div>
+        <div class="md:col-span-3 grid gap-4 md:grid-cols-2">
+          <div class="rounded-lg border border-line-2 bg-paper-2 p-4">
+            <p class="text-xs font-mono text-accent">KEY CONCERNS</p>
+<p class='mt-1 text-sm text-ink-2'>Instance selection and families</p><p class='mt-1 text-sm text-ink-2'>Auto-scaling and spot instances</p><p class='mt-1 text-sm text-ink-2'>Capacity planning</p><p class='mt-1 text-sm text-ink-2'>Compute optimization</p>
+          </div>
+          <div class="rounded-lg border border-line-2 bg-paper-2 p-4">
+            <p class="text-xs font-mono text-accent">RECOMMENDED DIAGRAM</p>
+            <p class="mt-1 text-sm text-ink-2">Compute architecture diagram showing instance families, auto-scaling, and placement groups.</p>
+          </div>
+        </div>
+      </div>
+      <div class="grid gap-8 md:grid-cols-5" data-reveal>
+        <div class="md:col-span-2">
+          <span class="block font-mono text-xs text-accent mb-2">LAYER 06</span>
+          <h3 class="text-2xl font-display font-semibold text-ink">Container Platform</h3>
+          <p class="mt-2 text-sm text-ink-2">Kubernetes cluster architecture, container orchestration, service mesh, image management, and container security.</p>
+        </div>
+        <div class="md:col-span-3 grid gap-4 md:grid-cols-2">
+          <div class="rounded-lg border border-line-2 bg-paper-2 p-4">
+            <p class="text-xs font-mono text-accent">KEY CONCERNS</p>
+<p class='mt-1 text-sm text-ink-2'>Cluster topology and node pools</p><p class='mt-1 text-sm text-ink-2'>RBAC and network policies</p><p class='mt-1 text-sm text-ink-2'>Service mesh and ingress</p><p class='mt-1 text-sm text-ink-2'>Image scanning and security</p>
+          </div>
+          <div class="rounded-lg border border-line-2 bg-paper-2 p-4">
+            <p class="text-xs font-mono text-accent">RECOMMENDED DIAGRAM</p>
+            <p class="mt-1 text-sm text-ink-2">Kubernetes platform diagram showing cluster architecture, networking, ingress, and service mesh.</p>
+          </div>
+        </div>
+      </div>
+      <div class="grid gap-8 md:grid-cols-5" data-reveal>
+        <div class="md:col-span-2">
+          <span class="block font-mono text-xs text-accent mb-2">LAYER 07</span>
+          <h3 class="text-2xl font-display font-semibold text-ink">Storage Layer</h3>
+          <p class="mt-2 text-sm text-ink-2">Object, block, and file storage. Data lifecycle policies, backup, replication, and disaster recovery for persistent data.</p>
+        </div>
+        <div class="md:col-span-3 grid gap-4 md:grid-cols-2">
+          <div class="rounded-lg border border-line-2 bg-paper-2 p-4">
+            <p class="text-xs font-mono text-accent">KEY CONCERNS</p>
+<p class='mt-1 text-sm text-ink-2'>Storage class selection</p><p class='mt-1 text-sm text-ink-2'>Data lifecycle and tiering</p><p class='mt-1 text-sm text-ink-2'>Backup and replication</p><p class='mt-1 text-sm text-ink-2'>Encryption and access</p>
+          </div>
+          <div class="rounded-lg border border-line-2 bg-paper-2 p-4">
+            <p class="text-xs font-mono text-accent">RECOMMENDED DIAGRAM</p>
+            <p class="mt-1 text-sm text-ink-2">Storage diagram showing classes, lifecycle, backup pipelines, and replication topology.</p>
+          </div>
+        </div>
+      </div>
+      <div class="grid gap-8 md:grid-cols-5" data-reveal>
+        <div class="md:col-span-2">
+          <span class="block font-mono text-xs text-accent mb-2">LAYER 08</span>
+          <h3 class="text-2xl font-display font-semibold text-ink">Database Layer</h3>
+          <p class="mt-2 text-sm text-ink-2">Relational and NoSQL database selection, managed services, replication, migration, and database operations at scale.</p>
+        </div>
+        <div class="md:col-span-3 grid gap-4 md:grid-cols-2">
+          <div class="rounded-lg border border-line-2 bg-paper-2 p-4">
+            <p class="text-xs font-mono text-accent">KEY CONCERNS</p>
+<p class='mt-1 text-sm text-ink-2'>Engine selection and managed vs self-managed</p><p class='mt-1 text-sm text-ink-2'>Replication and read replicas</p><p class='mt-1 text-sm text-ink-2'>Sharding and pooling</p><p class='mt-1 text-sm text-ink-2'>Backup and migration</p>
+          </div>
+          <div class="rounded-lg border border-line-2 bg-paper-2 p-4">
+            <p class="text-xs font-mono text-accent">RECOMMENDED DIAGRAM</p>
+            <p class="mt-1 text-sm text-ink-2">Database diagram showing instances, replication, read replicas, backup pipelines, and access.</p>
+          </div>
+        </div>
+      </div>
+      <div class="grid gap-8 md:grid-cols-5" data-reveal>
+        <div class="md:col-span-2">
+          <span class="block font-mono text-xs text-accent mb-2">LAYER 09</span>
+          <h3 class="text-2xl font-display font-semibold text-ink">Integration Layer</h3>
+          <p class="mt-2 text-sm text-ink-2">API gateways, message brokers, event buses, service mesh, and integration platforms connecting applications and data.</p>
+        </div>
+        <div class="md:col-span-3 grid gap-4 md:grid-cols-2">
+          <div class="rounded-lg border border-line-2 bg-paper-2 p-4">
+            <p class="text-xs font-mono text-accent">KEY CONCERNS</p>
+<p class='mt-1 text-sm text-ink-2'>Gateway and broker selection</p><p class='mt-1 text-sm text-ink-2'>Service mesh and integration</p><p class='mt-1 text-sm text-ink-2'>Schema governance</p><p class='mt-1 text-sm text-ink-2'>Protocol translation</p>
+          </div>
+          <div class="rounded-lg border border-line-2 bg-paper-2 p-4">
+            <p class="text-xs font-mono text-accent">RECOMMENDED DIAGRAM</p>
+            <p class="mt-1 text-sm text-ink-2">Integration diagram showing gateways, brokers, event buses, service mesh, and integration flows.</p>
+          </div>
+        </div>
+      </div>
+      <div class="grid gap-8 md:grid-cols-5" data-reveal>
+        <div class="md:col-span-2">
+          <span class="block font-mono text-xs text-accent mb-2">LAYER 10</span>
+          <h3 class="text-2xl font-display font-semibold text-ink">Security Layer</h3>
+          <p class="mt-2 text-sm text-ink-2">Security controls across all layers: network security, identity, encryption, secrets, monitoring, and incident response.</p>
+        </div>
+        <div class="md:col-span-3 grid gap-4 md:grid-cols-2">
+          <div class="rounded-lg border border-line-2 bg-paper-2 p-4">
+            <p class="text-xs font-mono text-accent">KEY CONCERNS</p>
+<p class='mt-1 text-sm text-ink-2'>Zero-trust architecture</p><p class='mt-1 text-sm text-ink-2'>Encryption and secrets</p><p class='mt-1 text-sm text-ink-2'>CSPM and vulnerability</p><p class='mt-1 text-sm text-ink-2'>SIEM and incident response</p>
+          </div>
+          <div class="rounded-lg border border-line-2 bg-paper-2 p-4">
+            <p class="text-xs font-mono text-accent">RECOMMENDED DIAGRAM</p>
+            <p class="mt-1 text-sm text-ink-2">Security diagram showing defense-in-depth layers, controls, monitoring, and incident response.</p>
+          </div>
+        </div>
+      </div>
+      <div class="grid gap-8 md:grid-cols-5" data-reveal>
+        <div class="md:col-span-2">
+          <span class="block font-mono text-xs text-accent mb-2">LAYER 11</span>
+          <h3 class="text-2xl font-display font-semibold text-ink">Observability Layer</h3>
+          <p class="mt-2 text-sm text-ink-2">Metrics, traces, and logs pipelines, instrumentation, dashboards, alerting, SLOs, and incident management.</p>
+        </div>
+        <div class="md:col-span-3 grid gap-4 md:grid-cols-2">
+          <div class="rounded-lg border border-line-2 bg-paper-2 p-4">
+            <p class="text-xs font-mono text-accent">KEY CONCERNS</p>
+<p class='mt-1 text-sm text-ink-2'>OpenTelemetry instrumentation</p><p class='mt-1 text-sm text-ink-2'>Metrics, traces, and logs</p><p class='mt-1 text-sm text-ink-2'>SLO frameworks and alerts</p><p class='mt-1 text-sm text-ink-2'>Dashboards and on-call</p>
+          </div>
+          <div class="rounded-lg border border-line-2 bg-paper-2 p-4">
+            <p class="text-xs font-mono text-accent">RECOMMENDED DIAGRAM</p>
+            <p class="mt-1 text-sm text-ink-2">Observability diagram showing collection, pipeline topology, storage, dashboards, and alerting.</p>
+          </div>
+        </div>
+      </div>
+      <div class="grid gap-8 md:grid-cols-5" data-reveal>
+        <div class="md:col-span-2">
+          <span class="block font-mono text-xs text-accent mb-2">LAYER 12</span>
+          <h3 class="text-2xl font-display font-semibold text-ink">Automation Layer</h3>
+          <p class="mt-2 text-sm text-ink-2">IaC, CI/CD, GitOps, policy as code, configuration management, and automated compliance validation.</p>
+        </div>
+        <div class="md:col-span-3 grid gap-4 md:grid-cols-2">
+          <div class="rounded-lg border border-line-2 bg-paper-2 p-4">
+            <p class="text-xs font-mono text-accent">KEY CONCERNS</p>
+<p class='mt-1 text-sm text-ink-2'>IaC tooling and modules</p><p class='mt-1 text-sm text-ink-2'>CI/CD and GitOps</p><p class='mt-1 text-sm text-ink-2'>Policy enforcement</p><p class='mt-1 text-sm text-ink-2'>Compliance automation</p>
+          </div>
+          <div class="rounded-lg border border-line-2 bg-paper-2 p-4">
+            <p class="text-xs font-mono text-accent">RECOMMENDED DIAGRAM</p>
+            <p class="mt-1 text-sm text-ink-2">Automation diagram showing IaC pipeline, CI/CD, GitOps sync, policy enforcement, and compliance.</p>
+          </div>
+        </div>
+      </div>
+      <div class="grid gap-8 md:grid-cols-5" data-reveal>
+        <div class="md:col-span-2">
+          <span class="block font-mono text-xs text-accent mb-2">LAYER 13</span>
+          <h3 class="text-2xl font-display font-semibold text-ink">Governance Layer</h3>
+          <p class="mt-2 text-sm text-ink-2">Cost governance, compliance automation, resource management, architecture review, and continuous improvement.</p>
+        </div>
+        <div class="md:col-span-3 grid gap-4 md:grid-cols-2">
+          <div class="rounded-lg border border-line-2 bg-paper-2 p-4">
+            <p class="text-xs font-mono text-accent">KEY CONCERNS</p>
+<p class='mt-1 text-sm text-ink-2'>Policy as code and budgets</p><p class='mt-1 text-sm text-ink-2'>Cost allocation and showback</p><p class='mt-1 text-sm text-ink-2'>Architecture review</p><p class='mt-1 text-sm text-ink-2'>Maturity tracking</p>
+          </div>
+          <div class="rounded-lg border border-line-2 bg-paper-2 p-4">
+            <p class="text-xs font-mono text-accent">RECOMMENDED DIAGRAM</p>
+            <p class="mt-1 text-sm text-ink-2">Governance diagram showing policy hierarchy, enforcement, cost workflow, and review cycles.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. TECHNOLOGIES -->
+<section class="py-20 md:py-28 bg-graphite" aria-labelledby="tech-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="tech-heading"
+      index="08"
+      label="Technologies"
+      title="Tools and platforms we architect with."
+      lede="We maintain deep expertise across the cloud ecosystem. Our technology recommendations are driven by your requirements, not vendor relationships."
+      tone="graphite"
+    />
+    <div class="mt-14 grid gap-8 md:grid-cols-3 lg:grid-cols-4" data-reveal-group>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-4">Cloud Providers</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2">Amazon Web Services</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Microsoft Azure</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 mt-2">Google Cloud Platform</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Oracle Cloud Infrastructure</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 mt-2">OpenStack</li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-4">Containers &amp; Orchestration</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2">Docker</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Kubernetes</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Helm</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 mt-2">Kustomize</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Argo CD</li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-4">Infrastructure as Code</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2">Terraform</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">OpenTofu</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Pulumi</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 mt-2">Ansible</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Crossplane</li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-4">Networking</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2">Cloud Load Balancers</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">API Gateway</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Kong</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 mt-2">NGINX</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Cilium</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Istio</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 mt-2">Linkerd</li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-4">Observability</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2">Prometheus</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Grafana</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">OpenTelemetry</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 mt-2">Loki</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Tempo</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Jaeger</li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-4">Security</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2">HashiCorp Vault</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">OPA</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Kyverno</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 mt-2">Cert-Manager</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Trivy</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Falco</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 mt-2">Cosign</li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-4">Databases</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2">PostgreSQL</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">MySQL</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">MongoDB</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 mt-2">Redis</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">ClickHouse</li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h3 class="font-mono text-xs text-accent-bright mb-4">Programming Languages</h3>
+        <ul class="space-y-2">
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2">Go</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">Python</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 ml-2">TypeScript</li>
+          <li class="inline-block rounded-full border border-graphite-line px-3.5 py-1.5 text-sm text-graphite-fg-2 mt-2">Java</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. CLOUD ARCHITECTURE PRINCIPLES -->
+<section class="py-20 md:py-28" aria-labelledby="principles-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="principles-heading"
+      index="09"
+      label="Architecture Principles"
+      title="The engineering principles that guide every architecture."
+      lede="Our cloud architecture practice is grounded in proven principles that ensure every design is secure, scalable, maintainable, and aligned with business objectives."
+    />
+    <div class="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4" data-reveal-group>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-display font-semibold text-ink mb-2">Security by Design</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">Security is not an add-on. Every decision considers threat models, encryption, access controls, and compliance from the first design iteration.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-display font-semibold text-ink mb-2">Least Privilege Access</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">Every identity receives minimum required permissions. Just-in-time access, scoped roles, and continuous permission boundary enforcement.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-display font-semibold text-ink mb-2">Infrastructure as Code</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">All infrastructure defined in version-controlled, tested, reusable code. Environments are reproducible, auditable, and recoverable from source control.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-display font-semibold text-ink mb-2">Automation First</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">Any manual process is a risk. We automate provisioning, deployment, testing, security scanning, and compliance validation.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-display font-semibold text-ink mb-2">Scalability</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">Systems designed to scale horizontally. Auto-scaling, distributed architectures, and stateless patterns ensure growth without re-architecture.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-display font-semibold text-ink mb-2">Elasticity</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">Infrastructure scales dynamically with demand. Resources provisioned and deprovisioned automatically, matching load without over-provisioning.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-display font-semibold text-ink mb-2">High Availability</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">Multi-AZ deployment, redundancy, health checking, and automated failover ensure minimal downtime through component failures.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-display font-semibold text-ink mb-2">Resilience</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">Systems withstand and recover from failures. Circuit breakers, bulkheads, retry logic, graceful degradation, and self-healing mechanisms.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-display font-semibold text-ink mb-2">Fault Tolerance</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">No single component failure causes system outage. Redundancy, replication, multi-region deployment, and automated recovery.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-display font-semibold text-ink mb-2">Cost Awareness</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">Every decision considers TCO. Cost allocation, showback, right-sizing, and FinOps ensure architectures are financially sustainable.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-display font-semibold text-ink mb-2">Observability</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">Every component produces metrics, traces, and logs. SLOs, dashboards, and alerting provide real-time visibility.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-display font-semibold text-ink mb-2">Open Standards</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">We prioritize open standards: OpenTelemetry, OIDC, OPA, Kubernetes, Terraform. Portability and reduced lock-in risk.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-display font-semibold text-ink mb-2">Vendor Neutrality</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">Architecture preserves optionality. We design for portability and avoid deep coupling to any single provider's proprietary services.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-display font-semibold text-ink mb-2">Continuous Optimization</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">Architecture is never finished. Regular reviews, analysis, and maturity assessments ensure evolution with business needs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. BENEFITS -->
+<section class="py-20 md:py-28 bg-graphite" aria-labelledby="benefits-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="benefits-heading"
+      index="10"
+      label="Benefits"
+      title="What well-architected cloud delivers."
+      lede="The return on cloud architecture investment is measured in efficiency, resilience, security, cost, and team velocity."
+      tone="graphite"
+    />
+    <div class="mt-14 grid gap-10 md:grid-cols-2" data-reveal-group>
+      <div data-reveal><h3 class="font-mono text-xs text-accent-bright mb-4">FOR EXECUTIVE LEADERSHIP</h3><ul class="space-y-4">
+        <li class="flex items-start gap-3"><span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" /><div><p class="font-medium text-graphite-fg">Faster time to market</p><p class="text-sm text-graphite-fg-2">Self-service platforms and automated pipelines reduce time from idea to production from months to days.</p></div></li>
+        <li class="flex items-start gap-3"><span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" /><div><p class="font-medium text-graphite-fg">Lower total cost of ownership</p><p class="text-sm text-graphite-fg-2">Well-architected environments eliminate waste and reduce operational overhead by 40-60 percent.</p></div></li>
+        <li class="flex items-start gap-3"><span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" /><div><p class="font-medium text-graphite-fg">Improved business agility</p><p class="text-sm text-graphite-fg-2">Modular architectures enable response to market changes without large-scale rework.</p></div></li>
+        <li class="flex items-start gap-3"><span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" /><div><p class="font-medium text-graphite-fg">Reduced risk</p><p class="text-sm text-graphite-fg-2">Automated compliance, security by design, and proven DR reduce operational, security, and regulatory risk.</p></div></li>
+      </ul></div>
+      <div data-reveal><h3 class="font-mono text-xs text-accent-bright mb-4">FOR ENGINEERING TEAMS</h3><ul class="space-y-4">
+        <li class="flex items-start gap-3"><span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" /><div><p class="font-medium text-graphite-fg">Self-service infrastructure</p><p class="text-sm text-graphite-fg-2">Provision environments and deploy services without waiting for operations teams.</p></div></li>
+        <li class="flex items-start gap-3"><span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" /><div><p class="font-medium text-graphite-fg">Consistent environments</p><p class="text-sm text-graphite-fg-2">Every environment identical, reproducible, and disposable. No configuration drift.</p></div></li>
+        <li class="flex items-start gap-3"><span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" /><div><p class="font-medium text-graphite-fg">Golden paths to production</p><p class="text-sm text-graphite-fg-2">Standardized paths reduce decision fatigue and accelerate delivery.</p></div></li>
+        <li class="flex items-start gap-3"><span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" /><div><p class="font-medium text-graphite-fg">Reduced cognitive load</p><p class="text-sm text-graphite-fg-2">Platform abstractions hide complexity so teams focus on business logic.</p></div></li>
+      </ul></div>
+      <div data-reveal><h3 class="font-mono text-xs text-accent-bright mb-4">FOR PLATFORM TEAMS</h3><ul class="space-y-4">
+        <li class="flex items-start gap-3"><span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" /><div><p class="font-medium text-graphite-fg">Standardized infrastructure</p><p class="text-sm text-graphite-fg-2">Reusable modules and consistent patterns reduce duplication and enforcement burden.</p></div></li>
+        <li class="flex items-start gap-3"><span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" /><div><p class="font-medium text-graphite-fg">Observability built in</p><p class="text-sm text-graphite-fg-2">Metrics, traces, and logs standardized. Dashboards and alerts provisioned automatically.</p></div></li>
+        <li class="flex items-start gap-3"><span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" /><div><p class="font-medium text-graphite-fg">Policy as code</p><p class="text-sm text-graphite-fg-2">Security and compliance policies enforced automatically, reducing manual overhead.</p></div></li>
+      </ul></div>
+      <div data-reveal><h3 class="font-mono text-xs text-accent-bright mb-4">FOR OPERATIONS</h3><ul class="space-y-4">
+        <li class="flex items-start gap-3"><span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" /><div><p class="font-medium text-graphite-fg">Automated recovery</p><p class="text-sm text-graphite-fg-2">Self-healing infrastructure reduces MTTR from hours to minutes.</p></div></li>
+        <li class="flex items-start gap-3"><span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" /><div><p class="font-medium text-graphite-fg">Reduced toil</p><p class="text-sm text-graphite-fg-2">Automation eliminates manual provisioning and recovery. Focus on engineering, not firefighting.</p></div></li>
+        <li class="flex items-start gap-3"><span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" /><div><p class="font-medium text-graphite-fg">Unified observability</p><p class="text-sm text-graphite-fg-2">Single pane of glass across all environments with standardized dashboards and alerts.</p></div></li>
+      </ul></div>
+      <div data-reveal><h3 class="font-mono text-xs text-accent-bright mb-4">FOR SECURITY</h3><ul class="space-y-4">
+        <li class="flex items-start gap-3"><span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" /><div><p class="font-medium text-graphite-fg">Security by default</p><p class="text-sm text-graphite-fg-2">Controls embedded in the architecture. Every new environment inherits security baselines.</p></div></li>
+        <li class="flex items-start gap-3"><span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" /><div><p class="font-medium text-graphite-fg">Continuous compliance</p><p class="text-sm text-graphite-fg-2">Policy as code ensures continuous compliance validation. Audit evidence generated automatically.</p></div></li>
+        <li class="flex items-start gap-3"><span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" /><div><p class="font-medium text-graphite-fg">Complete visibility</p><p class="text-sm text-graphite-fg-2">Security monitoring, vulnerability scanning, and threat detection across all layers.</p></div></li>
+      </ul></div>
+      <div data-reveal><h3 class="font-mono text-xs text-accent-bright mb-4">FOR FINANCE</h3><ul class="space-y-4">
+        <li class="flex items-start gap-3"><span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" /><div><p class="font-medium text-graphite-fg">Predictable cloud costs</p><p class="text-sm text-graphite-fg-2">Governance, budgets, and allocation models eliminate surprise bills and enable accurate forecasting.</p></div></li>
+        <li class="flex items-start gap-3"><span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" /><div><p class="font-medium text-graphite-fg">Showback and chargeback</p><p class="text-sm text-graphite-fg-2">Allocation models drive accountability and optimization across business units.</p></div></li>
+        <li class="flex items-start gap-3"><span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" /><div><p class="font-medium text-graphite-fg">Optimized spend</p><p class="text-sm text-graphite-fg-2">Right-sizing, reserved instances, and storage tiering reduce cloud spend by 40-60 percent.</p></div></li>
+      </ul></div>
+      <div data-reveal><h3 class="font-mono text-xs text-accent-bright mb-4">FOR COMPLIANCE</h3><ul class="space-y-4">
+        <li class="flex items-start gap-3"><span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" /><div><p class="font-medium text-graphite-fg">Automated evidence collection</p><p class="text-sm text-graphite-fg-2">Compliance evidence collected and reported automatically, reducing audit prep from weeks to hours.</p></div></li>
+        <li class="flex items-start gap-3"><span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" /><div><p class="font-medium text-graphite-fg">Policy enforcement</p><p class="text-sm text-graphite-fg-2">Compliance enforced at the architecture level. Non-compliant configurations prevented, not detected.</p></div></li>
+        <li class="flex items-start gap-3"><span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" /><div><p class="font-medium text-graphite-fg">Audit-ready architecture</p><p class="text-sm text-graphite-fg-2">Every decision documented. Change history immutable. Reports generated on demand.</p></div></li>
+      </ul></div>
+      <div data-reveal><h3 class="font-mono text-xs text-accent-bright mb-4">FOR CUSTOMERS</h3><ul class="space-y-4">
+        <li class="flex items-start gap-3"><span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" /><div><p class="font-medium text-graphite-fg">Fast, reliable experiences</p><p class="text-sm text-graphite-fg-2">Well-architected systems deliver consistent performance and high availability.</p></div></li>
+        <li class="flex items-start gap-3"><span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" /><div><p class="font-medium text-graphite-fg">Secure by default</p><p class="text-sm text-graphite-fg-2">Customer data protected by architecture-level encryption and access controls.</p></div></li>
+        <li class="flex items-start gap-3"><span class="block h-1.5 w-1.5 rounded-full bg-accent-bright mt-2 shrink-0" aria-hidden="true" /><div><p class="font-medium text-graphite-fg">Continuous improvement</p><p class="text-sm text-graphite-fg-2">Platforms continuously improve without customer-visible disruption.</p></div></li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- 11. ENGAGEMENT MODEL -->
+<section class="py-20 md:py-28" aria-labelledby="engagement-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="engagement-heading"
+      index="11"
+      label="Engagement Model"
+      title="How we work with your organization."
+      lede="Our engagement model delivers immediate value while building long-term architecture capability. Every engagement is tailored to your context and outcomes."
+    />
+    <div class="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-5" data-reveal-group>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent mb-3">PHASE 01</span>
+        <h3 class="font-display font-semibold text-ink mb-2">Discovery</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">Understand your business objectives, technical landscape, team capabilities, and constraints. Establish scope and success criteria.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent mb-3">PHASE 02</span>
+        <h3 class="font-display font-semibold text-ink mb-2">Cloud Assessment</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">Comprehensive assessment of current architecture, security, cost, operational maturity, and migration readiness.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent mb-3">PHASE 03</span>
+        <h3 class="font-display font-semibold text-ink mb-2">Architecture Design</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">Design the target architecture with decision records, reference architectures, and implementation specifications.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent mb-3">PHASE 04</span>
+        <h3 class="font-display font-semibold text-ink mb-2">Proof of Concept</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">Validate architecture decisions through targeted PoC implementations. Demonstrate patterns and measure outcomes.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent mb-3">PHASE 05</span>
+        <h3 class="font-display font-semibold text-ink mb-2">Migration Planning</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">Detailed migration plans with workload sequencing, dependency mapping, cutover, and rollback procedures.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent mb-3">PHASE 06</span>
+        <h3 class="font-display font-semibold text-ink mb-2">Implementation</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">Hands-on implementation of landing zones, networking, security, automation, observability, and platform components.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent mb-3">PHASE 07</span>
+        <h3 class="font-display font-semibold text-ink mb-2">Validation</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">Rigorous validation: security testing, performance testing, chaos engineering, DR testing, and compliance verification.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent mb-3">PHASE 08</span>
+        <h3 class="font-display font-semibold text-ink mb-2">Knowledge Transfer</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">Documentation, runbooks, training, and mentoring to ensure your team can operate and evolve the architecture.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent mb-3">PHASE 09</span>
+        <h3 class="font-display font-semibold text-ink mb-2">Operational Handover</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">Structured handover with SLAs, runbooks, escalation procedures, and a transition period with architect support.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <span class="block font-mono text-xs text-accent mb-3">PHASE 10</span>
+        <h3 class="font-display font-semibold text-ink mb-2">Continuous Advisory</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">Ongoing architecture reviews, optimization recommendations, technology evaluation, and governance support.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 12. WHY CHOOSE SUBSTRATE -->
+<section class="py-20 md:py-28 bg-graphite" aria-labelledby="why-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="why-heading"
+      index="12"
+      label="Why Substrate"
+      title="Ten reasons enterprises choose us for cloud architecture."
+      lede="Our practice is built on engineering excellence, vendor independence, and a commitment to measurable outcomes."
+      tone="graphite"
+    />
+    <div class="mt-14 grid gap-6 md:grid-cols-2" data-reveal-group>
+      <div class="flex items-start gap-4 border-b border-graphite-line pb-6" data-reveal>
+        <span class="shrink-0 font-mono text-2xl font-semibold text-accent-bright">01</span>
+        <div>
+          <h3 class="font-display font-semibold text-graphite-fg">Engineering-first approach</h3>
+          <p class="text-sm text-graphite-fg-2 mt-1">We are engineers who build. Every recommendation is backed by hands-on experience, not theoretical frameworks.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 border-b border-graphite-line pb-6" data-reveal>
+        <span class="shrink-0 font-mono text-2xl font-semibold text-accent-bright">02</span>
+        <div>
+          <h3 class="font-display font-semibold text-graphite-fg">Vendor-neutral recommendations</h3>
+          <p class="text-sm text-graphite-fg-2 mt-1">No financial incentives with any provider. Recommendations based solely on your requirements.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 border-b border-graphite-line pb-6" data-reveal>
+        <span class="shrink-0 font-mono text-2xl font-semibold text-accent-bright">03</span>
+        <div>
+          <h3 class="font-display font-semibold text-graphite-fg">Platform engineering expertise</h3>
+          <p class="text-sm text-graphite-fg-2 mt-1">We design platforms for self-service, reduced cognitive load, and standardized delivery.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 border-b border-graphite-line pb-6" data-reveal>
+        <span class="shrink-0 font-mono text-2xl font-semibold text-accent-bright">04</span>
+        <div>
+          <h3 class="font-display font-semibold text-graphite-fg">Cloud-native architecture</h3>
+          <p class="text-sm text-graphite-fg-2 mt-1">We design for cloud-native patterns: containers, serverless, managed services, and event-driven architectures.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 border-b border-graphite-line pb-6" data-reveal>
+        <span class="shrink-0 font-mono text-2xl font-semibold text-accent-bright">05</span>
+        <div>
+          <h3 class="font-display font-semibold text-graphite-fg">Security-first mindset</h3>
+          <p class="text-sm text-graphite-fg-2 mt-1">Security embedded in every decision. Zero-trust, encryption by default, and continuous compliance.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 border-b border-graphite-line pb-6" data-reveal>
+        <span class="shrink-0 font-mono text-2xl font-semibold text-accent-bright">06</span>
+        <div>
+          <h3 class="font-display font-semibold text-graphite-fg">Automation-first delivery</h3>
+          <p class="text-sm text-graphite-fg-2 mt-1">Everything automated: IaC, CI/CD, GitOps, policy as code for consistency and auditability.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 border-b border-graphite-line pb-6" data-reveal>
+        <span class="shrink-0 font-mono text-2xl font-semibold text-accent-bright">07</span>
+        <div>
+          <h3 class="font-display font-semibold text-graphite-fg">Enterprise governance</h3>
+          <p class="text-sm text-graphite-fg-2 mt-1">Governance frameworks balancing control with velocity. Policy as code and compliance automation.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 border-b border-graphite-line pb-6" data-reveal>
+        <span class="shrink-0 font-mono text-2xl font-semibold text-accent-bright">08</span>
+        <div>
+          <h3 class="font-display font-semibold text-graphite-fg">Open standards</h3>
+          <p class="text-sm text-graphite-fg-2 mt-1">OpenTelemetry, OIDC, Kubernetes, Terraform, OPA. No single-vendor lock-in.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 border-b border-graphite-line pb-6" data-reveal>
+        <span class="shrink-0 font-mono text-2xl font-semibold text-accent-bright">09</span>
+        <div>
+          <h3 class="font-display font-semibold text-graphite-fg">Long-term partnership</h3>
+          <p class="text-sm text-graphite-fg-2 mt-1">Ongoing advisory, optimization, and governance. Architecture is a continuous practice.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 border-b border-graphite-line pb-6" data-reveal>
+        <span class="shrink-0 font-mono text-2xl font-semibold text-accent-bright">10</span>
+        <div>
+          <h3 class="font-display font-semibold text-graphite-fg">Knowledge transfer</h3>
+          <p class="text-sm text-graphite-fg-2 mt-1">Comprehensive training, documentation, and mentoring. Your team gains independence.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 13. INDUSTRIES -->
+<section class="py-20 md:py-28" aria-labelledby="industries-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="industries-heading"
+      index="13"
+      label="Industries"
+      title="Cloud architecture expertise across every sector."
+      lede="We design architectures for organizations across regulated and high-growth industries. Our approach adapts to each sector's unique requirements."
+    />
+    <div class="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3" data-reveal-group>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-display font-semibold text-ink mb-2">Financial Services</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">Regulatory-compliant architectures for banking, insurance, and fintech. SOC 2, PCI DSS, SOX addressed through architecture-level controls.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-display font-semibold text-ink mb-2">Healthcare</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">HIPAA-compliant architectures with PHI safeguards, audit trails, data residency controls, and BAA support.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-display font-semibold text-ink mb-2">Retail & E-commerce</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">Scalable, high-availability architectures for retail. Seasonal peak handling, CDN optimization, and personalization infrastructure.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-display font-semibold text-ink mb-2">Manufacturing</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">IoT data pipelines, supply chain integration, edge computing, and hybrid architectures connecting factory floor to cloud.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-display font-semibold text-ink mb-2">Logistics</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">Real-time tracking, route optimization, fleet management, and supply chain visibility. Event-driven systems for distributed networks.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-display font-semibold text-ink mb-2">Telecommunications</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">Cloud-native for 5G, NFV, edge computing, subscriber management, and real-time billing with carrier-grade availability.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-display font-semibold text-ink mb-2">Government</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">FedRAMP and sovereign architectures for government. Controlled access, data classification, and inter-agency integration.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-display font-semibold text-ink mb-2">Education</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">Architectures for learning management, research computing, student data platforms, and collaboration infrastructure.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-display font-semibold text-ink mb-2">Media & Entertainment</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">Media production, content delivery, streaming, and digital asset management. Global CDN and high-throughput processing.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-display font-semibold text-ink mb-2">SaaS</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">Multi-tenant architectures, tenant isolation, usage metering, CI/CD, and global deployment strategies.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-display font-semibold text-ink mb-2">Energy & Utilities</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">Smart grid processing, SCADA integration, predictive maintenance, and regulatory compliance for critical infrastructure.</p>
+      </div>
+      <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+        <h3 class="font-display font-semibold text-ink mb-2">Artificial Intelligence Platforms</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">GPU compute, model training, MLOps pipelines, model serving, and data lake architecture for AI/ML platforms.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 14. FAQ -->
+<section class="py-20 md:py-28 bg-graphite" aria-labelledby="faq-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="faq-heading"
+      index="14"
+      label="FAQ"
+      title="Frequently asked questions about cloud architecture."
+      lede="Answers to questions enterprise leaders ask most when evaluating cloud architecture engagements."
+      tone="graphite"
+    />
+    <div class="mt-14 max-w-4xl mx-auto space-y-6" data-reveal-group>
+      <details class="group rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <summary class="flex items-center justify-between cursor-pointer list-none">
+          <h3 class="font-display font-semibold text-graphite-fg pr-4">What is cloud architecture?</h3>
+          <span class="shrink-0 text-accent-bright transition-transform group-open:rotate-45" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </span>
+        </summary>
+        <p class="mt-4 text-sm text-graphite-fg-2 leading-relaxed">Cloud architecture is the practice of designing the structural components of a cloud environment: accounts, networking, security, identity, compute, storage, databases, observability, and governance.</p>
+      </details>
+      <details class="group rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <summary class="flex items-center justify-between cursor-pointer list-none">
+          <h3 class="font-display font-semibold text-graphite-fg pr-4">Why is cloud architecture important for enterprises?</h3>
+          <span class="shrink-0 text-accent-bright transition-transform group-open:rotate-45" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </span>
+        </summary>
+        <p class="mt-4 text-sm text-graphite-fg-2 leading-relaxed">Without deliberate architecture, cloud environments become fragile, expensive, and insecure. Architecture provides the structure and standards that make cloud predictable and governable at scale.</p>
+      </details>
+      <details class="group rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <summary class="flex items-center justify-between cursor-pointer list-none">
+          <h3 class="font-display font-semibold text-graphite-fg pr-4">What is the difference between public, private, and hybrid cloud?</h3>
+          <span class="shrink-0 text-accent-bright transition-transform group-open:rotate-45" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </span>
+        </summary>
+        <p class="mt-4 text-sm text-graphite-fg-2 leading-relaxed">Public cloud shares infrastructure over the internet. Private cloud is dedicated to one organization. Hybrid cloud connects both for workload portability and unified operations.</p>
+      </details>
+      <details class="group rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <summary class="flex items-center justify-between cursor-pointer list-none">
+          <h3 class="font-display font-semibold text-graphite-fg pr-4">Should we use a single cloud or multiple clouds?</h3>
+          <span class="shrink-0 text-accent-bright transition-transform group-open:rotate-45" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </span>
+        </summary>
+        <p class="mt-4 text-sm text-graphite-fg-2 leading-relaxed">A well-architected single cloud often outperforms a poorly architected multi-cloud. Multi-cloud is appropriate for geographic coverage, specific services, or negotiating leverage.</p>
+      </details>
+      <details class="group rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <summary class="flex items-center justify-between cursor-pointer list-none">
+          <h3 class="font-display font-semibold text-graphite-fg pr-4">What is a cloud landing zone?</h3>
+          <span class="shrink-0 text-accent-bright transition-transform group-open:rotate-45" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </span>
+        </summary>
+        <p class="mt-4 text-sm text-graphite-fg-2 leading-relaxed">A landing zone is the foundational architecture: multi-account structure, network topology, security baselines, identity federation, logging, and governance for new environments.</p>
+      </details>
+      <details class="group rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <summary class="flex items-center justify-between cursor-pointer list-none">
+          <h3 class="font-display font-semibold text-graphite-fg pr-4">How do you approach cloud migration?</h3>
+          <span class="shrink-0 text-accent-bright transition-transform group-open:rotate-45" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </span>
+        </summary>
+        <p class="mt-4 text-sm text-graphite-fg-2 leading-relaxed">We follow: assessment, target architecture design, migration planning, wave execution, validation, and optimization. Architecture must precede migration.</p>
+      </details>
+      <details class="group rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <summary class="flex items-center justify-between cursor-pointer list-none">
+          <h3 class="font-display font-semibold text-graphite-fg pr-4">What is Kubernetes and when should we use it?</h3>
+          <span class="shrink-0 text-accent-bright transition-transform group-open:rotate-45" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </span>
+        </summary>
+        <p class="mt-4 text-sm text-graphite-fg-2 leading-relaxed">Kubernetes orchestrates containers for deployment, scaling, and management. Use it for portability, microservices at scale, or consistent deployment patterns. Not required for every workload.</p>
+      </details>
+      <details class="group rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <summary class="flex items-center justify-between cursor-pointer list-none">
+          <h3 class="font-display font-semibold text-graphite-fg pr-4">How do you ensure high availability?</h3>
+          <span class="shrink-0 text-accent-bright transition-transform group-open:rotate-45" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </span>
+        </summary>
+        <p class="mt-4 text-sm text-graphite-fg-2 leading-relaxed">Through multi-AZ deployment, redundancy, health checking, auto-scaling, load balancing, automated failover, and graceful degradation. Validated through chaos engineering.</p>
+      </details>
+      <details class="group rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <summary class="flex items-center justify-between cursor-pointer list-none">
+          <h3 class="font-display font-semibold text-graphite-fg pr-4">What is your approach to disaster recovery?</h3>
+          <span class="shrink-0 text-accent-bright transition-transform group-open:rotate-45" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </span>
+        </summary>
+        <p class="mt-4 text-sm text-graphite-fg-2 leading-relaxed">We define RTO and RPO with stakeholders, design the appropriate strategy (backup, pilot light, warm standby, or active-active), and automate failover with regular testing.</p>
+      </details>
+      <details class="group rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <summary class="flex items-center justify-between cursor-pointer list-none">
+          <h3 class="font-display font-semibold text-graphite-fg pr-4">How do you handle cloud security architecture?</h3>
+          <span class="shrink-0 text-accent-bright transition-transform group-open:rotate-45" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </span>
+        </summary>
+        <p class="mt-4 text-sm text-graphite-fg-2 leading-relaxed">Security in every layer: network segmentation, encryption, identity federation, least privilege, secrets management, vulnerability management, and incident response following zero-trust.</p>
+      </details>
+      <details class="group rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <summary class="flex items-center justify-between cursor-pointer list-none">
+          <h3 class="font-display font-semibold text-graphite-fg pr-4">How do you reduce cloud costs?</h3>
+          <span class="shrink-0 text-accent-bright transition-transform group-open:rotate-45" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </span>
+        </summary>
+        <p class="mt-4 text-sm text-graphite-fg-2 leading-relaxed">Right-sizing, reserved and spot instances, auto-scaling, storage tiering, eliminating orphaned resources, and FinOps practices with cost allocation and budget controls.</p>
+      </details>
+      <details class="group rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <summary class="flex items-center justify-between cursor-pointer list-none">
+          <h3 class="font-display font-semibold text-graphite-fg pr-4">What is Infrastructure as Code?</h3>
+          <span class="shrink-0 text-accent-bright transition-transform group-open:rotate-45" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </span>
+        </summary>
+        <p class="mt-4 text-sm text-graphite-fg-2 leading-relaxed">Managing infrastructure through version-controlled code rather than manual processes. Tools like Terraform and Pulumi enable reproducible, auditable, recoverable environments.</p>
+      </details>
+      <details class="group rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <summary class="flex items-center justify-between cursor-pointer list-none">
+          <h3 class="font-display font-semibold text-graphite-fg pr-4">What is cloud governance?</h3>
+          <span class="shrink-0 text-accent-bright transition-transform group-open:rotate-45" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </span>
+        </summary>
+        <p class="mt-4 text-sm text-graphite-fg-2 leading-relaxed">The framework of policies, standards, controls, and processes ensuring cloud environments are secure, compliant, cost-efficient, and aligned with business objectives.</p>
+      </details>
+      <details class="group rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <summary class="flex items-center justify-between cursor-pointer list-none">
+          <h3 class="font-display font-semibold text-graphite-fg pr-4">How do you address compliance in cloud architecture?</h3>
+          <span class="shrink-0 text-accent-bright transition-transform group-open:rotate-45" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </span>
+        </summary>
+        <p class="mt-4 text-sm text-graphite-fg-2 leading-relaxed">Architecture-level controls: encryption standards, access controls, data residency enforcement, audit trail automation, and policy as code mapped to frameworks like SOC 2, HIPAA, and PCI DSS.</p>
+      </details>
+      <details class="group rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <summary class="flex items-center justify-between cursor-pointer list-none">
+          <h3 class="font-display font-semibold text-graphite-fg pr-4">How do you avoid vendor lock-in?</h3>
+          <span class="shrink-0 text-accent-bright transition-transform group-open:rotate-45" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </span>
+        </summary>
+        <p class="mt-4 text-sm text-graphite-fg-2 leading-relaxed">We prioritize open standards and portable technologies: Kubernetes, Terraform, OpenTelemetry, OIDC, OPA. We avoid deep coupling to proprietary APIs.</p>
+      </details>
+      <details class="group rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <summary class="flex items-center justify-between cursor-pointer list-none">
+          <h3 class="font-display font-semibold text-graphite-fg pr-4">What is cloud modernization?</h3>
+          <span class="shrink-0 text-accent-bright transition-transform group-open:rotate-45" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </span>
+        </summary>
+        <p class="mt-4 text-sm text-graphite-fg-2 leading-relaxed">Evolving existing cloud architectures to leverage native capabilities: automation, managed services, containers, serverless, and modern observability and security practices.</p>
+      </details>
+      <details class="group rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <summary class="flex items-center justify-between cursor-pointer list-none">
+          <h3 class="font-display font-semibold text-graphite-fg pr-4">How long does a cloud architecture engagement take?</h3>
+          <span class="shrink-0 text-accent-bright transition-transform group-open:rotate-45" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </span>
+        </summary>
+        <p class="mt-4 text-sm text-graphite-fg-2 leading-relaxed">Assessment: 2-4 weeks. Comprehensive design: 6-12 weeks. Multi-year programs include ongoing advisory and optimization.</p>
+      </details>
+      <details class="group rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <summary class="flex items-center justify-between cursor-pointer list-none">
+          <h3 class="font-display font-semibold text-graphite-fg pr-4">How do you work with existing architecture teams?</h3>
+          <span class="shrink-0 text-accent-bright transition-transform group-open:rotate-45" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </span>
+        </summary>
+        <p class="mt-4 text-sm text-graphite-fg-2 leading-relaxed">Collaboratively. Our architects embed with your organization, transfer knowledge continuously, and build your internal capability for independence.</p>
+      </details>
+      <details class="group rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <summary class="flex items-center justify-between cursor-pointer list-none">
+          <h3 class="font-display font-semibold text-graphite-fg pr-4">What deliverables can we expect?</h3>
+          <span class="shrink-0 text-accent-bright transition-transform group-open:rotate-45" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </span>
+        </summary>
+        <p class="mt-4 text-sm text-graphite-fg-2 leading-relaxed">Assessment report, target architecture design, decision records, reference architectures, migration roadmap, IaC modules, landing zone, security baseline, governance framework, and runbooks.</p>
+      </details>
+      <details class="group rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+        <summary class="flex items-center justify-between cursor-pointer list-none">
+          <h3 class="font-display font-semibold text-graphite-fg pr-4">Are you agnostic or do you specialize in one cloud?</h3>
+          <span class="shrink-0 text-accent-bright transition-transform group-open:rotate-45" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </span>
+        </summary>
+        <p class="mt-4 text-sm text-graphite-fg-2 leading-relaxed">Fully vendor-neutral with no financial ties. We design for AWS, Azure, GCP, OCI, and OpenStack based solely on your requirements.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- 15. CTA -->
+<section class="relative overflow-hidden py-28 md:py-40" aria-labelledby="cta-heading">
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--c-accent-soft)_0%,_transparent_70%)] pointer-events-none" aria-hidden="true" />
+  <div class="container-x relative z-10 text-center">
+    <div data-reveal-group>
+      <p class="kicker text-accent mb-5" data-reveal>
+        <span class="text-accent">15</span><span aria-hidden="true">&nbsp;&mdash;&nbsp;</span>Get Started
+      </p>
+      <h2 id="cta-heading" class="display text-4xl md:text-[3.4rem] text-ink max-w-3xl mx-auto" data-reveal>
+        Ready to design a cloud architecture<br />that scales with your business?
+      </h2>
+      <p class="mt-6 text-lg text-ink-2 max-w-xl mx-auto leading-relaxed" data-reveal>
+        Schedule a complimentary cloud architecture strategy session with our team. We will discuss your current environment, your objectives, and how Substrate can help you build a secure, scalable, and cost-efficient cloud foundation.
+      </p>
+      <div class="mt-10 flex flex-wrap justify-center gap-4" data-reveal>
+        <Button href="/contact" variant="primary" size="md">Schedule a strategy session</Button>
+        <Button href="/resources/cloud-architecture-guide" variant="secondary" size="md">Download our architecture guide</Button>
+      </div>
+    </div>
+  </div>
+</section>
+
+</Base>

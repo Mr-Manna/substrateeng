@@ -1,0 +1,85 @@
+---
+import SectionHeading from '../../SectionHeading.astro';
+
+interface Step {
+  number: string;
+  title: string;
+  description: string;
+}
+
+const steps: Step[] = [
+  {
+    number: '01',
+    title: 'Assessment',
+    description: 'Understand the current state: systems, teams, processes, constraints, and objectives.',
+  },
+  {
+    number: '02',
+    title: 'Discovery',
+    description: 'Deep analysis of requirements, risks, dependencies, and success criteria with stakeholders.',
+  },
+  {
+    number: '03',
+    title: 'Architecture',
+    description: 'Design the target architecture with documented decisions, trade-offs, and alternatives considered.',
+  },
+  {
+    number: '04',
+    title: 'Planning',
+    description: 'Phased delivery plan with milestones, resource requirements, risk mitigations, and validation gates.',
+  },
+  {
+    number: '05',
+    title: 'Implementation',
+    description: 'Iterative engineering delivery with continuous integration, testing, and stakeholder demos.',
+  },
+  {
+    number: '06',
+    title: 'Validation',
+    description: 'Verification against requirements: performance testing, security validation, and acceptance criteria.',
+  },
+  {
+    number: '07',
+    title: 'Knowledge Transfer',
+    description: 'Documentation, training, runbooks, and pair programming to enable your team.',
+  },
+  {
+    number: '08',
+    title: 'Optimization',
+    description: 'Post-delivery refinement: performance tuning, cost optimization, and process improvements.',
+  },
+  {
+    number: '09',
+    title: 'Continuous Improvement',
+    description: 'Ongoing feedback loops, retrospectives, and iterative enhancement of systems and practices.',
+  },
+];
+---
+
+<section class="py-20 md:py-28 bg-graphite" aria-labelledby="process-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="process-heading"
+      index="10"
+      label="Delivery Process"
+      title="How we deliver engineering outcomes."
+      lede="Our delivery process is structured but not rigid. Each phase adapts to the specific context of the engagement while maintaining the rigor that enterprise projects require."
+      tone="graphite"
+    />
+
+    <div class="mt-14 relative" data-reveal-group>
+      <!-- Connecting line (desktop) -->
+      <div class="hidden lg:block absolute top-12 left-[4.5rem] right-[4.5rem] h-px bg-graphite-line" aria-hidden="true" />
+
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5" data-reveal-group>
+        {steps.map((step) => (
+          <div class="relative" data-reveal>
+            <span class="block font-mono text-xs text-accent-bright mb-4">{step.number}</span>
+            <h3 class="font-display font-semibold text-graphite-fg mb-2">{step.title}</h3>
+            <p class="text-sm text-graphite-fg-2 leading-relaxed">{step.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

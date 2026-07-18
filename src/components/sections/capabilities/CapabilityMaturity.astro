@@ -1,0 +1,122 @@
+---
+import SectionHeading from '../../SectionHeading.astro';
+
+interface Stage {
+  level: number;
+  title: string;
+  characteristics: string[];
+  accent: string;
+}
+
+const stages: Stage[] = [
+  {
+    level: 1,
+    title: 'Foundational',
+    characteristics: [
+      'Manual infrastructure provisioning',
+      'Ad hoc deployment processes',
+      'Limited monitoring and alerting',
+      'Reactive incident response',
+    ],
+    accent: 'text-ink-3',
+  },
+  {
+    level: 2,
+    title: 'Standardized',
+    characteristics: [
+      'Documented processes and runbooks',
+      'Basic CI/CD pipelines established',
+      'Environment consistency improved',
+      'Change management procedures in place',
+    ],
+    accent: 'text-accent',
+  },
+  {
+    level: 3,
+    title: 'Automated',
+    characteristics: [
+      'Infrastructure fully managed as code',
+      'Automated testing and deployment',
+      'Observability stack implemented',
+      'Security policies enforced through code',
+    ],
+    accent: 'text-accent-bright',
+  },
+  {
+    level: 4,
+    title: 'Platform Driven',
+    characteristics: [
+      'Internal developer platform operational',
+      'Self-service infrastructure for teams',
+      'Golden paths defined and adopted',
+      'Platform team treating the platform as a product',
+    ],
+    accent: 'text-accent-bright',
+  },
+  {
+    level: 5,
+    title: 'AI-Native',
+    characteristics: [
+      'AI models integrated into core products',
+      'Automated decision systems in production',
+      'LLM infrastructure with guardrails',
+      'Continuous learning and model iteration',
+    ],
+    accent: 'text-accent-bright',
+  },
+  {
+    level: 6,
+    title: 'Autonomous Operations',
+    characteristics: [
+      'Self-healing infrastructure',
+      'Automated incident remediation',
+      'Predictive capacity management',
+      'Continuous optimization without human intervention',
+    ],
+    accent: 'text-accent-bright',
+  },
+];
+---
+
+<section class="py-20 md:py-28" aria-labelledby="maturity-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="maturity-heading"
+      index="11"
+      label="Capability Maturity"
+      title="The evolution of engineering capability."
+      lede="Organizations mature through predictable stages of engineering capability. Understanding where you are on this continuum is the first step toward planning where you need to be."
+    />
+
+    <div class="mt-14 overflow-x-auto pb-4" data-reveal-group>
+      <div class="flex gap-4 min-w-max lg:min-w-full lg:grid lg:grid-cols-6" data-reveal-group>
+        {stages.map((stage) => (
+          <div
+            class="relative w-64 lg:w-auto rounded-lg border border-line-2 bg-paper p-6 flex flex-col"
+            data-reveal
+          >
+            <div class="flex items-center gap-3 mb-5">
+              <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">
+                {stage.level}
+              </span>
+              <h3 class="font-display font-semibold text-ink">{stage.title}</h3>
+            </div>
+            <ul class="space-y-2.5 flex-1">
+              {stage.characteristics.map((c) => (
+                <li class="flex items-start gap-2.5 text-sm text-ink-2">
+                  <span class="block h-1.5 w-1.5 rounded-full bg-accent mt-1.5 shrink-0" aria-hidden="true" />
+                  <span>{c}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <p class="mt-10 text-sm text-ink-2 max-w-2xl mx-auto text-center" data-reveal>
+      Most organizations operate across multiple stages simultaneously. Substrate helps you identify 
+      the highest-impact moves to advance your engineering maturity without trying to change everything at once.
+    </p>
+  </div>
+</section>

@@ -1,0 +1,85 @@
+---
+import SectionHeading from '../../SectionHeading.astro';
+
+interface Reason {
+  title: string;
+  description: string;
+}
+
+const reasons: Reason[] = [
+  {
+    title: 'Engineering-first',
+    description: 'We are an engineering company, not a consultancy that resells contractors. Every engagement is staffed with engineers who design and build the work themselves.',
+  },
+  {
+    title: 'Vendor neutral',
+    description: 'We have no reseller agreements, OEM partnerships, or commission structures. Our recommendations are based on what is right for your problem, not our margin.',
+  },
+  {
+    title: 'Cloud agnostic',
+    description: 'We maintain deep expertise across AWS, Azure, and GCP. We help you choose the right cloud for each workload rather than forcing a single-platform strategy.',
+  },
+  {
+    title: 'Automation first',
+    description: 'We automate everything that can be automated. Manual processes are treated as technical debt to be eliminated, not operational reality to be accepted.',
+  },
+  {
+    title: 'Scalable architecture',
+    description: 'We design for growth from the start. Systems are built to scale in complexity, traffic, data volume, and team size without requiring fundamental rearchitecture.',
+  },
+  {
+    title: 'Modern practices',
+    description: 'We apply current engineering practices: infrastructure as code, GitOps, continuous delivery, observability-driven development, and platform thinking.',
+  },
+  {
+    title: 'Enterprise standards',
+    description: 'We operate at enterprise grade: compliance requirements, audit trails, RBAC, SLAs, change management, and security standards are built in, not bolted on.',
+  },
+  {
+    title: 'Transparent communication',
+    description: 'No black boxes. We share architecture decisions, trade-offs, risks, and progress openly. Our clients understand what we are doing and why.',
+  },
+  {
+    title: 'Knowledge transfer',
+    description: 'We measure success by how capable your team is after we leave. Documentation, training, pair programming, and handover are core deliverables, not afterthoughts.',
+  },
+  {
+    title: 'Security by design',
+    description: 'Security is integrated into architecture and implementation from day one. Zero-trust, least privilege, and defense in depth are default positions.',
+  },
+  {
+    title: 'Operational excellence',
+    description: 'We build systems that are observable, recoverable, and operable. SLOs, runbooks, on-call practices, and incident management are part of every delivery.',
+  },
+  {
+    title: 'Long-term partnership',
+    description: 'We prefer multi-year relationships over project-based transactions. The best work happens when we understand your business, your team, and your constraints deeply.',
+  },
+];
+---
+
+<section class="py-20 md:py-28" aria-labelledby="why-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="why-heading"
+      index="09"
+      label="Why Organizations Choose Substrate"
+      title="What distinguishes our approach."
+      lede="Organizations choose to work with Substrate for reasons that go beyond technical capability. These are the qualities that clients consistently cite as reasons for long-term partnerships."
+    />
+
+    <div class="mt-14 grid gap-6 md:grid-cols-2" data-reveal-group>
+      {reasons.map((r, i) => (
+        <div class="flex items-start gap-4 p-5 rounded-lg border border-line-2 bg-paper transition-colors duration-200 hover:border-accent/20" data-reveal>
+          <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-accent-soft text-xs font-semibold text-accent">
+            {String(i + 1).padStart(2, '0')}
+          </span>
+          <div>
+            <h3 class="font-display font-semibold text-ink mb-1">{r.title}</h3>
+            <p class="text-sm text-ink-2 leading-relaxed">{r.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

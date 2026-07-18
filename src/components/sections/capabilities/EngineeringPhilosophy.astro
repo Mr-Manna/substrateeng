@@ -1,0 +1,69 @@
+---
+import SectionHeading from '../../SectionHeading.astro';
+
+const principles = [
+  {
+    number: '01',
+    title: 'Why Engineering Matters',
+    description: 'Good engineering is the difference between systems that work and systems that work reliably at scale. We treat engineering discipline as a strategic asset, not an operational detail.',
+  },
+  {
+    number: '02',
+    title: 'Long-Term Thinking',
+    description: 'Short-term solutions create long-term debt. We design for the lifespan of the system, making architectural decisions that remain sound through years of evolution and growth.',
+  },
+  {
+    number: '03',
+    title: 'Maintainability',
+    description: 'A system that cannot be maintained will be replaced. We build systems that operations teams can understand, debug, and change without fear. Simplicity is a design constraint.',
+  },
+  {
+    number: '04',
+    title: 'Reliability',
+    description: 'Reliability is not a feature. It is the result of deliberate engineering: redundancy, graceful degradation, failure modes understood, and recovery paths tested before they are needed.',
+  },
+  {
+    number: '05',
+    title: 'Automation',
+    description: 'Everything that can be automated should be automated. Manual processes are a source of error, delay, and inconsistency. We engineer them out of the system.',
+  },
+  {
+    number: '06',
+    title: 'Open Standards',
+    description: 'Proprietary lock-in is a risk. We build on open standards and portable abstractions so that your technology choices remain yours to change.',
+  },
+  {
+    number: '07',
+    title: 'Business Alignment',
+    description: 'Technology exists to serve business outcomes, not the reverse. Every engineering decision is measured against its contribution to organizational goals.',
+  },
+  {
+    number: '08',
+    title: 'Continuous Improvement',
+    description: 'Systems are never finished. We embed feedback loops, retrospectives, and iteration cycles into everything we build, ensuring that systems improve with age.',
+  },
+];
+---
+
+<section class="py-20 md:py-28 bg-graphite" aria-labelledby="philosophy-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="philosophy-heading"
+      index="02"
+      label="Engineering Philosophy"
+      title="The principles that guide every engagement."
+      lede="Substrate was founded on the belief that engineering excellence is the foundation of lasting technology. These principles shape how we work, what we build, and how we partner with organizations."
+      tone="graphite"
+    />
+
+    <div class="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4" data-reveal-group>
+      {principles.map((p) => (
+        <div class="rounded-lg border border-graphite-line bg-graphite-2 p-6" data-reveal>
+          <span class="block font-mono text-xs text-accent-bright mb-3">{p.number}</span>
+          <h3 class="font-display font-semibold text-graphite-fg mb-2">{p.title}</h3>
+          <p class="text-sm text-graphite-fg-2 leading-relaxed">{p.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

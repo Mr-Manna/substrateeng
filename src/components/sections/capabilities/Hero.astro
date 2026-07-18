@@ -1,0 +1,62 @@
+---
+import Button from '../../Button.astro';
+
+const breadcrumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Capabilities', href: '' },
+];
+---
+
+<section class="relative overflow-hidden py-24 md:py-40" aria-labelledby="hero-heading">
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--c-accent-soft)_0%,_transparent_60%)] pointer-events-none" aria-hidden="true" />
+  <div class="container-x relative z-10">
+    <nav class="mb-10 text-sm text-ink-3">
+      {breadcrumbs.map((crumb, idx) => (
+        <span>
+          {idx > 0 && ' / '}
+          {crumb.href && idx < breadcrumbs.length - 1
+            ? <a href={crumb.href} class="text-accent hover:underline">{crumb.name}</a>
+            : <span class={idx === breadcrumbs.length - 1 ? 'font-medium text-ink' : ''}>{crumb.name}</span>
+          }
+        </span>
+      ))}
+    </nav>
+
+    <div class="max-w-4xl" data-reveal-group>
+      <p class="kicker text-accent mb-5" data-reveal>
+        <span class="text-accent">01</span><span aria-hidden="true">&nbsp;—&nbsp;</span>Engineering Capabilities
+      </p>
+      <h1 id="hero-heading" class="display text-5xl md:text-[4.5rem] text-ink max-w-5xl" data-reveal>
+        What Substrate delivers.
+      </h1>
+      <p class="mt-6 text-lg md:text-xl text-ink-2 max-w-2xl leading-relaxed" data-reveal>
+        Substrate is an engineering company. We design, build, and operate the platforms, infrastructure, 
+        and systems that modern enterprises depend on. This page describes what we are capable of delivering — 
+        not as a menu of services, but as a statement of engineering competency.
+      </p>
+      <p class="mt-4 text-lg md:text-xl text-ink-2 max-w-2xl leading-relaxed" data-reveal>
+        Every engagement starts with a problem, not a product. We apply the right capabilities from across 
+        our practice to engineer solutions that are maintainable, secure, and built to last.
+      </p>
+      <div class="mt-10 flex flex-wrap gap-4" data-reveal>
+        <Button href="/contact" variant="primary" size="md">Discuss your engineering challenges</Button>
+        <Button href="#capability-overview" variant="secondary" size="md">View all capabilities</Button>
+      </div>
+    </div>
+
+    <div class="mt-16 grid gap-6 md:grid-cols-3 max-w-4xl" data-reveal-group>
+      <div class="border-t border-line pt-5" data-reveal>
+        <p class="text-3xl font-display font-semibold text-accent">15+</p>
+        <p class="text-sm text-ink-2 mt-1">Engineering disciplines across cloud, AI, data, and platforms</p>
+      </div>
+      <div class="border-t border-line pt-5" data-reveal>
+        <p class="text-3xl font-display font-semibold text-accent">200+</p>
+        <p class="text-sm text-ink-2 mt-1">Enterprise engagements delivered across industries</p>
+      </div>
+      <div class="border-t border-line pt-5" data-reveal>
+        <p class="text-3xl font-display font-semibold text-accent">3</p>
+        <p class="text-sm text-ink-2 mt-1">Major cloud platforms — AWS, Azure, GCP — at production scale</p>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,106 @@
+---
+import SectionHeading from '../../SectionHeading.astro';
+
+interface Problem {
+  number: string;
+  title: string;
+  description: string;
+}
+
+const problems: Problem[] = [
+  {
+    number: '01',
+    title: 'Legacy systems',
+    description: 'Monolithic applications and aging infrastructure that cannot keep pace with business demand. Migration risk feels too high, but so does standing still.',
+  },
+  {
+    number: '02',
+    title: 'Slow software delivery',
+    description: 'Release cycles measured in months or quarters. Deployment is high-risk, manual, and gated by bottlenecks in operations and infrastructure teams.',
+  },
+  {
+    number: '03',
+    title: 'Cloud migration',
+    description: 'Moving workloads to the cloud without replicating on-premises complexity requires architectural change, not just infrastructure relocation.',
+  },
+  {
+    number: '04',
+    title: 'Developer productivity',
+    description: 'Developers spend more time on infrastructure, tooling, and environment management than on feature delivery. Cognitive load slows every team.',
+  },
+  {
+    number: '05',
+    title: 'Operational complexity',
+    description: 'Incident response is reactive and chaotic. Runbooks are outdated. On-call engineers lack the observability and context to resolve issues efficiently.',
+  },
+  {
+    number: '06',
+    title: 'Scaling challenges',
+    description: 'Architectures that work at one scale break at the next. Distributed systems introduce failure modes that monolithic applications never encountered.',
+  },
+  {
+    number: '07',
+    title: 'Data fragmentation',
+    description: 'Data is scattered across silos, formats, and environments. Teams cannot trust the data they have, and analytics produce more confusion than insight.',
+  },
+  {
+    number: '08',
+    title: 'AI adoption',
+    description: 'Exploring AI without a clear architecture leads to prototype chaos. Models, vectors, and prompts need engineering rigor to reach production safely.',
+  },
+  {
+    number: '09',
+    title: 'Reliability',
+    description: 'Unplanned downtime, performance degradation, and silent failures erode customer trust. Reliability is treated as an afterthought rather than an engineering requirement.',
+  },
+  {
+    number: '10',
+    title: 'Security & compliance',
+    description: 'Security policies that slow development are circumvented. Compliance evidence is gathered manually. Audit findings reveal gaps that are expensive to close.',
+  },
+  {
+    number: '11',
+    title: 'Technology debt',
+    description: 'Years of shortcuts, abandoned architectures, and unmaintained dependencies create a tax on every new feature. The debt compounds faster than it is repaid.',
+  },
+  {
+    number: '12',
+    title: 'High cloud costs',
+    description: 'Cloud spend grows faster than revenue. Orphaned resources, over-provisioning, and lack of visibility make cost optimization a guessing game.',
+  },
+  {
+    number: '13',
+    title: 'Poor observability',
+    description: 'Dashboards that do not answer questions. Alerts that fire too often or too late. Tracing that stops at service boundaries. Teams flying blind in production.',
+  },
+  {
+    number: '14',
+    title: 'Lack of automation',
+    description: 'Manual provisioning, deployment, testing, and compliance checks. Each manual step is a source of delay, inconsistency, and human error.',
+  },
+];
+---
+
+<section class="py-20 md:py-28" aria-labelledby="problems-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="problems-heading"
+      index="05"
+      label="Business Problems We Solve"
+      title="The patterns we recognize in every engagement."
+      lede="These are the recurring challenges that organizations bring to us. They manifest differently in every context, but the underlying patterns are remarkably consistent across industries."
+    />
+
+    <div class="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3" data-reveal-group>
+      {problems.map((p) => (
+        <div class="rounded-lg border border-line-2 bg-paper p-6" data-reveal>
+          <div class="flex items-center gap-3 mb-3">
+            <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft text-sm font-semibold text-accent">{p.number}</span>
+            <h3 class="font-display font-semibold text-ink">{p.title}</h3>
+          </div>
+          <p class="text-sm text-ink-2 leading-relaxed">{p.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
