@@ -1,0 +1,530 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import Button from '../components/Button.astro';
+import Logo from '../components/Logo.astro';
+
+const locale = (Astro.currentLocale || 'en') as string;
+
+const typographySpecs = [
+  {
+    class: '.display',
+    font: 'Archivo Variable',
+    weight: '440',
+    stretch: '118%',
+    leading: '1.04',
+    tracking: '-0.022em',
+    usage: 'Headlines, hero text, pull quotes — the primary voice.',
+  },
+  {
+    class: '.kicker',
+    font: 'IBM Plex Mono',
+    weight: '500',
+    size: '0.8125rem',
+    tracking: '0.14em',
+    usage: 'Section depth markers, labels, meta information.',
+  },
+  {
+    class: 'body',
+    font: 'Instrument Sans Variable',
+    weight: '400',
+    size: '1.0625rem',
+    leading: '1.65',
+    usage: 'Body copy, paragraphs, descriptions.',
+  },
+  {
+    class: 'font-mono',
+    font: 'IBM Plex Mono',
+    size: '0.8125rem',
+    tracking: '0.08em',
+    usage: 'Code snippets, stats, small labels, figcaptions.',
+  },
+];
+
+const colorGroups = [
+  {
+    title: 'Surface & Text',
+    tokens: [
+      { name: '--c-paper', light: '#ffffff', dark: '#0c0f14', usage: 'Page background' },
+      { name: '--c-paper-2', light: '#f5f6f8', dark: '#11151c', usage: 'Secondary surface' },
+      { name: '--c-ink', light: '#101319', dark: '#eaecf1', usage: 'Primary text' },
+      { name: '--c-ink-2', light: '#4c5364', dark: '#a3abba', usage: 'Secondary text' },
+      { name: '--c-ink-3', light: '#757d8f', dark: '#7c8494', usage: 'Muted text' },
+    ],
+  },
+  {
+    title: 'Borders',
+    tokens: [
+      { name: '--c-line', light: '#e4e7ec', dark: '#222834', usage: 'Default borders' },
+      { name: '--c-line-2', light: '#d3d7df', dark: '#2e3543', usage: 'Strong borders' },
+    ],
+  },
+  {
+    title: 'Accent',
+    tokens: [
+      { name: '--c-accent', light: '#2447f5', dark: '#7d96ff', usage: 'Primary accent, links, buttons' },
+      { name: '--c-accent-hover', light: '#1d3ad2', dark: '#9dafff', usage: 'Accent hover state' },
+      { name: '--c-accent-soft', light: '#eceffe', dark: '#16204a', usage: 'Soft accent background' },
+    ],
+  },
+  {
+    title: 'Graphite (Always Dark)',
+    tokens: [
+      { name: '--c-graphite', value: '#0c0f14', usage: 'Dark section background' },
+      { name: '--c-graphite-2', value: '#131820', usage: 'Secondary dark surface' },
+      { name: '--c-graphite-line', value: '#242b37', usage: 'Dark section borders' },
+      { name: '--c-graphite-fg', value: '#eaecf1', usage: 'Dark section text' },
+      { name: '--c-graphite-fg-2', value: '#9aa3b2', usage: 'Dark section secondary text' },
+      { name: '--c-accent-bright', value: '#7d96ff', usage: 'Accent on dark backgrounds' },
+    ],
+  },
+];
+
+const componentSpecs = [
+  {
+    name: 'SectionHeading',
+    props: ['index', 'label', 'title', 'lede?', 'tone: "paper" | "graphite"', 'id?'],
+    description:
+      'Standard section header used across every page. Renders a kicker with index prefix, a display headline, and an optional lede paragraph. The `tone` prop switches between light (`paper`) and dark (`graphite`) color variants.',
+  },
+  {
+    name: 'Button',
+    props: ['href', 'variant: "primary" | "secondary" | "ghost"', 'size: "md" | "sm"'],
+    description:
+      'Action link styled as a pill button. Primary uses accent fill; secondary uses a bordered outline; ghost is text-only. Always includes an arrow icon.',
+  },
+  {
+    name: 'Logo',
+    props: ['class?: "h-6 w-6" (default)'],
+    description:
+      'SVG mark (32×32) with three stacked strata bars + wordmark. The mark uses graphite, graphite-fg-2, and accent layers.',
+  },
+];
+
+const layoutTokens = [
+  { token: 'container-x', rule: 'max-width: 95rem; padding-inline: 1.5rem (2.5rem on md+); margin-inline: auto', usage: 'Page-level container, 12-column implicit grid' },
+  { token: '--c-*', rule: 'CSS custom properties on :root and [data-theme="dark"]', usage: 'All color references — always use semantic tokens, never raw hex' },
+  { token: 'data-reveal', rule: 'Opacity 0, translateY(24px) → opacity 1, translateY(0)', usage: 'Scroll-triggered fade-in. Wrap groups in data-reveal-group for stagger' },
+  { token: 'data-draw', rule: 'SVG path stroke-dasharray/offset animation', usage: 'Line draw-in for SVGs on scroll' },
+  { token: 'data-flow', rule: 'Infinite flowing dash animation', usage: 'Active flow indicators on rail/connector lines' },
+];
+---
+
+<Base
+  title="Substrate — Brand Guidelines"
+  description="The Substrate design system: color, typography, components, and design principles for building cohesive interfaces."
+  locale={locale}
+>
+  <section class="bg-graphite py-20 md:py-32">
+    <div class="container-x">
+      <nav class="mb-8 text-sm text-graphite-fg-2" aria-label="Breadcrumb">
+        <span>
+          <a href="/" class="text-accent-bright hover:underline">Home</a>
+        </span>
+        <span aria-hidden="true"> / </span>
+        <span class="font-medium text-graphite-fg">Brand Guidelines</span>
+      </nav>
+
+      <SectionHeading
+        id="brand-heading"
+        tone="graphite"
+        index="00"
+        label="Brand Guidelines"
+        title="The layer beneath the interface."
+        lede="Substrate's visual identity is built on clarity, precision, and engineering rigor. Every token, typeface, and component exists to serve content — not decorate it. These guidelines document the system as it stands."
+      />
+    </div>
+  </section>
+
+  <!-- Identity -->
+  <section class="bg-paper py-20 md:py-28" aria-labelledby="identity-heading">
+    <div class="container-x">
+      <SectionHeading
+        id="identity-heading"
+        index="01"
+        label="Identity"
+        title="One mark, two expressions."
+        lede="The Substrate identity is built around a single SVG mark and wordmark pair. The mark represents three strata — the layers of infrastructure — with the accent bar at the bottom signalling the foundation."
+      />
+
+      <div class="mt-14 grid gap-10 md:grid-cols-2" data-reveal-group>
+        <div class="rounded-xl border border-line bg-paper-2 p-8 md:p-10" data-reveal>
+          <p class="kicker text-ink-3">Standard mark</p>
+          <div class="mt-6 flex items-center justify-center rounded-lg bg-graphite py-12">
+            <Logo class="h-10 w-10" />
+          </div>
+          <p class="mt-4 font-mono text-xs tracking-[0.08em] text-ink-3">Logo component — dark background variant</p>
+        </div>
+        <div class="rounded-xl border border-line bg-paper-2 p-8 md:p-10" data-reveal>
+          <p class="kicker text-ink-3">Mark anatomy</p>
+          <div class="mt-6 flex items-center justify-center rounded-lg bg-graphite py-12">
+            <svg viewBox="0 0 32 32" fill="none" class="h-10 w-10" aria-hidden="true">
+              <rect width="32" height="32" rx="7" fill="#0c0f14"/>
+              <rect x="8" y="8.5" width="16" height="3.2" rx="1.1" fill="#EAECF1"/>
+              <rect x="8" y="14.4" width="16" height="3.2" rx="1.1" fill="#8B95A7"/>
+              <rect x="8" y="20.3" width="16" height="3.2" rx="1.1" fill="#2447F5"/>
+            </svg>
+          </div>
+          <ul class="mt-4 space-y-1.5 font-mono text-xs tracking-[0.06em] text-ink-2">
+            <li><span class="inline-block h-2.5 w-2.5 rounded bg-graphite-fg align-middle me-2"></span>Top bar — foreground</li>
+            <li><span class="inline-block h-2.5 w-2.5 rounded bg-graphite-fg-2 align-middle me-2"></span>Middle bar — secondary</li>
+            <li><span class="inline-block h-2.5 w-2.5 rounded bg-accent align-middle me-2"></span>Bottom bar — accent (the substrate)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-12 border-t border-line pt-10" data-reveal>
+        <h3 class="font-display text-xl font-semibold text-ink">Usage guidelines</h3>
+        <ul class="mt-4 grid gap-x-12 gap-y-3 md:grid-cols-2">
+          <li class="flex items-start gap-3 text-sm text-ink-2">
+            <span class="mt-0.5 text-accent">•</span>
+            Always render the logo on a dark background (graphite or graphite-2)
+          </li>
+          <li class="flex items-start gap-3 text-sm text-ink-2">
+            <span class="mt-0.5 text-accent">•</span>
+            Never recolor the strata bars independently
+          </li>
+          <li class="flex items-start gap-3 text-sm text-ink-2">
+            <span class="mt-0.5 text-accent">•</span>
+            Maintain aspect ratio — never stretch or distort
+          </li>
+          <li class="flex items-start gap-3 text-sm text-ink-2">
+            <span class="mt-0.5 text-accent">•</span>
+            Minimum clear space: half the mark's width on all sides
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Color Palette -->
+  <section class="bg-paper-2 py-20 md:py-28" aria-labelledby="color-heading">
+    <div class="container-x">
+      <SectionHeading
+        id="color-heading"
+        index="02"
+        label="Color"
+        title="Semantic by design."
+        lede="Colors are defined as CSS custom properties on :root and flip automatically in dark mode via [data-theme]. The graphite palette is always-dark — used for inverted sections regardless of theme."
+      />
+
+      {colorGroups.map((group) => (
+        <div class="mt-14 border-t border-line pt-8" data-reveal-group>
+          <h3 class="kicker text-ink-3" data-reveal>{group.title}</h3>
+          <div class="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3" data-reveal>
+            {group.tokens.map((token) => (
+              <div class="rounded-lg border border-line bg-paper p-4">
+                <div class="flex items-center gap-3">
+                  <span
+                    class="inline-block h-8 w-8 flex-shrink-0 rounded-md border border-line"
+                    style={`background-color: var(${token.name})`}
+                  />
+                  <div>
+                    <p class="font-mono text-xs font-medium text-ink">{token.name}</p>
+                    <p class="mt-0.5 font-mono text-[11px] text-ink-3">
+                      {'value' in token ? token.value : `${token.light} / ${token.dark}`}
+                    </p>
+                  </div>
+                </div>
+                <p class="mt-2 text-xs leading-relaxed text-ink-2">{token.usage}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+
+      <div class="mt-14 border-t border-line pt-10" data-reveal>
+        <h3 class="font-display text-xl font-semibold text-ink">Theme switching</h3>
+        <div class="mt-4 grid gap-4 md:grid-cols-2">
+          <div class="rounded-lg border border-line bg-paper p-5">
+            <p class="font-mono text-xs font-medium text-accent">Light theme</p>
+            <p class="mt-2 text-sm leading-relaxed text-ink-2">
+              Default theme. Paper is white (#ffffff), ink is near-black (#101319), accent is cobalt blue (#2447f5).
+            </p>
+          </div>
+          <div class="rounded-lg border border-line bg-paper p-5">
+            <p class="font-mono text-xs font-medium text-accent">Dark theme</p>
+            <p class="mt-2 text-sm leading-relaxed text-ink-2">
+              Activated via <code class="rounded bg-paper-2 px-1.5 py-0.5 font-mono text-[11px] text-accent">data-theme="dark"</code> on &lt;html&gt;. Paper becomes graphite (#0c0f14), accent shifts to bright blue (#7d96ff) for contrast.
+            </p>
+          </div>
+          <div class="rounded-lg border border-line bg-paper p-5">
+            <p class="font-mono text-xs font-medium text-accent">Always-dark sections</p>
+            <p class="mt-2 text-sm leading-relaxed text-ink-2">
+              Use <code class="rounded bg-paper-2 px-1.5 py-0.5 font-mono text-[11px] text-accent">bg-graphite</code> / <code class="rounded bg-paper-2 px-1.5 py-0.5 font-mono text-[11px] text-accent">text-graphite-fg</code> for inverted sections that stay dark in both themes (e.g. hero, footer).
+            </p>
+          </div>
+          <div class="rounded-lg border border-line bg-paper p-5">
+            <p class="font-mono text-xs font-medium text-accent">Persistence</p>
+            <p class="mt-2 text-sm leading-relaxed text-ink-2">
+              Theme is persisted in localStorage and falls back to <code class="rounded bg-paper-2 px-1.5 py-0.5 font-mono text-[11px] text-accent">prefers-color-scheme</code>. An inline script in Base.astro sets the attribute before paint to prevent flash.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Typography -->
+  <section class="bg-paper py-20 md:py-28" aria-labelledby="type-heading">
+    <div class="container-x">
+      <SectionHeading
+        id="type-heading"
+        index="03"
+        label="Typography"
+        title="Three faces, one voice."
+        lede="Substrate uses three font families, each serving a distinct role. Archivo Variable drives headlines with its expanded width. Instrument Sans carries the body. IBM Plex Mono handles labels, code, and data."
+      />
+
+      <div class="mt-14" data-reveal-group>
+        {typographySpecs.map((spec) => (
+          <div class="border-t border-line py-8" data-reveal>
+            <div class="grid gap-4 md:grid-cols-[180px_1fr]">
+              <div>
+                <p class="font-mono text-xs text-accent">{spec.class}</p>
+                <p class="mt-1 font-mono text-[11px] text-ink-3">{spec.font}</p>
+              </div>
+              <div>
+                <p
+                  class:list={[
+                    spec.class === '.display' && 'display text-3xl md:text-4xl',
+                    spec.class === '.kicker' && 'kicker',
+                    spec.class === 'body' && 'text-[1.0625rem]',
+                    spec.class === 'font-mono' && 'font-mono',
+                    'text-ink',
+                  ]}
+                >
+                  {spec.class === '.display' ? 'Engineering the layer beneath.' : spec.class === '.kicker' ? '03 — Typography' : spec.class === 'body' ? 'Systems designed to run for a decade, not a demo.' : 'IBM Plex Mono 400 · 500 · L3TT3RS'}
+                </p>
+                <div class="mt-3 flex flex-wrap gap-x-5 gap-y-1 font-mono text-[11px] text-ink-3">
+                  {'weight' in spec && <span>Weight: {spec.weight}</span>}
+                  {'stretch' in spec && <span>Stretch: {spec.stretch}</span>}
+                  {'leading' in spec && <span>Line-height: {spec.leading}</span>}
+                  {'tracking' in spec && <span>Tracking: {spec.tracking}</span>}
+                  {'size' in spec && <span>Size: {spec.size}</span>}
+                </div>
+                <p class="mt-2 text-sm leading-relaxed text-ink-2">{spec.usage}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-6 border-t border-line pt-10" data-reveal>
+        <h3 class="font-display text-xl font-semibold text-ink">RTL support</h3>
+        <p class="mt-3 max-w-2xl text-sm leading-relaxed text-ink-2">
+          When <code class="rounded bg-paper-2 px-1.5 py-0.5 font-mono text-[11px] text-accent">dir="rtl"</code> is set (Arabic locale), both <code class="rounded bg-paper-2 px-1.5 py-0.5 font-mono text-[11px] text-accent">--font-display</code> and <code class="rounded bg-paper-2 px-1.5 py-0.5 font-mono text-[11px] text-accent">--font-sans</code> switch to Noto Sans Arabic Variable. The layout flips via Tailwind's <code class="rounded bg-paper-2 px-1.5 py-0.5 font-mono text-[11px] text-accent">rtl:</code> variant and <code class="rounded bg-paper-2 px-1.5 py-0.5 font-mono text-[11px] text-accent">rtl:-scale-x-100</code> for directional arrows.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Components -->
+  <section class="bg-paper-2 py-20 md:py-28" aria-labelledby="components-heading">
+    <div class="container-x">
+      <SectionHeading
+        id="components-heading"
+        index="04"
+        label="Components"
+        title="Building blocks, not one-offs."
+        lede="Every reusable component lives in src/components/ and follows the same conventions — Astro for static markup, React islands for interactivity, Tailwind utilities for styling."
+      />
+
+      <div class="mt-14 grid gap-8" data-reveal-group>
+        {componentSpecs.map((comp) => (
+          <div class="rounded-xl border border-line bg-paper p-6 md:p-8" data-reveal>
+            <div class="flex items-baseline justify-between">
+              <h3 class="font-display text-lg font-semibold text-ink">{comp.name}</h3>
+              <span class="font-mono text-[11px] text-ink-3">astro</span>
+            </div>
+            <div class="mt-4 flex flex-wrap gap-2">
+              {comp.props.map((prop) => (
+                <span class="rounded-md bg-accent-soft px-2.5 py-1 font-mono text-[11px] text-accent">{prop}</span>
+              ))}
+            </div>
+            <p class="mt-4 text-sm leading-relaxed text-ink-2">{comp.description}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-10 border-t border-line pt-10" data-reveal>
+        <h3 class="font-display text-xl font-semibold text-ink">Interactive islands (React)</h3>
+        <div class="mt-4 grid gap-3 sm:grid-cols-3">
+          <div class="rounded-lg border border-line bg-paper p-4">
+            <p class="font-mono text-xs font-medium text-ink">ThemeToggle</p>
+            <p class="mt-1 text-xs leading-relaxed text-ink-2">Light/dark mode switch. Hydrates on client, persists to localStorage.</p>
+          </div>
+          <div class="rounded-lg border border-line bg-paper p-4">
+            <p class="font-mono text-xs font-medium text-ink">MobileNav</p>
+            <p class="mt-1 text-xs leading-relaxed text-ink-2">Full-screen mobile navigation drawer with slide-in transition.</p>
+          </div>
+          <div class="rounded-lg border border-line bg-paper p-4">
+            <p class="font-mono text-xs font-medium text-ink">ContactForm</p>
+            <p class="mt-1 text-xs leading-relaxed text-ink-2">Multi-field inquiry form with validation, country select, and submission handling.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Spacing & Layout -->
+  <section class="bg-paper py-20 md:py-28" aria-labelledby="layout-heading">
+    <div class="container-x">
+      <SectionHeading
+        id="layout-heading"
+        index="05"
+        label="Layout & Motion"
+        title="Rhythm, rail, and reveal."
+        lede="Layout follows a consistent 12-column implicit grid. Every page section uses the same spacing rhythm, and motion is always additive — never essential."
+      />
+
+      <div class="mt-14" data-reveal-group>
+        {layoutTokens.map((t) => (
+          <div class="border-t border-line py-6 md:grid md:grid-cols-[200px_1fr_1fr] md:gap-6" data-reveal>
+            <p class="font-mono text-xs font-medium text-accent">{t.token}</p>
+            <p class="mt-1 text-sm leading-relaxed text-ink-2 md:mt-0">{t.rule}</p>
+            <p class="mt-1 text-sm leading-relaxed text-ink-3 md:mt-0">{t.usage}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-10 border-t border-line pt-10" data-reveal>
+        <h3 class="font-display text-xl font-semibold text-ink">Spacing scale</h3>
+        <p class="mt-3 text-sm leading-relaxed text-ink-2">
+          Vertical spacing follows a consistent rhythm. Page sections use <code class="rounded bg-paper-2 px-1.5 py-0.5 font-mono text-[11px] text-accent">py-20 md:py-28</code> or <code class="rounded bg-paper-2 px-1.5 py-0.5 font-mono text-[11px] text-accent">py-20 md:py-32</code>. In-section spacing uses multiples of the Tailwind spacing scale (mt-8, mt-10, mt-14, mt-20). The grid gap between columns is <code class="rounded bg-paper-2 px-1.5 py-0.5 font-mono text-[11px] text-accent">gap-10</code> or <code class="rounded bg-paper-2 px-1.5 py-0.5 font-mono text-[11px] text-accent">gap-x-10 gap-y-4</code>.
+        </p>
+      </div>
+
+      <div class="mt-8 border-t border-line pt-10" data-reveal>
+        <h3 class="font-display text-xl font-semibold text-ink">Motion principles</h3>
+        <div class="mt-4 grid gap-4 md:grid-cols-3">
+          <div class="rounded-lg border border-line bg-paper-2 p-5">
+            <p class="font-mono text-xs font-medium text-accent">Progressive enhancement</p>
+            <p class="mt-2 text-sm leading-relaxed text-ink-2">All motion is gated by <code class="rounded bg-paper-2 px-1.5 py-0.5 font-mono text-[11px] text-accent">prefers-reduced-motion</code>. If the user prefers reduced motion, nothing animates — content stays fully visible.</p>
+          </div>
+          <div class="rounded-lg border border-line bg-paper-2 p-5">
+            <p class="font-mono text-xs font-medium text-accent">Scroll reveals</p>
+            <p class="mt-2 text-sm leading-relaxed text-ink-2">Use <code class="rounded bg-paper-2 px-1.5 py-0.5 font-mono text-[11px] text-accent">data-reveal</code> for individual elements and <code class="rounded bg-paper-2 px-1.5 py-0.5 font-mono text-[11px] text-accent">data-reveal-group</code> for staggered groups (0.08s stagger). Elements fade up 24px over 0.7s.</p>
+          </div>
+          <div class="rounded-lg border border-line bg-paper-2 p-5">
+            <p class="font-mono text-xs font-medium text-accent">SVG animation</p>
+            <p class="mt-2 text-sm leading-relaxed text-ink-2"><code class="rounded bg-paper-2 px-1.5 py-0.5 font-mono text-[11px] text-accent">data-draw</code> draws paths on scroll. <code class="rounded bg-paper-2 px-1.5 py-0.5 font-mono text-[11px] text-accent">data-flow</code> creates infinite flowing dashes on connector lines.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tone of Voice -->
+  <section class="bg-graphite py-20 md:py-28" aria-labelledby="tone-heading">
+    <div class="container-x">
+      <SectionHeading
+        id="tone-heading"
+        index="06"
+        label="Writing"
+        title="Precise. Direct. Honest."
+        lede="Substrate's voice matches its engineering — clear, confident, and free of jargon. We write for engineers who evaluate technical partners, not for marketing awards."
+      />
+
+      <div class="mt-14 grid gap-6 md:grid-cols-2" data-reveal-group>
+        <div class="rounded-xl border border-graphite-line bg-graphite-2 p-6" data-reveal>
+          <p class="kicker text-accent-bright">Do</p>
+          <ul class="mt-4 space-y-3">
+            <li class="flex items-start gap-3 text-sm leading-relaxed text-graphite-fg-2">
+              <span class="mt-0.5 text-accent-bright">→</span>
+              Use concrete language: "p99 settlement latency" not "improved performance"
+            </li>
+            <li class="flex items-start gap-3 text-sm leading-relaxed text-graphite-fg-2">
+              <span class="mt-0.5 text-accent-bright">→</span>
+              Lead with the outcome: "4,200 substations onboarded" not "hardware integration"
+            </li>
+            <li class="flex items-start gap-3 text-sm leading-relaxed text-graphite-fg-2">
+              <span class="mt-0.5 text-accent-bright">→</span>
+              Use numerals for data, spell out for narrative
+            </li>
+            <li class="flex items-start gap-3 text-sm leading-relaxed text-graphite-fg-2">
+              <span class="mt-0.5 text-accent-bright">→</span>
+              Write architecture decision records (ADRs) as public artifacts
+            </li>
+          </ul>
+        </div>
+        <div class="rounded-xl border border-graphite-line bg-graphite-2 p-6" data-reveal>
+          <p class="kicker text-graphite-fg-2">Don't</p>
+          <ul class="mt-4 space-y-3">
+            <li class="flex items-start gap-3 text-sm leading-relaxed text-graphite-fg-2">
+              <span class="mt-0.5 text-graphite-fg-2">✕</span>
+              Empty superlatives: "best-in-class," "game-changing," "revolutionary"
+            </li>
+            <li class="flex items-start gap-3 text-sm leading-relaxed text-graphite-fg-2">
+              <span class="mt-0.5 text-graphite-fg-2">✕</span>
+              Buzzwords without substance: "synergy," "leverage," "holistic"
+            </li>
+            <li class="flex items-start gap-3 text-sm leading-relaxed text-graphite-fg-2">
+              <span class="mt-0.5 text-graphite-fg-2">✕</span>
+              Passive voice where active is clearer
+            </li>
+            <li class="flex items-start gap-3 text-sm leading-relaxed text-graphite-fg-2">
+              <span class="mt-0.5 text-graphite-fg-2">✕</span>
+              Claims without numbers or references
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-10 border-t border-graphite-line pt-10" data-reveal>
+        <h3 class="font-display text-xl font-semibold text-graphite-fg">Writing conventions</h3>
+        <div class="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div class="rounded-lg border border-graphite-line bg-graphite-2 p-4">
+            <p class="font-mono text-xs font-medium text-accent-bright">Headlines</p>
+            <p class="mt-2 text-sm leading-relaxed text-graphite-fg-2">Sentence case. Max 10 words. Should hold a truth, not a promise.</p>
+          </div>
+          <div class="rounded-lg border border-graphite-line bg-graphite-2 p-4">
+            <p class="font-mono text-xs font-medium text-accent-bright">Figcaptions</p>
+            <p class="mt-2 text-sm leading-relaxed text-graphite-fg-2">All caps, mono font, FIG. prefix with section number. Label everything.</p>
+          </div>
+          <div class="rounded-lg border border-graphite-line bg-graphite-2 p-4">
+            <p class="font-mono text-xs font-medium text-accent-bright">Labels</p>
+            <p class="mt-2 text-sm leading-relaxed text-graphite-fg-2">All caps, mono font, short. Use abbreviation where possible.</p>
+          </div>
+          <div class="rounded-lg border border-graphite-line bg-graphite-2 p-4">
+            <p class="font-mono text-xs font-medium text-accent-bright">Numbers</p>
+            <p class="mt-2 text-sm leading-relaxed text-graphite-fg-2">Use real metrics. Every number should be auditable or attributed.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-10 border-t border-graphite-line pt-10" data-reveal>
+        <h3 class="font-display text-xl font-semibold text-graphite-fg">Naming conventions</h3>
+        <div class="mt-4 grid gap-4 md:grid-cols-2">
+          <div class="rounded-lg border border-graphite-line bg-graphite-2 p-5">
+            <p class="font-mono text-xs font-medium text-accent-bright">CSS custom properties</p>
+            <p class="mt-2 text-sm leading-relaxed text-graphite-fg-2">
+              Prefix <code class="rounded bg-graphite px-1.5 py-0.5 font-mono text-[11px] text-accent-bright">--c-</code> for colors (<code class="rounded bg-graphite px-1.5 py-0.5 font-mono text-[11px] text-accent-bright">--c-paper</code>, <code class="rounded bg-graphite px-1.5 py-0.5 font-mono text-[11px] text-accent-bright">--c-ink</code>), <code class="rounded bg-graphite px-1.5 py-0.5 font-mono text-[11px] text-accent-bright">--font-</code> for typography. Value names are semantic (paper, ink, line), not literal (white, black, gray).
+            </p>
+          </div>
+          <div class="rounded-lg border border-graphite-line bg-graphite-2 p-5">
+            <p class="font-mono text-xs font-medium text-accent-bright">Tailwind utilities</p>
+            <p class="mt-2 text-sm leading-relaxed text-graphite-fg-2">
+              Every token is mapped in the <code class="rounded bg-graphite px-1.5 py-0.5 font-mono text-[11px] text-accent-bright">@theme inline</code> block, making them available as <code class="rounded bg-graphite px-1.5 py-0.5 font-mono text-[11px] text-accent-bright">bg-paper</code>, <code class="rounded bg-graphite px-1.5 py-0.5 font-mono text-[11px] text-accent-bright">text-ink-2</code>, <code class="rounded bg-graphite px-1.5 py-0.5 font-mono text-[11px] text-accent-bright">border-line</code>, <code class="rounded bg-graphite px-1.5 py-0.5 font-mono text-[11px] text-accent-bright">font-display</code>, etc. Never use raw hex values in templates.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-12 flex flex-wrap items-center gap-6 border-t border-graphite-line pt-10" data-reveal>
+        <p class="font-display text-xl text-graphite-fg">
+          These guidelines are living — updated as the system evolves.
+        </p>
+        <Button href="/" variant="secondary" class="text-graphite-fg border-graphite-line hover:bg-graphite-2 hover:border-graphite-fg-2">
+          Return home
+        </Button>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .bg-paper-2 code {
+    background-color: var(--c-accent-soft);
+  }
+</style>
