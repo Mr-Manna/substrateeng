@@ -43,7 +43,7 @@ Key differences in content:
 |---|---|
 | **Title Tag** | `Cloud Native Services | Substrate` |
 | **Meta Description** | `Substrate helps enterprises adopt cloud-native architectures with containers, Kubernetes, serverless, and microservices. Accelerate delivery, reduce costs, and build for scale.` |
-| **Canonical URL** | `https://substrate.engineering/cloud-native` |
+| **Canonical URL** | `https://substrateeng.com/cloud-native` |
 | **Slug** | `/cloud-native` |
 | **H1** | `Build cloud-native systems that scale with your business.` |
 | **Open Graph Title** | `Cloud Native Services | Substrate` |

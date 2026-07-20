@@ -1,8 +1,9 @@
 {
   "site": {
     "name": "Substrate",
+    "title": "Substrate",
     "tagline": "هندسة الطبقة التحتية للأعمال الحديثة.",
-    "email": "hello@substrate.engineering"
+    "email": "hello@substrateeng.com"
   },
   "nav": {
     "items": [
@@ -646,7 +647,7 @@
     "tagline": "هندسة الطبقة التحتية للأعمال الحديثة. نصمم ونبني وندير الأنظمة التي تعتمد عليها المؤسسات.",
     "exploreHeading": "استكشف",
     "contactHeading": "اتصل",
-    "email": "hello@substrate.engineering",
+    "email": "hello@substrateeng.com",
     "locations": "لندن · سنغافورة · تورونتو",
     "copyright": "\u00a9 {year} Substrate. جميع الحقوق محفوظة.",
     "taglineAlt": "مُهندس، لا مُجمّع."

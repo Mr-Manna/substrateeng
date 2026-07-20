@@ -1,8 +1,9 @@
 {
   "site": {
     "name": "Substrate",
+    "title": "Substrate",
     "tagline": "आधुनिक व्यवसाय के नीचे की परत को इंजीनियर करना।",
-    "email": "hello@substrate.engineering"
+    "email": "hello@substrateeng.com"
   },
   "nav": {
     "items": [
@@ -646,7 +647,7 @@
     "tagline": "आधुनिक व्यवसाय के नीचे की परत को इंजीनियर करना। हम उन सिस्टमों को डिज़ाइन, निर्माण और संचालित करते हैं जिन पर उद्यम निर्भर हैं।",
     "exploreHeading": "खोजें",
     "contactHeading": "संपर्क",
-    "email": "hello@substrate.engineering",
+    "email": "hello@substrateeng.com",
     "locations": "लंदन · सिंगापुर · टोरंटो",
     "copyright": "© {year} Substrate. All rights reserved.",
     "taglineAlt": "इंजीनियर्ड, असेंबल नहीं।"

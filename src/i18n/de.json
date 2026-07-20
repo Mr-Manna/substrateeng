@@ -1,8 +1,9 @@
 {
   "site": {
     "name": "Substrate",
+    "title": "Substrate",
     "tagline": "Engineering der Schicht unter dem modernen Geschäft.",
-    "email": "hello@substrate.engineering"
+    "email": "hello@substrateeng.com"
   },
   "nav": {
     "items": [
@@ -646,7 +647,7 @@
     "tagline": "Engineering der Schicht unter dem modernen Geschäft. Wir entwerfen, bauen und betreiben die Systeme, auf die Unternehmen angewiesen sind.",
     "exploreHeading": "Entdecken",
     "contactHeading": "Kontakt",
-    "email": "hello@substrate.engineering",
+    "email": "hello@substrateeng.com",
     "locations": "LONDON · SINGAPUR · TORONTO",
     "copyright": "\u00a9 {year} Substrate. Alle Rechte vorbehalten.",
     "taglineAlt": "ENTWICKELT, NICHT ZUSAMMENGESETZT."

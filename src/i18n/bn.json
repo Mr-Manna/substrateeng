@@ -1,8 +1,9 @@
 {
   "site": {
     "name": "Substrate",
+    "title": "Substrate",
     "tagline": "আধুনিক ব্যবসার নিচের স্তরটি ইঞ্জিনিয়ার করা।",
-    "email": "hello@substrate.engineering"
+    "email": "hello@substrateeng.com"
   },
   "nav": {
     "items": [
@@ -646,7 +647,7 @@
     "tagline": "আধুনিক ব্যবসার নিচের স্তরটি ইঞ্জিনিয়ার করা। আমরা এন্টারপ্রাইজগুলির নির্ভরশীল সিস্টেমগুলি ডিজাইন, বিল্ড এবং অপারেট করি।",
     "exploreHeading": "অন্বেষণ",
     "contactHeading": "যোগাযোগ",
-    "email": "hello@substrate.engineering",
+    "email": "hello@substrateeng.com",
     "locations": "লন্ডন · সিঙ্গাপুর · টরন্টো",
     "copyright": "© {year} Substrate. All rights reserved.",
     "taglineAlt": "ইঞ্জিনিয়ারড, অ্যাসেম্বলড নয়।"

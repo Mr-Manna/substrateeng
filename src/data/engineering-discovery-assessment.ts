@@ -37,7 +37,7 @@ export const seo = {
   metaDescription:
     'Substrate evaluates your technology landscape, engineering practices, and architecture maturity. Delivers an evidence-based roadmap with prioritized recommendations. Led by senior engineers with production experience.',
   urlSlug: 'engineering-discovery-assessment',
-  canonicalUrl: 'https://substrate.engineering/engineering-discovery-assessment',
+  canonicalUrl: 'https://substrateeng.com/engineering-discovery-assessment',
   h1: 'Understand where you are before you decide where to go.',
 
   // H2 / H3 hierarchy
@@ -215,7 +215,7 @@ export const seo = {
     provider: {
       '@type': 'Organization',
       name: 'Substrate',
-      url: 'https://substrate.engineering',
+      url: 'https://substrateeng.com',
     },
     description:
       'A comprehensive evaluation of an organization\'s technology landscape, engineering practices, and architecture maturity. Delivers an evidence-based roadmap with prioritized recommendations.',

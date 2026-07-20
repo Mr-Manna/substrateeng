@@ -542,7 +542,7 @@ export default function ContactForm() {
       {status === 'error' && (
         <div className="rounded-lg border border-red-300 bg-red-50 p-4 text-sm text-red-700 dark:border-red-800 dark:bg-red-950 dark:text-red-400" role="alert">
           Something went wrong. Please try again or email us directly at{' '}
-          <a href="mailto:hello@substrate.engineering" className="font-medium underline">hello@substrate.engineering</a>.
+          <a href="mailto:hello@substrateeng.com" className="font-medium underline">hello@substrateeng.com</a>.
         </div>
       )}
 

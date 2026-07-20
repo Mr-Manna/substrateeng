@@ -7,7 +7,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://substrate.engineering',
+  site: 'https://substrateeng.com',
   integrations: [react(), sitemap()],
 
   redirects: {

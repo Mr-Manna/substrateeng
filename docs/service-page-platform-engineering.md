@@ -100,7 +100,7 @@ All tokens are defined in `src/styles/global.css` and consumed via Tailwind v4 `
 |---|---|
 | **Title Tag** | `Platform Engineering Services | Substrate` |
 | **Meta Description** | `Substrate helps enterprises build internal developer platforms with golden paths, self-service infrastructure, and paved roads to production. Accelerate delivery, reduce complexity, and scale engineering.` |
-| **Canonical URL** | `https://substrate.engineering/platform` |
+| **Canonical URL** | `https://substrateeng.com/platform` |
 | **Slug** | `/platform` |
 | **H1** | `Ship software faster, operate with less friction.` |
 | **Open Graph Title** | `Platform Engineering Services | Substrate` |

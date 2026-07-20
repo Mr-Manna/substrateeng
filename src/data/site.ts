@@ -1,7 +1,7 @@
 export const site = {
   title: 'Substrate',
   tagline: 'Engineering the layer beneath modern business.',
-  email: 'hello@substrate.engineering',
+  email: 'hello@substrateeng.com',
 } as const;
 
 export interface NavItem {

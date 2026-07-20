@@ -1,8 +1,9 @@
 {
   "site": {
     "name": "Substrate",
+    "title": "Substrate",
     "tagline": "Engineering the layer beneath modern business.",
-    "email": "hello@substrate.engineering"
+    "email": "hello@substrateeng.com"
   },
   "nav": {
     "items": [
@@ -948,7 +949,7 @@
     },
     "error": {
       "title": "Something went wrong",
-      "message": "We could not send your message. Please try again or email us directly at hello@substrate.engineering.",
+      "message": "We could not send your message. Please try again or email us directly at hello@substrateeng.com.",
       "retry": "Try again"
     },
     "spamNotice": "This site is protected by basic spam detection. Your information will be handled in accordance with our privacy policy.",
@@ -1145,7 +1146,7 @@
     "lede": "Every engagement at Substrate starts with a conversation. Tell us about the problem you are solving, and we will tell you honestly whether we can help. No pitch decks, no sales process, no obligation.",
     "cta": "Submit an inquiry",
     "secondaryCta": "Email us directly",
-    "email": "hello@substrate.engineering"
+    "email": "hello@substrateeng.com"
   },
   "footer": {
     "navItems": [
@@ -1160,7 +1161,7 @@
     "tagline": "Engineering the layer beneath modern business. We design, build, and operate the systems enterprises depend on.",
     "exploreHeading": "Explore",
     "contactHeading": "Contact",
-    "email": "hello@substrate.engineering",
+    "email": "hello@substrateeng.com",
     "locations": "LONDON · SINGAPORE · TORONTO",
     "copyright": "\u00a9 {year} Substrate. All rights reserved.",
     "taglineAlt": "ENGINEERED, NOT ASSEMBLED."

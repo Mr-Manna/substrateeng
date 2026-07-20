@@ -1,8 +1,9 @@
 {
   "site": {
     "name": "Substrate",
+    "title": "Substrate",
     "tagline": "L'ingénierie de la couche qui soutient l'entreprise moderne.",
-    "email": "hello@substrate.engineering"
+    "email": "hello@substrateeng.com"
   },
   "nav": {
     "items": [
@@ -646,7 +647,7 @@
     "tagline": "L'ingénierie de la couche qui soutient l'entreprise moderne. Nous concevons, construisons et opérons les systèmes dont les entreprises dépendent.",
     "exploreHeading": "Explorer",
     "contactHeading": "Contact",
-    "email": "hello@substrate.engineering",
+    "email": "hello@substrateeng.com",
     "locations": "LONDRES · SINGAPOUR · TORONTO",
     "copyright": "© {year} Substrate. Tous droits réservés.",
     "taglineAlt": "INGÉNIÉ, PAS ASSEMBLÉ."
