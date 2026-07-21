@@ -363,7 +363,7 @@
         },
         {
           "year": "2022",
-          "title": "Singapore & Toronto",
+          "title": "MUMBAI& DELHI",
           "note": "The hundredth engineer joins; replies now land in three timezones."
         },
         {
@@ -757,7 +757,7 @@
         "text": "A proposal with scope, dates, and numbers — or a straight \"we're not the right fit.\""
       }
     ],
-    "locations": "LONDON · SINGAPORE · TORONTO — REPLIES IN YOUR TIMEZONE.",
+    "locations": "KOLKATA· MUMBAI· DELHI — REPLIES IN YOUR TIMEZONE.",
     "depthGaugeLabels": [
       "SURFACE — 00",
       "01 — SCALE",
@@ -1003,11 +1003,11 @@
         "address": "Singapore"
       },
       {
-        "city": "Toronto",
+        "city": "DELHI",
         "country": "Canada",
         "role": "Americas hub",
         "timezone": "EST/EDT",
-        "address": "Toronto, ON"
+        "address": "DELHI, ON"
       }
     ],
     "remoteFirst": "Remote-first, globally distributed. Our engineers work across 14 countries. We collaborate asynchronously by default and meet in person for key milestones.",
@@ -1162,7 +1162,7 @@
     "exploreHeading": "Explore",
     "contactHeading": "Contact",
     "email": "hello@substrateeng.com",
-    "locations": "LONDON · SINGAPORE · TORONTO",
+    "locations": "KOLKATA· MUMBAI· DELHI",
     "copyright": "\u00a9 {year} Substrate. All rights reserved.",
     "taglineAlt": "ENGINEERED, NOT ASSEMBLED."
   },

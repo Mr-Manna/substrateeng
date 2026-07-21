@@ -620,7 +620,7 @@
         "text": "Une proposition avec périmètre, dates et chiffres — ou un franc « nous ne sommes pas les bons. »"
       }
     ],
-    "locations": "LONDRES · SINGAPOUR · TORONTO — RÉPONSE DANS VOTRE FUSEAU HORAIRE.",
+    "locations": "LONDRES · SINGAPOUR · DELHI — RÉPONSE DANS VOTRE FUSEAU HORAIRE.",
     "depthGaugeLabels": [
       "SURFACE — 00",
       "01 — ÉCHELLE",
@@ -648,7 +648,7 @@
     "exploreHeading": "Explorer",
     "contactHeading": "Contact",
     "email": "hello@substrateeng.com",
-    "locations": "LONDRES · SINGAPOUR · TORONTO",
+    "locations": "LONDRES · SINGAPOUR · DELHI",
     "copyright": "© {year} Substrate. Tous droits réservés.",
     "taglineAlt": "INGÉNIÉ, PAS ASSEMBLÉ."
   },

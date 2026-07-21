@@ -611,7 +611,7 @@
       { "y": 370, "label": "06 — TRABAJO" },
       { "y": 425, "label": "07 — PERSPECTIVAS" }
     ],
-    "locations": "LONDRES · SINGAPUR · TORONTO — RESPUESTAS EN TU ZONA HORARIA.",
+    "locations": "LONDRES · SINGAPUR · DELHI — RESPUESTAS EN TU ZONA HORARIA.",
     "gaugeAria": "Indicador de profundidad: un pozo descendiendo por cada sección de esta página — escala, capacidades, industrias, tecnología, proceso, trabajo, perspectivas — terminando en lecho rocoso, marcado contacto, usted está aquí",
     "gaugeLabel": "08 — CONTACTO · USTED ESTÁ AQUÍ",
     "figCaption": "FIG. 08 — REGISTRO DE SONDA, ESTA PÁGINA."
@@ -628,7 +628,7 @@
     "tagline": "Diseñamos, construimos y operamos los sistemas de los que las empresas dependen.",
     "explore": "Explorar",
     "contact": "Contacto",
-    "locations": "LONDRES · SINGAPUR · TORONTO",
+    "locations": "LONDRES · SINGAPUR · DELHI",
     "copyright": "Substrate. Todos los derechos reservados.",
     "engineered": "INGENIERIZADO, NO ENSAMBLADO."
   },
