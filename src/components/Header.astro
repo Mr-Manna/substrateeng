@@ -16,18 +16,18 @@ const navItems = tRaw<{ label: string; href: string; items?: { label: string; hr
   class="fixed inset-x-0 top-0 z-50 border-b border-transparent"
   data-active=""
 >
-  <div class="container-x flex h-16 items-center justify-between gap-6 md:h-[4.5rem]">
-    <a href="/" class="text-ink" aria-label="Substrate — home">
+  <div class="container-x flex h-16 items-center justify-between gap-3 md:h-[4.5rem] lg:gap-5">
+    <a href="/" class="shrink-0 text-ink" aria-label="Substrate — home">
       <Logo class="h-7 w-7" />
     </a>
 
-    <nav class="hidden md:block" aria-label={t('nav.aria')} data-nav>
+    <nav class="hidden min-w-0 lg:block" aria-label={t('nav.aria')} data-nav>
       <ul class="flex items-center gap-0">
         {navItems.map((item, i) => (
           <li data-trigger={i}>
             <a
               href={item.href}
-              class="nav-link relative flex items-center gap-1 px-3.5 py-2 text-[0.9rem] font-medium text-ink-2 transition-colors hover:text-ink"
+              class="nav-link relative flex items-center gap-1 whitespace-nowrap px-2.5 py-2 text-[0.82rem] font-medium text-ink-2 transition-colors hover:text-ink xl:px-3.5 xl:text-[0.9rem]"
             >
               {item.label}
               {item.items && (
@@ -41,9 +41,9 @@ const navItems = tRaw<{ label: string; href: string; items?: { label: string; hr
       </ul>
     </nav>
 
-    <div class="flex items-center gap-2.5">
+    <div class="flex shrink-0 items-center gap-1.5 sm:gap-2.5">
       <!-- Locale switcher -->
-      <div class="hidden md:relative md:block">
+      <div class="hidden lg:relative lg:block">
         <button
           type="button"
           class="locale-toggle inline-flex h-9 w-9 items-center justify-center rounded-full text-xs font-mono font-medium text-ink-2 transition-colors hover:bg-paper-2 hover:text-ink"
@@ -51,7 +51,7 @@ const navItems = tRaw<{ label: string; href: string; items?: { label: string; hr
         >
           {locale.toUpperCase()}
         </button>
-        <div class="locale-dropdown absolute right-0 top-full mt-1 min-w-[9rem] rounded-lg border border-line bg-paper py-1.5 shadow-lg shadow-black/5 opacity-0 invisible transition-all duration-200">
+        <div class="locale-dropdown absolute end-0 top-full mt-1 min-w-[9rem] rounded-lg border border-line bg-paper py-1.5 shadow-lg shadow-black/5 opacity-0 invisible transition-all duration-200">
           {locales.map((l) => (
             <a
               href={l === 'en' ? '/' : `/${l}/`}
@@ -67,7 +67,7 @@ const navItems = tRaw<{ label: string; href: string; items?: { label: string; hr
       <ThemeToggle client:load />
       <a
         href="/contact"
-        class="hidden rounded-full border border-line-2 px-4.5 py-2 text-sm font-medium text-ink transition-colors hover:border-ink-2 hover:bg-paper-2 md:inline-flex"
+        class="hidden whitespace-nowrap rounded-full border border-line-2 px-4.5 py-2 text-sm font-medium text-ink transition-colors hover:border-ink-2 hover:bg-paper-2 xl:inline-flex"
       >
         {t('buttons.startConversation')}
       </a>
@@ -77,11 +77,11 @@ const navItems = tRaw<{ label: string; href: string; items?: { label: string; hr
 
   <!-- Full-screen mega overlay -->
   <div class="mega-overlay hidden" data-overlay aria-hidden="true">
-    <div class="container-x mx-auto pt-8 pb-14">
+    <div class="container-x mx-auto pt-8 pb-10 xl:pb-14">
       {navItems.map((item, i) =>
         item.items ? (
           <div class="mega-panel hidden" data-panel={i}>
-            <div class="grid grid-cols-4 gap-x-10 gap-y-10">
+            <div class="grid grid-cols-2 gap-x-8 gap-y-8 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-10 xl:gap-y-10">
               {item.items.map((col) => (
                 <div>
                   {col.items ? (
@@ -121,13 +121,22 @@ const navItems = tRaw<{ label: string; href: string; items?: { label: string; hr
     border-color: var(--c-line);
   }
 
+  /* Keeps the underline aligned with the link's responsive horizontal padding */
+  .nav-link {
+    --nav-pad: 0.625rem;
+  }
+  @media (min-width: 1280px) {
+    .nav-link {
+      --nav-pad: 0.875rem;
+    }
+  }
   .nav-link::after {
     content: '';
     position: absolute;
-    inset-inline-start: 0.875rem;
+    inset-inline-start: var(--nav-pad);
     bottom: 0;
     height: 1.5px;
-    width: calc(100% - 1.75rem);
+    width: calc(100% - var(--nav-pad) * 2);
     background: var(--c-accent);
     transform: scaleX(0);
     transform-origin: left;
@@ -144,7 +153,9 @@ const navItems = tRaw<{ label: string; href: string; items?: { label: string; hr
     right: 0;
     top: 100%;
     max-height: calc(100vh - 4.5rem);
+    max-height: calc(100dvh - 4.5rem);
     overflow-y: auto;
+    overscroll-behavior: contain;
     background: var(--c-paper);
     border-bottom: 1px solid var(--c-line);
     box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.08);
@@ -258,7 +269,6 @@ const navItems = tRaw<{ label: string; href: string; items?: { label: string; hr
         overlay.classList.remove('hidden');
         overlay.offsetHeight; // force reflow
         overlay.classList.add('open');
-        document.body.style.overflow = 'hidden';
       }
     }
 
@@ -272,7 +282,6 @@ const navItems = tRaw<{ label: string; href: string; items?: { label: string; hr
           panel?.classList.add('hidden');
         }
         activeIdx = null;
-        document.body.style.overflow = '';
         setTimeout(() => overlay.classList.add('hidden'), 300);
       }, CLOSE_DELAY);
     }
@@ -327,7 +336,6 @@ const navItems = tRaw<{ label: string; href: string; items?: { label: string; hr
           panel?.classList.add('hidden');
         }
         activeIdx = null;
-        document.body.style.overflow = '';
         setTimeout(() => overlay.classList.add('hidden'), 300);
       }
     });
@@ -342,7 +350,6 @@ const navItems = tRaw<{ label: string; href: string; items?: { label: string; hr
           panel?.classList.add('hidden');
         }
         activeIdx = null;
-        document.body.style.overflow = '';
         setTimeout(() => overlay.classList.add('hidden'), 300);
         if (lastIdx !== null) {
           const link = triggers[lastIdx]?.querySelector<HTMLAnchorElement>('a');

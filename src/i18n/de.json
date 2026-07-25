@@ -21,6 +21,15 @@
             ]
           },
           {
+            "label": "Digitale Transformation",
+            "href": "#",
+            "items": [
+              { "label": "Modernisierungsstrategie", "href": "#" },
+              { "label": "Migration von Altsystemen", "href": "#" },
+              { "label": "Betriebsmodell & Change-Enablement", "href": "#" }
+            ]
+          },
+          {
             "label": "Verteilte Systeme",
             "href": "#",
             "items": [

@@ -24,7 +24,7 @@ interface Props {
 
 function SubNav({ items, onClose }: { items: SubItem[]; onClose: () => void }) {
   return (
-    <ul className="mt-1 mb-3 border-l-2 border-line pl-4 ml-4">
+    <ul className="mt-1 mb-3 border-s-2 border-line ps-4 ms-4">
       {items.map((sub) => (
         <li key={sub.href + sub.label}>
           <a
@@ -64,7 +64,7 @@ export default function MobileNav({ items, locale }: Props) {
   const close = () => setOpen(false);
 
   return (
-    <div className="md:hidden">
+    <div className="lg:hidden">
       <button
         type="button"
         aria-expanded={open}
@@ -95,7 +95,7 @@ export default function MobileNav({ items, locale }: Props) {
       {open && (
         <div
           id="mobile-menu"
-          className="fixed inset-0 z-[60] flex flex-col bg-paper px-6 pt-24 pb-10 overflow-y-auto"
+          className="fixed inset-0 z-[60] flex h-[100dvh] flex-col overflow-y-auto overscroll-contain bg-paper px-6 pb-[max(2.5rem,env(safe-area-inset-bottom))] pt-20 md:px-10 md:pt-24"
         >
           <nav aria-label="Primary">
             <ul className="divide-y divide-line border-y border-line">
@@ -106,13 +106,13 @@ export default function MobileNav({ items, locale }: Props) {
                       <button
                         type="button"
                         onClick={() => toggleExpanded(i)}
-                        className="flex w-full items-center justify-between gap-4 py-4 text-left text-2xl font-medium text-ink"
+                        className="flex w-full items-center justify-between gap-3 py-4 text-left text-xl font-medium text-ink sm:gap-4 sm:text-2xl"
                       >
-                        <span className="flex items-baseline gap-4">
-                          <span className="font-mono text-xs text-ink-3">
+                        <span className="flex min-w-0 items-baseline gap-3 sm:gap-4">
+                          <span className="shrink-0 font-mono text-xs text-ink-3">
                             {String(i + 1).padStart(2, '0')}
                           </span>
-                          {item.label}
+                          <span className="min-w-0 break-words">{item.label}</span>
                         </span>
                         <svg
                           className={`h-4 w-4 shrink-0 text-ink-3 transition-transform duration-200 ${expanded[i] ? 'rotate-180' : ''}`}
@@ -124,9 +124,9 @@ export default function MobileNav({ items, locale }: Props) {
                         </svg>
                       </button>
                       {expanded[i] && (
-                        <div className="pb-3">
+                        <div className="pb-3 sm:grid sm:grid-cols-2 sm:gap-x-8 md:grid-cols-3">
                           {item.items.map((col) => (
-                            <div key={col.href + col.label}>
+                            <div key={col.href + col.label} className="break-words">
                               <a
                                 href={col.href}
                                 onClick={close}
@@ -144,12 +144,12 @@ export default function MobileNav({ items, locale }: Props) {
                     <a
                       href={item.href}
                       onClick={close}
-                      className="flex items-baseline gap-4 py-4 text-2xl font-medium text-ink"
+                      className="flex items-baseline gap-3 py-4 text-xl font-medium text-ink sm:gap-4 sm:text-2xl"
                     >
-                      <span className="font-mono text-xs text-ink-3">
+                      <span className="shrink-0 font-mono text-xs text-ink-3">
                         {String(i + 1).padStart(2, '0')}
                       </span>
-                      {item.label}
+                      <span className="min-w-0 break-words">{item.label}</span>
                     </a>
                   )}
                 </li>
@@ -182,7 +182,7 @@ export default function MobileNav({ items, locale }: Props) {
           <a
             href="/contact"
             onClick={close}
-            className="mt-6 inline-flex items-center justify-center rounded-full bg-accent px-6 py-3.5 font-medium text-white dark:text-graphite"
+            className="mt-6 inline-flex items-center justify-center rounded-full bg-accent px-6 py-3.5 font-medium text-white sm:self-start dark:text-graphite"
           >
             Start a conversation
           </a>

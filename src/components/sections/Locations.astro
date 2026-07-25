@@ -1,0 +1,375 @@
+---
+import SectionHeading from '../SectionHeading.astro';
+import { useTranslations } from '../../i18n/useTranslations';
+import type { Locale } from '../../i18n/config';
+
+const locale = (Astro.currentLocale || 'en') as Locale;
+const { t, tRaw } = useTranslations(locale);
+
+interface Location {
+  id: string;
+  name: string;
+  country: string;
+  description: string;
+  coordinates: { x: number; y: number };
+  employees: number;
+}
+
+// Sample locations array - replace with real data later
+const locations: Location[] = [
+  {
+    id: 'sf',
+    name: 'San Francisco',
+    country: 'United States',
+    description: 'Engineering & Product',
+    coordinates: { x: 15, y: 35 },
+    employees: 45,
+  },
+  {
+    id: 'ny',
+    name: 'New York',
+    country: 'United States',
+    description: 'Strategy & Sales',
+    coordinates: { x: 30, y: 32 },
+    employees: 28,
+  },
+  {
+    id: 'london',
+    name: 'London',
+    country: 'United Kingdom',
+    description: 'Operations & Partnerships',
+    coordinates: { x: 50, y: 28 },
+    employees: 22,
+  },
+  {
+    id: 'berlin',
+    name: 'Berlin',
+    country: 'Germany',
+    description: 'R&D & Innovation',
+    coordinates: { x: 52, y: 25 },
+    employees: 18,
+  },
+  {
+    id: 'singapore',
+    name: 'Singapore',
+    country: 'Singapore',
+    description: 'APAC Hub',
+    coordinates: { x: 72, y: 50 },
+    employees: 32,
+  },
+  {
+    id: 'sydney',
+    name: 'Sydney',
+    country: 'Australia',
+    description: 'Growth & Expansion',
+    coordinates: { x: 82, y: 62 },
+    employees: 15,
+  },
+];
+---
+
+<section id="locations" class="py-24 md:py-36" aria-labelledby="locations-heading">
+  <div class="container-x">
+    <SectionHeading
+      id="locations-heading"
+      kicker="Global Presence"
+      title="Located Everywhere,<br />Connected Always"
+      subtitle="Our distributed teams across six continents bring diverse perspectives and round-the-clock delivery capabilities."
+    />
+
+    <div class="mt-20 grid gap-16 lg:grid-cols-[1fr_1.2fr] lg:gap-12 items-start">
+      {/* Left: Locations List */}
+      <div class="space-y-4">
+        <div class="grid gap-3">
+          {locations.map((location, index) => (
+            <div
+              class="group relative p-4 rounded-lg border border-ink/10 hover:border-accent/30 bg-ink/2 hover:bg-ink/4 transition-all duration-300 cursor-pointer location-card"
+              data-location-id={location.id}
+              data-animation-delay={index * 50}
+            >
+              <div class="flex items-start justify-between gap-3">
+                <div class="flex-1">
+                  <h3 class="text-base font-semibold text-ink">{location.name}</h3>
+                  <p class="text-sm text-ink-3 mt-0.5">{location.country}</p>
+                  <p class="text-xs text-accent mt-2 font-medium">{location.description}</p>
+                </div>
+                <div class="text-right">
+                  <div class="text-2xl font-bold text-accent">{location.employees}</div>
+                  <div class="text-xs text-ink-3">teammates</div>
+                </div>
+              </div>
+              {/* Animated underline */}
+              <div
+                class="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-accent to-accent/0 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"
+              ></div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Right: Animated Globe Visualization */}
+      <div class="relative h-full min-h-[500px] flex items-center justify-center">
+        <div class="w-full max-w-lg">
+          <svg
+            viewBox="0 0 100 100"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            role="img"
+            aria-labelledby="locations-globe-title"
+            class="w-full h-auto"
+          >
+            <defs>
+              <linearGradient id="globeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="var(--c-accent)" stop-opacity="0.1" />
+                <stop offset="100%" stop-color="var(--c-accent)" stop-opacity="0.05" />
+              </linearGradient>
+
+              <filter id="glow">
+                <feGaussianBlur stdDeviation="0.5" result="coloredBlur" />
+                <feMerge>
+                  <feMergeNode in="coloredBlur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+
+              <style>{`
+                @keyframes rotate-globe {
+                  from {
+                    transform: rotate(0deg);
+                  }
+                  to {
+                    transform: rotate(360deg);
+                  }
+                }
+
+                @keyframes pulse-dot {
+                  0%, 100% {
+                    r: 0.4;
+                    opacity: 1;
+                  }
+                  50% {
+                    r: 0.6;
+                    opacity: 0.6;
+                  }
+                }
+
+                @keyframes pulse-ring {
+                  0% {
+                    r: 0.8;
+                    opacity: 0.8;
+                  }
+                  100% {
+                    r: 1.8;
+                    opacity: 0;
+                  }
+                }
+
+                @keyframes draw-connection {
+                  from {
+                    stroke-dashoffset: 1000;
+                  }
+                  to {
+                    stroke-dashoffset: 0;
+                  }
+                }
+
+                @keyframes float {
+                  0%, 100% {
+                    transform: translateY(0px);
+                  }
+                  50% {
+                    transform: translateY(-8px);
+                  }
+                }
+
+                .globe-group {
+                  animation: rotate-globe 30s linear infinite;
+                  transform-origin: center;
+                }
+
+                .location-dot {
+                  animation: pulse-dot 2s ease-in-out infinite;
+                }
+
+                .location-ring {
+                  animation: pulse-ring 2s ease-out infinite;
+                }
+
+                .connection-line {
+                  stroke-dasharray: 1000;
+                  animation: draw-connection 3s ease-out forwards;
+                }
+
+                .globe-container {
+                  animation: float 4s ease-in-out infinite;
+                }
+
+                .location-dot:nth-of-type(1) { animation-delay: 0s; }
+                .location-dot:nth-of-type(2) { animation-delay: 0.2s; }
+                .location-dot:nth-of-type(3) { animation-delay: 0.4s; }
+                .location-dot:nth-of-type(4) { animation-delay: 0.6s; }
+                .location-dot:nth-of-type(5) { animation-delay: 0.8s; }
+                .location-dot:nth-of-type(6) { animation-delay: 1s; }
+
+                .connection-line:nth-of-type(1) { animation-delay: 0.5s; }
+                .connection-line:nth-of-type(2) { animation-delay: 0.7s; }
+                .connection-line:nth-of-type(3) { animation-delay: 0.9s; }
+                .connection-line:nth-of-type(4) { animation-delay: 1.1s; }
+                .connection-line:nth-of-type(5) { animation-delay: 1.3s; }
+              `}</style>
+            </defs>
+
+            <title id="locations-globe-title">Global Locations Map</title>
+
+            {/* Globe Container */}
+            <g class="globe-container">
+              {/* Background circle */}
+              <circle
+                cx="50"
+                cy="50"
+                r="45"
+                fill="url(#globeGradient)"
+                stroke="var(--c-accent)"
+                stroke-width="0.5"
+                opacity="0.3"
+              />
+
+              {/* Decorative grid lines */}
+              <circle
+                cx="50"
+                cy="50"
+                r="30"
+                fill="none"
+                stroke="var(--c-accent)"
+                stroke-width="0.3"
+                opacity="0.15"
+              />
+              <circle
+                cx="50"
+                cy="50"
+                r="15"
+                fill="none"
+                stroke="var(--c-accent)"
+                stroke-width="0.2"
+                opacity="0.1"
+              />
+
+              {/* Connection lines between locations */}
+              <g class="globe-group">
+                {/* SF to NY */}
+                <path
+                  class="connection-line"
+                  d="M 22 33 Q 26 30 30 32"
+                  stroke="var(--c-accent)"
+                  stroke-width="0.4"
+                  opacity="0.6"
+                />
+
+                {/* NY to London */}
+                <path
+                  class="connection-line"
+                  d="M 30 32 Q 40 25 50 28"
+                  stroke="var(--c-accent)"
+                  stroke-width="0.4"
+                  opacity="0.6"
+                />
+
+                {/* London to Berlin */}
+                <path
+                  class="connection-line"
+                  d="M 50 28 Q 51 26 52 25"
+                  stroke="var(--c-accent)"
+                  stroke-width="0.4"
+                  opacity="0.6"
+                />
+
+                {/* Berlin to Singapore */}
+                <path
+                  class="connection-line"
+                  d="M 52 25 Q 62 37 72 50"
+                  stroke="var(--c-accent)"
+                  stroke-width="0.4"
+                  opacity="0.6"
+                />
+
+                {/* Singapore to Sydney */}
+                <path
+                  class="connection-line"
+                  d="M 72 50 Q 77 56 82 62"
+                  stroke="var(--c-accent)"
+                  stroke-width="0.4"
+                  opacity="0.6"
+                />
+
+                {/* Sydney back to SF (creates loop) */}
+                <path
+                  class="connection-line"
+                  d="M 82 62 Q 50 75 22 33"
+                  stroke="var(--c-accent)"
+                  stroke-width="0.4"
+                  opacity="0.4"
+                />
+
+                {/* Location dots */}
+                {locations.map((location) => (
+                  <>
+                    {/* Pulse ring */}
+                    <circle
+                      class="location-ring"
+                      cx={location.coordinates.x}
+                      cy={location.coordinates.y}
+                      r="0.8"
+                      fill="none"
+                      stroke="var(--c-accent)"
+                      opacity="0.5"
+                    />
+                    {/* Main dot */}
+                    <circle
+                      class="location-dot"
+                      cx={location.coordinates.x}
+                      cy={location.coordinates.y}
+                      r="0.4"
+                      fill="var(--c-accent)"
+                      filter="url(#glow)"
+                    />
+                  </>
+                ))}
+              </g>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    {/* Stats Footer */}
+    <div class="mt-16 grid gap-8 sm:grid-cols-3 pt-12 border-t border-ink/10">
+      <div class="text-center">
+        <div class="text-3xl font-bold text-accent">6</div>
+        <p class="text-sm text-ink-3 mt-2">Global Offices</p>
+      </div>
+      <div class="text-center">
+        <div class="text-3xl font-bold text-accent">160+</div>
+        <p class="text-sm text-ink-3 mt-2">Team Members</p>
+      </div>
+      <div class="text-center">
+        <div class="text-3xl font-bold text-accent">6</div>
+        <p class="text-sm text-ink-3 mt-2">Time Zones</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style is:global>
+  .location-card {
+    transform: translateY(20px);
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeInUp {
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+</style>

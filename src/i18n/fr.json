@@ -21,6 +21,15 @@
             ]
           },
           {
+            "label": "Transformation Numérique",
+            "href": "#",
+            "items": [
+              { "label": "Stratégie de modernisation", "href": "#" },
+              { "label": "Migration des systèmes hérités", "href": "#" },
+              { "label": "Modèle opérationnel et conduite du changement", "href": "#" }
+            ]
+          },
+          {
             "label": "Systèmes distribués",
             "href": "#",
             "items": [

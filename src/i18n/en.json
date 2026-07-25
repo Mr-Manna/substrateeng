@@ -21,6 +21,15 @@
             ]
           },
           {
+            "label": "Digital Transformation",
+            "href": "#",
+            "items": [
+              { "label": "Modernization strategy", "href": "#" },
+              { "label": "Legacy system migration", "href": "#" },
+              { "label": "Operating model & change enablement", "href": "#" }
+            ]
+          },
+          {
             "label": "Distributed Systems",
             "href": "#",
             "items": [

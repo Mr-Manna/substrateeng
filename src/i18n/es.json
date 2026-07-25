@@ -21,6 +21,15 @@
             ]
           },
           {
+            "label": "Transformación Digital",
+            "href": "#",
+            "items": [
+              { "label": "Estrategia de modernización", "href": "#" },
+              { "label": "Migración de sistemas heredados", "href": "#" },
+              { "label": "Modelo operativo y gestión del cambio", "href": "#" }
+            ]
+          },
+          {
             "label": "Sistemas Distribuidos",
             "href": "#",
             "items": [
