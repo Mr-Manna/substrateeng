@@ -6,6 +6,13 @@
     "email": "hello@substrateeng.com"
   },
   "nav": {
+    "home": "Substrate — होम",
+    "aria": "मुख्य",
+    "switchLocale": "भाषा बदलें",
+    "showNav": "नेविगेशन दिखाएँ",
+    "openMenu": "मेन्यू खोलें",
+    "closeMenu": "मेन्यू बंद करें",
+    "language": "भाषा",
     "items": [
       {
         "label": "क्षमताएँ",

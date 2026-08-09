@@ -14,7 +14,9 @@ const { index, label, title, lede, tone = 'paper', id } = Astro.props;
 const onGraphite = tone === 'graphite';
 ---
 
-<div data-reveal-group>
+<!-- data-section-* is what the header's depth readout reads to name the section
+     you're currently in — see Header.astro. -->
+<div data-reveal-group data-section-index={index} data-section-label={label}>
   <div class:list={['border-t pt-6', onGraphite ? 'border-graphite-line' : 'border-line']}>
     <p
       class:list={['kicker', onGraphite ? 'text-graphite-fg-2' : 'text-ink-3']}

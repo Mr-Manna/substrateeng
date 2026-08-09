@@ -11,39 +11,43 @@ const { t, tRaw } = useTranslations(locale);
 const navItems = tRaw<{ label: string; href: string; items?: { label: string; href: string; items?: { label: string; href: string; description?: string }[] }[] }[]>('nav.items');
 ---
 
-<header
-  id="site-header"
-  class="fixed inset-x-0 top-0 z-50 border-b border-transparent"
-  data-active=""
->
-  <div class="container-x flex h-16 items-center justify-between gap-3 md:h-[4.5rem] lg:gap-5">
-    <a href="/" class="shrink-0 text-ink" aria-label="Substrate — home">
-      <Logo class="h-7 w-7" />
-    </a>
+<header id="site-header" class="fixed inset-x-0 top-0 z-50 border-b border-transparent">
+  <!-- The scrolled-state blur lives on its own layer rather than on
+       #site-header. backdrop-filter makes an element the containing block for
+       every position:fixed descendant, and MobileNav's full-screen panel is a
+       descendant — on the header itself, the blur would resize that panel to
+       the strip the moment the user scrolled. -->
+  <div class="header-backdrop" aria-hidden="true"></div>
 
-    <nav class="hidden min-w-0 lg:block" aria-label={t('nav.aria')} data-nav>
-      <ul class="flex items-center gap-0">
-        {navItems.map((item, i) => (
-          <li data-trigger={i}>
-            <a
-              href={item.href}
-              class="nav-link relative flex items-center gap-1 whitespace-nowrap px-2.5 py-2 text-[0.82rem] font-medium text-ink-2 transition-colors hover:text-ink xl:px-3.5 xl:text-[0.9rem]"
-            >
-              {item.label}
-              {item.items && (
-                <svg class="h-3 w-3 transition-transform duration-200" data-chevron viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                  <path d="M3 4.5 6 7.5 9 4.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-              )}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </nav>
+  <!-- `relative` is load-bearing, not decoration: .header-backdrop above is
+       absolutely positioned, and positioned elements paint over non-positioned
+       in-flow content whatever the DOM order. Without it the scrolled-state
+       backdrop covers everything in the bar that isn't separately positioned. -->
+  <div class="header-bar container-x relative flex h-16 items-center justify-between gap-3 md:h-[4.5rem]">
+    <!-- Logo and readout share one flex slot so the bar keeps the same two
+         children in both states. -->
+    <div class="flex min-w-0 shrink items-center">
+      <a href="/" class="header-logo shrink-0 text-ink flex items-center" aria-label={t('nav.home')}>
+        <Logo class="h-7 w-7" />
+      </a>
 
+      <!-- Depth readout: which section you're currently in. Mirrors the kicker
+           treatment in SectionHeading.astro, and is filled in from that
+           component's data-section-* attributes. Hidden until the bar
+           collapses. aria-hidden because it restates the section's own <h2>,
+           which screen readers already reach by heading navigation. -->
+      <p class="section-readout kicker" aria-hidden="true" data-readout>
+        <span class="readout-index" data-readout-index></span>
+        <span class="readout-label" data-readout-label></span>
+      </p>
+    </div>
+
+    <!-- Navigation is not in the bar at any width — it lives behind the menu
+         button, which is the last child here and therefore the one control
+         whose position never depends on what else is showing. -->
     <div class="flex shrink-0 items-center gap-1.5 sm:gap-2.5">
-      <!-- Locale switcher -->
-      <div class="hidden lg:relative lg:block">
+      <!-- Locale switcher. Below lg the menu panel carries its own. -->
+      <div class="locale-wrap hidden lg:relative lg:block">
         <button
           type="button"
           class="locale-toggle inline-flex h-9 w-9 items-center justify-center rounded-full text-xs font-mono font-medium text-ink-2 transition-colors hover:bg-paper-2 hover:text-ink"
@@ -67,139 +71,171 @@ const navItems = tRaw<{ label: string; href: string; items?: { label: string; hr
       <ThemeToggle client:load />
       <a
         href="/contact"
-        class="hidden whitespace-nowrap rounded-full border border-line-2 px-4.5 py-2 text-sm font-medium text-ink transition-colors hover:border-ink-2 hover:bg-paper-2 xl:inline-flex"
+        class="header-cta hidden whitespace-nowrap rounded-full border border-line-2 px-4.5 py-2 text-sm font-medium text-ink transition-colors hover:border-ink-2 hover:bg-paper-2 xl:inline-flex"
       >
         {t('buttons.startConversation')}
       </a>
-      <MobileNav client:load items={navItems} locale={locale} />
+
+      <!-- The mark goes through as a named slot rather than being rebuilt in
+           the island: MobileNav is React and Logo is an Astro component, and a
+           second copy of the SVG is a second thing to update. -->
+      <MobileNav
+        client:load
+        items={navItems}
+        locale={locale}
+        labels={{
+          navAria: t('nav.aria'),
+          openMenu: t('nav.openMenu'),
+          closeMenu: t('nav.closeMenu'),
+          language: t('nav.language'),
+          cta: t('buttons.startConversation'),
+          home: t('nav.home'),
+        }}
+      >
+        <Logo slot="logo" class="h-7 w-7" />
+      </MobileNav>
     </div>
   </div>
 
-  <!-- Full-screen mega overlay -->
-  <div class="mega-overlay hidden" data-overlay aria-hidden="true">
-    <div class="container-x mx-auto pt-8 pb-10 xl:pb-14">
-      {navItems.map((item, i) =>
-        item.items ? (
-          <div class="mega-panel hidden" data-panel={i}>
-            <div class="grid grid-cols-2 gap-x-8 gap-y-8 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-10 xl:gap-y-10">
-              {item.items.map((col) => (
-                <div>
-                  {col.items ? (
-                    <>
-                      <a href={col.href} class="mega-overlay-heading">{col.label}</a>
-                      {col.items.map((sub) => (
-                        <a href={sub.href} class="mega-overlay-link">
-                          {sub.label}
-                          {sub.description && (
-                            <span class="mega-overlay-desc">{sub.description}</span>
-                          )}
-                        </a>
-                      ))}
-                    </>
-                  ) : (
-                    <a href={col.href} class="mega-overlay-heading">{col.label}</a>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        ) : null
-      )}
-    </div>
-    <div class="absolute bottom-0 left-0 right-0 h-px bg-line" aria-hidden="true" />
+  <div class="scroll-progress" aria-hidden="true">
+    <div class="scroll-progress-fill" data-progress></div>
   </div>
 </header>
 
 <style>
+  /* --------------------------------------------------------------------
+     Two states, and nothing in the bar moves horizontally between them. At
+     the top of the page it is a 4.5rem row; past the fold it collapses to a
+     strip flush with the top edge that shrinks the mark and trades the empty
+     space for a depth readout plus a hairline of scroll progress.
+
+     Navigation belongs to neither state — it is behind the menu button at
+     every width — so the bar has no expand-on-hover behaviour and no third
+     state to get stuck in.
+
+     Astro's scoped styles are unlayered, so these beat Tailwind's utilities
+     (h-16 / md:h-[4.5rem]) on the same elements without !important.
+     -------------------------------------------------------------------- */
   #site-header {
-    transition: background-color 0.3s ease, border-color 0.3s ease;
+    transition: border-color 0.3s ease;
   }
-  #site-header.is-scrolled {
-    background-color: color-mix(in srgb, var(--c-paper) 84%, transparent);
-    -webkit-backdrop-filter: blur(14px);
-    backdrop-filter: blur(14px);
+  #site-header.is-strip {
     border-color: var(--c-line);
   }
-
-  /* Keeps the underline aligned with the link's responsive horizontal padding */
-  .nav-link {
-    --nav-pad: 0.625rem;
+  .header-backdrop {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
   }
-  @media (min-width: 1280px) {
-    .nav-link {
-      --nav-pad: 0.875rem;
+  #site-header.is-strip .header-backdrop {
+    opacity: 1;
+    background-color: color-mix(in srgb, var(--c-paper) 92%, transparent);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+  }
+
+  .header-bar {
+    transition: height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  /* 3.25rem rather than the tighter strip this used to be: the menu button is
+     2.5rem tall on its own and now rides in the strip at every width, so a
+     2.5rem bar would leave it no clearance at all. */
+  #site-header.is-strip .header-bar {
+    height: 3.25rem;
+  }
+
+  /* Logo.astro sizes only the mark from its class prop; the wordmark beside it
+     is a separate span, so scale both from the anchor. */
+  .header-logo :global(svg),
+  .header-logo :global(.display) {
+    transition:
+      height 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+      width 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+      font-size 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  #site-header.is-strip .header-logo :global(svg) {
+    height: 1.25rem;
+    width: 1.25rem;
+  }
+  #site-header.is-strip .header-logo :global(.display) {
+    font-size: 0.9rem;
+  }
+  /* On narrow screens the wordmark and the readout can't both fit — the mark
+     alone carries the branding once you've scrolled, and the readout is the
+     thing doing work here. */
+  @media (max-width: 639.98px) {
+    #site-header.is-strip .header-logo :global(.display) {
+      display: none;
     }
   }
-  .nav-link::after {
-    content: '';
+
+  /* The menu panel opens inside #site-header, so the strip state reaches into
+     it: the panel's own logo row tracks the bar's height and the mark stays
+     where it was when the panel covers the bar. :global because the class
+     belongs to the React island. */
+  #site-header.is-strip :global(.menu-logo-row) {
+    height: 3.25rem;
+  }
+
+  /* Collapses its width as well as fading, so it claims no space at the top of
+     the page where the wordmark is at full size. */
+  .section-readout {
+    transition:
+      opacity 0.25s ease,
+      visibility 0.25s,
+      max-width 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+      padding-inline-start 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    min-width: 0;
+    max-width: 0;
+    overflow: hidden;
+    padding-inline-start: 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 0.72rem;
+    color: var(--c-ink-2);
+    opacity: 0;
+    visibility: hidden;
+  }
+  #site-header.is-strip .section-readout {
+    opacity: 1;
+    visibility: visible;
+    max-width: 32rem;
+    padding-inline-start: 1.25rem;
+  }
+  .readout-index {
+    color: var(--c-accent);
+  }
+  .readout-index:not(:empty)::after {
+    content: '\00a0—\00a0';
+    color: var(--c-ink-3);
+  }
+
+  /* Full-bleed hairline of scroll progress along the bar's bottom edge. */
+  .scroll-progress {
     position: absolute;
-    inset-inline-start: var(--nav-pad);
+    inset-inline: 0;
     bottom: 0;
-    height: 1.5px;
-    width: calc(100% - var(--nav-pad) * 2);
+    height: 2px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+  #site-header.is-strip .scroll-progress {
+    opacity: 1;
+  }
+  .scroll-progress-fill {
+    height: 100%;
     background: var(--c-accent);
     transform: scaleX(0);
     transform-origin: left;
-    transition: transform 0.25s ease;
   }
-  .nav-link:hover::after,
-  .nav-link:focus-visible::after {
-    transform: scaleX(1);
-  }
-
-  .mega-overlay {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 100%;
-    max-height: calc(100vh - 4.5rem);
-    max-height: calc(100dvh - 4.5rem);
-    overflow-y: auto;
-    overscroll-behavior: contain;
-    background: var(--c-paper);
-    border-bottom: 1px solid var(--c-line);
-    box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.08);
-    transform: translateY(-16px);
-    opacity: 0;
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
-    will-change: transform, opacity;
-  }
-  .mega-overlay.open {
-    transform: translateY(0);
-    opacity: 1;
-  }
-
-  .mega-overlay-heading {
-    display: block;
-    font-family: var(--font-display);
-    font-size: 0.95rem;
-    font-weight: 640;
-    color: var(--c-ink);
-    margin-bottom: 0.75rem;
-    transition: color 0.2s ease;
-  }
-  .mega-overlay-heading:hover {
-    color: var(--c-accent);
-  }
-
-  .mega-overlay-link {
-    display: block;
-    font-size: 0.88rem;
-    color: var(--c-ink-2);
-    padding: 0.35rem 0;
-    transition: color 0.2s ease;
-    line-height: 1.4;
-  }
-  .mega-overlay-link:hover {
-    color: var(--c-accent);
-  }
-
-  .mega-overlay-desc {
-    display: block;
-    font-size: 0.78rem;
-    color: var(--c-ink-3);
-    line-height: 1.3;
-    margin-top: 0.1rem;
+  /* :global on the ancestor is required — Astro otherwise scopes the [dir]
+     compound too, producing [data-astro-cid-…][dir='rtl'], which can never
+     match because <html> doesn't carry this component's scope attribute. */
+  :global([dir='rtl']) .scroll-progress-fill {
+    transform-origin: right;
   }
 
   .locale-toggle:hover + .locale-dropdown,
@@ -217,145 +253,98 @@ const navItems = tRaw<{ label: string; href: string; items?: { label: string; hr
     visibility: visible;
   }
 
+  /* MobileNav sets data-menu-open on <html> for as long as its panel is up.
+     The header is fixed to the viewport, so the body's gutter padding doesn't
+     reach it — without this its controls slide outward by the scrollbar's
+     width the moment the menu locks scrolling. Nothing else needs pinning:
+     the bar has no hover or focus state left to expand into. */
+  :global(html[data-menu-open]) #site-header {
+    padding-inline-end: var(--menu-gutter, 0px);
+  }
+
   @media (prefers-reduced-motion: reduce) {
     #site-header,
-    .nav-link::after,
-    .mega-overlay,
+    .header-backdrop,
+    .header-bar,
+    .header-logo :global(svg),
+    .header-logo :global(.display),
+    .section-readout,
+    .scroll-progress,
     .locale-dropdown {
       transition: none !important;
-    }
-    .mega-overlay {
-      transform: none !important;
     }
   }
 </style>
 
 <script>
   const header = document.getElementById('site-header');
-  const updateIsScrolled = () => header?.classList.toggle('is-scrolled', window.scrollY > 8);
-  updateIsScrolled();
-  window.addEventListener('scroll', updateIsScrolled, { passive: true });
+  const progress = document.querySelector<HTMLElement>('[data-progress]');
+  const readoutIndex = document.querySelector<HTMLElement>('[data-readout-index]');
+  const readoutLabel = document.querySelector<HTMLElement>('[data-readout-label]');
 
-  const nav = document.querySelector<HTMLElement>('[data-nav]');
-  const overlay = document.querySelector<HTMLElement>('[data-overlay]');
-  const triggers = document.querySelectorAll<HTMLElement>('[data-trigger]');
-  const isHover = window.matchMedia('(hover: hover)').matches;
+  /* -------------------------------------------------------------------
+     Full bar ⇄ depth strip. Separate enter/exit thresholds so the bar can't
+     flap around a single boundary.
+     ------------------------------------------------------------------- */
+  const STRIP_ENTER = 72;
+  const STRIP_EXIT = 24;
+  let isStrip = false;
+  let frame = 0;
 
-  if (nav && overlay) {
-    let activeIdx: number | null = null;
-    let closeTimer: ReturnType<typeof setTimeout> | null = null;
-    const CLOSE_DELAY = 250;
+  function onScroll() {
+    frame = 0;
+    if (!header) return;
 
-    function getPanel(idx: number): HTMLElement | null {
-      return overlay.querySelector(`[data-panel="${idx}"]`);
+    if (progress) {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const ratio = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+      progress.style.transform = `scaleX(${ratio})`;
     }
 
-    function openPanel(idx: number) {
-      if (closeTimer) {
-        clearTimeout(closeTimer);
-        closeTimer = null;
-      }
-      if (activeIdx === idx && overlay.classList.contains('open')) return;
-
-      if (activeIdx !== null) {
-        const prev = getPanel(activeIdx);
-        prev?.classList.add('hidden');
-      }
-
-      activeIdx = idx;
-      const panel = getPanel(idx);
-      if (panel) {
-        panel.classList.remove('hidden');
-        overlay.classList.remove('hidden');
-        overlay.offsetHeight; // force reflow
-        overlay.classList.add('open');
-      }
+    const y = window.scrollY;
+    if (!isStrip && y > STRIP_ENTER) {
+      isStrip = true;
+      header.classList.add('is-strip');
+    } else if (isStrip && y < STRIP_EXIT) {
+      isStrip = false;
+      header.classList.remove('is-strip');
     }
+  }
 
-    function scheduleClose() {
-      if (closeTimer) return;
-      closeTimer = setTimeout(() => {
-        closeTimer = null;
-        overlay.classList.remove('open');
-        if (activeIdx !== null) {
-          const panel = getPanel(activeIdx);
-          panel?.classList.add('hidden');
-        }
-        activeIdx = null;
-        setTimeout(() => overlay.classList.add('hidden'), 300);
-      }, CLOSE_DELAY);
+  onScroll();
+  window.addEventListener(
+    'scroll',
+    () => {
+      if (!frame) frame = requestAnimationFrame(onScroll);
+    },
+    { passive: true }
+  );
+
+  /* Depth readout. Sections are found by the marker SectionHeading.astro
+     emits rather than by `section[id]` — most inner-page sections carry no
+     id. A zero-height root at the viewport centre means exactly one section
+     is ever intersecting. Deliberately IntersectionObserver rather than
+     ScrollTrigger: this must keep working under prefers-reduced-motion,
+     where initMotion() bails out and Lenis never starts. */
+  if (readoutIndex && readoutLabel) {
+    // Every section is observed, not just the labelled ones — sections without
+    // a SectionHeading (the hero, Mission) must blank the readout rather than
+    // leave the previous section's label standing.
+    const sections = Array.from(document.querySelectorAll<HTMLElement>('#main > section'));
+
+    if (sections.length) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (!entry.isIntersecting) continue;
+            const marker = entry.target.querySelector<HTMLElement>('[data-section-label]');
+            readoutIndex.textContent = marker?.dataset.sectionIndex ?? '';
+            readoutLabel.textContent = marker?.dataset.sectionLabel ?? '';
+          }
+        },
+        { rootMargin: '-50% 0px -50% 0px', threshold: 0 }
+      );
+      sections.forEach((s) => observer.observe(s));
     }
-
-    function cancelClose() {
-      if (closeTimer) {
-        clearTimeout(closeTimer);
-        closeTimer = null;
-      }
-    }
-
-    triggers.forEach((trigger, idx) => {
-      const link = trigger.querySelector<HTMLAnchorElement>('a');
-      if (!link || !getPanel(idx)) return;
-
-      // Hover behaviour
-      if (isHover) {
-        trigger.addEventListener('mouseenter', () => openPanel(idx));
-        trigger.addEventListener('mouseleave', scheduleClose);
-      }
-
-      // Click navigates normally; for touch devices, toggle instead
-      link.addEventListener('click', (e) => {
-        if (isHover) return; // navigate naturally
-        e.preventDefault();
-        if (overlay.classList.contains('open') && activeIdx === idx) {
-          scheduleClose();
-        } else {
-          openPanel(idx);
-        }
-      });
-
-      trigger.addEventListener('focusin', () => {
-        if (!overlay.classList.contains('open')) {
-          openPanel(idx);
-        }
-      });
-    });
-
-    // Keep overlay open while hovering over it
-    if (isHover) {
-      overlay.addEventListener('mouseenter', cancelClose);
-      overlay.addEventListener('mouseleave', scheduleClose);
-    }
-
-    document.addEventListener('focusin', (e) => {
-      if (overlay.classList.contains('open') && !header!.contains(e.target as Node)) {
-        cancelClose();
-        overlay.classList.remove('open');
-        if (activeIdx !== null) {
-          const panel = getPanel(activeIdx);
-          panel?.classList.add('hidden');
-        }
-        activeIdx = null;
-        setTimeout(() => overlay.classList.add('hidden'), 300);
-      }
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && overlay.classList.contains('open')) {
-        const lastIdx = activeIdx;
-        cancelClose();
-        overlay.classList.remove('open');
-        if (activeIdx !== null) {
-          const panel = getPanel(activeIdx);
-          panel?.classList.add('hidden');
-        }
-        activeIdx = null;
-        setTimeout(() => overlay.classList.add('hidden'), 300);
-        if (lastIdx !== null) {
-          const link = triggers[lastIdx]?.querySelector<HTMLAnchorElement>('a');
-          link?.focus();
-        }
-      }
-    });
   }
 </script>
