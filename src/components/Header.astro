@@ -276,6 +276,149 @@ const navItems = tRaw<{ label: string; href: string; items?: { label: string; hr
   }
 </style>
 
+<style is:global>
+  /* --------------------------------------------------------------------
+     Menu motion.
+
+     Global rather than scoped because every element below is rendered by
+     MobileNav, a React island: Astro stamps its scope attribute onto markup
+     in .astro templates only, so a scoped selector here could never match.
+
+     The panel's own open/close state is the one piece of this that isn't
+     pure CSS — MobileNav keeps the element mounted for the length of the
+     exit wipe (its EXIT_MS) and swaps .is-open for .is-closing.
+     -------------------------------------------------------------------- */
+
+  /* Hamburger ⇄ close. Both strokes are always present; each rotates about
+     its own midpoint and slides to the icon's centre line, so the two meet
+     as an X. scaleX comes after rotate so it shortens the bar along its own
+     axis rather than shearing the angle. */
+  .menu-icon-bar {
+    transform-box: fill-box;
+    transform-origin: center;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .menu-icon-bar:nth-child(2) {
+    transition-delay: 0.05s;
+  }
+  .menu-toggle[data-open] .menu-icon-bar:nth-child(1) {
+    transform: translateY(3.5px) rotate(45deg) scaleX(0.72);
+  }
+  .menu-toggle[data-open] .menu-icon-bar:nth-child(2) {
+    transform: translateY(-3.5px) rotate(-45deg) scaleX(0.72);
+  }
+
+  /* The panel wipes down over the page and back up off it — clip-path rather
+     than a transform so the content stays put while it's uncovered, which
+     keeps the panel's mark on the exact spot the header's mark occupies. */
+  .menu-panel {
+    animation: menu-panel-in 0.52s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  .menu-panel.is-closing {
+    animation: menu-panel-out 0.28s cubic-bezier(0.7, 0, 0.84, 0) both;
+  }
+  @keyframes menu-panel-in {
+    from {
+      clip-path: inset(0 0 100% 0);
+    }
+    to {
+      clip-path: inset(0 0 0 0);
+    }
+  }
+  @keyframes menu-panel-out {
+    from {
+      clip-path: inset(0 0 0 0);
+      opacity: 1;
+    }
+    to {
+      clip-path: inset(0 0 100% 0);
+      opacity: 0.35;
+    }
+  }
+
+  /* Rows rise into place just behind the wipe's leading edge, one after
+     another. The panel's logo row is deliberately not in here: it sits on the
+     exact coordinates of the header's own mark, so leaving it still means the
+     curtain covers one mark and uncovers an identical one on the same frame
+     and the mark reads as having never moved. */
+  .menu-panel .menu-stagger {
+    animation: menu-row-in 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: calc(0.16s + var(--i, 0) * 0.05s);
+  }
+  /* On the way out the rows don't leave individually — the wipe takes the
+     whole panel, and cancelling their animations drops them at their resting
+     state instead of replaying the entrance under the closing edge. */
+  .menu-panel.is-closing .menu-stagger {
+    animation: none;
+  }
+  @keyframes menu-row-in {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  /* Hover on a row nudges its label off the rule and warms its index. */
+  .menu-label {
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .menu-index {
+    transition: color 0.25s ease;
+  }
+  .menu-row:hover .menu-label {
+    transform: translateX(0.35rem);
+  }
+  [dir='rtl'] .menu-row:hover .menu-label {
+    transform: translateX(-0.35rem);
+  }
+  .menu-row:hover .menu-index {
+    color: var(--c-accent);
+  }
+
+  /* Accordion. grid-template-rows 0fr → 1fr is the one way to transition to a
+     content-derived height without measuring it in JS; the inner element does
+     the clipping, because the row itself can't hide its own overflow. */
+  .menu-sub {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.42s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .menu-sub[data-expanded] {
+    grid-template-rows: 1fr;
+  }
+  .menu-sub-clip {
+    min-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-0.4rem);
+    transition:
+      opacity 0.3s ease,
+      transform 0.42s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .menu-sub[data-expanded] .menu-sub-clip {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .menu-icon-bar,
+    .menu-panel,
+    .menu-panel .menu-stagger,
+    .menu-chevron,
+    .menu-label,
+    .menu-index,
+    .menu-sub,
+    .menu-sub-clip {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+</style>
+
 <script>
   const header = document.getElementById('site-header');
   const progress = document.querySelector<HTMLElement>('[data-progress]');
