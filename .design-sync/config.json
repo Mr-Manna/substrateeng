@@ -1,0 +1,30 @@
+{
+  "projectId": "139512f2-9aca-45c3-87eb-c5554cbcf190",
+  "pkg": "substrate",
+  "globalName": "Substrate",
+  "shape": "package",
+  "buildCmd": "node .design-sync/build-css.mjs",
+  "entry": "./.design-sync/entry.tsx",
+  "srcDir": "src",
+  "tsconfig": "tsconfig.json",
+  "cssEntry": ".design-sync/.cache/substrate.css",
+  "guidelinesGlob": [],
+  "componentSrcMap": {
+    "ThemeToggle": "src/components/islands/ThemeToggle.tsx",
+    "MobileNav": "src/components/islands/MobileNav.tsx",
+    "ContactForm": "src/components/islands/ContactForm.tsx"
+  },
+  "overrides": {
+    "MobileNav": { "cardMode": "single", "primaryStory": "Open", "viewport": "420x880" },
+    "ContactForm": { "cardMode": "single", "primaryStory": "Default", "viewport": "980x1450" },
+    "ThemeToggle": { "cardMode": "column" }
+  },
+  "extraFonts": [
+    "node_modules/@fontsource-variable/archivo/wdth.css",
+    "node_modules/@fontsource-variable/instrument-sans/index.css",
+    "node_modules/@fontsource-variable/noto-sans-arabic/index.css",
+    "node_modules/@fontsource/ibm-plex-mono/400.css",
+    "node_modules/@fontsource/ibm-plex-mono/500.css",
+    "node_modules/@fontsource/bebas-neue/index.css"
+  ]
+}
