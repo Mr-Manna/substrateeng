@@ -6,6 +6,13 @@
     "email": "hello@substrateeng.com"
   },
   "nav": {
+    "home": "Substrate — الصفحة الرئيسية",
+    "aria": "التنقل الرئيسي",
+    "switchLocale": "تغيير اللغة",
+    "showNav": "إظهار التنقل",
+    "openMenu": "فتح القائمة",
+    "closeMenu": "إغلاق القائمة",
+    "language": "اللغة",
     "items": [
       {
         "label": "القدرات",

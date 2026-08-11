@@ -6,6 +6,13 @@
     "email": "hello@substrateeng.com"
   },
   "nav": {
+    "home": "Substrate — Startseite",
+    "aria": "Hauptnavigation",
+    "switchLocale": "Sprache wechseln",
+    "showNav": "Navigation anzeigen",
+    "openMenu": "Menü öffnen",
+    "closeMenu": "Menü schließen",
+    "language": "Sprache",
     "items": [
       {
         "label": "Kompetenzen",

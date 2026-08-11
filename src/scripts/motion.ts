@@ -1,8 +1,11 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
+import { setLenis } from './lenis-handle';
 
 gsap.registerPlugin(ScrollTrigger);
+
+export { getLenis } from './lenis-handle';
 
 export { gsap, ScrollTrigger };
 
@@ -23,6 +26,7 @@ export function initMotion(): void {
   document.documentElement.classList.add('motion-ok');
 
   const lenis = new Lenis({ lerp: 0.12 });
+  setLenis(lenis);
   lenis.on('scroll', ScrollTrigger.update);
   gsap.ticker.add((time) => lenis.raf(time * 1000));
   gsap.ticker.lagSmoothing(0);
