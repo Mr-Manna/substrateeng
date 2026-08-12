@@ -109,6 +109,16 @@ export default function MobileNav({ items, locale, labels, logo }: Props) {
      viewport — --menu-gutter hands that width to the two things that would
      otherwise visibly jump sideways, the body and the fixed header.
 
+     And on iOS Safari `overflow: hidden` on the body isn't honoured at all
+     once the address bar is collapsed (WebKit's long-neglected
+     "overflow:hidden is still scrollable" behaviour) — the document keeps
+     taking the touch gesture, so the panel can never scroll. Pinning the
+     body with `position: fixed` genuinely removes the document's scroll
+     chain: the panel becomes the only thing a touch can move. iOS zeroes
+     the window scroll when the body goes fixed, which would drop the user
+     back at the top of the page on close, so the position is saved here and
+     handed back in the cleanup.
+
      Keyed to `mounted` rather than `open`: releasing the lock at the start of
      the exit wipe would hand the scrollbar back — and take the gutter padding
      away — while the panel is still on screen to show the jump. */
@@ -119,10 +129,17 @@ export default function MobileNav({ items, locale, labels, logo }: Props) {
     lenis?.stop();
 
     const { body, documentElement: root } = document;
+    const scrollY = window.scrollY;
     const gutter = window.innerWidth - root.clientWidth;
     const prevOverflow = body.style.overflow;
+    const prevPosition = body.style.position;
+    const prevTop = body.style.top;
+    const prevWidth = body.style.width;
     const prevPadding = body.style.paddingInlineEnd;
     body.style.overflow = 'hidden';
+    body.style.position = 'fixed';
+    body.style.top = '0';
+    body.style.width = '100%';
     if (gutter > 0) {
       body.style.paddingInlineEnd = `${gutter}px`;
       root.style.setProperty('--menu-gutter', `${gutter}px`);
@@ -135,10 +152,21 @@ export default function MobileNav({ items, locale, labels, logo }: Props) {
 
     return () => {
       body.style.overflow = prevOverflow;
+      body.style.position = prevPosition;
+      body.style.top = prevTop;
+      body.style.width = prevWidth;
       body.style.paddingInlineEnd = prevPadding;
       root.style.removeProperty('--menu-gutter');
       root.removeAttribute('data-menu-open');
       lenis?.start();
+      // Where the fixed pin dropped the window scroll (iOS), return the page
+      // to where the user left it. `instant` because html has
+      // `scroll-behavior: smooth` in global.css, which would otherwise turn
+      // what should be a silent restore into a visible pan. Guarded so the
+      // desktop path — where the pin never moves scroll — stays a no-op.
+      if (Math.abs(window.scrollY - scrollY) > 1) {
+        window.scrollTo({ top: scrollY, behavior: 'instant' });
+      }
     };
   }, [mounted]);
 
