@@ -255,10 +255,17 @@ export default function MobileNav({ items, locale, labels, logo }: Props) {
       </button>
 
       {mounted && (
+        /* The panel keeps its own native scroll while the page behind it is
+           frozen. Lenis is `stop()`ed for as long as this menu is up, but a
+           stopped Lenis still preventDefault()s the wheel/touch events that
+           bubble to it, so without this attribute — which tells it to step
+           aside for anything originating inside the panel — the panel could
+           never scroll. */
         <div
           id="mobile-menu"
           ref={panelRef}
           inert={!open}
+          data-lenis-prevent
           className={`menu-panel fixed inset-0 z-[60] h-[100dvh] overflow-y-auto overscroll-contain bg-paper pb-[max(2.5rem,env(safe-area-inset-bottom))] ${
             open ? 'is-open' : 'is-closing'
           }`}
