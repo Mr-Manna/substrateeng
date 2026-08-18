@@ -91,7 +91,7 @@
             ]
           },
           {
-            "label": "Automation Engineering",
+            "label": "IoT and Industrial Automation",
             "href": "#",
             "items": [
               { "label": "CI/CD pipelines", "href": "#" },
@@ -484,7 +484,7 @@
         "description": "Internal developer platforms with golden paths, self-service infrastructure, and paved roads to production."
       },
       {
-        "title": "Automation Engineering",
+        "title": "IoT and Industrial Automation",
         "description": "Pipelines, provisioning, and operational toil engineered out of the system — everything as code, everything repeatable."
       },
       {

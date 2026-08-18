@@ -85,7 +85,7 @@ export const navItems: MegaMenuItem[] = [
         ],
       },
       {
-        label: 'Automation Engineering',
+        label: 'IoT and Industrial Automation',
         href: '#',
         items: [
           { label: 'CI/CD pipelines', href: '#' },
