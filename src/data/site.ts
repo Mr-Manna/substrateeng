@@ -88,9 +88,9 @@ export const navItems: MegaMenuItem[] = [
         label: 'IoT and Industrial Automation',
         href: '#',
         items: [
-          { label: 'CI/CD pipelines', href: '#' },
-          { label: 'Infrastructure as code', href: '#' },
-          { label: 'Toil elimination', href: '#' },
+          { label: 'IoT platforms & device management', href: '#' },
+          { label: 'SCADA & supervisory control', href: '#' },
+          { label: 'Industrial edge & PLC integration', href: '#' },
         ],
       },
       {

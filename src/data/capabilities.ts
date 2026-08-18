@@ -43,9 +43,9 @@ export const capabilities: Capability[] = [
     glyph: 'platform',
   },
   {
-    title: 'Automation Engineering',
+    title: 'IoT and Industrial Automation',
     description:
-      'Pipelines, provisioning, and operational toil engineered out of the system — everything as code, everything repeatable.',
+      'Connected devices, real-time telemetry, edge processing, and industrial control systems that bring the factory floor into the platform.',
     glyph: 'automation',
   },
   {

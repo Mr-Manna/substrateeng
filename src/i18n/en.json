@@ -94,9 +94,9 @@
             "label": "IoT and Industrial Automation",
             "href": "#",
             "items": [
-              { "label": "CI/CD pipelines", "href": "#" },
-              { "label": "Infrastructure as code", "href": "#" },
-              { "label": "Toil elimination", "href": "#" }
+              { "label": "IoT platforms & device management", "href": "#" },
+              { "label": "SCADA & supervisory control", "href": "#" },
+              { "label": "Industrial edge & PLC integration", "href": "#" }
             ]
           },
           {
@@ -485,7 +485,7 @@
       },
       {
         "title": "IoT and Industrial Automation",
-        "description": "Pipelines, provisioning, and operational toil engineered out of the system — everything as code, everything repeatable."
+        "description": "Connected devices, real-time telemetry, edge processing, and industrial control systems that bring the factory floor into the platform."
       },
       {
         "title": "AI-Native Engineering",
